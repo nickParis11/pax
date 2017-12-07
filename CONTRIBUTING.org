@@ -60,7 +60,6 @@ git pull --rebase upstream master
 git push origin master -f
 #+END_SRC
 
-
 * Git Commit Style
 
 |----------+-----------------------------------------------+-----------------------------------|
