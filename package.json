@@ -8,7 +8,7 @@
     "lint-fix-all": "./node_modules/.bin/eslint --color --fix .",
     "lint-show": "./node_modules/.bin/eslint --color",
     "lint-show-all": "./node_modules/.bin/eslint --color .",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "eslint **/*.js --ignore-pattern node_modules/"
   },
   "repository": {
     "type": "git",
