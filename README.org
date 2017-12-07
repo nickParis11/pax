@@ -1,6 +1,8 @@
 * Pax
 
 * Tech Stack
++ Node + Express
++ React
 
 * Server Endpoints
 
