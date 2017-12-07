@@ -1,0 +1,29 @@
+{
+  "name": "pax",
+  "version": "0.0.1",
+  "description": "The end of fake news.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/pax-atlantica/pax.git"
+  },
+  "keywords": [
+    "fake",
+    "news",
+    "watson",
+    "natural",
+    "language",
+    "sentiment",
+    "analysis",
+    "politics"
+  ],
+  "author": "Alexander Mire, David Wen Riccardi-Zhu, Nicholas Orr, Katelyn Stamas",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/pax-atlantica/pax/issues"
+  },
+  "homepage": "https://github.com/pax-atlantica/pax#readme"
+}
