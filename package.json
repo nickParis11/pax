@@ -32,7 +32,6 @@
   "homepage": "https://github.com/pax-atlantica/pax#readme",
   "devDependencies": {
     "babel-eslint": "^8.0.3",
-    "chai": "^4.1.2",
     "eslint": "^4.12.1",
     "eslint-config-airbnb": "^16.1.0",
     "eslint-config-standard": "^10.2.1",
@@ -53,6 +52,7 @@
     "bcrypt": "^1.0.3",
     "bluebird": "^3.5.1",
     "body-parser": "^1.18.2",
+    "chai": "^4.1.2",
     "express": "^4.16.2",
     "express-session": "^1.15.6",
     "react": "^16.2.0",
