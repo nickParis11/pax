@@ -4,6 +4,37 @@
 
 * Server Endpoints
 
+** REQUEST
+|--------+---------+--------------+-----------------------------------------|
+| METHOD | URL     | REQUEST.BODY | EXAMPLE                                 |
+|--------+---------+--------------+-----------------------------------------|
+| GET    | /       |              |                                         |
+| POST   | /signup | JSON         | {username: 'pax', password:'atlantica'} |
+| POST   | /login  | JSON         | {username: 'pax, password:'atlantica'}  |
+|--------+---------+--------------+-----------------------------------------|
+
+** RESPONSE
+|--------+---------+--------------+-----------------+-----------+--------------|
+| METHOD | URL     | SUCCESS TYPE | SUCCESS CONTENT | FAIL TYPE | FAIL CONTENT |
+|--------+---------+--------------+-----------------+-----------+--------------|
+| GET    | /       | index.html   |                 |           |              |
+| POST   | /signup | string       | username        | null      | null         |
+| POST   | /login  | string       | username        | null      | null         |
+|--------+---------+--------------+-----------------+-----------+--------------|
+
+* Schema
+|------+--------+----------|
+| USER | EMAIL  | PASSWORD |
+|------+--------+----------|
+| id   | String | String   |
+|------+--------+----------|
+
+|--------+-------------+--------+---------+--------+---------+-----------|
+| SEARCH | USERS       | TEXT   | ISLINK  | RESULT | UPVOTES | DOWNVOTES |
+|--------+-------------+--------+---------+--------+---------+-----------|
+| id     | Foreign Key | String | Boolean | Number | Number  | Number    |
+|--------+-------------+--------+---------+--------+---------+-----------|
+
 * Client State
 
 * How to Start This App
