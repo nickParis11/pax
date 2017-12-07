@@ -4,9 +4,10 @@
   "description": "The end of fake news.",
   "main": "index.js",
   "scripts": {
-    "lint-all": "./node_modules/.bin/eslint --color --fix .",
     "lint-fix": "./node_modules/.bin/eslint --color --fix",
+    "lint-fix-all": "./node_modules/.bin/eslint --color --fix .",
     "lint-show": "./node_modules/.bin/eslint --color",
+    "lint-show-all": "./node_modules/.bin/eslint --color .",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
