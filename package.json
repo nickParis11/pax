@@ -25,5 +25,17 @@
   "bugs": {
     "url": "https://github.com/pax-atlantica/pax/issues"
   },
-  "homepage": "https://github.com/pax-atlantica/pax#readme"
+  "homepage": "https://github.com/pax-atlantica/pax#readme",
+  "devDependencies": {
+    "babel-eslint": "^8.0.3",
+    "eslint": "^4.12.1",
+    "eslint-config-airbnb": "^16.1.0",
+    "eslint-config-standard": "^10.2.1",
+    "eslint-plugin-import": "^2.8.0",
+    "eslint-plugin-jsx-a11y": "^6.0.2",
+    "eslint-plugin-node": "^5.2.1",
+    "eslint-plugin-promise": "^3.6.0",
+    "eslint-plugin-react": "^7.5.1",
+    "eslint-plugin-standard": "^3.0.1"
+  }
 }
