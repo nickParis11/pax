@@ -43,7 +43,9 @@
     "eslint-plugin-standard": "^3.0.1"
   },
   "dependencies": {
+    "article-parser": "^2.3.4",
     "axios": "^0.17.1",
+    "aylien_textapi": "^0.6.0",
     "babel": "^6.23.0",
     "babel-core": "^6.26.0",
     "babel-loader": "^7.1.2",
