@@ -11,7 +11,6 @@ const initialState = {
 };
 
 const reducer = (state=initialState, action) => {
-  console.log('inside reducer');
   if (action.type === 'FETCH_DATA_START') {
     return Object.assign({state, fetching: true});
   } else if (action.type === 'FETCH_DATA_ERROR') {
@@ -32,9 +31,8 @@ const middleware = applyMiddleware(thunk, logger);
 const store = createStore(reducer, middleware);
 
 store.dispatch((dispatch) => {
-  console.log('inside dispatch');
   dispatch({ type: 'FETCH_DATA_START' });
-  axios.get('http://rest.learncode.academy/api/wstern/users')
+  axios.get('https://jsonplaceholder.typicode.com/users')
     .then((response) => {
       dispatch({ type: 'RECEIVE_DATA', payload: response.data });
     })
