@@ -19,7 +19,7 @@ chai.request('http://localhost:3000')
   });
 
 chai.request('http://localhost:3000')
-  .get('/api/vote')
+  .post('/api/vote')
   .end((err, res) => {
     expect(err).to.be.null;
     expect(res).to.have.status(200);
