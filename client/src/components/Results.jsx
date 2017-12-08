@@ -1,11 +1,11 @@
 import React from 'react';
 
-const React = () => {
+const Results = () => {
   return (
     <div>
-      <h3>Components are working</h3>
+      <h1>Hello world!</h1>
     </div>
   )
 }
 
-export default React;
+export default Results;
