@@ -19,6 +19,9 @@ const config = {
         test: /\.jsx?/,
         include: APP_DIR,
         loader: 'babel-loader',
+        query: {
+          presets: ['react']
+        }
       },
       {
         test: /\.(png|jpg)$/,
