@@ -1,23 +1,26 @@
 {
   "development": {
-    "username": "pax",
+    "username": "root",
     "password": null,
-    "database": "Natural-language-dev",
+    "database": "naturalLanguage-dev",
     "host": "127.0.0.1",
+    "port": 3000,
     "dialect": "postgres"
   },
   "test": {
     "username": "root",
     "password": null,
-    "database": "Natural-language-test",
+    "database": "naturalLanguage-test",
     "host": "127.0.0.1",
+    "port": 3000,
     "dialect": "postgres"
   },
   "production": {
     "username": "root",
     "password": null,
-    "database": "Natural-language-prod",
+    "database": "naturalLanguage-production",
     "host": "127.0.0.1",
+    "port": 3000,
     "dialect": "postgres"
   }
 }
