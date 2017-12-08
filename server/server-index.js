@@ -8,6 +8,22 @@ app.use(express.static(`${__dirname}/../client/dist/`));
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 
+app.post('/api/analyze', (req, res) => {
+  res.send(null);
+});
+
+app.post('/api/vote', (req, res) => {
+  res.send(null);
+});
+
+app.post('/login', (req, res) => {
+  res.send(null);
+});
+
+app.post('/signup', (req, res) => {
+  res.send(null);
+});
+
 app.listen(PORT, () => {
   console.log(`Listening on ${PORT}`);
 });
