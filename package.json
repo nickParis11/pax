@@ -5,9 +5,9 @@
   "main": "index.js",
   "scripts": {
     "lint-fix": "./node_modules/.bin/eslint --color --fix",
-    "lint-fix-all": "./node_modules/.bin/eslint --color --fix .",
+    "lint-fix-all": "./node_modules/.bin/eslint --color --fix --ignore-pattern 'node_modules /' --ignore-pattern 'tests/' --ignore-pattern 'bundle.js' .",
     "lint-show": "./node_modules/.bin/eslint --color",
-    "lint-show-all": "./node_modules/.bin/eslint --color .",
+    "lint-show-all": "./node_modules/.bin/eslint --color --ignore-pattern 'node_modules /' --ignore-pattern 'tests/' --ignore-pattern 'bundle.js' .",
     "start-client": "webpack -d --watch",
     "start-server": "nodemon server/server-index.js --inspect",
     "test": "eslint **/*.js --ignore-pattern 'node_modules /' --ignore-pattern 'tests/'"
