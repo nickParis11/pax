@@ -4,10 +4,8 @@ import { toggleUrlText, getAnalysis } from '../actions/analyzerActions.js';
 
 @connect((store) => {
   return {
-    analysis: store.analyzer.analysis,
     analyzeUrl: store.analyzer.analyzeUrl,
     analyzeText: store.analyzer.analyzeText,
-    error: store.analyzer.error,
     input: store.analyzer.input,
   };
 })
