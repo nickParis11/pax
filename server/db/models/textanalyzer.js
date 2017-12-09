@@ -1,13 +1,17 @@
 'use strict';
 module.exports = (sequelize, DataTypes) => {
-  var textAnalyzer = sequelize.define('textAnalyzer', {
-    title: DataTypes.STRING
-  }, {
-    classMethods: {
-      associate: function(models) {
-        // associations can be defined here
-      }
+  const textAnalyzer = sequelize.define('textAnalyzer', {
+    title: {
+      type:DataTypes.STRING,
+      allowNull: false,
     }
-  });
+  })
+
+  textAnalyzer.associate = (models) => {
+    textAnalyzer.hasMany(models.Users, {
+      foreignKey: 'userId',
+      as: 'users',
+    });
+  }
   return textAnalyzer;
 };
