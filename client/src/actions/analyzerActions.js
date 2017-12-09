@@ -28,10 +28,19 @@ export function getAnalysis(article) {
     dispatch({type: 'ANALYSIS_SUBMITTED'});
     axios.post('/api/analyze', { data: article })
       .then((response) => {
-        dispatch({ type: 'ANALYSIS_RESULTS_FULFILLED', payload: response.data });
+        let tone = response.data;
+        axios.post('/api/sentiment', { data: article })
+          .then((response) => {
+            let sentiment = response.data;
+            dispatch({type: 'RESULTS_FULFILLED', sentiment, tone});
+            dispatch({type: 'ANALYSIS_FULFILLED'});
+          })
+          .catch((err) => {
+            dispatch({type: 'SENTIMENT_RESULTS_REJECTED', payload: err});
+          });
       })
       .catch((err) => {
-        dispatch({ type: 'ANALYSIS_RESULTS_REJECTED', payload: err });
+        dispatch({type: 'TONE_RESULTS_REJECTED', payload: err})
       });
   };
 }

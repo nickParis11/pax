@@ -11,10 +11,9 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 
 app.post('/api/analyze', (req, res) => {
-  console.log(req.body.data);
-  analyzeInput(req.body.data, (analyzeErr, analysis) => {
-    if (analyzeErr) {
-      res.send(analyzeErr);
+  analyzeInput(req.body.data, (err, analysis) => {
+    if (err) {
+      res.send(err);
     } else {
       res.send(analysis);
     }
@@ -27,6 +26,16 @@ app.post('/api/extract', (req, res) => {
       res.send(err);
     } else {
       res.send(article);
+    }
+  });
+});
+
+app.post('/api/sentiment', (req, res) => {
+  aylienHelpers.sentimentAnalysis(req.body.data, (err, sentiment) => {
+    if (err) {
+      res.send(err);
+    } else {
+      res.send(sentiment);
     }
   });
 });

@@ -3,17 +3,20 @@ import { connect } from 'react-redux';
 
 @connect((store) => {
   return {
-    analysis: store.analyzer.analysis,
+    sentiment: store.analyzer.sentiment,
+    tone: store.analyzer.tone,
   };
 })
 
 export default class Results extends React.Component {
 
   render() {
-    let tone = this.props.analysis.document_tone;
+    let tone = this.props.tone.document_tone;
+    let sentiment = this.props.sentiment;
 
     return (
     <div>
+      <p>Polarity: {sentiment.polarity}</p>
       <p>Emotional tones:
         <ul>
           {tone.tone_categories[0].tones.map( (emo) => {

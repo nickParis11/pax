@@ -1,12 +1,15 @@
-export default function reducer(state = {
-  analysis: null,
+const initialState = {
   analyzeUrl: true,
   analyzeText: false,
   error: null,
   input: null,
-  sucess: null,
+  sentiment: null,
+  success: false,
+  tone: null,
   waiting: false,
-}, action) {
+}
+
+export default function reducer(state = initialState, action) {
   if (action.type === 'TOGGLE_URL_TRUE') {
     return { ...state, analyzeUrl: false, analyzeText: true };
   } else if (action.type === 'TOGGLE_TEXT_TRUE') {
@@ -14,13 +17,16 @@ export default function reducer(state = {
   } else if (action.type === 'ANALYZE_INPUT') {
     return { ...state, input: action.payload };
   } else if (action.type === 'ANALYSIS_SUBMITTED') {
-    return { ...state, waiting: true };
-  } else if (action.type === 'ANALYSIS_RESULTS_FULFILLED') {
-    return {
-      ...state, success: true, analysis: action.payload, waiting: false,
-    };
-  } else if (action.type === 'ANALYSIS_RESULTS_REJECTED') {
-    return { ...state, error: action.payload, waiting: false };
+    return { ...state, success: false, waiting: true };
+  } else if (action.type === 'TONE_RESULTS_REJECTED') {
+    return { ...state, error: action.payload };
+  } else if (action.type === 'SENTIMENT_RESULTS_REJECTED') {
+    return { ...state, error: action.payload };
+  } else if (action.type === 'RESULTS_FULFILLED') {
+    return { ...state, tone: action.tone, sentiment: action.sentiment };
+  } else if (action.type === 'ANALYSIS_FULFILLED') {
+    return { ...state, success: true, waiting: false };
   }
+
   return state;
 }

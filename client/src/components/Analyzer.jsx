@@ -15,6 +15,8 @@ import { toggleUrlText, getAnalysis } from '../actions/analyzerActions.js';
 export default class Analyzer extends React.Component {
 
   render() {
+    console.log('analyzer', this.props);
+
     return (
       <div>
         <h2>Analyzer</h2>
