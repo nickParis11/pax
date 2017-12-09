@@ -2,6 +2,9 @@
   "name": "pax",
   "version": "0.0.1",
   "description": "The end of fake news.",
+  "engines": {
+    "node": ">=8.8.1"
+  },
   "main": "index.js",
   "scripts": {
     "build": "./node_modules/webpack/bin/webpack.js -p --config ./webpack.config.js --progress",
