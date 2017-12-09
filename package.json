@@ -12,9 +12,11 @@
     "lint-fix-all": "./node_modules/.bin/eslint --color --fix --ignore-pattern 'node_modules /' --ignore-pattern 'tests/' --ignore-pattern 'bundle.js' .",
     "lint-show": "./node_modules/.bin/eslint --color",
     "lint-show-all": "./node_modules/.bin/eslint --color --ignore-pattern 'node_modules /' --ignore-pattern 'tests/' --ignore-pattern 'bundle.js' .",
+    "start": "webpack -d --watch | nodemon server/server-index.js --inspect",
     "start-client": "webpack -d --watch",
     "start-server": "nodemon server/server-index.js --inspect",
-    "test": "eslint **/*.js --ignore-pattern 'node_modules /' --ignore-pattern 'tests/'"
+    "test": "eslint **/*.js --ignore-pattern 'node_modules /' --ignore-pattern 'tests/'",
+    "test-webhook" : "node scripts/controllers/webhook.js"
   },
   "repository": {
     "type": "git",
@@ -82,6 +84,7 @@
     "redux-thunk": "^2.2.0",
     "sequelize": "^4.27.0",
     "sequelize-cli": "^3.2.0",
+    "shelljs": "^0.7.8",
     "uglifyjs-webpack-plugin": "^1.1.2",
     "watson-developer-cloud": "^3.0.2",
     "webpack": "^3.10.0"

@@ -3,3 +3,5 @@
 node_modules/
 client/dist/bundle.js
 client/dist/bundle.js.gz
+scripts/testwebhook.sh
+merged-pull-request/
