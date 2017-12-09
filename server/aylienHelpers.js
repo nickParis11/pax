@@ -16,3 +16,20 @@ module.exports = function extractArticle(link, callback) {
     },
   );
 };
+
+module.exports = function sentimentAnalysis(article, callback) {
+  const textapi = new AYLIENTextAPI({
+    application_id: 'cafd9f65',
+    application_key: '1119add6de155823feff13857d869feb',
+  });
+
+  textapi.sentiment(
+    {
+      text: article,
+      mode: 'document',
+    },
+    (err, response) => {
+      callback(err, response);
+    },
+  );
+};

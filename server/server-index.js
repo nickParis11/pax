@@ -11,29 +11,23 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 
 app.post('/api/analyze', (req, res) => {
-  if (req.body.url) {
-    extractArticle(req.body.data, (extractErr, article) => {
-      if (extractErr) {
-        res.send(extractErr);
-      } else {
-        analyzeInput(article.article, (analyzeErr, analysis) => {
-          if (analyzeErr) {
-            res.send(analyzeErr);
-          } else {
-            res.send(analysis);
-          }
-        });
-      }
-    });
-  } else {
-    analyzeInput(req.body.data, (analyzeErr, analysis) => {
-      if (analyzeErr) {
-        res.send(analyzeErr);
-      } else {
-        res.send(analysis);
-      }
-    });
-  }
+  analyzeInput(req.body.data, (analyzeErr, analysis) => {
+    if (analyzeErr) {
+      res.send(analyzeErr);
+    } else {
+      res.send(analysis);
+    }
+  });
+});
+
+app.post('/api/extract', (req, res) => {
+  extractArticle(req.body.url, (err, article) => {
+    if (err) {
+      res.send(err);
+    } else {
+      res.send(article);
+    }
+  });
 });
 
 app.post('/api/vote', (req, res) => {
