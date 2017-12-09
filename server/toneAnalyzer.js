@@ -6,14 +6,17 @@ module.exports = function analyzeInput(input, callback) {
     password: 'wbymSZ7Lgp6W',
     version_date: '2016-05-19',
   });
-
   request.tone(
     {
       tone_input: input,
       content_type: 'text/plain',
     },
-    (err, tone) => {
-      callback(err, JSON.stringify(tone, null, 2));
-    },
+    function (err, tone) {
+      if (err) {
+        callback(err);
+      } else {
+        callback(null,JSON.stringify(tone, null, 2));
+      }
+    }
   );
 };
