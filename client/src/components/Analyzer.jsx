@@ -1,6 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { toggleUrlText, getAnalyzation } from '../actions/analyzerActions.js';
+import { toggleUrlText, getAnalysis } from '../actions/analyzerActions.js';
 
 @connect((store) => {
   return {
@@ -18,7 +18,7 @@ export default class Analyzer extends React.Component {
 
   analyzeHandle() {
     let value = document.getElementById('input').value;
-    this.props.dispatch(getAnalyzation(value));
+    this.props.dispatch(getAnalysis(value));
   }
 
   render() {
