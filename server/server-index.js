@@ -8,7 +8,7 @@ const app = express();
 
 const PORT = 3000;
 
-console.log('pwd = ',sh.pwd());
+
 
 app.use(express.static(`${__dirname}/../client/dist/`));
 app.use(bodyParser.urlencoded({ extended: true }));
