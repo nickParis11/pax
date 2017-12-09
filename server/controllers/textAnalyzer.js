@@ -1,4 +1,5 @@
 const textAnalyzer = require('../db/models').textAnalyzer;
+const users = require('../db/models').Users;
 
 module.exports = {
   create(req,res) {
@@ -11,8 +12,13 @@ module.exports = {
   },
   list(req,res) {
     return textAnalyzer
-      .all()
+      .findall({
+        include: [{
+          model: users,
+          as: 'users'
+        }],
+      })
       .then(textAnalyzer => res.status(200).send(textAnalyzer))
       .catch(error => res.status(400).send(error));
-  }
+  },
 };

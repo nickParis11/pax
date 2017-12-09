@@ -1,8 +1,8 @@
-const Users = require('./../db/models').Users;
+const users = require('./../db/models').Users;
 
 module.exports = {
   create(req, res) {
-    return User
+    return users
       .create({
         userName: req.body.userName,
         email: req.body.email,
