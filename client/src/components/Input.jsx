@@ -29,9 +29,12 @@ export default class Input extends React.Component {
     let value = document.getElementById('input').value;
 
     if (this.props.analyzeUrl){
-      this.props.dispatch(extractArticle(value, getAnalysis));
+      this.props.dispatch(extractArticle(value, (article) => {
+        this.props.dispatch(getAnalysis(article));
+      }));
+    } else {
+      this.props.dispatch(getAnalysis(value));
     }
-    this.props.dispatch(getAnalysis(value, this.props.analyzeUrl));
   }
 
   render() {

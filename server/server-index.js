@@ -1,7 +1,7 @@
 const express = require('express');
 const bodyParser = require('body-parser');
 const analyzeInput = require('./toneAnalyzer.js');
-const extractArticle = require('./aylienHelpers.js');
+const aylienHelpers = require('./aylienHelpers.js');
 
 const app = express();
 const PORT = 3000;
@@ -11,6 +11,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 
 app.post('/api/analyze', (req, res) => {
+  console.log(req.body.data);
   analyzeInput(req.body.data, (analyzeErr, analysis) => {
     if (analyzeErr) {
       res.send(analyzeErr);
@@ -21,7 +22,7 @@ app.post('/api/analyze', (req, res) => {
 });
 
 app.post('/api/extract', (req, res) => {
-  extractArticle(req.body.url, (err, article) => {
+  aylienHelpers.extractArticle(req.body.data, (err, article) => {
     if (err) {
       res.send(err);
     } else {

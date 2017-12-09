@@ -1,6 +1,6 @@
 const AYLIENTextAPI = require('aylien_textapi');
 
-module.exports = function extractArticle(link, callback) {
+const extractArticle = (link, callback) => {
   const textapi = new AYLIENTextAPI({
     application_id: 'cafd9f65',
     application_key: '1119add6de155823feff13857d869feb',
@@ -17,7 +17,7 @@ module.exports = function extractArticle(link, callback) {
   );
 };
 
-module.exports = function sentimentAnalysis(article, callback) {
+const sentimentAnalysis = (article, callback) => {
   const textapi = new AYLIENTextAPI({
     application_id: 'cafd9f65',
     application_key: '1119add6de155823feff13857d869feb',
@@ -33,3 +33,6 @@ module.exports = function sentimentAnalysis(article, callback) {
     },
   );
 };
+
+module.exports.extractArticle = extractArticle;
+module.exports.sentimentAnalysis = sentimentAnalysis;

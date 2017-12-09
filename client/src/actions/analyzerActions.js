@@ -11,22 +11,22 @@ export function toggleUrlText(url) {
   };
 }
 
-export function extractArticle(url, callback) {
+export function extractArticle(link, callback) {
   return function (dispatch) {
-    axios.post('/api/extract', { url: url })
+    axios.post('/api/extract', { data: link })
       .then((response) => {
-        callback(response);
+        callback(response.data.article);
       })
       .catch((err) => {
-        console.log('err');
+        console.log(err);
       });
   };
 }
 
-export function getAnalysis(input, url) {
+export function getAnalysis(article) {
   return function (dispatch) {
     dispatch({type: 'ANALYSIS_SUBMITTED'});
-    axios.post('/api/analyze', { data: input })
+    axios.post('/api/analyze', { data: article })
       .then((response) => {
         dispatch({type: 'ANALYSIS_RESULTS_FULFILLED', payload: response.data})
       })
