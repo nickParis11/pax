@@ -6,7 +6,7 @@ if  [ $? -eq 0 ]; then
         npm run build
         if [ $? -eq 0 ]; then
             pm2 restart server-index
-            printf 'Update completed succesfully.'
+            printf 'Update completed successfully.'
             exit 0
         else
             printf 'Something went wrong with pm2.'
