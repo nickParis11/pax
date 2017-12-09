@@ -4,7 +4,7 @@
   "description": "The end of fake news.",
   "main": "index.js",
   "scripts": {
-    "build": "webpack -p --config ./webpack.config.js --progress",
+    "build": "./node_modules/webpack/bin/webpack.js -p --config ./webpack.config.js --progress",
     "lint-fix": "./node_modules/.bin/eslint --color --fix",
     "lint-fix-all": "./node_modules/.bin/eslint --color --fix --ignore-pattern 'node_modules /' --ignore-pattern 'tests/' --ignore-pattern 'bundle.js' .",
     "lint-show": "./node_modules/.bin/eslint --color",
