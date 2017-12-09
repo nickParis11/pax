@@ -17,8 +17,9 @@ export default class Results extends React.Component {
       <p>Emotional tones:
         <ul>
           {tone.tone_categories[0].tones.map( (emo) => {
-            if (emo.score > .4)
-              return <li>{emo.tone_name}</li>
+            return (
+              <li>{emo.tone_name}, {emo.score*100}%</li>
+            )
           })}
         </ul>
       </p>
@@ -26,8 +27,9 @@ export default class Results extends React.Component {
       <p>Language tones:
         <ul>
           {tone.tone_categories[1].tones.map( (lang) => {
-            if (lang.score > .4)
-              return <li>{lang.tone_name}</li>
+            return (
+              <li>{lang.tone_name}, {lang.score*100}%</li>
+            )
           })}
         </ul>
       </p>
@@ -35,8 +37,9 @@ export default class Results extends React.Component {
       <p>Social tones:
         <ul>
           {tone.tone_categories[2].tones.map( (soc) => {
-            if (soc.score > .4)
-              return <li>{soc.tone_name}</li>
+            return (
+              <li>{soc.tone_name}, {soc.score*100}%</li>
+            )
           })}
         </ul>
       </p>
