@@ -1,7 +1,8 @@
 const shell = require('shelljs');
 
 exports.model = function () {
-	console.log('response code',shell.exec('git pull --rebase upstream master').code);
+	//console.log('response code @@@@@@@@@@@',shell.exec('git pull --rebase upstream master').code);
+	console.log(shell.exec('git status').code)
 }
 
 console.log('in models');

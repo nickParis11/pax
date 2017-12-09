@@ -3,7 +3,6 @@ const bodyParser = require('body-parser');
 const analyzeInput = require('./toneAnalyzer.js');
 const aylienHelpers = require('./aylienHelpers.js');
 
-
 const app = express();
 
 const PORT = 3000;
@@ -17,11 +16,11 @@ app.use(bodyParser.json());
 app.post('/admin/build/npm', (req, res) => {
 	const hook = req.body;
 	//if ( hook.action === 'closed' && hook.merged) {
+
+		console.log('pwd =',sh.pwd())
+		webHookScript.controller.model();
 		sh.exec('echo '+JSON.stringify(hook)+' > merged-pull-request/PR'+hook.hook.id/*hook.mergedat || 5*/);
 	//}
-	console.log('extract req = ',req.body.zen)
-
-  console.log('testing git hook @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@');
 
   sh.echo('hello world from /admin/build/npm server-index ');
 
