@@ -10,4 +10,4 @@ const options = {
 const pgp = require('pg-promise')(options);
 
 const connectionString = `postgres://localhost:${PORT}/naturalLanguage-dev`;
-const db = pgp(connectionString);
+const dbConnection = pgp(connectionString);
