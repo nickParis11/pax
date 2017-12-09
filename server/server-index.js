@@ -1,5 +1,6 @@
 const express = require('express');
 const bodyParser = require('body-parser');
+const analyzeInput = require('./toneAnalyzer.js');
 
 const app = express();
 const PORT = 3000;
@@ -9,7 +10,9 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 
 app.post('/api/analyze', (req, res) => {
-  res.send(null);
+  analyzeInput(req.body.data, (response) => {
+    res.send(response);
+  });
 });
 
 app.post('/api/vote', (req, res) => {

@@ -13,17 +13,18 @@ export function toggleUrlText(url) {
 }
 
 export function getAnalyzation(input) {
-  // return function(dispatch) {
-    // axios.get(URL)
-      // .then((response) => {
+  return function(dispatch) {
+    axios.post('/api/analyze', {data: input})
+      .then((response) => {
+        console.log(response);
         // dispatch({type: 'FETCH_RESULTS_FULFILLED', payload: response.data})
-      // })
-      // .catch((err) => {
+      })
+      .catch((err) => {
         // dispatch({type: 'FETCH_RESULTS_REJECTED', payload: err})
-      // })
-  // }
-  return {
-    type: 'ANALYZE_INPUT',
-    payload: input,
+      })
   }
+  // return {
+  //   type: 'ANALYZE_INPUT',
+  //   payload: input,
+  // }
 }
