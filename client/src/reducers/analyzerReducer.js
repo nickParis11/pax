@@ -16,8 +16,10 @@ export default function reducer(state = {
   } else if (action.type === 'ANALYSIS_SUBMITTED') {
     return { ...state, waiting: true };
   } else if (action.type === 'ANALYSIS_RESULTS_FULFILLED') {
-    return { ...state, success: true, analysis: action.payload, waiting: false };
-  } else if (action.type === 'ANALYSIS_RESULTS_REJECTED'){
+    return {
+      ...state, success: true, analysis: action.payload, waiting: false,
+    };
+  } else if (action.type === 'ANALYSIS_RESULTS_REJECTED') {
     return { ...state, error: action.payload, waiting: false };
   }
   return state;

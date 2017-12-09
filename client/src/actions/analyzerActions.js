@@ -28,10 +28,10 @@ export function getAnalysis(article) {
     dispatch({type: 'ANALYSIS_SUBMITTED'});
     axios.post('/api/analyze', { data: article })
       .then((response) => {
-        dispatch({type: 'ANALYSIS_RESULTS_FULFILLED', payload: response.data})
+        dispatch({ type: 'ANALYSIS_RESULTS_FULFILLED', payload: response.data });
       })
       .catch((err) => {
-        dispatch({type: 'ANALYSIS_RESULTS_REJECTED', payload: err})
+        dispatch({ type: 'ANALYSIS_RESULTS_REJECTED', payload: err });
       });
   };
 }
