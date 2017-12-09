@@ -1,6 +1,7 @@
 const textAnalyzer = require('./textAnalyzer');
-const users = require('./users')
+const users = require('./users');
+
 module.exports = {
   textAnalyzer,
   users,
-}
+};

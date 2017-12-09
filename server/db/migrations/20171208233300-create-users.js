@@ -1,4 +1,4 @@
-'use strict';
+
 module.exports = {
   up: (queryInterface, Sequelize) => {
     queryInterface.createTable('Users', {
@@ -6,7 +6,7 @@ module.exports = {
         allowNull: false,
         autoIncrement: true,
         primaryKey: true,
-        type: Sequelize.INTEGER
+        type: Sequelize.INTEGER,
       },
       userName: {
         type: Sequelize.STRING,
@@ -18,11 +18,11 @@ module.exports = {
       },
       createdAt: {
         allowNull: false,
-        type: Sequelize.DATE
+        type: Sequelize.DATE,
       },
       updatedAt: {
         allowNull: false,
-        type: Sequelize.DATE
+        type: Sequelize.DATE,
       },
       userId: {
         type: Sequelize.INTEGER,
@@ -31,11 +31,9 @@ module.exports = {
           model: 'textAnalyzer',
           key: 'id',
           as: 'userId',
-        }
-      }
+        },
+      },
     });
-  down: (queryInterface, Sequelize) => {
-    return queryInterface.dropTable('Users');
-  }
-  }
+    (queryInterface, Sequelize) => queryInterface.dropTable('Users');
+  },
 };

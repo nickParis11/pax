@@ -1,5 +1,5 @@
 const promise = require('bluebird');
-let PORT = parseInt(process.env.PORT,10) || '3000';
+let PORT = parseInt(process.env.PORT,10) || '5432';
 
 
 let options = {
@@ -7,6 +7,7 @@ let options = {
 }
 
 const pgp = require('pg-promise')(options);
-const connectionString = `postgres://localhost:${PORT}/textAnalyzer`;
-const = pgp(connectionString);
+const connectionString = `postgres://localhost:${PORT}/naturalLanguage-dev`;
+console.log(PORT, 'port');
+// pgp(connectionString);
 
