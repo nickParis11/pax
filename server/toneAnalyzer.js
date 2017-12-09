@@ -13,11 +13,7 @@ module.exports = function analyzeInput(input, callback) {
       content_type: 'text/plain',
     },
     (err, tone) => {
-      if (err) {
-        callback(err);
-      } else {
-        callback(JSON.stringify(tone, null, 2));
-      }
+      callback(err, JSON.stringify(tone, null, 2));
     },
   );
 };

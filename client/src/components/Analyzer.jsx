@@ -4,8 +4,10 @@ import { toggleUrlText, getAnalysis } from '../actions/analyzerActions.js';
 
 @connect((store) => {
   return {
+    analysis: store.analyzer.analysis,
     analyzeUrl: store.analyzer.analyzeUrl,
     analyzeText: store.analyzer.analyzeText,
+    error: store.analyzer.error,
     input: store.analyzer.input,
   };
 })
@@ -18,7 +20,7 @@ export default class Analyzer extends React.Component {
 
   analyzeHandle() {
     let value = document.getElementById('input').value;
-    this.props.dispatch(getAnalysis(value));
+    this.props.dispatch(getAnalysis(value, this.props.analyzeUrl));
   }
 
   render() {

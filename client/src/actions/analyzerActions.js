@@ -11,19 +11,14 @@ export function toggleUrlText(url) {
   };
 }
 
-export function getAnalysis(input) {
+export function getAnalysis(input, url) {
   return function (dispatch) {
-    axios.post('/api/analyze', { data: input })
+    axios.post('/api/analyze', { data: input, url: url })
       .then((response) => {
-        console.log(response);
-        // dispatch({type: 'FETCH_RESULTS_FULFILLED', payload: response.data})
+        dispatch({type: 'ANALYSIS_RESULTS_FULFILLED', payload: response.data})
       })
       .catch((err) => {
-        // dispatch({type: 'FETCH_RESULTS_REJECTED', payload: err})
+        dispatch({type: 'ANALYSIS_RESULTS_REJECTED', payload: err})
       });
   };
-  // return {
-  //   type: 'ANALYZE_INPUT',
-  //   payload: input,
-  // }
 }
