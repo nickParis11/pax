@@ -4,7 +4,7 @@ if  [ $? -eq 0 ]; then
     npm install
     if [ $? -eq 0 ]; then
         npm run build
-        if [ $? eq 0 ]; then
+        if [ $? -eq 0 ]; then
             pm2 restart server-index
             printf 'Update completed succesfully.'
             exit 0
