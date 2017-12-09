@@ -18,7 +18,7 @@ export default class Results extends React.Component {
         <ul>
           {tone.tone_categories[0].tones.map( (emo) => {
             return (
-              <li>{emo.tone_name}, {emo.score*100}%</li>
+              <li>{emo.tone_name}, {Math.round(emo.score*100)}%</li>
             )
           })}
         </ul>
@@ -28,7 +28,7 @@ export default class Results extends React.Component {
         <ul>
           {tone.tone_categories[1].tones.map( (lang) => {
             return (
-              <li>{lang.tone_name}, {lang.score*100}%</li>
+              <li>{lang.tone_name}, {Math.round(lang.score*100)}%</li>
             )
           })}
         </ul>
@@ -38,7 +38,7 @@ export default class Results extends React.Component {
         <ul>
           {tone.tone_categories[2].tones.map( (soc) => {
             return (
-              <li>{soc.tone_name}, {soc.score*100}%</li>
+              <li>{soc.tone_name}, {Math.round(soc.score*100)}%</li>
             )
           })}
         </ul>
