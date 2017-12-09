@@ -11,7 +11,7 @@ export function toggleUrlText(url) {
   };
 }
 
-export function getAnalyzation(input) {
+export function getAnalysis(input) {
   return function (dispatch) {
     axios.post('/api/analyze', { data: input })
       .then((response) => {
