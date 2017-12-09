@@ -12,4 +12,5 @@ module.exports = (app) => {
   app.post('/api/textAnalyzer/:userId/items', usersController.create);
   app.get('/api/textAnalyzer/:userId', textAnalyzerController.retrieve);
   app.put('/api/textAnalyzer/:userId', textAnalyzerController.update);
+  app.delete('/api/textAnalyzer/:userId', textAnalyzerController.destroy)
 };

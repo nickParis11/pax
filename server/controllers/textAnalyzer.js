@@ -62,4 +62,20 @@ module.exports = {
     })
     .catch((err) => res.status(400).send(err));
   },
+  detroy(req, res) {
+    return textAnalyzer
+      .findById(req.params.userId)
+      .then(analysis => {
+        if (!analysis) {
+          return res.status(400).send({
+            message: 'analysis not found',
+          });
+        }
+        return analysis
+        .destroy()
+        .then(() => res.status(200).send({message: 'analysis deleted'})
+        .catch(err => res.status(400).send(err));
+      })
+      .catch(err => res.status(400).send(err));
+  },
 };
