@@ -1,8 +1,12 @@
 * Pax
+The end of fake news.
 
 * Tech Stack
 + Node + Express
 + React
+
+** Continuous Integration
+See: https://github.com/pax-atlantica/pax-ci
 
 * Server Endpoints
 
