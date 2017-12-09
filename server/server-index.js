@@ -12,29 +12,28 @@ app.use(bodyParser.json());
 
 app.post('/api/analyze', (req, res) => {
   if (req.body.url) {
-    extractArticle(req.body.data, (err, article) => {
-      if (err) {
-        res.send(err)
+    extractArticle(req.body.data, (extractErr, article) => {
+      if (extractErr) {
+        res.send(extractErr);
       } else {
-        analyzeInput(article.article, (err, response) => {
-          if (err) {
-            res.send(err);
+        analyzeInput(article.article, (analyzeErr, analysis) => {
+          if (analyzeErr) {
+            res.send(analyzeErr);
           } else {
-            res.send(response);
+            res.send(analysis);
           }
         });
       }
     });
   } else {
-    analyzeInput(req.body.data, (err, response) => {
-      if (err) {
-        res.send(err);
+    analyzeInput(req.body.data, (analyzeErr, analysis) => {
+      if (analyzeErr) {
+        res.send(analyzeErr);
       } else {
-        res.send(response);
+        res.send(analysis);
       }
     });
   }
-
 });
 
 app.post('/api/vote', (req, res) => {
