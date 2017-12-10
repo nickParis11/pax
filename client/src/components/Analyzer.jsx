@@ -1,5 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
+import Nav from './Nav.jsx';
 import Input from './Input.jsx';
 import Waiting from './Waiting.jsx';
 import Results from './Results.jsx';
@@ -19,6 +20,7 @@ export default class Analyzer extends React.Component {
 
     return (
       <div>
+        <Nav />
         <h2>Analyzer</h2>
         <Input />
         {this.props.waiting ? <Waiting /> : null}
