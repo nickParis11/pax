@@ -29,16 +29,27 @@ Add all the emotional total percentages together as integers.
 |---------------------------+-------|
 | Organization              | Score |
 |---------------------------+-------|
-| Breitbart                 |       |
-| Fox News                  |       |
-| NYT                       |       |
-| Russia Today              |       |
-| Wikipedia                 |       |
-| Your Other Perspective #1 |       |
-| Your Other Perspective #2 |       |
+| Wikipedia                 |    87 |
+| Your Other Perspective #1 |    84 |
+| Your Other Perspective #2 |    77 |
+| Breitbart                 |    71 |
+| NYT                       |    71 |
+| Russia Today              |    57 |
+| Fox News                  |    48 |
 |---------------------------+-------|
 
 ** Conscientiousness Score
+|---------------------------+-------|
+| Organization              | Score |
+|---------------------------+-------|
+| NYT                       |    86 |
+| Russia Today              |    85 |
+| Fox News                  |    82 |
+| Your Other Perspective #1 |    68 |
+| Breitbart                 |    60 |
+| Wikipedia                 |    41 |
+| Your Other Perspective #2 |    17 |
+|---------------------------+-------|
 
 ** Upvote and Downvote Count / Ratio
 
@@ -48,188 +59,247 @@ Add all the emotional total percentages together as integers.
 
 ** Breitbart
 http://www.breitbart.com/big-government/2017/12/09/nolte-pragmatism-v-cake-baking-christians-can-vote-roy-moore-good-conscience/
+*** Emotional Tones
+|---------+-------|
+| Tone    | Score |
+|---------+-------|
+| Anger   |   20% |
+| Disgust |   57% |
+| Fear    |   12% |
+| Joy     |   17% |
+| Sadness |   54% |
+|---------+-------|
+| Total   |   160 |
+|---------+-------|
 
-Emotional Total: 160
+*** Language Tones
+|------------+-------|
+| Tone       | Score |
+|------------+-------|
+| Analytical |    71 |
+| Confident  |     0 |
+| Tentative  |    65 |
+|------------+-------|
 
-Emotional tones:
-    Anger, 20%
-    Disgust, 57%
-    Fear, 12%
-    Joy, 17%
-    Sadness, 54%
-
-Language tones:
-
-    Analytical, 71%
-    Confident, 0%
-    Tentative, 65%
-
-Social tones:
-
-    Openness, 94%
-    Conscientiousness, 60%
-    Extraversion, 87%
-    Agreeableness, 70%
-    Emotional Range, 73%
+*** Social Tones
+|-------------------+-------|
+| Tone              | Score |
+|-------------------+-------|
+| Openness          |    94 |
+| Conscientiousness |    60 |
+| Extraversion      |    87 |
+| Agreeableness     |    70 |
+| Emotional Range   |    73 |
+|-------------------+-------|
 
 ** Fox News
 http://www.foxnews.com/politics/2017/12/09/trump-says-cnn-was-caught-red-handed-with-fake-news-on-wikileaks-email.html
+*** Emotional Tones
+|---------+-------|
+| Tone    | Score |
+|---------+-------|
+| Anger   |   19% |
+| Disgust |   57% |
+| Fear    |    8% |
+| Joy     |   14% |
+| Sadness |   57% |
+|---------+-------|
+| Total   |   155 |
+|---------+-------|
 
-Emotional Total: 155
+*** Language Tones
+|------------+-------|
+| Tone       | Score |
+|------------+-------|
+| Analytical |    48 |
+| Confident  |     0 |
+| Tentative  |    77 |
+|------------+-------|
 
-Emotional tones:
-
-    Anger, 19%
-    Disgust, 57%
-    Fear, 8%
-    Joy, 14%
-    Sadness, 57%
-
-Language tones:
-
-    Analytical, 48%
-    Confident, 0%
-    Tentative, 77%
-
-Social tones:
-
-    Openness, 81%
-    Conscientiousness, 82%
-    Extraversion, 95%
-    Agreeableness, 84%
-    Emotional Range, 93%
+*** Social Tones
+|-------------------+-------|
+| Tone              | Score |
+|-------------------+-------|
+| Openness          |    81 |
+| Conscientiousness |    82 |
+| Extraversion      |    95 |
+| Agreeableness     |    84 |
+| Emotional Range   |    93 |
+|-------------------+-------|
 
 ** NYT
 https://www.nytimes.com/2017/12/09/us/politics/donald-trump-president.html
+*** Emotional Tones
+|---------+-------|
+| Tones   | Score |
+|---------+-------|
+| Anger   |   20% |
+| Disgust |   51% |
+| Fear    |   11% |
+| Joy     |   52% |
+| Sadness |   53% |
+|---------+-------|
+| Total   |   187 |
+|---------+-------|
 
-Emotional Total: 187
+*** Language Tones
+|------------+-------|
+| Tone       | Score |
+|------------+-------|
+| Analytical |    71 |
+| Confident  |     0 |
+| Tentative  |    58 |
+|------------+-------|
 
-Emotional tones:
-    Anger, 20%
-    Disgust, 51%
-    Fear, 11%
-    Joy, 52%
-    Sadness, 53%
-
-
-Language tones:
-
-    Analytical, 71%
-    Confident, 0%
-    Tentative, 58%
-
-Social tones:
-
-    Openness, 74%
-    Conscientiousness, 86%
-    Extraversion, 85%
-    Agreeableness, 81%
-    Emotional Range, 87%
+*** Social Tones
+|-------------------+-------|
+| Tone              | Score |
+|-------------------+-------|
+| Openness          |    74 |
+| Conscientiousness |    86 |
+| Extraversion      |    85 |
+| Agreeableness     |    81 |
+| Emotional Range   |    87 |
+|-------------------+-------|
 
 ** Russia Today
 https://www.rt.com/news/412560-russia-meddling-fake-news/
+*** Emotional Tones
+|---------+-------|
+| Tone    | Score |
+|---------+-------|
+| Anger   |   15% |
+| Disgust |   47% |
+| Fear    |   17% |
+| Joy     |   50% |
+| Sadness |   56% |
+|---------+-------|
+| Total   |   185 |
+|---------+-------|
 
-Emotional Total: 185
+*** Language Tones
+|------------+-------|
+| Tone       | Score |
+|------------+-------|
+| Analytical |    57 |
+| Confident  |     0 |
+| Tentative  |    49 |
+|------------+-------|
 
-Emotional tones:
-
-    Anger, 15%
-    Disgust, 47%
-    Fear, 17%
-    Joy, 50%
-    Sadness, 56%
-
-Language tones:
-
-    Analytical, 57%
-    Confident, 0%
-    Tentative, 49%
-
-Social tones:
-
-    Openness, 84%
-    Conscientiousness, 85%
-    Extraversion, 79%
-    Agreeableness, 67%
-    Emotional Range, 90%
+*** Social Tones
+|-------------------+-------|
+| Tone              | Score |
+|-------------------+-------|
+| Openness          |    84 |
+| Conscientiousness |    85 |
+| Extraversion      |    79 |
+| Agreeableness     |    67 |
+| Emotional Range   |    90 |
+|-------------------+-------|
 
 ** Wikipedia Article
 https://en.wikipedia.org/wiki/Calculus
+*** Emotional Tones
+|---------+-------|
+| Tone    | Score |
+|---------+-------|
+| Anger   |    10 |
+| Disgust |     6 |
+| Fear    |    10 |
+| Joy     |    51 |
+| Sadness |    19 |
+|---------+-------|
+| Total   |    96 |
+|---------+-------|
 
-Emotional Total: 96
+*** Language Tones
+|------------+-------|
+| Tone       | Score |
+|------------+-------|
+| Analytical |    87 |
+| Confident  |     0 |
+| Tentative  |    23 |
+|------------+-------|
 
-Emotional tones:
-
-    Anger, 10%
-    Disgust, 6%
-    Fear, 10%
-    Joy, 51%
-    Sadness, 19%
-
-Language tones:
-
-    Analytical, 87%
-    Confident, 0%
-    Tentative, 23%
-
-Social tones:
-
-    Openness, 92%
-    Conscientiousness, 41%
-    Extraversion, 20%
-    Agreeableness, 0%
-    Emotional Range, 50%
+*** Social Tones
+|-------------------+-------|
+| Tone              | Score |
+|-------------------+-------|
+| Openness          |    92 |
+| Conscientiousness |    41 |
+| Extraversion      |    20 |
+| Agreeableness     |     0 |
+| Emotional Range   |    50 |
+|-------------------+-------|
 
 ** Your Other Perspective #1
 http://yourotherperspective.com/2017/11/25/nurses-and-healthcare-workers-across-the-u-s-are-refusing-mandatory-flu-vaccines/
 
-Emotional Total: 73
+*** Emotional Tones
+|---------+-------|
+| Tone    | Score |
+|---------+-------|
+| Anger   |    12 |
+| Disgust |    12 |
+| Fear    |    11 |
+| Joy     |    17 |
+| Sadness |    21 |
+|---------+-------|
+| Total   |    73 |
+|---------+-------|
 
-Emotional tones:
+*** Language Tones
+|------------+-------|
+| Tone       | Score |
+|------------+-------|
+| Analytical |    84 |
+| Confident  |     0 |
+| Tentative  |    57 |
+|------------+-------|
 
-    Anger, 12%
-    Disgust, 12%
-    Fear, 11%
-    Joy, 17%
-    Sadness, 21%
-
-Language tones:
-
-    Analytical, 84%
-    Confident, 0%
-    Tentative, 57%
-
-Social tones:
-
-    Openness, 86%
-    Conscientiousness, 68%
-    Extraversion, 28%
-    Agreeableness, 52%
-    Emotional Range, 54%
+*** Social Tones
+|-------------------+-------|
+| Tone              | Score |
+|-------------------+-------|
+| Openness          |    86 |
+| Conscientiousness |    68 |
+| Extraversion      |    28 |
+| Agreeableness     |    52 |
+| Emotional Range   |    54 |
+|-------------------+-------|
 
 ** Your Other Perspective #2
 http://yourotherperspective.com/2017/08/01/neuroscientists-discover-relaxing-song-reduce-anxiety-65/
 
-Emotional Total: 193
+*** Emotional Tones
+|---------+-------|
+| Tone    | Score |
+|---------+-------|
+| Anger   |    10 |
+| Disgust |     4 |
+| Fear    |    63 |
+| Joy     |    60 |
+| Sadness |    56 |
+|---------+-------|
+| Total   |   193 |
+|---------+-------|
 
-Emotional tones:
+*** Language Tones
+|------------+-------|
+| Tone       | Score |
+|------------+-------|
+| Analytical |    77 |
+| Confident  |     0 |
+| Tentative  |    57 |
+|------------+-------|
 
-    Anger, 10%
-    Disgust, 4%
-    Fear, 63%
-    Joy, 60%
-    Sadness, 56%
-
-Language tones:
-
-    Analytical, 77%
-    Confident, 0%
-    Tentative, 57%
-
-Social tones:
-
-    Openness, 69%
-    Conscientiousness, 17%
-    Extraversion, 17%
-    Agreeableness, 25%
-    Emotional Range, 8
+*** Social Tones
+|-------------------+-------|
+| Tone              | Score |
+|-------------------+-------|
+| Openness          |    69 |
+| Conscientiousness |    17 |
+| Extraversion      |    17 |
+| Agreeableness     |    25 |
+| Emotional Range   |     8 |
+|-------------------+-------|
