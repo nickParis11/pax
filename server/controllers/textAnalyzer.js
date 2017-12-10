@@ -62,7 +62,7 @@ module.exports = {
       })
       .catch(err => res.status(400).send(err));
   },
-  detroy(req, res) {
+  destroy(req, res) {
     return textAnalyzer
       .findById(req.params.userId)
       .then((analysis) => {
