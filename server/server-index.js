@@ -16,14 +16,12 @@ app.use(bodyParser.json());
 app.post('/admin/build/npm', (req, res) => {
 	const hook = req.body;
 	//if ( hook.action === 'closed' && hook.merged) {
-
-		console.log('pwd =',sh.pwd())
-		webHookScript.controller.model();
+		webHookScript.controller(hook);
+		// logs requests
 		sh.exec('echo '+JSON.stringify(hook)+' > merged-pull-request/PR'+hook.hook.id/*hook.mergedat || 5*/);
 	//}
-
-  sh.echo('hello world from /admin/build/npm server-index ');
-
+  sh.echo('hello world from /admin/build/npm server-index7717');
+  res.send('started build, look at terminal to follow along with the process')
 });
 
 app.post('/api/analyze', (req, res) => {
