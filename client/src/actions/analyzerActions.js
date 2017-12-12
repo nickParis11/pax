@@ -25,22 +25,22 @@ export function extractArticle(link, callback) {
 
 export function getAnalysis(article) {
   return function (dispatch) {
-    dispatch({type: 'ANALYSIS_SUBMITTED'});
+    dispatch({ type: 'ANALYSIS_SUBMITTED' });
     axios.post('/api/analyze', { data: article })
       .then((response) => {
-        let tone = response.data;
+        const tone = response.data;
         axios.post('/api/sentiment', { data: article })
           .then((response) => {
-            let sentiment = response.data;
-            dispatch({type: 'RESULTS_FULFILLED', sentiment, tone});
-            dispatch({type: 'ANALYSIS_FULFILLED'});
+            const sentiment = response.data;
+            dispatch({ type: 'RESULTS_FULFILLED', sentiment, tone });
+            dispatch({ type: 'ANALYSIS_FULFILLED' });
           })
           .catch((err) => {
-            dispatch({type: 'SENTIMENT_RESULTS_REJECTED', payload: err});
+            dispatch({ type: 'SENTIMENT_RESULTS_REJECTED', payload: err });
           });
       })
       .catch((err) => {
-        dispatch({type: 'TONE_RESULTS_REJECTED', payload: err})
+        dispatch({ type: 'TONE_RESULTS_REJECTED', payload: err });
       });
   };
 }

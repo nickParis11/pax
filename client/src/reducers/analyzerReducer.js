@@ -7,7 +7,7 @@ const initialState = {
   success: false,
   tone: null,
   waiting: false,
-}
+};
 
 export default function reducer(state = initialState, action) {
   if (action.type === 'TOGGLE_URL_TRUE') {
