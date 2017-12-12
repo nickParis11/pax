@@ -1,6 +1,50 @@
 const { Client } = require('pg');
 require('dotenv').config();
+const Sequelize = require('sequelize');
 
+// **************** sequelize pat **************
+
+const sequelize = new Sequelize('test', 'postgres', process.env.LOCAL_DB_PASSWORD, {
+  host: 'localhost',
+  dialect: 'postgres',
+  pool: {
+    max: 5,
+    min: 0,
+    acquire: 30000,
+    idle: 10000
+  },
+});
+
+
+sequelize
+  .authenticate()
+  .then(() => {
+    console.log('sequelize Connection has been established successfully.');
+  })
+  .catch(err => {
+    console.error('sequelize : Unable to connect to the database:', err);
+  });
+
+  const User = sequelize.define('sequelizeUser', {
+    name: {
+      type: Sequelize.STRING
+    },
+  });
+
+  // force: true will drop the table if it already exists
+  User.sync({force: true}).then(() => {
+    console.log('Table created');
+    return User.create({
+      name: 'Robin',
+    }).then(()=> {
+    	console.log('row ceated');
+    	User.findAll().then(users => {
+    	  console.log('equivalent select * =',users)
+    	})
+    });
+  });
+
+  // ******************** pg part *************
 
 const client = new Client({
   user: 'postgres',
@@ -11,6 +55,8 @@ const client = new Client({
 });
 
 client.connect();
+
+
 
 /*
 
