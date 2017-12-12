@@ -1,13 +1,31 @@
-const promise = require('bluebird');
+const { Client } = require('pg');
+require('dotenv').config();
 
-const PORT = parseInt(process.env.PORT, 10) || '5432';
 
+const client = new Client({
+  user: 'postgres',
+  host: 'localhost',
+  database: 'test',
+  password: process.env.LOCAL_DB_PASSWORD,
+  port: 5432,
+});
 
-const options = {
-  promiseLib: promise,
-};
+client.connect();
 
-const pgp = require('pg-promise')(options);
+/*
 
-const connectionString = `postgres://localhost:${PORT}/naturalLanguage-dev`;
-const dbConnection = pgp(connectionString);
+// only uncomment this part if you wanna test insertion
+// make sure to uncomment client.end() if there is no client.end after these lines
+
+client.query('insert into users (name) values ($1);',['Katelyn'], (err, res) => {
+  console.log(err ? err.stack : res);
+  //client.end();
+})
+
+*/
+
+client.query('select * from users', (err, res) => {
+  console.log(err ? err.stack : res.rows);
+  client.end();
+});
+
