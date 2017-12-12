@@ -1,10 +1,3 @@
-/*
-const disgustLimit = 40;
-const JoyLimit = 40;
-const emotionalToneTotal = 0;
-*/
-
-
 const tentativeCheck = (tentative) => {
   if (tentative === 100) {
     return 15;
@@ -69,31 +62,34 @@ const angerCheck = (anger) => {
   return 0;
 }
 
-const disgustJoyCheck = (disgust) => {
-
+const disgustJoyCheck = (disgust, joy) => {
   if (disgust > 40 && joy > 40) {
-    // significant demote
+    return 25;
   }
 
+  return 0;
 }
 
 const emoAnalyticCheck = (analytical, concientiousness, emo_range) => {
   if ((analytical < 50 || concientiousness < 50) && emo_range > 65) {
-    // demote
+    return 15;
   }
+
+  return 0;
 }
 
 const scoreAnalysis = (analysis) => {
-  const score = 70;  // might change
-  const anger = analysis.analyzer.tone.document_tone.tone_categories[0].tones[0];
-  const disgust = analysis.analyzer.tone.document_tone.tone_categories[0].tones[1];
-  const joy = analysis.analyzer.tone.document_tone.tone_categories[0].tones[3];
-  const analytical = analysis.analyzer.tone.document_tone.tone_categories[1].tones[0];
-  const tentative = analysis.analyzer.tone.document_tone.tone_categories[1].tones[2];
-  const concientiousness = analysis.analyzer.tone.document_tone.tone_categories[2].tones[1];
-  const emo_range = analysis.analyzer.tone.document_tone.tone_categories[2].tones[4];
+  analysis = JSON.parse(analysis);
+  let score = 70;  // might change
+  const anger = analysis.document_tone.tone_categories[0].tones[0].score * 100;
+  const disgust = analysis.document_tone.tone_categories[0].tones[1].score * 100;
+  const joy = analysis.document_tone.tone_categories[0].tones[3].score * 100;
+  const analytical = analysis.document_tone.tone_categories[1].tones[0].score * 100;
+  const tentative = analysis.document_tone.tone_categories[1].tones[2].score * 100;
+  const concientiousness = analysis.document_tone.tone_categories[2].tones[1].score * 100;
+  const emo_range = analysis.document_tone.tone_categories[2].tones[4].score * 100;
 
-  score += tentativeCheck(tentative) + analyticalCheck(analytical) - emo_rangeCheck(emo_range) - angerCheck(anger) - disgustJoyCheck(disgust) - emoAnalyticCheck(analytical, concientiousness, emo_range);
+  score += tentativeCheck(tentative) + analyticalCheck(analytical) - emo_rangeCheck(emo_range) - angerCheck(anger) - disgustJoyCheck(disgust, joy) - emoAnalyticCheck(analytical, concientiousness, emo_range);
 
   // If upvotes for domain name > downvotes for domain name, PROMOTE / DEMOTE accordingly
 
@@ -101,4 +97,4 @@ const scoreAnalysis = (analysis) => {
   return score;
 };
 
-
+module.exports.scoreAnalysis = scoreAnalysis;

@@ -2,6 +2,7 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const analyzeInput = require('./toneAnalyzer.js');
 const aylienHelpers = require('./aylienHelpers.js');
+const score = require('./algorithm.js');
 
 const app = express();
 
@@ -17,6 +18,7 @@ app.post('/api/analyze', (req, res) => {
     if (err) {
       res.send(err);
     } else {
+      console.log(score.scoreAnalysis(analysis));
       res.send(analysis);
     }
   });
