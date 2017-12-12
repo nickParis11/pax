@@ -6,3 +6,7 @@ client/dist/bundle.js.gz
 scripts/testwebhook.sh
 merged-pull-request/
 .env
+/docs/API_keys_and_urls.js
+/docs/ideas.pdf
+/docs/pax-atlantica scoping.pdf
+

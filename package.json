@@ -8,14 +8,14 @@
   "main": "index.js",
   "scripts": {
     "build": "./node_modules/webpack/bin/webpack.js -p --config ./webpack.config.js --progress",
-    "lint-fix": "./node_modules/.bin/eslint --color --fix",
-    "lint-fix-all": "./node_modules/.bin/eslint --color --fix --ignore-pattern 'node_modules /' --ignore-pattern 'tests/' --ignore-pattern 'bundle.js' .",
-    "lint-show": "./node_modules/.bin/eslint --color",
-    "lint-show-all": "./node_modules/.bin/eslint --color --ignore-pattern 'node_modules /' --ignore-pattern 'tests/' --ignore-pattern 'bundle.js' .",
+    "lint-fix": "./node_modules/.bin/eslint --color --fix --ext .js --ext .jsx",
+    "lint-fix-all": "./node_modules/.bin/eslint --color --fix --ext .js --ext .jsx .",
+    "lint-show": "./node_modules/.bin/eslint --color --ext .js --ext .jsx",
+    "lint-show-all": "./node_modules/.bin/eslint --color --ext .js --ext .jsx .",
     "start": "webpack -d --watch | nodemon server/server-index.js --inspect",
     "start-client": "webpack -d --watch",
     "start-server": "nodemon server/server-index.js --inspect",
-    "test": "./node_modules/.bin/eslint **/*.js --ignore-pattern 'node_modules/' --ignore-pattern 'tests/'",
+    "test": "./node_modules/.bin/eslint --color --ext .js ."
     "test-webhook": "node scripts/controllers/webhook.js"
   },
   "repository": {
