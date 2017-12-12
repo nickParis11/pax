@@ -1,6 +1,8 @@
+/*
 const disgustLimit = 40;
 const JoyLimit = 40;
 const emotionalToneTotal = 0;
+*/
 
 // anger
 // disgust
@@ -23,11 +25,13 @@ const emotionalToneTotal = 0;
 // input is an analysis object
 // output is a number?
 
+/*
 const scoreAnalysis = (analysis) => {
-  let score = 0;
+  const score = 0;
 
   return score;
 };
+*/
 
 // STEPS
 // If tentativeness > 50, PROMOTE (GRADED)
