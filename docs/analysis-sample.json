@@ -1,0 +1,2639 @@
+{
+  "document_tone": {
+    "tone_categories": [
+      {
+        "tones": [
+          {
+            "score": 0.172082,
+            "tone_id": "anger",
+            "tone_name": "Anger"
+          },
+          {
+            "score": 0.11175,
+            "tone_id": "disgust",
+            "tone_name": "Disgust"
+          },
+          {
+            "score": 0.555182,
+            "tone_id": "fear",
+            "tone_name": "Fear"
+          },
+          {
+            "score": 0.523158,
+            "tone_id": "joy",
+            "tone_name": "Joy"
+          },
+          {
+            "score": 0.505097,
+            "tone_id": "sadness",
+            "tone_name": "Sadness"
+          }
+        ],
+        "category_id": "emotion_tone",
+        "category_name": "Emotion Tone"
+      },
+      {
+        "tones": [
+          {
+            "score": 0.288676,
+            "tone_id": "analytical",
+            "tone_name": "Analytical"
+          },
+          {
+            "score": 0.276346,
+            "tone_id": "confident",
+            "tone_name": "Confident"
+          },
+          {
+            "score": 0,
+            "tone_id": "tentative",
+            "tone_name": "Tentative"
+          }
+        ],
+        "category_id": "language_tone",
+        "category_name": "Language Tone"
+      },
+      {
+        "tones": [
+          {
+            "score": 0.811194,
+            "tone_id": "openness_big5",
+            "tone_name": "Openness"
+          },
+          {
+            "score": 0.882556,
+            "tone_id": "conscientiousness_big5",
+            "tone_name": "Conscientiousness"
+          },
+          {
+            "score": 0.889026,
+            "tone_id": "extraversion_big5",
+            "tone_name": "Extraversion"
+          },
+          {
+            "score": 0.714197,
+            "tone_id": "agreeableness_big5",
+            "tone_name": "Agreeableness"
+          },
+          {
+            "score": 0.824152,
+            "tone_id": "emotional_range_big5",
+            "tone_name": "Emotional Range"
+          }
+        ],
+        "category_id": "social_tone",
+        "category_name": "Social Tone"
+      }
+    ]
+  },
+  "sentences_tone": [
+    {
+      "sentence_id": 0,
+      "text": "Mr. Ullah acted alone, Mayor Bill de Blasio said, adding that no other devices had been found.",
+      "input_from": 0,
+      "input_to": 94,
+      "tone_categories": [
+        {
+          "tones": [
+            {
+              "score": 0.196671,
+              "tone_id": "anger",
+              "tone_name": "Anger"
+            },
+            {
+              "score": 0.092053,
+              "tone_id": "disgust",
+              "tone_name": "Disgust"
+            },
+            {
+              "score": 0.227124,
+              "tone_id": "fear",
+              "tone_name": "Fear"
+            },
+            {
+              "score": 0.16617,
+              "tone_id": "joy",
+              "tone_name": "Joy"
+            },
+            {
+              "score": 0.448031,
+              "tone_id": "sadness",
+              "tone_name": "Sadness"
+            }
+          ],
+          "category_id": "emotion_tone",
+          "category_name": "Emotion Tone"
+        },
+        {
+          "tones": [
+            {
+              "score": 0.482451,
+              "tone_id": "analytical",
+              "tone_name": "Analytical"
+            },
+            {
+              "score": 0,
+              "tone_id": "confident",
+              "tone_name": "Confident"
+            },
+            {
+              "score": 0,
+              "tone_id": "tentative",
+              "tone_name": "Tentative"
+            }
+          ],
+          "category_id": "language_tone",
+          "category_name": "Language Tone"
+        },
+        {
+          "tones": [
+            {
+              "score": 0.521791,
+              "tone_id": "openness_big5",
+              "tone_name": "Openness"
+            },
+            {
+              "score": 0.326634,
+              "tone_id": "conscientiousness_big5",
+              "tone_name": "Conscientiousness"
+            },
+            {
+              "score": 0.797093,
+              "tone_id": "extraversion_big5",
+              "tone_name": "Extraversion"
+            },
+            {
+              "score": 0.699739,
+              "tone_id": "agreeableness_big5",
+              "tone_name": "Agreeableness"
+            },
+            {
+              "score": 0.619293,
+              "tone_id": "emotional_range_big5",
+              "tone_name": "Emotional Range"
+            }
+          ],
+          "category_id": "social_tone",
+          "category_name": "Social Tone"
+        }
+      ]
+    },
+    {
+      "sentence_id": 1,
+      "text": "“Our lives revolve around the subway,” the mayor said.",
+      "input_from": 95,
+      "input_to": 149,
+      "tone_categories": [
+        {
+          "tones": [
+            {
+              "score": 0.2103,
+              "tone_id": "anger",
+              "tone_name": "Anger"
+            },
+            {
+              "score": 0.050047,
+              "tone_id": "disgust",
+              "tone_name": "Disgust"
+            },
+            {
+              "score": 0.078551,
+              "tone_id": "fear",
+              "tone_name": "Fear"
+            },
+            {
+              "score": 0.562904,
+              "tone_id": "joy",
+              "tone_name": "Joy"
+            },
+            {
+              "score": 0.157559,
+              "tone_id": "sadness",
+              "tone_name": "Sadness"
+            }
+          ],
+          "category_id": "emotion_tone",
+          "category_name": "Emotion Tone"
+        },
+        {
+          "tones": [
+            {
+              "score": 0,
+              "tone_id": "analytical",
+              "tone_name": "Analytical"
+            },
+            {
+              "score": 0,
+              "tone_id": "confident",
+              "tone_name": "Confident"
+            },
+            {
+              "score": 0.856622,
+              "tone_id": "tentative",
+              "tone_name": "Tentative"
+            }
+          ],
+          "category_id": "language_tone",
+          "category_name": "Language Tone"
+        },
+        {
+          "tones": [
+            {
+              "score": 0.607591,
+              "tone_id": "openness_big5",
+              "tone_name": "Openness"
+            },
+            {
+              "score": 0.370903,
+              "tone_id": "conscientiousness_big5",
+              "tone_name": "Conscientiousness"
+            },
+            {
+              "score": 0.707959,
+              "tone_id": "extraversion_big5",
+              "tone_name": "Extraversion"
+            },
+            {
+              "score": 0.558489,
+              "tone_id": "agreeableness_big5",
+              "tone_name": "Agreeableness"
+            },
+            {
+              "score": 0.692899,
+              "tone_id": "emotional_range_big5",
+              "tone_name": "Emotional Range"
+            }
+          ],
+          "category_id": "social_tone",
+          "category_name": "Social Tone"
+        }
+      ]
+    },
+    {
+      "sentence_id": 2,
+      "text": "“The choice of New York is always for a reason, because we are a beacon to the world.",
+      "input_from": 150,
+      "input_to": 235,
+      "tone_categories": [
+        {
+          "tones": [
+            {
+              "score": 0.064408,
+              "tone_id": "anger",
+              "tone_name": "Anger"
+            },
+            {
+              "score": 0.034403,
+              "tone_id": "disgust",
+              "tone_name": "Disgust"
+            },
+            {
+              "score": 0.037015,
+              "tone_id": "fear",
+              "tone_name": "Fear"
+            },
+            {
+              "score": 0.628852,
+              "tone_id": "joy",
+              "tone_name": "Joy"
+            },
+            {
+              "score": 0.260576,
+              "tone_id": "sadness",
+              "tone_name": "Sadness"
+            }
+          ],
+          "category_id": "emotion_tone",
+          "category_name": "Emotion Tone"
+        },
+        {
+          "tones": [
+            {
+              "score": 0.85365,
+              "tone_id": "analytical",
+              "tone_name": "Analytical"
+            },
+            {
+              "score": 0.660207,
+              "tone_id": "confident",
+              "tone_name": "Confident"
+            },
+            {
+              "score": 0,
+              "tone_id": "tentative",
+              "tone_name": "Tentative"
+            }
+          ],
+          "category_id": "language_tone",
+          "category_name": "Language Tone"
+        },
+        {
+          "tones": [
+            {
+              "score": 0.753328,
+              "tone_id": "openness_big5",
+              "tone_name": "Openness"
+            },
+            {
+              "score": 0.854794,
+              "tone_id": "conscientiousness_big5",
+              "tone_name": "Conscientiousness"
+            },
+            {
+              "score": 0.573066,
+              "tone_id": "extraversion_big5",
+              "tone_name": "Extraversion"
+            },
+            {
+              "score": 0.246587,
+              "tone_id": "agreeableness_big5",
+              "tone_name": "Agreeableness"
+            },
+            {
+              "score": 0.820379,
+              "tone_id": "emotional_range_big5",
+              "tone_name": "Emotional Range"
+            }
+          ],
+          "category_id": "social_tone",
+          "category_name": "Social Tone"
+        }
+      ]
+    },
+    {
+      "sentence_id": 3,
+      "text": "And we actually show that a society of many faiths and many backgrounds can work.”",
+      "input_from": 236,
+      "input_to": 318,
+      "tone_categories": [
+        {
+          "tones": [
+            {
+              "score": 0.025705,
+              "tone_id": "anger",
+              "tone_name": "Anger"
+            },
+            {
+              "score": 0.09105,
+              "tone_id": "disgust",
+              "tone_name": "Disgust"
+            },
+            {
+              "score": 0.101245,
+              "tone_id": "fear",
+              "tone_name": "Fear"
+            },
+            {
+              "score": 0.636314,
+              "tone_id": "joy",
+              "tone_name": "Joy"
+            },
+            {
+              "score": 0.096872,
+              "tone_id": "sadness",
+              "tone_name": "Sadness"
+            }
+          ],
+          "category_id": "emotion_tone",
+          "category_name": "Emotion Tone"
+        },
+        {
+          "tones": [
+            {
+              "score": 0.269244,
+              "tone_id": "analytical",
+              "tone_name": "Analytical"
+            },
+            {
+              "score": 0.909949,
+              "tone_id": "confident",
+              "tone_name": "Confident"
+            },
+            {
+              "score": 0,
+              "tone_id": "tentative",
+              "tone_name": "Tentative"
+            }
+          ],
+          "category_id": "language_tone",
+          "category_name": "Language Tone"
+        },
+        {
+          "tones": [
+            {
+              "score": 0.788952,
+              "tone_id": "openness_big5",
+              "tone_name": "Openness"
+            },
+            {
+              "score": 0.394913,
+              "tone_id": "conscientiousness_big5",
+              "tone_name": "Conscientiousness"
+            },
+            {
+              "score": 0.176208,
+              "tone_id": "extraversion_big5",
+              "tone_name": "Extraversion"
+            },
+            {
+              "score": 0.414102,
+              "tone_id": "agreeableness_big5",
+              "tone_name": "Agreeableness"
+            },
+            {
+              "score": 0.075383,
+              "tone_id": "emotional_range_big5",
+              "tone_name": "Emotional Range"
+            }
+          ],
+          "category_id": "social_tone",
+          "category_name": "Social Tone"
+        }
+      ]
+    },
+    {
+      "sentence_id": 4,
+      "text": "“The terrorists want to undermine that,” the mayor added.",
+      "input_from": 319,
+      "input_to": 376,
+      "tone_categories": [
+        {
+          "tones": [
+            {
+              "score": 0.290358,
+              "tone_id": "anger",
+              "tone_name": "Anger"
+            },
+            {
+              "score": 0.128521,
+              "tone_id": "disgust",
+              "tone_name": "Disgust"
+            },
+            {
+              "score": 0.366576,
+              "tone_id": "fear",
+              "tone_name": "Fear"
+            },
+            {
+              "score": 0.042097,
+              "tone_id": "joy",
+              "tone_name": "Joy"
+            },
+            {
+              "score": 0.273729,
+              "tone_id": "sadness",
+              "tone_name": "Sadness"
+            }
+          ],
+          "category_id": "emotion_tone",
+          "category_name": "Emotion Tone"
+        },
+        {
+          "tones": [
+            {
+              "score": 0,
+              "tone_id": "analytical",
+              "tone_name": "Analytical"
+            },
+            {
+              "score": 0,
+              "tone_id": "confident",
+              "tone_name": "Confident"
+            },
+            {
+              "score": 0,
+              "tone_id": "tentative",
+              "tone_name": "Tentative"
+            }
+          ],
+          "category_id": "language_tone",
+          "category_name": "Language Tone"
+        },
+        {
+          "tones": [
+            {
+              "score": 0.847443,
+              "tone_id": "openness_big5",
+              "tone_name": "Openness"
+            },
+            {
+              "score": 0.850524,
+              "tone_id": "conscientiousness_big5",
+              "tone_name": "Conscientiousness"
+            },
+            {
+              "score": 0.444753,
+              "tone_id": "extraversion_big5",
+              "tone_name": "Extraversion"
+            },
+            {
+              "score": 0.203669,
+              "tone_id": "agreeableness_big5",
+              "tone_name": "Agreeableness"
+            },
+            {
+              "score": 0.961403,
+              "tone_id": "emotional_range_big5",
+              "tone_name": "Emotional Range"
+            }
+          ],
+          "category_id": "social_tone",
+          "category_name": "Social Tone"
+        }
+      ]
+    },
+    {
+      "sentence_id": 5,
+      "text": "“They yearn to attack New York City.”",
+      "input_from": 377,
+      "input_to": 414,
+      "tone_categories": [
+        {
+          "tones": [
+            {
+              "score": 0.212611,
+              "tone_id": "anger",
+              "tone_name": "Anger"
+            },
+            {
+              "score": 0.141854,
+              "tone_id": "disgust",
+              "tone_name": "Disgust"
+            },
+            {
+              "score": 0.77585,
+              "tone_id": "fear",
+              "tone_name": "Fear"
+            },
+            {
+              "score": 0.007409,
+              "tone_id": "joy",
+              "tone_name": "Joy"
+            },
+            {
+              "score": 0.1025,
+              "tone_id": "sadness",
+              "tone_name": "Sadness"
+            }
+          ],
+          "category_id": "emotion_tone",
+          "category_name": "Emotion Tone"
+        },
+        {
+          "tones": [
+            {
+              "score": 0.801827,
+              "tone_id": "analytical",
+              "tone_name": "Analytical"
+            },
+            {
+              "score": 0,
+              "tone_id": "confident",
+              "tone_name": "Confident"
+            },
+            {
+              "score": 0,
+              "tone_id": "tentative",
+              "tone_name": "Tentative"
+            }
+          ],
+          "category_id": "language_tone",
+          "category_name": "Language Tone"
+        },
+        {
+          "tones": [
+            {
+              "score": 0.026373,
+              "tone_id": "openness_big5",
+              "tone_name": "Openness"
+            },
+            {
+              "score": 0.31288,
+              "tone_id": "conscientiousness_big5",
+              "tone_name": "Conscientiousness"
+            },
+            {
+              "score": 0.529668,
+              "tone_id": "extraversion_big5",
+              "tone_name": "Extraversion"
+            },
+            {
+              "score": 0.616978,
+              "tone_id": "agreeableness_big5",
+              "tone_name": "Agreeableness"
+            },
+            {
+              "score": 0.549258,
+              "tone_id": "emotional_range_big5",
+              "tone_name": "Emotional Range"
+            }
+          ],
+          "category_id": "social_tone",
+          "category_name": "Social Tone"
+        }
+      ]
+    },
+    {
+      "sentence_id": 6,
+      "text": "Mr. de Blasio spoke within hours of the attack.",
+      "input_from": 415,
+      "input_to": 462,
+      "tone_categories": [
+        {
+          "tones": [
+            {
+              "score": 0.139733,
+              "tone_id": "anger",
+              "tone_name": "Anger"
+            },
+            {
+              "score": 0.118681,
+              "tone_id": "disgust",
+              "tone_name": "Disgust"
+            },
+            {
+              "score": 0.55201,
+              "tone_id": "fear",
+              "tone_name": "Fear"
+            },
+            {
+              "score": 0.182274,
+              "tone_id": "joy",
+              "tone_name": "Joy"
+            },
+            {
+              "score": 0.116289,
+              "tone_id": "sadness",
+              "tone_name": "Sadness"
+            }
+          ],
+          "category_id": "emotion_tone",
+          "category_name": "Emotion Tone"
+        },
+        {
+          "tones": [
+            {
+              "score": 0,
+              "tone_id": "analytical",
+              "tone_name": "Analytical"
+            },
+            {
+              "score": 0,
+              "tone_id": "confident",
+              "tone_name": "Confident"
+            },
+            {
+              "score": 0,
+              "tone_id": "tentative",
+              "tone_name": "Tentative"
+            }
+          ],
+          "category_id": "language_tone",
+          "category_name": "Language Tone"
+        },
+        {
+          "tones": [
+            {
+              "score": 0.075234,
+              "tone_id": "openness_big5",
+              "tone_name": "Openness"
+            },
+            {
+              "score": 0.414472,
+              "tone_id": "conscientiousness_big5",
+              "tone_name": "Conscientiousness"
+            },
+            {
+              "score": 0.152997,
+              "tone_id": "extraversion_big5",
+              "tone_name": "Extraversion"
+            },
+            {
+              "score": 0.43224,
+              "tone_id": "agreeableness_big5",
+              "tone_name": "Agreeableness"
+            },
+            {
+              "score": 0.166276,
+              "tone_id": "emotional_range_big5",
+              "tone_name": "Emotional Range"
+            }
+          ],
+          "category_id": "social_tone",
+          "category_name": "Social Tone"
+        }
+      ]
+    },
+    {
+      "sentence_id": 7,
+      "text": "But the investigation by the Joint Terrorism Task Force was still in its preliminary stages.",
+      "input_from": 463,
+      "input_to": 555,
+      "tone_categories": [
+        {
+          "tones": [
+            {
+              "score": 0.142835,
+              "tone_id": "anger",
+              "tone_name": "Anger"
+            },
+            {
+              "score": 0.351464,
+              "tone_id": "disgust",
+              "tone_name": "Disgust"
+            },
+            {
+              "score": 0.487192,
+              "tone_id": "fear",
+              "tone_name": "Fear"
+            },
+            {
+              "score": 0.017316,
+              "tone_id": "joy",
+              "tone_name": "Joy"
+            },
+            {
+              "score": 0.250708,
+              "tone_id": "sadness",
+              "tone_name": "Sadness"
+            }
+          ],
+          "category_id": "emotion_tone",
+          "category_name": "Emotion Tone"
+        },
+        {
+          "tones": [
+            {
+              "score": 0.417844,
+              "tone_id": "analytical",
+              "tone_name": "Analytical"
+            },
+            {
+              "score": 0,
+              "tone_id": "confident",
+              "tone_name": "Confident"
+            },
+            {
+              "score": 0.291123,
+              "tone_id": "tentative",
+              "tone_name": "Tentative"
+            }
+          ],
+          "category_id": "language_tone",
+          "category_name": "Language Tone"
+        },
+        {
+          "tones": [
+            {
+              "score": 0.94396,
+              "tone_id": "openness_big5",
+              "tone_name": "Openness"
+            },
+            {
+              "score": 0.511518,
+              "tone_id": "conscientiousness_big5",
+              "tone_name": "Conscientiousness"
+            },
+            {
+              "score": 0.467838,
+              "tone_id": "extraversion_big5",
+              "tone_name": "Extraversion"
+            },
+            {
+              "score": 0.361072,
+              "tone_id": "agreeableness_big5",
+              "tone_name": "Agreeableness"
+            },
+            {
+              "score": 0.585526,
+              "tone_id": "emotional_range_big5",
+              "tone_name": "Emotional Range"
+            }
+          ],
+          "category_id": "social_tone",
+          "category_name": "Social Tone"
+        }
+      ]
+    },
+    {
+      "sentence_id": 8,
+      "text": "Christina Bethea was in the underground walkway, headed to her job as a security guard, when the explosion nearly knocked her over, sending a haze of smoke into the corridor packed with commuters.",
+      "input_from": 556,
+      "input_to": 752,
+      "tone_categories": [
+        {
+          "tones": [
+            {
+              "score": 0.482527,
+              "tone_id": "anger",
+              "tone_name": "Anger"
+            },
+            {
+              "score": 0.255242,
+              "tone_id": "disgust",
+              "tone_name": "Disgust"
+            },
+            {
+              "score": 0.409723,
+              "tone_id": "fear",
+              "tone_name": "Fear"
+            },
+            {
+              "score": 0.018319,
+              "tone_id": "joy",
+              "tone_name": "Joy"
+            },
+            {
+              "score": 0.162744,
+              "tone_id": "sadness",
+              "tone_name": "Sadness"
+            }
+          ],
+          "category_id": "emotion_tone",
+          "category_name": "Emotion Tone"
+        },
+        {
+          "tones": [
+            {
+              "score": 0,
+              "tone_id": "analytical",
+              "tone_name": "Analytical"
+            },
+            {
+              "score": 0,
+              "tone_id": "confident",
+              "tone_name": "Confident"
+            },
+            {
+              "score": 0.248891,
+              "tone_id": "tentative",
+              "tone_name": "Tentative"
+            }
+          ],
+          "category_id": "language_tone",
+          "category_name": "Language Tone"
+        },
+        {
+          "tones": [
+            {
+              "score": 0.755689,
+              "tone_id": "openness_big5",
+              "tone_name": "Openness"
+            },
+            {
+              "score": 0.038605,
+              "tone_id": "conscientiousness_big5",
+              "tone_name": "Conscientiousness"
+            },
+            {
+              "score": 0.971022,
+              "tone_id": "extraversion_big5",
+              "tone_name": "Extraversion"
+            },
+            {
+              "score": 0.387414,
+              "tone_id": "agreeableness_big5",
+              "tone_name": "Agreeableness"
+            },
+            {
+              "score": 0.53655,
+              "tone_id": "emotional_range_big5",
+              "tone_name": "Emotional Range"
+            }
+          ],
+          "category_id": "social_tone",
+          "category_name": "Social Tone"
+        }
+      ]
+    },
+    {
+      "sentence_id": 9,
+      "text": "She did not see where it came from, she said.",
+      "input_from": 753,
+      "input_to": 798,
+      "tone_categories": [
+        {
+          "tones": [
+            {
+              "score": 0.119665,
+              "tone_id": "anger",
+              "tone_name": "Anger"
+            },
+            {
+              "score": 0.104682,
+              "tone_id": "disgust",
+              "tone_name": "Disgust"
+            },
+            {
+              "score": 0.1513,
+              "tone_id": "fear",
+              "tone_name": "Fear"
+            },
+            {
+              "score": 0.234719,
+              "tone_id": "joy",
+              "tone_name": "Joy"
+            },
+            {
+              "score": 0.29845,
+              "tone_id": "sadness",
+              "tone_name": "Sadness"
+            }
+          ],
+          "category_id": "emotion_tone",
+          "category_name": "Emotion Tone"
+        },
+        {
+          "tones": [
+            {
+              "score": 0,
+              "tone_id": "analytical",
+              "tone_name": "Analytical"
+            },
+            {
+              "score": 0,
+              "tone_id": "confident",
+              "tone_name": "Confident"
+            },
+            {
+              "score": 0,
+              "tone_id": "tentative",
+              "tone_name": "Tentative"
+            }
+          ],
+          "category_id": "language_tone",
+          "category_name": "Language Tone"
+        },
+        {
+          "tones": [
+            {
+              "score": 0.518816,
+              "tone_id": "openness_big5",
+              "tone_name": "Openness"
+            },
+            {
+              "score": 0.596139,
+              "tone_id": "conscientiousness_big5",
+              "tone_name": "Conscientiousness"
+            },
+            {
+              "score": 0.297917,
+              "tone_id": "extraversion_big5",
+              "tone_name": "Extraversion"
+            },
+            {
+              "score": 0.865909,
+              "tone_id": "agreeableness_big5",
+              "tone_name": "Agreeableness"
+            },
+            {
+              "score": 0.809683,
+              "tone_id": "emotional_range_big5",
+              "tone_name": "Emotional Range"
+            }
+          ],
+          "category_id": "social_tone",
+          "category_name": "Social Tone"
+        }
+      ]
+    },
+    {
+      "sentence_id": 10,
+      "text": "“As soon as we heard ‘boom!’ we began to run,” she said.",
+      "input_from": 799,
+      "input_to": 855,
+      "tone_categories": [
+        {
+          "tones": [
+            {
+              "score": 0.099263,
+              "tone_id": "anger",
+              "tone_name": "Anger"
+            },
+            {
+              "score": 0.013516,
+              "tone_id": "disgust",
+              "tone_name": "Disgust"
+            },
+            {
+              "score": 0.256157,
+              "tone_id": "fear",
+              "tone_name": "Fear"
+            },
+            {
+              "score": 0.434429,
+              "tone_id": "joy",
+              "tone_name": "Joy"
+            },
+            {
+              "score": 0.132098,
+              "tone_id": "sadness",
+              "tone_name": "Sadness"
+            }
+          ],
+          "category_id": "emotion_tone",
+          "category_name": "Emotion Tone"
+        },
+        {
+          "tones": [
+            {
+              "score": 0,
+              "tone_id": "analytical",
+              "tone_name": "Analytical"
+            },
+            {
+              "score": 0,
+              "tone_id": "confident",
+              "tone_name": "Confident"
+            },
+            {
+              "score": 0,
+              "tone_id": "tentative",
+              "tone_name": "Tentative"
+            }
+          ],
+          "category_id": "language_tone",
+          "category_name": "Language Tone"
+        },
+        {
+          "tones": [
+            {
+              "score": 0.169903,
+              "tone_id": "openness_big5",
+              "tone_name": "Openness"
+            },
+            {
+              "score": 0.525977,
+              "tone_id": "conscientiousness_big5",
+              "tone_name": "Conscientiousness"
+            },
+            {
+              "score": 0.512936,
+              "tone_id": "extraversion_big5",
+              "tone_name": "Extraversion"
+            },
+            {
+              "score": 0.767699,
+              "tone_id": "agreeableness_big5",
+              "tone_name": "Agreeableness"
+            },
+            {
+              "score": 0.736915,
+              "tone_id": "emotional_range_big5",
+              "tone_name": "Emotional Range"
+            }
+          ],
+          "category_id": "social_tone",
+          "category_name": "Social Tone"
+        }
+      ]
+    },
+    {
+      "sentence_id": 11,
+      "text": "An hour after the attack, she stood outside the Port Authority, calling her mother and father in North Carolina to tell them she was O.K. “I feel good,” Ms. Bethea said.",
+      "input_from": 856,
+      "input_to": 1025,
+      "tone_categories": [
+        {
+          "tones": [
+            {
+              "score": 0.238566,
+              "tone_id": "anger",
+              "tone_name": "Anger"
+            },
+            {
+              "score": 0.088215,
+              "tone_id": "disgust",
+              "tone_name": "Disgust"
+            },
+            {
+              "score": 0.244244,
+              "tone_id": "fear",
+              "tone_name": "Fear"
+            },
+            {
+              "score": 0.343114,
+              "tone_id": "joy",
+              "tone_name": "Joy"
+            },
+            {
+              "score": 0.29731,
+              "tone_id": "sadness",
+              "tone_name": "Sadness"
+            }
+          ],
+          "category_id": "emotion_tone",
+          "category_name": "Emotion Tone"
+        },
+        {
+          "tones": [
+            {
+              "score": 0,
+              "tone_id": "analytical",
+              "tone_name": "Analytical"
+            },
+            {
+              "score": 0,
+              "tone_id": "confident",
+              "tone_name": "Confident"
+            },
+            {
+              "score": 0.058593,
+              "tone_id": "tentative",
+              "tone_name": "Tentative"
+            }
+          ],
+          "category_id": "language_tone",
+          "category_name": "Language Tone"
+        },
+        {
+          "tones": [
+            {
+              "score": 0.519701,
+              "tone_id": "openness_big5",
+              "tone_name": "Openness"
+            },
+            {
+              "score": 0.218789,
+              "tone_id": "conscientiousness_big5",
+              "tone_name": "Conscientiousness"
+            },
+            {
+              "score": 0.915279,
+              "tone_id": "extraversion_big5",
+              "tone_name": "Extraversion"
+            },
+            {
+              "score": 0.980109,
+              "tone_id": "agreeableness_big5",
+              "tone_name": "Agreeableness"
+            },
+            {
+              "score": 0.715242,
+              "tone_id": "emotional_range_big5",
+              "tone_name": "Emotional Range"
+            }
+          ],
+          "category_id": "social_tone",
+          "category_name": "Social Tone"
+        }
+      ]
+    },
+    {
+      "sentence_id": 12,
+      "text": "“I am alive!”",
+      "input_from": 1026,
+      "input_to": 1039,
+      "tone_categories": [
+        {
+          "tones": [
+            {
+              "score": 0,
+              "tone_id": "anger",
+              "tone_name": "Anger"
+            },
+            {
+              "score": 0,
+              "tone_id": "disgust",
+              "tone_name": "Disgust"
+            },
+            {
+              "score": 0,
+              "tone_id": "fear",
+              "tone_name": "Fear"
+            },
+            {
+              "score": 0.880435,
+              "tone_id": "joy",
+              "tone_name": "Joy"
+            },
+            {
+              "score": 0,
+              "tone_id": "sadness",
+              "tone_name": "Sadness"
+            }
+          ],
+          "category_id": "emotion_tone",
+          "category_name": "Emotion Tone"
+        },
+        {
+          "tones": [
+            {
+              "score": 0,
+              "tone_id": "analytical",
+              "tone_name": "Analytical"
+            },
+            {
+              "score": 0,
+              "tone_id": "confident",
+              "tone_name": "Confident"
+            },
+            {
+              "score": 0,
+              "tone_id": "tentative",
+              "tone_name": "Tentative"
+            }
+          ],
+          "category_id": "language_tone",
+          "category_name": "Language Tone"
+        },
+        {
+          "tones": [
+            {
+              "score": 0.252516,
+              "tone_id": "openness_big5",
+              "tone_name": "Openness"
+            },
+            {
+              "score": 0.266475,
+              "tone_id": "conscientiousness_big5",
+              "tone_name": "Conscientiousness"
+            },
+            {
+              "score": 0.485758,
+              "tone_id": "extraversion_big5",
+              "tone_name": "Extraversion"
+            },
+            {
+              "score": 0.592951,
+              "tone_id": "agreeableness_big5",
+              "tone_name": "Agreeableness"
+            },
+            {
+              "score": 0.081607,
+              "tone_id": "emotional_range_big5",
+              "tone_name": "Emotional Range"
+            }
+          ],
+          "category_id": "social_tone",
+          "category_name": "Social Tone"
+        }
+      ]
+    },
+    {
+      "sentence_id": 13,
+      "text": "The authorities were searching Mr. Ullah’s residence on Ocean Parkway, pursuant to a federal warrant, one law enforcement official said.",
+      "input_from": 1040,
+      "input_to": 1176,
+      "tone_categories": [
+        {
+          "tones": [
+            {
+              "score": 0.094283,
+              "tone_id": "anger",
+              "tone_name": "Anger"
+            },
+            {
+              "score": 0.07753,
+              "tone_id": "disgust",
+              "tone_name": "Disgust"
+            },
+            {
+              "score": 0.166053,
+              "tone_id": "fear",
+              "tone_name": "Fear"
+            },
+            {
+              "score": 0.317615,
+              "tone_id": "joy",
+              "tone_name": "Joy"
+            },
+            {
+              "score": 0.212023,
+              "tone_id": "sadness",
+              "tone_name": "Sadness"
+            }
+          ],
+          "category_id": "emotion_tone",
+          "category_name": "Emotion Tone"
+        },
+        {
+          "tones": [
+            {
+              "score": 0,
+              "tone_id": "analytical",
+              "tone_name": "Analytical"
+            },
+            {
+              "score": 0.332559,
+              "tone_id": "confident",
+              "tone_name": "Confident"
+            },
+            {
+              "score": 0,
+              "tone_id": "tentative",
+              "tone_name": "Tentative"
+            }
+          ],
+          "category_id": "language_tone",
+          "category_name": "Language Tone"
+        },
+        {
+          "tones": [
+            {
+              "score": 0.661317,
+              "tone_id": "openness_big5",
+              "tone_name": "Openness"
+            },
+            {
+              "score": 0.922289,
+              "tone_id": "conscientiousness_big5",
+              "tone_name": "Conscientiousness"
+            },
+            {
+              "score": 0.902416,
+              "tone_id": "extraversion_big5",
+              "tone_name": "Extraversion"
+            },
+            {
+              "score": 0.82351,
+              "tone_id": "agreeableness_big5",
+              "tone_name": "Agreeableness"
+            },
+            {
+              "score": 0.937487,
+              "tone_id": "emotional_range_big5",
+              "tone_name": "Emotional Range"
+            }
+          ],
+          "category_id": "social_tone",
+          "category_name": "Social Tone"
+        }
+      ]
+    },
+    {
+      "sentence_id": 14,
+      "text": "While no formal announcement had been made, both federal and local law enforcement officials indicated that Mr. Ullah would be prosecuted in federal court in Manhattan by the office of the acting United States attorney for the Southern District of New York, Joon H. Kim.",
+      "input_from": 1177,
+      "input_to": 1447,
+      "tone_categories": [
+        {
+          "tones": [
+            {
+              "score": 0.245104,
+              "tone_id": "anger",
+              "tone_name": "Anger"
+            },
+            {
+              "score": 0.225061,
+              "tone_id": "disgust",
+              "tone_name": "Disgust"
+            },
+            {
+              "score": 0.16683,
+              "tone_id": "fear",
+              "tone_name": "Fear"
+            },
+            {
+              "score": 0.124908,
+              "tone_id": "joy",
+              "tone_name": "Joy"
+            },
+            {
+              "score": 0.169186,
+              "tone_id": "sadness",
+              "tone_name": "Sadness"
+            }
+          ],
+          "category_id": "emotion_tone",
+          "category_name": "Emotion Tone"
+        },
+        {
+          "tones": [
+            {
+              "score": 0.129507,
+              "tone_id": "analytical",
+              "tone_name": "Analytical"
+            },
+            {
+              "score": 0.098195,
+              "tone_id": "confident",
+              "tone_name": "Confident"
+            },
+            {
+              "score": 0,
+              "tone_id": "tentative",
+              "tone_name": "Tentative"
+            }
+          ],
+          "category_id": "language_tone",
+          "category_name": "Language Tone"
+        },
+        {
+          "tones": [
+            {
+              "score": 0.848819,
+              "tone_id": "openness_big5",
+              "tone_name": "Openness"
+            },
+            {
+              "score": 0.994107,
+              "tone_id": "conscientiousness_big5",
+              "tone_name": "Conscientiousness"
+            },
+            {
+              "score": 0.981254,
+              "tone_id": "extraversion_big5",
+              "tone_name": "Extraversion"
+            },
+            {
+              "score": 0.977023,
+              "tone_id": "agreeableness_big5",
+              "tone_name": "Agreeableness"
+            },
+            {
+              "score": 0.922783,
+              "tone_id": "emotional_range_big5",
+              "tone_name": "Emotional Range"
+            }
+          ],
+          "category_id": "social_tone",
+          "category_name": "Social Tone"
+        }
+      ]
+    },
+    {
+      "sentence_id": 15,
+      "text": "The attack is being investigated by the Joint Terrorism Task Force, which is made up largely of F.B.I. agents and New York detectives, along with investigators from a score of other federal, state and local law enforcement agencies.",
+      "input_from": 1448,
+      "input_to": 1680,
+      "tone_categories": [
+        {
+          "tones": [
+            {
+              "score": 0.140179,
+              "tone_id": "anger",
+              "tone_name": "Anger"
+            },
+            {
+              "score": 0.160722,
+              "tone_id": "disgust",
+              "tone_name": "Disgust"
+            },
+            {
+              "score": 0.715899,
+              "tone_id": "fear",
+              "tone_name": "Fear"
+            },
+            {
+              "score": 0.027813,
+              "tone_id": "joy",
+              "tone_name": "Joy"
+            },
+            {
+              "score": 0.18448,
+              "tone_id": "sadness",
+              "tone_name": "Sadness"
+            }
+          ],
+          "category_id": "emotion_tone",
+          "category_name": "Emotion Tone"
+        },
+        {
+          "tones": [
+            {
+              "score": 0.30971,
+              "tone_id": "analytical",
+              "tone_name": "Analytical"
+            },
+            {
+              "score": 0.175992,
+              "tone_id": "confident",
+              "tone_name": "Confident"
+            },
+            {
+              "score": 0,
+              "tone_id": "tentative",
+              "tone_name": "Tentative"
+            }
+          ],
+          "category_id": "language_tone",
+          "category_name": "Language Tone"
+        },
+        {
+          "tones": [
+            {
+              "score": 0.987835,
+              "tone_id": "openness_big5",
+              "tone_name": "Openness"
+            },
+            {
+              "score": 0.995341,
+              "tone_id": "conscientiousness_big5",
+              "tone_name": "Conscientiousness"
+            },
+            {
+              "score": 0.976614,
+              "tone_id": "extraversion_big5",
+              "tone_name": "Extraversion"
+            },
+            {
+              "score": 0.84644,
+              "tone_id": "agreeableness_big5",
+              "tone_name": "Agreeableness"
+            },
+            {
+              "score": 0.960976,
+              "tone_id": "emotional_range_big5",
+              "tone_name": "Emotional Range"
+            }
+          ],
+          "category_id": "social_tone",
+          "category_name": "Social Tone"
+        }
+      ]
+    },
+    {
+      "sentence_id": 16,
+      "text": "The attack roiled commutes across the region.",
+      "input_from": 1681,
+      "input_to": 1726,
+      "tone_categories": [
+        {
+          "tones": [
+            {
+              "score": 0.075082,
+              "tone_id": "anger",
+              "tone_name": "Anger"
+            },
+            {
+              "score": 0.096549,
+              "tone_id": "disgust",
+              "tone_name": "Disgust"
+            },
+            {
+              "score": 0.693485,
+              "tone_id": "fear",
+              "tone_name": "Fear"
+            },
+            {
+              "score": 0.040796,
+              "tone_id": "joy",
+              "tone_name": "Joy"
+            },
+            {
+              "score": 0.169597,
+              "tone_id": "sadness",
+              "tone_name": "Sadness"
+            }
+          ],
+          "category_id": "emotion_tone",
+          "category_name": "Emotion Tone"
+        },
+        {
+          "tones": [
+            {
+              "score": 0,
+              "tone_id": "analytical",
+              "tone_name": "Analytical"
+            },
+            {
+              "score": 0,
+              "tone_id": "confident",
+              "tone_name": "Confident"
+            },
+            {
+              "score": 0,
+              "tone_id": "tentative",
+              "tone_name": "Tentative"
+            }
+          ],
+          "category_id": "language_tone",
+          "category_name": "Language Tone"
+        },
+        {
+          "tones": [
+            {
+              "score": 0.477166,
+              "tone_id": "openness_big5",
+              "tone_name": "Openness"
+            },
+            {
+              "score": 0.297566,
+              "tone_id": "conscientiousness_big5",
+              "tone_name": "Conscientiousness"
+            },
+            {
+              "score": 0.511144,
+              "tone_id": "extraversion_big5",
+              "tone_name": "Extraversion"
+            },
+            {
+              "score": 0.299713,
+              "tone_id": "agreeableness_big5",
+              "tone_name": "Agreeableness"
+            },
+            {
+              "score": 0.373973,
+              "tone_id": "emotional_range_big5",
+              "tone_name": "Emotional Range"
+            }
+          ],
+          "category_id": "social_tone",
+          "category_name": "Social Tone"
+        }
+      ]
+    },
+    {
+      "sentence_id": 17,
+      "text": "All subway lines were directed to skip 42nd Street stops, according to the Metropolitan Transportation Authority.",
+      "input_from": 1727,
+      "input_to": 1840,
+      "tone_categories": [
+        {
+          "tones": [
+            {
+              "score": 0.289619,
+              "tone_id": "anger",
+              "tone_name": "Anger"
+            },
+            {
+              "score": 0.0339,
+              "tone_id": "disgust",
+              "tone_name": "Disgust"
+            },
+            {
+              "score": 0.133747,
+              "tone_id": "fear",
+              "tone_name": "Fear"
+            },
+            {
+              "score": 0.201486,
+              "tone_id": "joy",
+              "tone_name": "Joy"
+            },
+            {
+              "score": 0.208792,
+              "tone_id": "sadness",
+              "tone_name": "Sadness"
+            }
+          ],
+          "category_id": "emotion_tone",
+          "category_name": "Emotion Tone"
+        },
+        {
+          "tones": [
+            {
+              "score": 0.891685,
+              "tone_id": "analytical",
+              "tone_name": "Analytical"
+            },
+            {
+              "score": 0.727798,
+              "tone_id": "confident",
+              "tone_name": "Confident"
+            },
+            {
+              "score": 0,
+              "tone_id": "tentative",
+              "tone_name": "Tentative"
+            }
+          ],
+          "category_id": "language_tone",
+          "category_name": "Language Tone"
+        },
+        {
+          "tones": [
+            {
+              "score": 0.659289,
+              "tone_id": "openness_big5",
+              "tone_name": "Openness"
+            },
+            {
+              "score": 0.390738,
+              "tone_id": "conscientiousness_big5",
+              "tone_name": "Conscientiousness"
+            },
+            {
+              "score": 0.841939,
+              "tone_id": "extraversion_big5",
+              "tone_name": "Extraversion"
+            },
+            {
+              "score": 0.527079,
+              "tone_id": "agreeableness_big5",
+              "tone_name": "Agreeableness"
+            },
+            {
+              "score": 0.889974,
+              "tone_id": "emotional_range_big5",
+              "tone_name": "Emotional Range"
+            }
+          ],
+          "category_id": "social_tone",
+          "category_name": "Social Tone"
+        }
+      ]
+    },
+    {
+      "sentence_id": 18,
+      "text": "By late morning, only the A, C, and E were still skipping the stop.",
+      "input_from": 1841,
+      "input_to": 1908,
+      "tone_categories": [
+        {
+          "tones": [
+            {
+              "score": 0.205097,
+              "tone_id": "anger",
+              "tone_name": "Anger"
+            },
+            {
+              "score": 0.05941,
+              "tone_id": "disgust",
+              "tone_name": "Disgust"
+            },
+            {
+              "score": 0.206282,
+              "tone_id": "fear",
+              "tone_name": "Fear"
+            },
+            {
+              "score": 0.109619,
+              "tone_id": "joy",
+              "tone_name": "Joy"
+            },
+            {
+              "score": 0.532401,
+              "tone_id": "sadness",
+              "tone_name": "Sadness"
+            }
+          ],
+          "category_id": "emotion_tone",
+          "category_name": "Emotion Tone"
+        },
+        {
+          "tones": [
+            {
+              "score": 0.445104,
+              "tone_id": "analytical",
+              "tone_name": "Analytical"
+            },
+            {
+              "score": 0,
+              "tone_id": "confident",
+              "tone_name": "Confident"
+            },
+            {
+              "score": 0,
+              "tone_id": "tentative",
+              "tone_name": "Tentative"
+            }
+          ],
+          "category_id": "language_tone",
+          "category_name": "Language Tone"
+        },
+        {
+          "tones": [
+            {
+              "score": 0.062547,
+              "tone_id": "openness_big5",
+              "tone_name": "Openness"
+            },
+            {
+              "score": 0.953103,
+              "tone_id": "conscientiousness_big5",
+              "tone_name": "Conscientiousness"
+            },
+            {
+              "score": 0.09165,
+              "tone_id": "extraversion_big5",
+              "tone_name": "Extraversion"
+            },
+            {
+              "score": 0.282208,
+              "tone_id": "agreeableness_big5",
+              "tone_name": "Agreeableness"
+            },
+            {
+              "score": 0.828037,
+              "tone_id": "emotional_range_big5",
+              "tone_name": "Emotional Range"
+            }
+          ],
+          "category_id": "social_tone",
+          "category_name": "Social Tone"
+        }
+      ]
+    },
+    {
+      "sentence_id": 19,
+      "text": "The Port Authority was evacuated for several hours; it reopened around 10:30 a.m.",
+      "input_from": 1909,
+      "input_to": 1990,
+      "tone_categories": [
+        {
+          "tones": [
+            {
+              "score": 0.258913,
+              "tone_id": "anger",
+              "tone_name": "Anger"
+            },
+            {
+              "score": 0.062301,
+              "tone_id": "disgust",
+              "tone_name": "Disgust"
+            },
+            {
+              "score": 0.128588,
+              "tone_id": "fear",
+              "tone_name": "Fear"
+            },
+            {
+              "score": 0.18287,
+              "tone_id": "joy",
+              "tone_name": "Joy"
+            },
+            {
+              "score": 0.351767,
+              "tone_id": "sadness",
+              "tone_name": "Sadness"
+            }
+          ],
+          "category_id": "emotion_tone",
+          "category_name": "Emotion Tone"
+        },
+        {
+          "tones": [
+            {
+              "score": 0,
+              "tone_id": "analytical",
+              "tone_name": "Analytical"
+            },
+            {
+              "score": 0,
+              "tone_id": "confident",
+              "tone_name": "Confident"
+            },
+            {
+              "score": 0.647986,
+              "tone_id": "tentative",
+              "tone_name": "Tentative"
+            }
+          ],
+          "category_id": "language_tone",
+          "category_name": "Language Tone"
+        },
+        {
+          "tones": [
+            {
+              "score": 0.691184,
+              "tone_id": "openness_big5",
+              "tone_name": "Openness"
+            },
+            {
+              "score": 0.627875,
+              "tone_id": "conscientiousness_big5",
+              "tone_name": "Conscientiousness"
+            },
+            {
+              "score": 0.7234,
+              "tone_id": "extraversion_big5",
+              "tone_name": "Extraversion"
+            },
+            {
+              "score": 0.544827,
+              "tone_id": "agreeableness_big5",
+              "tone_name": "Agreeableness"
+            },
+            {
+              "score": 0.813538,
+              "tone_id": "emotional_range_big5",
+              "tone_name": "Emotional Range"
+            }
+          ],
+          "category_id": "social_tone",
+          "category_name": "Social Tone"
+        }
+      ]
+    },
+    {
+      "sentence_id": 20,
+      "text": "All morning, thwarted travelers spilled into the streets of Times Square, towing suitcases in bewildered silence.",
+      "input_from": 1991,
+      "input_to": 2104,
+      "tone_categories": [
+        {
+          "tones": [
+            {
+              "score": 0.046913,
+              "tone_id": "anger",
+              "tone_name": "Anger"
+            },
+            {
+              "score": 0.206887,
+              "tone_id": "disgust",
+              "tone_name": "Disgust"
+            },
+            {
+              "score": 0.118229,
+              "tone_id": "fear",
+              "tone_name": "Fear"
+            },
+            {
+              "score": 0.154404,
+              "tone_id": "joy",
+              "tone_name": "Joy"
+            },
+            {
+              "score": 0.618281,
+              "tone_id": "sadness",
+              "tone_name": "Sadness"
+            }
+          ],
+          "category_id": "emotion_tone",
+          "category_name": "Emotion Tone"
+        },
+        {
+          "tones": [
+            {
+              "score": 0,
+              "tone_id": "analytical",
+              "tone_name": "Analytical"
+            },
+            {
+              "score": 0,
+              "tone_id": "confident",
+              "tone_name": "Confident"
+            },
+            {
+              "score": 0,
+              "tone_id": "tentative",
+              "tone_name": "Tentative"
+            }
+          ],
+          "category_id": "language_tone",
+          "category_name": "Language Tone"
+        },
+        {
+          "tones": [
+            {
+              "score": 0.565305,
+              "tone_id": "openness_big5",
+              "tone_name": "Openness"
+            },
+            {
+              "score": 0.509209,
+              "tone_id": "conscientiousness_big5",
+              "tone_name": "Conscientiousness"
+            },
+            {
+              "score": 0.701022,
+              "tone_id": "extraversion_big5",
+              "tone_name": "Extraversion"
+            },
+            {
+              "score": 0.447448,
+              "tone_id": "agreeableness_big5",
+              "tone_name": "Agreeableness"
+            },
+            {
+              "score": 0.420213,
+              "tone_id": "emotional_range_big5",
+              "tone_name": "Emotional Range"
+            }
+          ],
+          "category_id": "social_tone",
+          "category_name": "Social Tone"
+        }
+      ]
+    },
+    {
+      "sentence_id": 21,
+      "text": "They gathered at police cordons stretched across 42nd Street, filming a scene of organized chaos as scores of emergency vehicles arrived at the scene every few minutes.",
+      "input_from": 2105,
+      "input_to": 2273,
+      "tone_categories": [
+        {
+          "tones": [
+            {
+              "score": 0.0687,
+              "tone_id": "anger",
+              "tone_name": "Anger"
+            },
+            {
+              "score": 0.106713,
+              "tone_id": "disgust",
+              "tone_name": "Disgust"
+            },
+            {
+              "score": 0.550767,
+              "tone_id": "fear",
+              "tone_name": "Fear"
+            },
+            {
+              "score": 0.261477,
+              "tone_id": "joy",
+              "tone_name": "Joy"
+            },
+            {
+              "score": 0.195088,
+              "tone_id": "sadness",
+              "tone_name": "Sadness"
+            }
+          ],
+          "category_id": "emotion_tone",
+          "category_name": "Emotion Tone"
+        },
+        {
+          "tones": [
+            {
+              "score": 0.305319,
+              "tone_id": "analytical",
+              "tone_name": "Analytical"
+            },
+            {
+              "score": 0.49342,
+              "tone_id": "confident",
+              "tone_name": "Confident"
+            },
+            {
+              "score": 0,
+              "tone_id": "tentative",
+              "tone_name": "Tentative"
+            }
+          ],
+          "category_id": "language_tone",
+          "category_name": "Language Tone"
+        },
+        {
+          "tones": [
+            {
+              "score": 0.773687,
+              "tone_id": "openness_big5",
+              "tone_name": "Openness"
+            },
+            {
+              "score": 0.412269,
+              "tone_id": "conscientiousness_big5",
+              "tone_name": "Conscientiousness"
+            },
+            {
+              "score": 0.436566,
+              "tone_id": "extraversion_big5",
+              "tone_name": "Extraversion"
+            },
+            {
+              "score": 0.597871,
+              "tone_id": "agreeableness_big5",
+              "tone_name": "Agreeableness"
+            },
+            {
+              "score": 0.269642,
+              "tone_id": "emotional_range_big5",
+              "tone_name": "Emotional Range"
+            }
+          ],
+          "category_id": "social_tone",
+          "category_name": "Social Tone"
+        }
+      ]
+    },
+    {
+      "sentence_id": 22,
+      "text": "John Frank, 54, was standing on 42nd Street by the Port Authority exit when he felt tremors through the pavement.",
+      "input_from": 2274,
+      "input_to": 2387,
+      "tone_categories": [
+        {
+          "tones": [
+            {
+              "score": 0.156797,
+              "tone_id": "anger",
+              "tone_name": "Anger"
+            },
+            {
+              "score": 0.124338,
+              "tone_id": "disgust",
+              "tone_name": "Disgust"
+            },
+            {
+              "score": 0.197126,
+              "tone_id": "fear",
+              "tone_name": "Fear"
+            },
+            {
+              "score": 0.251714,
+              "tone_id": "joy",
+              "tone_name": "Joy"
+            },
+            {
+              "score": 0.430769,
+              "tone_id": "sadness",
+              "tone_name": "Sadness"
+            }
+          ],
+          "category_id": "emotion_tone",
+          "category_name": "Emotion Tone"
+        },
+        {
+          "tones": [
+            {
+              "score": 0.054654,
+              "tone_id": "analytical",
+              "tone_name": "Analytical"
+            },
+            {
+              "score": 0,
+              "tone_id": "confident",
+              "tone_name": "Confident"
+            },
+            {
+              "score": 0.174613,
+              "tone_id": "tentative",
+              "tone_name": "Tentative"
+            }
+          ],
+          "category_id": "language_tone",
+          "category_name": "Language Tone"
+        },
+        {
+          "tones": [
+            {
+              "score": 0.567396,
+              "tone_id": "openness_big5",
+              "tone_name": "Openness"
+            },
+            {
+              "score": 0.236223,
+              "tone_id": "conscientiousness_big5",
+              "tone_name": "Conscientiousness"
+            },
+            {
+              "score": 0.825649,
+              "tone_id": "extraversion_big5",
+              "tone_name": "Extraversion"
+            },
+            {
+              "score": 0.498352,
+              "tone_id": "agreeableness_big5",
+              "tone_name": "Agreeableness"
+            },
+            {
+              "score": 0.849643,
+              "tone_id": "emotional_range_big5",
+              "tone_name": "Emotional Range"
+            }
+          ],
+          "category_id": "social_tone",
+          "category_name": "Social Tone"
+        }
+      ]
+    },
+    {
+      "sentence_id": 23,
+      "text": "“That’s how strong it was,” he said.",
+      "input_from": 2388,
+      "input_to": 2424,
+      "tone_categories": [
+        {
+          "tones": [
+            {
+              "score": 0.027942,
+              "tone_id": "anger",
+              "tone_name": "Anger"
+            },
+            {
+              "score": 0.033381,
+              "tone_id": "disgust",
+              "tone_name": "Disgust"
+            },
+            {
+              "score": 0.05642,
+              "tone_id": "fear",
+              "tone_name": "Fear"
+            },
+            {
+              "score": 0.650249,
+              "tone_id": "joy",
+              "tone_name": "Joy"
+            },
+            {
+              "score": 0.229021,
+              "tone_id": "sadness",
+              "tone_name": "Sadness"
+            }
+          ],
+          "category_id": "emotion_tone",
+          "category_name": "Emotion Tone"
+        },
+        {
+          "tones": [
+            {
+              "score": 0,
+              "tone_id": "analytical",
+              "tone_name": "Analytical"
+            },
+            {
+              "score": 0,
+              "tone_id": "confident",
+              "tone_name": "Confident"
+            },
+            {
+              "score": 0,
+              "tone_id": "tentative",
+              "tone_name": "Tentative"
+            }
+          ],
+          "category_id": "language_tone",
+          "category_name": "Language Tone"
+        },
+        {
+          "tones": [
+            {
+              "score": 0.476863,
+              "tone_id": "openness_big5",
+              "tone_name": "Openness"
+            },
+            {
+              "score": 0.499769,
+              "tone_id": "conscientiousness_big5",
+              "tone_name": "Conscientiousness"
+            },
+            {
+              "score": 0.261033,
+              "tone_id": "extraversion_big5",
+              "tone_name": "Extraversion"
+            },
+            {
+              "score": 0.754166,
+              "tone_id": "agreeableness_big5",
+              "tone_name": "Agreeableness"
+            },
+            {
+              "score": 0.850634,
+              "tone_id": "emotional_range_big5",
+              "tone_name": "Emotional Range"
+            }
+          ],
+          "category_id": "social_tone",
+          "category_name": "Social Tone"
+        }
+      ]
+    },
+    {
+      "sentence_id": 24,
+      "text": "Everyone began to run.",
+      "input_from": 2425,
+      "input_to": 2447,
+      "tone_categories": [
+        {
+          "tones": [
+            {
+              "score": 0.135732,
+              "tone_id": "anger",
+              "tone_name": "Anger"
+            },
+            {
+              "score": 0.01292,
+              "tone_id": "disgust",
+              "tone_name": "Disgust"
+            },
+            {
+              "score": 0.170003,
+              "tone_id": "fear",
+              "tone_name": "Fear"
+            },
+            {
+              "score": 0.637844,
+              "tone_id": "joy",
+              "tone_name": "Joy"
+            },
+            {
+              "score": 0.099773,
+              "tone_id": "sadness",
+              "tone_name": "Sadness"
+            }
+          ],
+          "category_id": "emotion_tone",
+          "category_name": "Emotion Tone"
+        },
+        {
+          "tones": [
+            {
+              "score": 0,
+              "tone_id": "analytical",
+              "tone_name": "Analytical"
+            },
+            {
+              "score": 0,
+              "tone_id": "confident",
+              "tone_name": "Confident"
+            },
+            {
+              "score": 0,
+              "tone_id": "tentative",
+              "tone_name": "Tentative"
+            }
+          ],
+          "category_id": "language_tone",
+          "category_name": "Language Tone"
+        },
+        {
+          "tones": [
+            {
+              "score": 0.076558,
+              "tone_id": "openness_big5",
+              "tone_name": "Openness"
+            },
+            {
+              "score": 0.317013,
+              "tone_id": "conscientiousness_big5",
+              "tone_name": "Conscientiousness"
+            },
+            {
+              "score": 0.447431,
+              "tone_id": "extraversion_big5",
+              "tone_name": "Extraversion"
+            },
+            {
+              "score": 0.573309,
+              "tone_id": "agreeableness_big5",
+              "tone_name": "Agreeableness"
+            },
+            {
+              "score": 0.486714,
+              "tone_id": "emotional_range_big5",
+              "tone_name": "Emotional Range"
+            }
+          ],
+          "category_id": "social_tone",
+          "category_name": "Social Tone"
+        }
+      ]
+    },
+    {
+      "sentence_id": 25,
+      "text": "He stood on Eighth Avenue a few blocks away on Monday morning, shaken, leaning on a garbage pail for support.",
+      "input_from": 2448,
+      "input_to": 2557,
+      "tone_categories": [
+        {
+          "tones": [
+            {
+              "score": 0.387657,
+              "tone_id": "anger",
+              "tone_name": "Anger"
+            },
+            {
+              "score": 0.381429,
+              "tone_id": "disgust",
+              "tone_name": "Disgust"
+            },
+            {
+              "score": 0.200308,
+              "tone_id": "fear",
+              "tone_name": "Fear"
+            },
+            {
+              "score": 0.034836,
+              "tone_id": "joy",
+              "tone_name": "Joy"
+            },
+            {
+              "score": 0.371673,
+              "tone_id": "sadness",
+              "tone_name": "Sadness"
+            }
+          ],
+          "category_id": "emotion_tone",
+          "category_name": "Emotion Tone"
+        },
+        {
+          "tones": [
+            {
+              "score": 0.417844,
+              "tone_id": "analytical",
+              "tone_name": "Analytical"
+            },
+            {
+              "score": 0,
+              "tone_id": "confident",
+              "tone_name": "Confident"
+            },
+            {
+              "score": 0,
+              "tone_id": "tentative",
+              "tone_name": "Tentative"
+            }
+          ],
+          "category_id": "language_tone",
+          "category_name": "Language Tone"
+        },
+        {
+          "tones": [
+            {
+              "score": 0.341888,
+              "tone_id": "openness_big5",
+              "tone_name": "Openness"
+            },
+            {
+              "score": 0.411388,
+              "tone_id": "conscientiousness_big5",
+              "tone_name": "Conscientiousness"
+            },
+            {
+              "score": 0.44467,
+              "tone_id": "extraversion_big5",
+              "tone_name": "Extraversion"
+            },
+            {
+              "score": 0.112292,
+              "tone_id": "agreeableness_big5",
+              "tone_name": "Agreeableness"
+            },
+            {
+              "score": 0.426954,
+              "tone_id": "emotional_range_big5",
+              "tone_name": "Emotional Range"
+            }
+          ],
+          "category_id": "social_tone",
+          "category_name": "Social Tone"
+        }
+      ]
+    },
+    {
+      "sentence_id": 26,
+      "text": "“In New York City, we are vulnerable to a lot of things,” he said.",
+      "input_from": 2558,
+      "input_to": 2624,
+      "tone_categories": [
+        {
+          "tones": [
+            {
+              "score": 0.380954,
+              "tone_id": "anger",
+              "tone_name": "Anger"
+            },
+            {
+              "score": 0.033714,
+              "tone_id": "disgust",
+              "tone_name": "Disgust"
+            },
+            {
+              "score": 0.15531,
+              "tone_id": "fear",
+              "tone_name": "Fear"
+            },
+            {
+              "score": 0.118057,
+              "tone_id": "joy",
+              "tone_name": "Joy"
+            },
+            {
+              "score": 0.451975,
+              "tone_id": "sadness",
+              "tone_name": "Sadness"
+            }
+          ],
+          "category_id": "emotion_tone",
+          "category_name": "Emotion Tone"
+        },
+        {
+          "tones": [
+            {
+              "score": 0,
+              "tone_id": "analytical",
+              "tone_name": "Analytical"
+            },
+            {
+              "score": 0,
+              "tone_id": "confident",
+              "tone_name": "Confident"
+            },
+            {
+              "score": 0.323642,
+              "tone_id": "tentative",
+              "tone_name": "Tentative"
+            }
+          ],
+          "category_id": "language_tone",
+          "category_name": "Language Tone"
+        },
+        {
+          "tones": [
+            {
+              "score": 0.512755,
+              "tone_id": "openness_big5",
+              "tone_name": "Openness"
+            },
+            {
+              "score": 0.582686,
+              "tone_id": "conscientiousness_big5",
+              "tone_name": "Conscientiousness"
+            },
+            {
+              "score": 0.656995,
+              "tone_id": "extraversion_big5",
+              "tone_name": "Extraversion"
+            },
+            {
+              "score": 0.882036,
+              "tone_id": "agreeableness_big5",
+              "tone_name": "Agreeableness"
+            },
+            {
+              "score": 0.553978,
+              "tone_id": "emotional_range_big5",
+              "tone_name": "Emotional Range"
+            }
+          ],
+          "category_id": "social_tone",
+          "category_name": "Social Tone"
+        }
+      ]
+    },
+    {
+      "sentence_id": 27,
+      "text": "“These incidents are happening too frequently.”",
+      "input_from": 2625,
+      "input_to": 2672,
+      "tone_categories": [
+        {
+          "tones": [
+            {
+              "score": 0.19585,
+              "tone_id": "anger",
+              "tone_name": "Anger"
+            },
+            {
+              "score": 0.122591,
+              "tone_id": "disgust",
+              "tone_name": "Disgust"
+            },
+            {
+              "score": 0.100866,
+              "tone_id": "fear",
+              "tone_name": "Fear"
+            },
+            {
+              "score": 0.021795,
+              "tone_id": "joy",
+              "tone_name": "Joy"
+            },
+            {
+              "score": 0.447726,
+              "tone_id": "sadness",
+              "tone_name": "Sadness"
+            }
+          ],
+          "category_id": "emotion_tone",
+          "category_name": "Emotion Tone"
+        },
+        {
+          "tones": [
+            {
+              "score": 0.620279,
+              "tone_id": "analytical",
+              "tone_name": "Analytical"
+            },
+            {
+              "score": 0,
+              "tone_id": "confident",
+              "tone_name": "Confident"
+            },
+            {
+              "score": 0,
+              "tone_id": "tentative",
+              "tone_name": "Tentative"
+            }
+          ],
+          "category_id": "language_tone",
+          "category_name": "Language Tone"
+        },
+        {
+          "tones": [
+            {
+              "score": 0.47698,
+              "tone_id": "openness_big5",
+              "tone_name": "Openness"
+            },
+            {
+              "score": 0.276041,
+              "tone_id": "conscientiousness_big5",
+              "tone_name": "Conscientiousness"
+            },
+            {
+              "score": 0.59104,
+              "tone_id": "extraversion_big5",
+              "tone_name": "Extraversion"
+            },
+            {
+              "score": 0.611822,
+              "tone_id": "agreeableness_big5",
+              "tone_name": "Agreeableness"
+            },
+            {
+              "score": 0.117231,
+              "tone_id": "emotional_range_big5",
+              "tone_name": "Emotional Range"
+            }
+          ],
+          "category_id": "social_tone",
+          "category_name": "Social Tone"
+        }
+      ]
+    }
+  ]
+}
