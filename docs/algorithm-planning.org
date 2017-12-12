@@ -303,3 +303,10 @@ http://yourotherperspective.com/2017/08/01/neuroscientists-discover-relaxing-son
 | Agreeableness     |    25 |
 | Emotional Range   |     8 |
 |-------------------+-------|
+* Initial Findings
+High Emotional Range tends to include partisan sources.
+High Emotional Tone sum tends to include less reliable sources.
+Disgust and Joy over 40.
+
+It seems the extremes of analytics and tentative seem to capture some sources, but not reliably.
+Some news sources seem to group together under certain metrics.
