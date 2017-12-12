@@ -11,12 +11,12 @@ module.exports = function analyzeInput(input, callback) {
       tone_input: input,
       content_type: 'text/plain',
     },
-    function (err, tone) {
+    (err, tone) => {
       if (err) {
         callback(err);
       } else {
-        callback(null,JSON.stringify(tone, null, 2));
+        callback(null, JSON.stringify(tone, null, 2));
       }
-    }
+    },
   );
 };
