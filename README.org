@@ -3,13 +3,18 @@ The end of fake news.
 
 * Tech Stack
 + Node + Express
-+ React
++ PostgreSQL
++ React + Redux
++ D3
+
+* Dev Stack
++ AWS EC2
++ Travis CI
 
 ** Continuous Integration
 See: https://github.com/pax-atlantica/pax-ci
 
 * Server Endpoints
-
 ** REQUEST
 |--------+---------+--------------+-----------------------------------------|
 | METHOD | URL     | REQUEST.BODY | EXAMPLE                                 |
@@ -29,18 +34,38 @@ See: https://github.com/pax-atlantica/pax-ci
 |--------+---------+--------------+-----------------+-----------+--------------|
 
 * Schema
-|------+--------+----------|
-| USER | EMAIL  | PASSWORD |
-|------+--------+----------|
-| id   | String | String   |
-|------+--------+----------|
+** USER SCHEMA
+|------+----------+--------+----------|
+| USER | USERNAME | EMAIL  | PASSWORD |
+|------+----------+--------+----------|
+| id   | String   | String | String   |
+|------+----------+--------+----------|
 
-|--------+-------------+--------+---------+--------+---------+-----------|
-| SEARCH | USERS       | TEXT   | ISLINK  | RESULT | UPVOTES | DOWNVOTES |
-|--------+-------------+--------+---------+--------+---------+-----------|
-| id     | Foreign Key | String | Boolean | Number | Number  | Number    |
-|--------+-------------+--------+---------+--------+---------+-----------|
+** SEARCH / ARTICLE SCHEMA
+|--------+-------------+---------+---------+--------+----------+----------------|
+| SEARCH | USERS       | TEXT    | ISLINK  | RESULT | POLARITY | POLARITY SCORE | -->
+|--------+-------------+---------+---------+--------+----------+----------------|
+| id     | Foreign Key | VarChar | Boolean | Number | String   | Number         | -->
+|--------+-------------+---------+---------+--------+----------+----------------|
+
+|--------+---------+--------+--------+---------+------------+-----------+-----------|
+| ANGER  | DISGUST | FEAR   | JOY    | SADNESS | ANALYTICAL | CONFIDENT | TENTATIVE | -->
+|--------+---------+--------+--------+---------+------------+-----------+-----------|
+| Number | Number  | Number | Number | Number  | Number     | Number    | Number    | -->
+|--------+---------+--------+--------+---------+------------+-----------+-----------|
+
+|----------+-------------------+--------------+---------------+-----------------|
+| OPENNESS | CONSCIENTIOUSNESS | EXTRAVERSION | AGREEABLENESS | EMOTIONAL RANGE |
+|----------+-------------------+--------------+---------------+-----------------|
+| Number   | Number            | Number       | Number        | Number          |
+|----------+-------------------+--------------+---------------+-----------------|
+
+** UPVOTES / DOWNVOTES (JOIN TABLE)
+|------+---------+---------+----------+-------------+-------------|
+| VOTE | VOTED   | UPVOTE  | DOWNVOTE | USER        | ARTICLE     |
+|------+---------+---------+----------+-------------+-------------|
+| id   | Boolean | Boolean | Boolean  | Foreign Key | Foreign Key |
+|------+---------+---------+----------+-------------+-------------|
 
 * Client State
-
 * How to Start This App
