@@ -8,21 +8,9 @@ const app = express();
 const PORT = 3000;
 
 
-
 app.use(express.static(`${__dirname}/../client/dist/`));
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
-
-app.post('/admin/build/npm', (req, res) => {
-	const hook = req.body;
-	//if ( hook.action === 'closed' && hook.merged) {
-		webHookScript.controller(hook);
-		// logs requests
-		sh.exec('echo '+JSON.stringify(hook)+' > merged-pull-request/PR'+hook.hook.id/*hook.mergedat || 5*/);
-	//}
-  sh.echo('hello world from /admin/build/npm server-index7717');
-  res.send('started build, look at terminal to follow along with the process')
-});
 
 app.post('/api/analyze', (req, res) => {
   analyzeInput(req.body.data, (err, analysis) => {
