@@ -18,7 +18,7 @@ app.post('/api/analyze', (req, res) => {
     if (err) {
       res.send(err);
     } else {
-      console.log(score.scoreAnalysis(analysis));
+      console.log(score.scoreAnalysis(JSON.parse(analysis)));
       res.send(analysis);
     }
   });

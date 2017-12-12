@@ -12,7 +12,7 @@ export function toggleUrlText(url) {
 }
 
 export function extractArticle(link, callback) {
-  return function (dispatch) {
+  return function () {
     axios.post('/api/extract', { data: link })
       .then((response) => {
         callback(response.data.article);
@@ -30,8 +30,8 @@ export function getAnalysis(article) {
       .then((response) => {
         const tone = response.data;
         axios.post('/api/sentiment', { data: article })
-          .then((response) => {
-            const sentiment = response.data;
+          .then((res) => {
+            const sentiment = res.data;
             dispatch({ type: 'RESULTS_FULFILLED', sentiment, tone });
             dispatch({ type: 'ANALYSIS_FULFILLED' });
           })
