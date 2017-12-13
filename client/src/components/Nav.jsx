@@ -1,6 +1,12 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { setLoginView, setAnalyzeView } from '../actions/userActions.js';
+import AppBar from 'material-ui/AppBar';
+import MenuItem from 'material-ui/MenuItem';
+import IconButton from 'material-ui/IconButton';
+import FontIcon from 'material-ui/FontIcon';
+import IconMenu from 'material-ui/IconMenu';
+import MoreVertIcon from 'material-ui/svg-icons/navigation/more-vert';
 
 @connect((store) => {
   return {
@@ -26,15 +32,23 @@ export default class Nav extends React.Component {
 
   render() {
     return (
-      <div>
-        <h1>Pax Atlantica</h1>
-        <button onClick={this.handleAnalyzeClick.bind(this)}>Analyze</button>
-        {this.props.login ?
-          <button onClick={this.handleLogoutClick.bind(this)}>Log out</button>
-        :
-          <button onClick={this.handleLoginClick.bind(this)}>Log in</button>
-        }
-      </div>
+      <AppBar
+        title='Pax Atlantica'
+        iconElementRight={<IconMenu
+          iconButtonElement={
+            <IconButton><MoreVertIcon /></IconButton>
+          }
+          targetOrigin={{horizontal: 'right', vertical: 'top'}}
+          anchorOrigin={{horizontal: 'right', vertical: 'top'}}
+        >
+          <MenuItem primaryText='Analyze' onClick={this.handleAnalyzeClick.bind(this)} />
+          {this.props.login ?
+            <MenuItem primaryText='Log Out' onClick={this.handleLogoutClick.bind(this)} />
+          :
+            <MenuItem primaryText='Log In' onClick={this.handleLoginClick.bind(this)} />
+          }
+        </IconMenu>}
+      />
     )
   }
 }
