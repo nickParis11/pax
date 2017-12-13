@@ -65,62 +65,75 @@ const client = new Client({
   port: 5432,
 });
 
-db
-  .authenticate()
-  .then(() => {
-    console.log('Connected to database.');
-  })
-  .catch((err) => {
-    console.log('Unable to connect to database: ', err);
-  });
+client.connect();
 
-// client.query('select * from users', (err, res) => {
-//   console.log(err ? err.stack : res.rows);
-//   // make sure to uncomment client.end() if running other queries in this page with pg module
-//   client.end();
+client.query('select * from users', (err, res) => {
+  console.log(err ? err.stack : res.rows);
+  // make sure to uncomment client.end() if running other queries in this page with pg module
+  client.end();
+});
+
+
+// only uncomment this part if you wanna test insertion
+// make sure to uncomment client.end() if there is no client.end after these lines
+
+/*
+client.query('insert into users (name) values ($1);',['Katelyn'], (err, res) => {
+  console.log(err ? err.stack : res);
+  //client.end();
+})
+*/
+
+// db
+//   .authenticate()
+//   .then(() => {
+//     console.log('Connected to database.');
+//   })
+//   .catch((err) => {
+//     console.log('Unable to connect to database: ', err);
+//   });
+
+// const User = db.define('user', {
+//   username: Sequelize.STRING,
+//   email: Sequelize.STRING,
+//   password: Sequelize.STRING,
 // });
 
-const User = db.define('user', {
-  username: Sequelize.STRING,
-  email: Sequelize.STRING,
-  password: Sequelize.STRING,
-});
+// const Input = db.define('input', {
+//   text: Sequelize.STRING,
+//   is_link: Sequelize.BOOLEAN,
+//   result: Sequelize.INTEGER,
+//   polarity: Sequelize.STRING,
+//   polarity_score: Sequelize.INTEGER,
+//   anger: Sequelize.INTEGER,
+//   disgust: Sequelize.INTEGER,
+//   fear: Sequelize.INTEGER,
+//   joy: Sequelize.INTEGER,
+//   sadness: Sequelize.INTEGER,
+//   analytical: Sequelize.INTEGER,
+//   confident: Sequelize.INTEGER,
+//   tentative: Sequelize.INTEGER,
+//   openness: Sequelize.INTEGER,
+//   conscientiousness: Sequelize.INTEGER,
+//   extraversion: Sequelize.INTEGER,
+//   agreeableness: Sequelize.INTEGER,
+//   emotional_range: Sequelize.INTEGER,
+// });
 
-const Input = db.define('input', {
-  text: Sequelize.STRING,
-  is_link: Sequelize.BOOLEAN,
-  result: Sequelize.INTEGER,
-  polarity: Sequelize.STRING,
-  polarity_score: Sequelize.INTEGER,
-  anger: Sequelize.INTEGER,
-  disgust: Sequelize.INTEGER,
-  fear: Sequelize.INTEGER,
-  joy: Sequelize.INTEGER,
-  sadness: Sequelize.INTEGER,
-  analytical: Sequelize.INTEGER,
-  confident: Sequelize.INTEGER,
-  tentative: Sequelize.INTEGER,
-  openness: Sequelize.INTEGER,
-  conscientiousness: Sequelize.INTEGER,
-  extraversion: Sequelize.INTEGER,
-  agreeableness: Sequelize.INTEGER,
-  emotional_range: Sequelize.INTEGER,
-});
+// const Vote = db.define('vote', {
+//   voted: Sequelize.BOOLEAN,
+//   upvote: Sequelize.BOOLEAN,
+//   downvote: Sequelize.BOOLEAN,
+// });
 
-const Vote = db.define('vote', {
-  voted: Sequelize.BOOLEAN,
-  upvote: Sequelize.BOOLEAN,
-  downvote: Sequelize.BOOLEAN,
-});
+// User.hasMany(Input);
+// User.hasMany(Vote);
+// Input.hasMany(Vote);
 
-User.hasMany(Input);
-User.hasMany(Vote);
-Input.hasMany(Vote);
+// Input.belongsTo(User);
+// Vote.belongsTo(User);
+// Vote.belongsTo(Input);
 
-Input.belongsTo(User);
-Vote.belongsTo(User);
-Vote.belongsTo(Input);
-
-exports.User = User;
-exports.Input = Input;
-exports.Vote = Vote;
+// exports.User = User;
+// exports.Input = Input;
+// exports.Vote = Vote;

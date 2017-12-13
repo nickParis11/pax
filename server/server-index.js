@@ -3,7 +3,7 @@ const bodyParser = require('body-parser');
 const analyzeInput = require('./toneAnalyzer.js');
 const aylienHelpers = require('./aylienHelpers.js');
 const score = require('./algorithm.js');
-const db = require('./db/db-index.js');
+// const db = require('./db/db-index.js');
 
 const app = express();
 
