@@ -2,10 +2,18 @@ const { Client } = require('pg');
 require('dotenv').config();
 const Sequelize = require('sequelize');
 
+// ******************************** db elements set up
+
+const dbPwd = process.env.LOCAL === '1' ? process.env.LOCAL_DB_PASSWORD : process.env.DEPLOYED_DB_PASSWORD;
+const dbUser = process.env.LOCAL === '1' ? process.env.LOCAL_DB_USER : process.env.DEPLOYED_DB_USER;
+const dbHost = process.env.LOCAL === '1' ? process.env.LOCAL_DB_HOST : process.env.DEPLOYED_DB_HOST;
+const dbName = process.env.LOCAL === '1' ? process.env.LOCAL_DB_NAME : process.env.DEPLOYED_DB_NAME;
+
+
 // **************** sequelize pat **************
 
-const sequelize = new Sequelize('test', 'postgres', process.env.LOCAL_DB_PASSWORD, {
-  host: 'localhost',
+const sequelize = new Sequelize(dbName, dbUser, dbPwd, {
+  host: dbHost,
   dialect: 'postgres',
   pool: {
     max: 5,
@@ -14,7 +22,6 @@ const sequelize = new Sequelize('test', 'postgres', process.env.LOCAL_DB_PASSWOR
     idle: 10000
   },
 });
-
 
 sequelize
   .authenticate()
@@ -25,7 +32,7 @@ sequelize
     console.error('sequelize : Unable to connect to the database:', err);
   });
 
-  const User = sequelize.define('sequelizeUser', {
+  const User = sequelize.define('sequelize_user', {
     name: {
       type: Sequelize.STRING
     },
@@ -47,27 +54,23 @@ sequelize
   // ******************** pg part *************
 
 const client = new Client({
-  user: 'postgres',
-  host: 'localhost',
-  database: 'test',
-  password: process.env.LOCAL_DB_PASSWORD,
+  user: dbUser,
+  host: dbHost,
+  database: dbName,
+  password: dbPwd,
   port: 5432,
 });
 
 client.connect();
 
-
-
-/*
-
 // only uncomment this part if you wanna test insertion
 // make sure to uncomment client.end() if there is no client.end after these lines
 
+/*
 client.query('insert into users (name) values ($1);',['Katelyn'], (err, res) => {
   console.log(err ? err.stack : res);
   //client.end();
 })
-
 */
 
 client.query('select * from users', (err, res) => {
