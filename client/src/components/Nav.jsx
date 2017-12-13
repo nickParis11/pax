@@ -25,7 +25,7 @@ export default class Nav extends React.Component {
   }
 
   render() {
-    return(
+    return (
       <div>
         <h1>Pax Atlantica</h1>
         <button onClick={this.handleAnalyzeClick.bind(this)}>Analyze</button>

@@ -72,7 +72,6 @@
     "dotenv": "^4.0.0",
     "express": "^4.16.2",
     "express-session": "^1.15.6",
-    "materialize-css": "^0.100.2",
     "path": "^0.12.7",
     "pg": "^6.4.2",
     "pg-hstore": "^2.3.2",
