@@ -81,16 +81,14 @@ db
 // });
 
 const User = db.define('user', {
-  id: Sequelize.UUID,
   username: Sequelize.STRING,
   email: Sequelize.STRING,
   password: Sequelize.STRING,
 });
 
 const Input = db.define('input', {
-  id: Sequelize.UUID,
   text: Sequelize.STRING,
-  islink: Sequelize.BOOLEAN,
+  is_link: Sequelize.BOOLEAN,
   result: Sequelize.INTEGER,
   polarity: Sequelize.STRING,
   polarity_score: Sequelize.INTEGER,
@@ -110,7 +108,6 @@ const Input = db.define('input', {
 });
 
 const Vote = db.define('vote', {
-  id: Sequelize.UUID,
   voted: Sequelize.BOOLEAN,
   upvote: Sequelize.BOOLEAN,
   downvote: Sequelize.BOOLEAN,
