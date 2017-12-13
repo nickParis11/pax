@@ -14,6 +14,11 @@ export default function user(state = initialState, action) {
     case 'SET_LOGIN_VIEW':
       return { ...state, loginView: true };
       break;
+    case 'SET_USERNAME':
+      return { ...state, username: action.payload };
+      break;
+    case 'SET_PASSWORD':
+      return { ...state, password: action.payload };
     default:
       return state;
   }
