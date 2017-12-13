@@ -9,7 +9,7 @@ const initialState = {
   waiting: false,
 };
 
-export default function reducer(state = initialState, action) {
+export default function analyzer(state = initialState, action) {
   if (action.type === 'TOGGLE_URL_TRUE') {
     return { ...state, analyzeUrl: false, analyzeText: true };
   } else if (action.type === 'TOGGLE_TEXT_TRUE') {
