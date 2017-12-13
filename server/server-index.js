@@ -56,8 +56,6 @@ app.post('/signup', (req, res) => {
   res.send(null);
 });
 
-require('./routes')(app);
-
 app.listen(PORT, () => {
   console.log(`Listening on ${PORT}`);
 });
