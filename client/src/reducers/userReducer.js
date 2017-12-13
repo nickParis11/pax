@@ -7,16 +7,13 @@ const initialState = {
 };
 
 export default function user(state = initialState, action) {
-  switch(action.type) {
+  switch (action.type) {
     case 'SET_ANALYZE_VIEW':
       return { ...state, loginView: false };
-      break;
     case 'SET_LOGIN_VIEW':
       return { ...state, loginView: true };
-      break;
     case 'SET_USERNAME':
       return { ...state, username: action.payload };
-      break;
     case 'SET_PASSWORD':
       return { ...state, password: action.payload };
     default:

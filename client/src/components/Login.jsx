@@ -1,6 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { setUsername, setPassword } from '../actions/userActions.js';
+import { setUsername, setPassword, loginUser, signupUser } from '../actions/userActions.js';
 import TextField from 'material-ui/TextField';
 import RaisedButton from 'material-ui/RaisedButton';
 
@@ -21,12 +21,21 @@ export default class Login extends React.Component {
     this.props.dispatch(setPassword(i));
   }
 
+  handleLoginClick() {
+    this.props.dispatch(loginUser(this.props.username, this.props.password));
+  }
+
+  handleSignupClick() {
+    this.props.dispatch(signupUser(this.props.username, this.props.password));
+  }
+
   render() {
     return (
       <div>
         <TextField floatingLabelText='Username' onChange={this.handleUserChange.bind(this)} /><br />
         <TextField floatingLabelText='Password' onChange={this.handlePassChange.bind(this)} /><br />
-        <RaisedButton label='Log In' />
+        <RaisedButton label='Log In' onClick={this.handleLoginClick.bind(this)} />
+        <RaisedButton label='Sign Up' onClick={this.handleLoginClick.bind(this)} />
       </div>
     )
   }

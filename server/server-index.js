@@ -1,5 +1,6 @@
 const express = require('express');
 const bodyParser = require('body-parser');
+const bcrypt = require('bcrypt');
 const analyzeInput = require('./toneAnalyzer.js');
 const aylienHelpers = require('./aylienHelpers.js');
 const score = require('./algorithm.js');
@@ -50,10 +51,12 @@ app.post('/api/vote', (req, res) => {
 });
 
 app.post('/login', (req, res) => {
+  console.log(req.body);
   res.send(null);
 });
 
 app.post('/signup', (req, res) => {
+  console.log(req.body);
   res.send(null);
 });
 

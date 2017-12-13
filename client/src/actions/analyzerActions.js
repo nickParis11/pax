@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 export function setAnalyzeView() {
-  return { type: 'TOGGLE_ANALYZE_VIEW', };
+  return { type: 'TOGGLE_ANALYZE_VIEW' };
 }
 
 export function toggleUrlText(url) {
