@@ -19,39 +19,43 @@ const sequelize = new Sequelize(dbName, dbUser, dbPwd, {
     max: 5,
     min: 0,
     acquire: 30000,
-    idle: 10000
+    idle: 10000,
   },
 });
 
+// test authentification
 sequelize
   .authenticate()
   .then(() => {
     console.log('sequelize Connection has been established successfully.');
   })
-  .catch(err => {
+  .catch((err) => {
     console.error('sequelize : Unable to connect to the database:', err);
   });
 
-  const User = sequelize.define('sequelize_user', {
-    name: {
-      type: Sequelize.STRING
-    },
-  });
+
+// create bareboen schema
+const User = sequelize.define('sequelize_user', {
+  name: {
+    type: Sequelize.STRING,
+  },
+});
+
 
   // force: true will drop the table if it already exists
-  User.sync({force: true}).then(() => {
-    console.log('Table created');
-    return User.create({
-      name: 'Robin',
-    }).then(()=> {
-    	console.log('row ceated');
-    	User.findAll().then(users => {
-    	  console.log('equivalent select * =',users)
-    	})
+User.sync({ force: true }).then(() => {
+  console.log('Table created');
+  return User.create({
+    name: 'Robin',
+  }).then(() => {
+    console.log('row ceated');
+    User.findAll().then((users) => {
+      console.log('equivalent select * =', users);
     });
   });
+});
 
-  // ******************** pg part *************
+// ******************** pg part *************
 
 const client = new Client({
   user: dbUser,
@@ -63,6 +67,13 @@ const client = new Client({
 
 client.connect();
 
+client.query('select * from users', (err, res) => {
+  console.log(err ? err.stack : res.rows);
+  // make sure to uncomment client.end() if running other queries in this page with pg module
+  client.end();
+});
+
+
 // only uncomment this part if you wanna test insertion
 // make sure to uncomment client.end() if there is no client.end after these lines
 
@@ -72,9 +83,4 @@ client.query('insert into users (name) values ($1);',['Katelyn'], (err, res) => 
   //client.end();
 })
 */
-
-client.query('select * from users', (err, res) => {
-  console.log(err ? err.stack : res.rows);
-  client.end();
-});
 
