@@ -35,7 +35,7 @@ export default class EmotionChart extends React.Component {
 
     const padding = 25;
     let margin = {
-        top: 25, right: 25, bottom: 25, left: 25,
+        top: 20, right: 20, bottom: 20, left: 20,
       },
       width = this.props.width - margin.left - margin.right,
       height = this.props.height - margin.top - margin.bottom;
@@ -59,7 +59,7 @@ export default class EmotionChart extends React.Component {
     let yAxis = d3
       .axisLeft()
       .scale(y)
-      .ticks(10, '%');
+      .tickFormat(d3.format('10'));
 
     let svg = d3
       .select(div)
@@ -86,7 +86,12 @@ export default class EmotionChart extends React.Component {
       .attr('y',6)
       .attr('dy', '.65em')
       .style('text-anchor', 'end')
-      .text('Frequency');
+      .text('Frequency')
+      ;
+
+      // svg.append('text')
+      // .style('text-anchor', 'end')
+      // .text('Frequency');
 
       svg.selectAll('.bar')
         .data(data)

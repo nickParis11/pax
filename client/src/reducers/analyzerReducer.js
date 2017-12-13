@@ -8,7 +8,7 @@ const initialState = {
   success: false,
   tone: null,
   waiting: false,
-  width: 1050,
+  width: 1100,
 };
 
 export default function analyzer(state = initialState, action) {
