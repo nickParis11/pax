@@ -15,7 +15,7 @@
     "start": "webpack -d --watch | nodemon server/server-index.js --inspect",
     "start-client": "webpack -d --watch",
     "start-server": "nodemon server/server-index.js --inspect",
-    "test": "./node_modules/.bin/eslint --color --ext .js .",
+    "test": "./node_modules/.bin/eslint --color --ext .js --ext .jsx .",
     "test-webhook": "node scripts/controllers/webhook.js"
   },
   "repository": {
