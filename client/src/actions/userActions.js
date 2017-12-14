@@ -25,7 +25,7 @@ export function loginUser(un, pw) {
       .catch((err) => {
         console.log(err);
       });
-  }
+  };
 }
 
 export function signupUser(un, pw) {
@@ -37,5 +37,5 @@ export function signupUser(un, pw) {
       .catch((err) => {
         console.log(err);
       });
-  }
+  };
 }

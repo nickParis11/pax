@@ -1,6 +1,5 @@
 const express = require('express');
 const bodyParser = require('body-parser');
-const bcrypt = require('bcrypt');
 const analyzeInput = require('./toneAnalyzer.js');
 const aylienHelpers = require('./aylienHelpers.js');
 const score = require('./algorithm.js');
