@@ -42,10 +42,10 @@ app.post('/api/extract', (req, res) => {
     } else {
       analyzeInput(article.article, (error, tone) => {
         if (error) {
-          console.log('Error getting tone:', err);
+          console.log('Error getting tone:', error);
         } else {
           analysis.tone = JSON.parse(tone);
-          aylienHelpers.sentimentAnalysis(article, (er, sentiment) => {
+          aylienHelpers.sentimentAnalysis(article.article, (er, sentiment) => {
             if (er) {
               console.log('Error getting sentiment:', er);
             } else {
