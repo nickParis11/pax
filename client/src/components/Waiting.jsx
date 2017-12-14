@@ -5,7 +5,7 @@ const Waiting = () => {
     <div>
       <h3>Analyzing...</h3>
     </div>
-  )
-}
+  );
+};
 
 export default Waiting;

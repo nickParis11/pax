@@ -12,13 +12,8 @@ import Results from './Results.jsx';
     success: store.analyzer.success,
     waiting: store.analyzer.waiting,
   };
-})
-
-export default class Analyzer extends React.Component {
-
+}) export default class Analyzer extends React.Component {
   render() {
-    console.log('analyzer', this.props);
-
     if (this.props.loginView) {
       return (
         <div>
@@ -26,17 +21,16 @@ export default class Analyzer extends React.Component {
           <h2>Log in</h2>
           <Login />
         </div>
-      )
-    } else {
-      return (
-        <div>
-          <Nav />
-          <h2>Analyzer</h2>
-          <Input />
-          {this.props.waiting ? <Waiting /> : null}
-          {this.props.success ? <Results /> : null}
-        </div>
-      )
+      );
     }
+    return (
+      <div>
+        <Nav />
+        <h2>Analyzer</h2>
+        <Input />
+        {this.props.waiting ? <Waiting /> : null}
+        {this.props.success ? <Results /> : null}
+      </div>
+    );
   }
 }

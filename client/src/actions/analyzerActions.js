@@ -16,7 +16,7 @@ export function toggleUrlText(url) {
 }
 
 export function extractArticle(link, callback) {
-  return function () {
+  return () => {
     axios.post('/api/extract', { data: link })
       .then((response) => {
         callback(response.data.article);
@@ -28,7 +28,7 @@ export function extractArticle(link, callback) {
 }
 
 export function getAnalysis(article) {
-  return function (dispatch) {
+  return (dispatch) => {
     dispatch({ type: 'ANALYSIS_SUBMITTED' });
     axios.post('/api/analyze', { data: article })
       .then((response) => {

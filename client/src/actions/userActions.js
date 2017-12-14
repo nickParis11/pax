@@ -17,7 +17,7 @@ export function setPassword(password) {
 }
 
 export function loginUser(un, pw) {
-  return function () {
+  return () => {
     axios.post('/login', { username: un, password: pw })
       .then((response) => {
         console.log(response.body);
@@ -29,7 +29,7 @@ export function loginUser(un, pw) {
 }
 
 export function signupUser(un, pw) {
-  return function () {
+  return () => {
     axios.post('/signup', { username: un, password: pw })
       .then((response) => {
         console.log(response.body);
