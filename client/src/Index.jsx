@@ -5,9 +5,8 @@ import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import store from './store';
 import Analyzer from './components/Analyzer.jsx';
 
-ReactDOM.render(
-  <Provider store={store}>
-    <MuiThemeProvider>
-      <Analyzer />
-    </MuiThemeProvider>
-  </Provider>, document.getElementById('app'));
+ReactDOM.render(<Provider store={store}>
+  <MuiThemeProvider>
+    <Analyzer />
+  </MuiThemeProvider>
+</Provider>, document.getElementById('app'));

@@ -11,7 +11,6 @@ import { toggleUrlText, getUrlAnalysis, getTextAnalysis } from '../actions/analy
     input: store.analyzer.input,
   };
 }) export default class Input extends React.Component {
-
   textToggleHandle() {
     this.props.dispatch(toggleUrlText(this.props.analyzeUrl));
   }

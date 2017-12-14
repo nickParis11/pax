@@ -21,15 +21,15 @@ app.post('/api/analyze', (req, res) => {
       console.log('Error getting tone:', err);
     } else {
       analysis.tone = JSON.parse(tone);
-      aylienHelpers.sentimentAnalysis(req.body.data, (err, sentiment) => {
-        if (err) {
-          console.log('Error getting sentiment:', err);
+      aylienHelpers.sentimentAnalysis(req.body.data, (error, sentiment) => {
+        if (error) {
+          console.log('Error getting sentiment:', error);
         } else {
           analysis.sentiment = sentiment;
           analysis.score = score.scoreAnalysis(JSON.parse(tone));
           res.send(analysis);
         }
-      })
+      });
     }
   });
 });
@@ -40,20 +40,20 @@ app.post('/api/extract', (req, res) => {
     if (err) {
       console.log('Error extracting article: ', err);
     } else {
-      analyzeInput(article.article, (err, tone) => {
-        if (err) {
+      analyzeInput(article.article, (error, tone) => {
+        if (error) {
           console.log('Error getting tone:', err);
         } else {
           analysis.tone = JSON.parse(tone);
-          aylienHelpers.sentimentAnalysis(article, (err, sentiment) => {
-            if (err) {
-              console.log('Error getting sentiment:', err);
+          aylienHelpers.sentimentAnalysis(article, (er, sentiment) => {
+            if (er) {
+              console.log('Error getting sentiment:', er);
             } else {
               analysis.sentiment = sentiment;
               analysis.score = score.scoreAnalysis(JSON.parse(tone));
               res.send(analysis);
             }
-          })
+          });
         }
       });
     }
@@ -68,8 +68,6 @@ app.post('/api/extract', (req, res) => {
 //     }
 //   });
 // });
-
-
 
 app.post('/api/vote', (req, res) => {
   res.send(null);

@@ -5,7 +5,6 @@ import Login from './Login.jsx';
 import Input from './Input.jsx';
 import Waiting from './Waiting.jsx';
 import Results from './Results.jsx';
-import { toggleUrlText, getAnalysis } from '../actions/analyzerActions.js';
 import EmotionChart from './EmotionChart.jsx';
 
 @connect((store) => {
@@ -36,7 +35,7 @@ export default class Analyzer extends React.Component {
           {this.props.success ? <Results /> : null}
           {this.props.success ? <EmotionChart /> : null}
         </div>
-      )
+      );
     }
   }
 }

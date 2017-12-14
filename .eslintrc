@@ -8,4 +8,12 @@
     "node": true,
   },
   "extends": "airbnb",
+  "rules": {
+    "import/extensions": "off",
+    "arrow-body-style": "off",
+    "react/prop-types": "off",
+    "no-else-return": "off",
+    "prefer-destructuring": "off",
+    "react/jsx-no-bind": "off",
+  }
 }

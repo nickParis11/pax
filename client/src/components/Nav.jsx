@@ -32,20 +32,20 @@ import { setLoginView, setAnalyzeView } from '../actions/userActions';
       <AppBar
         title="Pax Atlantica"
         iconElementRight={
-        <IconMenu
-          iconButtonElement={
-            <IconButton><MoreVertIcon /></IconButton>
-          }
-          targetOrigin={{ horizontal: 'right', vertical: 'top' }}
-          anchorOrigin={{ horizontal: 'right', vertical: 'top' }}
-        >
-          <MenuItem primaryText="Analyze" onClick={this.handleAnalyzeClick.bind(this)} />
-          {this.props.login ?
-            <MenuItem primaryText="Log Out" onClick={this.handleLogoutClick.bind(this)} />
-          :
-            <MenuItem primaryText="Log In" onClick={this.handleLoginClick.bind(this)} />
-          }
-        </IconMenu>}
+          <IconMenu
+            iconButtonElement={
+              <IconButton><MoreVertIcon /></IconButton>
+            }
+            targetOrigin={{ horizontal: 'right', vertical: 'top' }}
+            anchorOrigin={{ horizontal: 'right', vertical: 'top' }}
+          >
+            <MenuItem primaryText="Analyze" onClick={this.handleAnalyzeClick.bind(this)} />
+            {this.props.login ?
+              <MenuItem primaryText="Log Out" onClick={this.handleLogoutClick.bind(this)} />
+            :
+              <MenuItem primaryText="Log In" onClick={this.handleLoginClick.bind(this)} />
+            }
+          </IconMenu>}
       />
     );
   }

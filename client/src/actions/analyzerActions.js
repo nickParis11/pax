@@ -15,7 +15,7 @@ export function toggleUrlText(url) {
   };
 }
 
-export function getUrlAnalysis(link, callback) {
+export function getUrlAnalysis(link) {
   return (dispatch) => {
     dispatch({ type: 'ANALYSIS_SUBMITTED' });
     axios.post('/api/extract', { data: link })
@@ -27,7 +27,7 @@ export function getUrlAnalysis(link, callback) {
         // dispatch analysis rejected
         console.log(err);
       });
-  }
+  };
 }
 
 // export function extractArticle(link, callback) {

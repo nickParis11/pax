@@ -27,9 +27,12 @@ export default function analyzer(state = initialState, action) {
     case 'SENTIMENT_RESULTS_REJECTED':
       return { ...state, error: action.payload };
     case 'RESULTS_FULFILLED':
-      return { ...state, tone: action.payload.tone,
-                         score: action.payload.score,
-                         sentiment: action.payload.sentiment };
+      return {
+        ...state,
+        tone: action.payload.tone,
+        score: action.payload.score,
+        sentiment: action.payload.sentiment,
+      };
     case 'ANALYSIS_FULFILLED':
       return { ...state, success: true, waiting: false };
     default:
