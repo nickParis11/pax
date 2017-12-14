@@ -11,107 +11,99 @@ import { connect } from 'react-redux';
 }))
 
 export default class EmotionChart extends React.Component {
-
   drawChart() {
     const div = new ReactFauxDOM.Element('div');
 
-    let tone = this.props.tone.document_tone;
-    let sentiment = this.props.sentiment;
+    const tone = this.props.tone.document_tone;
+    // const sentiment = this.props.sentiment;
     // emotion list array in ['emotion type', score] format
-    let emotionList = tone.tone_categories[0].tones.map(emo => [emo.tone_name, Math.round(emo.score * 100)]);
+    const emotionList = tone.tone_categories[0].tones.map(emo =>
+      [emo.tone_name, Math.round(emo.score * 100)]);
 
-    let languageToneList = tone.tone_categories[1].tones.map(lang => [lang.tone_name, Math.round(lang.score * 100)]);
+    const languageToneList = tone.tone_categories[1].tones.map(lang =>
+      [lang.tone_name, Math.round(lang.score * 100)]);
 
-    let socialToneList = tone.tone_categories[2].tones.map(soc => [soc.tone_name, Math.round(soc.score * 100)]);
+    const socialToneList = tone.tone_categories[2].tones.map(soc =>
+      [soc.tone_name, Math.round(soc.score * 100)]);
 
-    let allTonesList = emotionList.concat(languageToneList, socialToneList);
+    const allTonesList = emotionList.concat(languageToneList, socialToneList);
 
-    let toneNames = allTonesList.map(criteria => criteria[0]);
+    const data = allTonesList;
 
-    let toneScores = allTonesList.map(criteria => criteria[1]);
+    const margin = {
+      top: 20, right: 20, bottom: 20, left: 20,
+    };
+    const width = this.props.width - margin.left - margin.right;
+    const height = this.props.height - margin.top - margin.bottom;
+    console.log('width', width);
+    console.log('height', height);
 
-
-    let data = allTonesList;
-
-    const padding = 25;
-    let margin = {
-        top: 20, right: 20, bottom: 20, left: 20,
-      },
-      width = this.props.width - margin.left - margin.right,
-      height = this.props.height - margin.top - margin.bottom;
-      console.log('width', width);
-      console.log('height', height);
-
-    let x = d3
+    const x = d3
       .scaleBand()
       .rangeRound([0, width])
-      .paddingInner(5)
-      .paddingOuter(5)
+      .paddingInner(10)
+      .paddingOuter(25);
 
-    let y = d3
-        .scaleLinear()
-        .range([height, 0])
+    const y = d3
+      .scaleLinear()
+      .range([height, 0]);
 
-    let xAxis = d3
+    const xAxis = d3
       .axisBottom()
-      .scale(x)
+      .scale(x);
 
-    let yAxis = d3
+    const yAxis = d3
       .axisLeft()
       .scale(y)
       .tickFormat(d3.format('10'));
 
-    let svg = d3
+    const svg = d3
       .select(div)
       .append('svg')
       .attr('width', width + margin.left + margin.right)
       .attr('height', height + margin.top + margin.bottom)
- //     .style('background-color', '#E5DF24')
+      //     .style('background-color', '#E5DF24')
       .append('g')
       .attr('transform', `translate(${margin.left},${margin.top})`);
 
-      x.domain(data.map((d) => d[0]));
-      y.domain([0, /*d3.max(data, (d)=> d[1])*/100]);
+    x.domain(data.map(d => d[0]));
+    y.domain([0, /* d3.max(data, (d)=> d[1]) */100]);
 
-      svg.append('g')
+    svg.append('g')
       .attr('class', 'x axis')
       .attr('transform', `translate(0, ${height}`)
       .call(xAxis)
       .selectAll('text')
-          .style('text-anchor','end')
-          .attr('dx', '-2em')
-          .attr('dy', '.15em')
-          .attr('transform', (d) => {return 'rotate(-65)'});
+      .style('text-anchor', 'end')
+      .attr('dx', '-2em')
+      .attr('dy', '.15em')
+      .attr('transform', () => 'rotate(-65)');
 
-      svg.append('g')
+    svg.append('g')
       .attr('class', 'y axis')
       .call(yAxis)
       .append('text')
       .attr('transform', 'rotate(90)')
-      .attr('y',6)
+      .attr('y', 6)
       .attr('dy', '.65em')
       .style('text-anchor', 'end')
-      .text('Frequency')
-      ;
+      .text('Frequency');
 
-      // svg.append('text')
-      // .style('text-anchor', 'end')
-      // .text('Frequency');
+    // svg.append('text')
+    // .style('text-anchor', 'end')
+    // .text('Frequency');
 
-      svg.selectAll('.bar')
-        .data(data)
-        .enter().append('rect')
-        .attr('class', 'bar')
-        .attr('x', (d) => x(d[0]))
-        .attr('width',20)
-        .attr('y', (d) => y(d[1]))
-        .style('fill', '#800080')
-        .attr('height', (d) => {return height - y(d[1])});
-    return div.toReact()
+    svg.selectAll('.bar')
+      .data(data)
+      .enter().append('rect')
+      .attr('class', 'bar')
+      .attr('x', d => x(d[0]))
+      .attr('width', 20)
+      .attr('y', d => y(d[1]))
+      .style('fill', '#800080')
+      .attr('height', d => height - y(d[1]));
+    return div.toReact();
   }
-
-
-
 
   render() {
     return this.drawChart();
