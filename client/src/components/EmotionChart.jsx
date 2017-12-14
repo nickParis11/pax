@@ -66,7 +66,7 @@ export default class EmotionChart extends React.Component {
       .append('svg')
       .attr('width', width + margin.left + margin.right)
       .attr('height', height + margin.top + margin.bottom)
- // /     .style('background-color', '#E5DF24')
+ //     .style('background-color', '#E5DF24')
       .append('g')
       .attr('transform', `translate(${margin.left},${margin.top})`);
 
@@ -75,8 +75,13 @@ export default class EmotionChart extends React.Component {
 
       svg.append('g')
       .attr('class', 'x axis')
-      .attr('transform', `translate(0,${height}`)
-      .call(xAxis);
+      .attr('transform', `translate(0, ${height}`)
+      .call(xAxis)
+      .selectAll('text')
+          .style('text-anchor','end')
+          .attr('dx', '-2em')
+          .attr('dy', '.15em')
+          .attr('transform', (d) => {return 'rotate(-65)'});
 
       svg.append('g')
       .attr('class', 'y axis')
