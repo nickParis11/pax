@@ -43,16 +43,20 @@ See: https://github.com/pax-atlantica/pax-ci
 
 ** SEARCH / ARTICLE SCHEMA
 |--------+-------------+---------+---------+--------+----------+----------------|
-| SEARCH | USERS       | TEXT    | ISLINK  | RESULT | POLARITY | POLARITY SCORE | -->
+| SEARCH | USERS       | TEXT    | ISLINK  | RESULT | POLARITY | POLARITY SCORE |
 |--------+-------------+---------+---------+--------+----------+----------------|
-| id     | Foreign Key | VarChar | Boolean | Number | String   | Number         | -->
+| id     | Foreign Key | VarChar | Boolean | Number | String   | Number         |
 |--------+-------------+---------+---------+--------+----------+----------------|
 
+-->
+
 |--------+---------+--------+--------+---------+------------+-----------+-----------|
-| ANGER  | DISGUST | FEAR   | JOY    | SADNESS | ANALYTICAL | CONFIDENT | TENTATIVE | -->
+| ANGER  | DISGUST | FEAR   | JOY    | SADNESS | ANALYTICAL | CONFIDENT | TENTATIVE |
 |--------+---------+--------+--------+---------+------------+-----------+-----------|
-| Number | Number  | Number | Number | Number  | Number     | Number    | Number    | -->
+| Number | Number  | Number | Number | Number  | Number     | Number    | Number    |
 |--------+---------+--------+--------+---------+------------+-----------+-----------|
+
+-->
 
 |----------+-------------------+--------------+---------------+-----------------|
 | OPENNESS | CONSCIENTIOUSNESS | EXTRAVERSION | AGREEABLENESS | EMOTIONAL RANGE |
