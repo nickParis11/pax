@@ -15,36 +15,44 @@ export function toggleUrlText(url) {
   };
 }
 
-export function extractArticle(link, callback) {
-  return () => {
+export function getUrlAnalysis(link, callback) {
+  return (dispatch) => {
+    dispatch({ type: 'ANALYSIS_SUBMITTED' });
     axios.post('/api/extract', { data: link })
       .then((response) => {
-        callback(response.data.article);
+        dispatch({ type: 'RESULTS_FULFILLED', payload: response.data });
+        dispatch({ type: 'ANALYSIS_FULFILLED' });
       })
       .catch((err) => {
+        // dispatch analysis rejected
         console.log(err);
       });
-  };
+  }
 }
 
-export function getAnalysis(article) {
+// export function extractArticle(link, callback) {
+//   return () => {
+//     axios.post('/api/extract', { data: link })
+//       .then((response) => {
+//         callback(response.data.article);
+//       })
+//       .catch((err) => {
+//         console.log(err);
+//       });
+//   };
+// }
+
+export function getTextAnalysis(article) {
   return (dispatch) => {
     dispatch({ type: 'ANALYSIS_SUBMITTED' });
     axios.post('/api/analyze', { data: article })
       .then((response) => {
-        const tone = response.data;
-        axios.post('/api/sentiment', { data: article })
-          .then((res) => {
-            const sentiment = res.data;
-            dispatch({ type: 'RESULTS_FULFILLED', sentiment, tone });
-            dispatch({ type: 'ANALYSIS_FULFILLED' });
-          })
-          .catch((err) => {
-            dispatch({ type: 'SENTIMENT_RESULTS_REJECTED', payload: err });
-          });
+        dispatch({ type: 'RESULTS_FULFILLED', payload: response.data });
+        dispatch({ type: 'ANALYSIS_FULFILLED' });
       })
       .catch((err) => {
-        dispatch({ type: 'TONE_RESULTS_REJECTED', payload: err });
+        // dispatch analysis rejected
+        console.log(err);
       });
   };
 }

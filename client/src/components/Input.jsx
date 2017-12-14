@@ -2,7 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import RaisedButton from 'material-ui/RaisedButton';
 import TextField from 'material-ui/TextField';
-import { toggleUrlText, extractArticle, getAnalysis } from '../actions/analyzerActions';
+import { toggleUrlText, getUrlAnalysis, getTextAnalysis } from '../actions/analyzerActions';
 
 @connect((store) => {
   return {
@@ -29,11 +29,12 @@ import { toggleUrlText, extractArticle, getAnalysis } from '../actions/analyzerA
     const value = document.getElementById('input').value;
 
     if (this.props.analyzeUrl) {
-      this.props.dispatch(extractArticle(value, (article) => {
-        this.props.dispatch(getAnalysis(article));
-      }));
+      this.props.dispatch(getUrlAnalysis(value));
+      // this.props.dispatch(extractArticle(value, (article) => {
+      //   this.props.dispatch(getAnalysis(article));
+      // }));
     } else {
-      this.props.dispatch(getAnalysis(value));
+      this.props.dispatch(getTextAnalysis(value));
     }
   }
 

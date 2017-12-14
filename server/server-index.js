@@ -15,35 +15,61 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 
 app.post('/api/analyze', (req, res) => {
-  analyzeInput(req.body.data, (err, analysis) => {
+  const analysis = {};
+  analyzeInput(req.body.data, (err, tone) => {
     if (err) {
-      res.send(err);
+      console.log('Error getting tone:', err);
     } else {
-      console.log(score.scoreAnalysis(JSON.parse(analysis)));
-      res.send(analysis);
+      analysis.tone = JSON.parse(tone);
+      aylienHelpers.sentimentAnalysis(req.body.data, (err, sentiment) => {
+        if (err) {
+          console.log('Error getting sentiment:', err);
+        } else {
+          analysis.sentiment = sentiment;
+          analysis.score = score.scoreAnalysis(JSON.parse(tone));
+          res.send(analysis);
+        }
+      })
     }
   });
 });
 
 app.post('/api/extract', (req, res) => {
+  const analysis = {};
   aylienHelpers.extractArticle(req.body.data, (err, article) => {
     if (err) {
-      res.send(err);
+      console.log('Error extracting article: ', err);
     } else {
-      res.send(article);
+      analyzeInput(article.article, (err, tone) => {
+        if (err) {
+          console.log('Error getting tone:', err);
+        } else {
+          analysis.tone = JSON.parse(tone);
+          aylienHelpers.sentimentAnalysis(article, (err, sentiment) => {
+            if (err) {
+              console.log('Error getting sentiment:', err);
+            } else {
+              analysis.sentiment = sentiment;
+              analysis.score = score.scoreAnalysis(JSON.parse(tone));
+              res.send(analysis);
+            }
+          })
+        }
+      });
     }
   });
 });
+// app.post('/api/sentiment', (req, res) => {
+//   aylienHelpers.sentimentAnalysis(req.body.data, (err, sentiment) => {
+//     if (err) {
+//       res.send(err);
+//     } else {
+//       res.send(sentiment);
+//     }
+//   });
+// });
 
-app.post('/api/sentiment', (req, res) => {
-  aylienHelpers.sentimentAnalysis(req.body.data, (err, sentiment) => {
-    if (err) {
-      res.send(err);
-    } else {
-      res.send(sentiment);
-    }
-  });
-});
+
 
 app.post('/api/vote', (req, res) => {
   res.send(null);
