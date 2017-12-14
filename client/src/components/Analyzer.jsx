@@ -14,8 +14,9 @@ import EmotionChart from './EmotionChart.jsx';
     success: store.analyzer.success,
     waiting: store.analyzer.waiting,
   };
+})
+
 export default class Analyzer extends React.Component {
->>>>>>> merge conflict resolution
   render() {
     if (this.props.loginView) {
       return (
