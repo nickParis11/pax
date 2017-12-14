@@ -1,7 +1,7 @@
 const express = require('express');
 const bodyParser = require('body-parser');
-const analyzeInput = require('./toneAnalyzer.js');
-const aylienHelpers = require('./aylienHelpers.js');
+const analyzeInput = require('./toneAnalyzer');
+const aylienHelpers = require('./aylienHelpers');
 const score = require('./algorithm.js');
 // const db = require('./db/db-index.js');
 
@@ -51,11 +51,25 @@ app.post('/api/vote', (req, res) => {
 
 app.post('/login', (req, res) => {
   console.log(req.body);
+  // if user doesn't exists
+    // respond to sign up
+  // if password doesn't match
+    // respond wrong password
+  // otherwise
+    // start a session for user
+    // respond that user is logged in
   res.send(null);
 });
 
 app.post('/signup', (req, res) => {
   console.log(req.body);
+  // if user already exists
+    // respond that username is taken
+  // otherwise
+    // hash password
+    // add user and password to database
+    // start a session for the user
+    // respond that the user is logged in
   res.send(null);
 });
 

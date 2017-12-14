@@ -44,7 +44,7 @@ export default class Input extends React.Component {
       return (
         <div>
           <RaisedButton label='Switch to Text' onClick={this.textToggleHandle.bind(this)} /><br />
-          <TextField floatingLabelText='Enter URL here'  /><br />
+          <TextField floatingLabelText='Enter URL here' id='input' /><br />
           <RaisedButton label='Analyze' onClick={this.checkInput.bind(this)} />
         </div>
       )
