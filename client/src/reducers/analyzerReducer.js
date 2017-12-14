@@ -2,11 +2,13 @@ const initialState = {
   analyzeUrl: true,
   analyzeText: false,
   error: null,
+  height: 400,
   input: null,
   sentiment: null,
   success: false,
   tone: null,
   waiting: false,
+  width: 500,
 };
 
 export default function analyzer(state = initialState, action) {

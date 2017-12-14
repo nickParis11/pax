@@ -1,22 +1,18 @@
 import React from 'react';
 import ReactFauxDOM from 'react-faux-dom';
 import * as d3 from 'd3';
-import axios from 'axios';
-import $ from 'jquery';
 import { connect } from 'react-redux';
 
 @connect((store) => {
   return {
+    height: store.analyzer.height,
     sentiment: store.analyzer.sentiment,
     tone: store.analyzer.tone,
+    width: store.analyzer.width,
   };
 })
 
 export default class EmotionChart extends React.Component {
-  constructor(props) {
-    super(props);
-  }
-
   render() {
     const div = new ReactFauxDOM.Element('div');
 
@@ -29,40 +25,50 @@ export default class EmotionChart extends React.Component {
         .select('body')
         .append('div')
         .attr('class','tooltip')
-        .style('opacity',0)
+        .style('opacity',0.5)
 
     let tone = this.props.tone.document_tone;
     let sentiment = this.props.sentiment;
     //emotion list array in ['emotion type', score] format
-    var emotionList = tone.tone_categories[0].tones.map((emo) => {
+    let emotionList = tone.tone_categories[0].tones.map((emo) => {
       return [emo.tone_name, Math.round(emo.score*100)];
     })
 
-    var languageToneList = tone.tone_categories[1].tones.map((lang) => {
+    let languageToneList = tone.tone_categories[1].tones.map((lang) => {
       return [lang.tone_name, Math.round(lang.score*100)];
     })
 
-    var socialToneList = tone.tone_categories[2].tones.map((soc) => {
+    let socialToneList = tone.tone_categories[2].tones.map((soc) => {
       return [soc.tone_name, Math.round(soc.score*100)];
     })
 
-    var allTonesList = emotionList.concat(languageToneList, socialToneList);
+    let allTonesList = emotionList.concat(languageToneList, socialToneList);
 
-    console.log('emotionNames', emotionNames);
-    console.log('emotionScores', emotionScores);
+    let toneNames = allTonesList.map((criteria)=> {
+      return criteria[0];
+    })
+
+    let toneScores = allTonesList.map((criteria)=> {
+      return criteria[1];
+    })
+
+    console.log('toneNames', toneNames);
+    console.log('toneScores', toneScores);
 
     let x = d3
-        .scaleLinear()
-        .range([0, width]);
+        .scaleOrdinal([0, width]);
 
     let y = d3
-        .scaleLinear()
-        .range([0,height]);
+        d3.scaleLinear([height, 0]);
 
     let xAxis = d3
-        .axisBottom()
-        .scale(x)
-        .ticks(7);
+        .axisBottom(x)
+   //     .ticks(7);
+// var xAxis = d3.svg.axis().scale(xRange).tickFormat(function(d) { return d.x;});
+// var yAxis = d3.svg.axis().scale(yRange).orient("left");
+
+// var xAxis = d3.axisBottom(xRange).tickFormat(function(d){ return d.x;});
+// var yAxis = d3.axisLeft(yRange);
 
     let yAxis = d3.axisLeft().scale(y);
 
@@ -91,21 +97,21 @@ export default class EmotionChart extends React.Component {
         .attr('y', 4)
         .attr('dy', '.69em')
         .style('text-anchor','end')
-        .text('Emotion level (%)');
+        .text('Tone level (%)');
 
       function validLine(index, item) {
-        if (emotionScores[index + 1]) {
-          return emotionScores[index+1]
+        if (toneScores[index + 1]) {
+          return toneScores[index+1]
         } else {
           return null;
         }
       }
 
-      emotionScores.forEach( (score, index, array) => {
+      toneScores.forEach( (score, index, array) => {
         svg
           .append('rect')
           .attr('class', 'scatter-bar')
-          .attr('x', x(emotionNames[index]))
+          .attr('x', x(toneNames[index]))
           .attr('y', y(score))
           .attr('width', 15)
           .attr('height', height - y(score))
@@ -114,5 +120,3 @@ export default class EmotionChart extends React.Component {
       return <div>{div.toReact()}</div>
   }
 }
-
-export default EmotionChart;
