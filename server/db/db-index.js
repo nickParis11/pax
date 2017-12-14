@@ -110,6 +110,7 @@ client.query('select * from users', (err, res) => {
   client.end();
 });
 
+
 // only uncomment this part if you wanna test insertion
 // make sure to uncomment client.end() if there is no client.end after these lines
 
