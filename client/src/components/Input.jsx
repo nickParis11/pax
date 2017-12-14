@@ -1,6 +1,8 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { toggleUrlText, extractArticle, getAnalysis } from '../actions/analyzerActions.js';
+import RaisedButton from 'material-ui/RaisedButton';
+import TextField from 'material-ui/TextField';
 
 @connect((store) => {
   return {
@@ -41,17 +43,17 @@ export default class Input extends React.Component {
     if (this.props.analyzeUrl) {
       return (
         <div>
-          <button onClick={this.textToggleHandle.bind(this)}>Switch to Text</button><br />
-          <input type='text' id='input' width='200px'/><br />
-          <input type='submit' onClick={this.checkInput.bind(this)} value='Analyze' />
+          <RaisedButton label='Switch to Text' onClick={this.textToggleHandle.bind(this)} /><br />
+          <TextField floatingLabelText='Enter URL here'  /><br />
+          <RaisedButton label='Analyze' onClick={this.checkInput.bind(this)} />
         </div>
       )
     } else {
       return (
         <div>
-          <button onClick={this.textToggleHandle.bind(this)}>Switch to URL</button><br />
+          <RaisedButton label='Switch to URL' onClick={this.textToggleHandle.bind(this)} /><br />
           <textarea type='text' id='input' rows='20' cols='100'/><br />
-          <input type='submit' onClick={this.checkInput.bind(this)} value='Analyze' />
+          <RaisedButton label='Analyze' onClick={this.checkInput.bind(this)} />
         </div>
       )
     }
