@@ -1,18 +1,57 @@
 const express = require('express');
 const bodyParser = require('body-parser');
+const passport = require('passport');
+const FacebookStrategy = require('passport-facebook').Strategy;
+const score = require('./algorithm.js');
 const analyzeInput = require('./toneAnalyzer');
 const aylienHelpers = require('./aylienHelpers');
-const score = require('./algorithm.js');
-// const db = require('./db/db-index.js');
+const userController = require('./db/controllers/userController.js');
+
+require('dotenv').config();
 
 const app = express();
 
 const PORT = 3000;
 
-
 app.use(express.static(`${__dirname}/../client/dist/`));
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
+app.use(passport.initialize());
+app.use(passport.session());
+
+passport.serializeUser((user, done) => {
+  done(null, user);
+});
+
+passport.deserializeUser((obj, done) => {
+  done(null, obj);
+});
+
+passport.use(new FacebookStrategy(
+  {
+    clientID: process.env.FB_APP_ID,
+    clientSecret: process.env.FB_APP_SECRET,
+    callbackURL: 'http://127.0.0.1:3000/auth/facebook/callback' || 'http://ec2-54-163-98-154.compute-1.amazonaws.com//auth/facebook/callback',
+  },
+  (accessToken, refreshToken, profile, done) => {
+    userController.user.post(profile.id, (err, user) => {
+      return done(err, user);
+    });
+  },
+));
+
+app.get('/auth/facebook', passport.authenticate('facebook'));
+
+app.get(
+  '/auth/facebook/callback',
+  passport.authenticate('facebook', {
+    successRedirect: '/',
+    failureRedirect: '/login',
+  }),
+  (req, res) => {
+    res.redirect('/');
+  },
+);
 
 app.post('/api/analyze', (req, res) => {
   const analysis = {};
@@ -85,17 +124,19 @@ app.post('/login', (req, res) => {
   res.send(null);
 });
 
-app.post('/signup', (req, res) => {
-  console.log(req.body);
-  // if user already exists
-  // respond that username is taken
-  // otherwise
-  // hash password
-  // add user and password to database
-  // start a session for the user
-  // respond that the user is logged in
-  res.send(null);
-});
+app.post('/signup', userController.user.post);
+
+// app.post('/signup', (req, res) => {
+//   console.log(req.body);
+//   // if user already exists
+//   // respond that username is taken
+//   // otherwise
+//   // hash password
+//   // add user and password to database
+//   // start a session for the user
+//   // respond that the user is logged in
+//   res.send(null);
+// });
 
 app.listen(PORT, () => {
   console.log(`Listening on ${PORT}`);

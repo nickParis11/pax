@@ -35,14 +35,52 @@ sequelize
 
 
 // create bareboen schema
-const User = sequelize.define('sequelize_user', {
-  name: {
-    type: Sequelize.STRING,
-  },
+const User = sequelize.define('user', {
+  username: Sequelize.STRING,
+  email: Sequelize.STRING,
+  password: Sequelize.STRING,
 });
 
+const Input = sequelize.define('input', {
+  text: Sequelize.STRING,
+  is_link: Sequelize.BOOLEAN,
+  result: Sequelize.INTEGER,
+  polarity: Sequelize.STRING,
+  polarity_score: Sequelize.INTEGER,
+  anger: Sequelize.INTEGER,
+  disgust: Sequelize.INTEGER,
+  fear: Sequelize.INTEGER,
+  joy: Sequelize.INTEGER,
+  sadness: Sequelize.INTEGER,
+  analytical: Sequelize.INTEGER,
+  confident: Sequelize.INTEGER,
+  tentative: Sequelize.INTEGER,
+  openness: Sequelize.INTEGER,
+  conscientiousness: Sequelize.INTEGER,
+  extraversion: Sequelize.INTEGER,
+  agreeableness: Sequelize.INTEGER,
+  emotional_range: Sequelize.INTEGER,
+});
 
-  // force: true will drop the table if it already exists
+const Vote = sequelize.define('vote', {
+  voted: Sequelize.BOOLEAN,
+  upvote: Sequelize.BOOLEAN,
+  downvote: Sequelize.BOOLEAN,
+});
+
+User.hasMany(Input);
+User.hasMany(Vote);
+Input.hasMany(Vote);
+
+Input.belongsTo(User);
+Vote.belongsTo(User);
+Vote.belongsTo(Input);
+
+exports.User = User;
+exports.Input = Input;
+exports.Vote = Vote;
+
+// force: true will drop the table if it already exists
 User.sync({ force: true }).then(() => {
   console.log('Table created');
   return User.create({
@@ -73,7 +111,6 @@ client.query('select * from users', (err, res) => {
   client.end();
 });
 
-
 // only uncomment this part if you wanna test insertion
 // make sure to uncomment client.end() if there is no client.end after these lines
 
@@ -83,57 +120,3 @@ client.query('insert into users (name) values ($1);',['Katelyn'], (err, res) => 
   //client.end();
 })
 */
-
-// db
-//   .authenticate()
-//   .then(() => {
-//     console.log('Connected to database.');
-//   })
-//   .catch((err) => {
-//     console.log('Unable to connect to database: ', err);
-//   });
-
-// const User = db.define('user', {
-//   username: Sequelize.STRING,
-//   email: Sequelize.STRING,
-//   password: Sequelize.STRING,
-// });
-
-// const Input = db.define('input', {
-//   text: Sequelize.STRING,
-//   is_link: Sequelize.BOOLEAN,
-//   result: Sequelize.INTEGER,
-//   polarity: Sequelize.STRING,
-//   polarity_score: Sequelize.INTEGER,
-//   anger: Sequelize.INTEGER,
-//   disgust: Sequelize.INTEGER,
-//   fear: Sequelize.INTEGER,
-//   joy: Sequelize.INTEGER,
-//   sadness: Sequelize.INTEGER,
-//   analytical: Sequelize.INTEGER,
-//   confident: Sequelize.INTEGER,
-//   tentative: Sequelize.INTEGER,
-//   openness: Sequelize.INTEGER,
-//   conscientiousness: Sequelize.INTEGER,
-//   extraversion: Sequelize.INTEGER,
-//   agreeableness: Sequelize.INTEGER,
-//   emotional_range: Sequelize.INTEGER,
-// });
-
-// const Vote = db.define('vote', {
-//   voted: Sequelize.BOOLEAN,
-//   upvote: Sequelize.BOOLEAN,
-//   downvote: Sequelize.BOOLEAN,
-// });
-
-// User.hasMany(Input);
-// User.hasMany(Vote);
-// Input.hasMany(Vote);
-
-// Input.belongsTo(User);
-// Vote.belongsTo(User);
-// Vote.belongsTo(Input);
-
-// exports.User = User;
-// exports.Input = Input;
-// exports.Vote = Vote;

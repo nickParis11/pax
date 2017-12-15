@@ -32,7 +32,7 @@ export function signupUser(un, pw) {
   return () => {
     axios.post('/signup', { username: un, password: pw })
       .then((response) => {
-        console.log(response.body);
+        console.log('-------------> userActions', response.body);
       })
       .catch((err) => {
         console.log(err);

@@ -43,7 +43,7 @@ import { setLoginView, setAnalyzeView } from '../actions/userActions';
             {this.props.login ?
               <MenuItem primaryText="Log Out" onClick={this.handleLogoutClick.bind(this)} />
             :
-              <MenuItem primaryText="Log In" onClick={this.handleLoginClick.bind(this)} />
+              <MenuItem><a href="/auth/facebook">Log In</a></MenuItem>
             }
           </IconMenu>}
       />

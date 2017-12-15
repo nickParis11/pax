@@ -15,5 +15,6 @@
     "no-else-return": "off",
     "prefer-destructuring": "off",
     "react/jsx-no-bind": "off",
+    "react/jsx-closing-tag-location": "off",
   }
 }
