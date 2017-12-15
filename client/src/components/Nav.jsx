@@ -5,7 +5,7 @@ import MenuItem from 'material-ui/MenuItem';
 import IconButton from 'material-ui/IconButton';
 import IconMenu from 'material-ui/IconMenu';
 import MoreVertIcon from 'material-ui/svg-icons/navigation/more-vert';
-import { setLoginView, setAnalyzeView, getUser } from '../actions/userActions';
+import { userLogout, setAnalyzeView, getUser } from '../actions/userActions';
 
 @connect((store) => {
   return {
@@ -20,12 +20,7 @@ import { setLoginView, setAnalyzeView, getUser } from '../actions/userActions';
   }
 
   handleLogoutClick() {
-    // show logout view
-    this.props.dispatch(setLoginView());
-  }
-
-  handleLoginClick() {
-    this.props.dispatch(setLoginView());
+    this.props.dispatch(userLogout());
   }
 
   handleAnalyzeClick() {

@@ -10,6 +10,8 @@ export default function user(state = initialState, action) {
       return { ...state, loginView: false };
     case 'LOGIN_CHECK':
       return { ...state, login: action.payload };
+    case 'LOGOUT_USER':
+      return { ...state, login: false };
     default:
       return state;
   }

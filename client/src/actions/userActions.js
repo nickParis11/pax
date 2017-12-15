@@ -1,7 +1,15 @@
 import axios from 'axios';
 
-export function setLoginView() {
-  return { type: 'SET_LOGIN_VIEW' };
+export function userLogout() {
+  return (dispatch) => {
+    axios.get('/api/logoutUser')
+      .then((res) => {
+        dispatch({ type: 'LOGOUT_USER' });
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  };
 }
 
 export function setAnalyzeView() {

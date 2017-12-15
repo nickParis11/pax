@@ -62,6 +62,11 @@ app.get('/api/getUser', (req, res) => {
   res.send(req.session.user);
 });
 
+app.get('/api/logoutUser', (req, res) => {
+  req.session.user = null;
+  res.send();
+});
+
 app.post('/api/analyze', (req, res) => {
   const analysis = {};
 
