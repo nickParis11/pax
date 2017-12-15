@@ -7,7 +7,9 @@ import { connect } from 'react-redux';
     sentiment: store.analyzer.sentiment,
     tone: store.analyzer.tone,
   };
-}) export default class Results extends React.Component {
+})
+
+export default class Results extends React.Component {
   render() {
     const tone = this.props.tone.document_tone;
     console.log(this.props);
