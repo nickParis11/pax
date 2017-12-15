@@ -33,22 +33,28 @@
     "analysis",
     "politics"
   ],
-  "contributors": [{ "name" : "Alexander Mire"
-                     , "email" : "amire51117@gmail.com"
-                     , "url" : "https://www.linkedin.com/in/alexandermire/"
-                   },
-                   { "name" : "David Wen Riccardi-Zhu"
-                        , "email" : "dwrz@dwrz.net"
-                        , "url" : "http://dwrz.net"
-                   },
-                   { "name" : "Katelyn Stamas"
-                           , "email" : "cakelyn@gmail.com"
-                           , "url" : ""
-                   },
-                   { "name" : "Nicholas Orr"
-                              , "email" : "orr.nicholas.sean@gmail.com"
-                              , "url" : "https://www.linkedin.com/in/nsoen/"
-                            }],
+  "contributors": [
+    {
+      "name": "Alexander Mire",
+      "email": "amire51117@gmail.com",
+      "url": "https://www.linkedin.com/in/alexandermire/"
+    },
+    {
+      "name": "David Wen Riccardi-Zhu",
+      "email": "dwrz@dwrz.net",
+      "url": "http://dwrz.net"
+    },
+    {
+      "name": "Katelyn Stamas",
+      "email": "cakelyn@gmail.com",
+      "url": ""
+    },
+    {
+      "name": "Nicholas Orr",
+      "email": "orr.nicholas.sean@gmail.com",
+      "url": "https://www.linkedin.com/in/nsoen/"
+    }
+  ],
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/pax-atlantica/pax/issues"
