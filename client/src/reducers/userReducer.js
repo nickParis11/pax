@@ -16,6 +16,8 @@ export default function user(state = initialState, action) {
       return { ...state, username: action.payload };
     case 'SET_PASSWORD':
       return { ...state, password: action.payload };
+    case 'LOGIN_CHECK':
+      return { ...state, login: action.payload };
     default:
       return state;
   }

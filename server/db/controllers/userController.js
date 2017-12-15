@@ -9,7 +9,7 @@ module.exports = {
         });
     },
     post: (req, cb) => {
-      db.User.findOrCreate({ where: { username: req } })
+      db.User.findOrCreate({ where: { username: req.body, sessionId: req.body } })
         .then((user) => {
           cb(null, user);
         });

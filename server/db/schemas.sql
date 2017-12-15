@@ -5,8 +5,7 @@ USE pax;
 CREATE TABLE users (
   id INT NOT NULL AUTO_INCREMENT,
   username VARCHAR(15) NOT NULL UNIQUE,
-  email VARCHAR(25) NOT NULL UNIQUE,
-  password VARCHAR(20) NOT NULL,
+  sessionId NOT NULL,
   PRIMARY KEY (id)
 );
 

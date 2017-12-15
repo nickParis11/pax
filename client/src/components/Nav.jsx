@@ -5,13 +5,14 @@ import MenuItem from 'material-ui/MenuItem';
 import IconButton from 'material-ui/IconButton';
 import IconMenu from 'material-ui/IconMenu';
 import MoreVertIcon from 'material-ui/svg-icons/navigation/more-vert';
-import { setLoginView, setAnalyzeView } from '../actions/userActions';
+import { setLoginView, setAnalyzeView, getUser } from '../actions/userActions';
 
 @connect((store) => {
   return {
     login: store.user.login,
     loginView: store.user.loginView,
     signup: store.user.signup,
+    username: store.user.username,
   };
 }) export default class Nav extends React.Component {
   handleLogoutClick() {
@@ -25,6 +26,10 @@ import { setLoginView, setAnalyzeView } from '../actions/userActions';
 
   handleAnalyzeClick() {
     this.props.dispatch(setAnalyzeView());
+  }
+
+  componentWillMount() {
+    this.props.dispatch(getUser());
   }
 
   render() {
@@ -41,7 +46,10 @@ import { setLoginView, setAnalyzeView } from '../actions/userActions';
           >
             <MenuItem primaryText="Analyze" onClick={this.handleAnalyzeClick.bind(this)} />
             {this.props.login ?
-              <MenuItem primaryText="Log Out" onClick={this.handleLogoutClick.bind(this)} />
+              <div>
+                <MenuItem primaryText="Dashboard" />
+                <MenuItem primaryText="Log Out" onClick={this.handleLogoutClick.bind(this)} />
+              </div>
             :
               <MenuItem><a href="/auth/facebook">Log In</a></MenuItem>
             }

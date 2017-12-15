@@ -33,12 +33,10 @@ sequelize
     console.error('sequelize : Unable to connect to the database:', err);
   });
 
-
-// create bareboen schema
+// create barebone schema
 const User = sequelize.define('user', {
   username: Sequelize.STRING,
-  email: Sequelize.STRING,
-  password: Sequelize.STRING,
+  sessionId: Sequelize.STRING,
 });
 
 const Input = sequelize.define('input', {
@@ -84,7 +82,8 @@ exports.Vote = Vote;
 User.sync({ force: true }).then(() => {
   console.log('Table created');
   return User.create({
-    name: 'Robin',
+    username: 'Robin',
+    sessionId: null,
   }).then(() => {
     console.log('row ceated');
     User.findAll().then((users) => {
