@@ -1,5 +1,9 @@
 
+
 DROP DATABASE pax;
+
+
+# sql reference for schema and queries
 
 CREATE DATABASE pax;
 
@@ -63,6 +67,29 @@ select text from articles, users where users.username='Alex'
 
 insert into votes (user_id,article_id,voted,upvote,downvote) values (1,3,true,true,false) 
 insert into votes (user_id,article_id,voted,upvote,downvote) values (1,4,false,false,false) 
+<<<<<<< fe1505c23e45d6e733b22e19d2149a32323e6587
 insert into votes (user_id,article_id,voted,upvote,downvote) values (1,3,true,false,true) 
 
 select * from votes
+=======
+insert into votes (user_id,article_id,voted,upvote,downvote) values (2,3,true,false,true) 
+
+select * from votes
+
+# see all unique links a user has voted
+select * from votes where voted = true AND user_id=1
+
+# inner join way
+select votes.id,upvote,downvote from votes INNER JOIN users ON votes.user_id = users.id WHERE users.username = 'nick' AND voted = true
+
+# see all unique links a user has consuted
+select * from votes where user_id=1
+
+# inner join way
+select votes.id,upvote,downvote from votes INNER JOIN users ON votes.user_id = users.id WHERE users.username = 'nick'
+
+# see all unvoted votes 
+select * from votes where voted = false
+# see all votes
+select * from votes
+>>>>>>> add non styled version of db and seed
