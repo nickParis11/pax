@@ -14,7 +14,7 @@ passport.use(new FacebookStrategy(
   {
     clientID: process.env.FB_APP_ID,
     clientSecret: process.env.FB_APP_SECRET,
-    callbackURL: 'http://127.0.0.1:3000/auth/facebook/callback' || 'http://ec2-54-163-98-154.compute-1.amazonaws.com//auth/facebook/callback',
+    callbackURL: process.env.FB_LOCAL_DIRECT || 'http://ec2-54-163-98-154.compute-1.amazonaws.com/auth/facebook/callback',
     passReqToCallback: true,
   },
   (req, accessToken, refreshToken, profile, done) => {
@@ -59,11 +59,12 @@ app.get(
 );
 
 app.get('/api/getUser', (req, res) => {
-  res.send(req.session.user ? true : false);
+  res.send(req.session.user);
 });
 
 app.post('/api/analyze', (req, res) => {
   const analysis = {};
+
   analyzeInput(req.body.data, (err, tone) => {
     if (err) {
       console.log('Error getting tone:', err);
