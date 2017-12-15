@@ -84,25 +84,26 @@ exports.User = User;
 exports.Input = Input;
 exports.Vote = Vote;
 
+
+/* DO NOT UNCOMMENT UNLESS BEFORE CHECKING WITH DB ADMINISTRATOR
+  // force: true will drop the table if it already exists
+User.sync({ force: true }).then(() => {
+  console.log('Table created');
+  return User.create({
+    name: 'Robin',
+  }).then(() => {
+    console.log('row ceated');
+    User.findAll().then((users) => {
+      console.log('equivalent select * =', users);
+    });
+  });
+});
+*/
+
 exports.sequelLizeConnection = sequelize;
 
 
 
-
-// db
-//   .authenticate()
-//   .then(() => {
-//     console.log('Connected to database.');
-//   })
-//   .catch((err) => {
-//     console.log('Unable to connect to database: ', err);
-//   });
-
-// const User = db.define('user', {
-//   username: Sequelize.STRING,
-//   email: Sequelize.STRING,
-//   password: Sequelize.STRING,
-// });
 
 // const Input = db.define('input', {
 //   text: Sequelize.STRING,
