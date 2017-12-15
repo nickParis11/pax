@@ -1,11 +1,12 @@
 const Promise = require('bluebird');
 const AYLIENTextAPI = require('aylien_textapi');
+require('dotenv').config();
 
 const extractArticle = (link, callback) => {
   return new Promise((resolve, reject) => {
     const textapi = new AYLIENTextAPI({
-      application_id: 'cafd9f65',
-      application_key: '1119add6de155823feff13857d869feb',
+      application_id: process.env.AYLIEN_APP_ID,
+      application_key: process.env.AYLIEN_APP_KEY,
     });
 
     textapi.extract(
@@ -24,8 +25,8 @@ const extractArticle = (link, callback) => {
 const sentimentAnalysis = (article, callback) => {
   return new Promise((resolve, reject) => {
     const textapi = new AYLIENTextAPI({
-      application_id: 'cafd9f65',
-      application_key: '1119add6de155823feff13857d869feb',
+      application_id: process.env.AYLIEN_APP_ID,
+      application_key: process.env.AYLIEN_APP_KEY,
     });
     textapi.sentiment(
       {

@@ -1,11 +1,12 @@
 const Promise = require('bluebird');
 const ToneAnalyzerV3 = require('watson-developer-cloud/tone-analyzer/v3');
+require('dotenv').config();
 
 module.exports = function analyzeInput(input, callback) {
   return new Promise((resolve, reject) => {
     const request = new ToneAnalyzerV3({
-      username: 'c8cccfdc-ffe4-496f-af7e-c7c8d4f91ecb',
-      password: 'wbymSZ7Lgp6W',
+      username: process.env.WATSON_USERNAME,
+      password: process.env.WATSON_PASSWORD,
       version_date: '2016-05-19',
     });
     request.tone(
