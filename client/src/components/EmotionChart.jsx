@@ -48,14 +48,19 @@ export default class EmotionChart extends React.Component {
       .scaleLinear()
       .range([height, 0]);
 
-    const xAxis = d3
-      .axisBottom()
-      .scale(x);
+    // const valueline = d3.line()
+    //   .data(data)
+    //   .x( d => {return x(d[0])})
+    //   .y( d => {return y(d[1])});
 
-    const yAxis = d3
-      .axisLeft()
-      .scale(y)
-      .tickFormat(d3.format('10'));
+    // const xAxis = d3
+    //   .axisBottom()
+    //   .scale(x);
+
+    // const yAxis = d3
+    //   .axisLeft()
+    //   .scale(y)
+    //   .tickFormat(d3.format('10'));
 
     const svg = d3
       .select(div)
@@ -72,22 +77,28 @@ export default class EmotionChart extends React.Component {
     svg.append('g')
       .attr('class', 'x axis')
       .attr('transform', `translate(0, ${height}`)
-      .call(xAxis)
-      .selectAll('text')
-      .style('text-anchor', 'end')
-      .attr('dx', '-2em')
-      .attr('dy', '.15em')
-      .attr('transform', () => 'rotate(-65)');
+      .call(d3.axisBottom(x));
+
+    svg.append('text')
+      .attr('transform', `translate(${width/2} ,${height + margin.top + 20}`)
+      .style('text-anchor', 'middle')
+      // .style('text-anchor', 'end')
+      // .attr('dx', '-2em')
+      // .attr('dy', '.15em')
+      // .attr('transform', () => 'rotate(-65)')
+      .text('Tone Type');
 
     svg.append('g')
-      .attr('class', 'y axis')
-      .call(yAxis)
-      .append('text')
-      .attr('transform', 'rotate(-45)')
-      .attr('y', 6)
+      // .attr('class', 'y axis')
+      .call(d3.axisLeft(y));
+
+    svg.append('text')
+      .attr('transform', 'rotate(-90)')
+      .attr('y', 0 - margin.left)
+      .attr('x', 0 - (height / 2))
       .attr('dy', '.65em')
-      .text('Tone level (%)')
-      .style('text-anchor', 'end');
+      .style('text-anchor', 'end')
+      .text('Tone level (%)');
 
     // svg.append('text')
     // .style('text-anchor', 'end')
