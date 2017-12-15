@@ -19,7 +19,7 @@ passport.use(new FacebookStrategy(
   },
   (req, accessToken, refreshToken, profile, done) => {
     req.session.user = profile.id;
-    userController.user.post({ body: profile.id }, (err, user) => { // send in sessionID
+    userController.user.post({ body: profile.id }, (err, user) => {
       return done(err, user);
     });
   },
@@ -65,48 +65,49 @@ app.get('/api/getUser', (req, res) => {
 app.post('/api/analyze', (req, res) => {
   const analysis = {};
 
-  analyzeInput(req.body.data, (err, tone) => {
-    if (err) {
-      console.log('Error getting tone:', err);
-    } else {
-      analysis.tone = JSON.parse(tone);
-      aylienHelpers.sentimentAnalysis(req.body.data, (error, sentiment) => {
-        if (error) {
-          console.log('Error getting sentiment:', error);
-        } else {
-          analysis.sentiment = sentiment;
-          analysis.score = score.scoreAnalysis(JSON.parse(tone));
-          res.send(analysis);
-        }
-      });
-    }
+  analyzeInput(req.body.data)
+  .then((tone) => {
+    analysis.tone = tone;
+    aylienHelpers.sentimentAnalysis(req.body.data)
+    .then((sentiment) => {
+      analysis.sentiment = sentiment;
+      analysis.score = score.scoreAnalysis(analysis.tone);
+      res.send(analysis);
+    })
+    .catch((err) => {
+      res.send(err);
+    });
+  })
+  .catch((err) => {
+    res.send(err)
   });
 });
 
 app.post('/api/extract', (req, res) => {
   const analysis = {};
-  aylienHelpers.extractArticle(req.body.data, (err, article) => {
-    if (err) {
-      console.log('Error extracting article: ', err);
-    } else {
-      analyzeInput(article.article, (error, tone) => {
-        if (error) {
-          console.log('Error getting tone:', error);
-        } else {
-          analysis.tone = JSON.parse(tone);
-          aylienHelpers.sentimentAnalysis(article.article, (er, sentiment) => {
-            if (er) {
-              console.log('Error getting sentiment:', er);
-            } else {
-              analysis.sentiment = sentiment;
-              analysis.score = score.scoreAnalysis(JSON.parse(tone));
-              res.send(analysis);
-            }
-          });
-        }
+
+  aylienHelpers.extractArticle(req.body.data)
+  .then((article) => {
+    analyzeInput(article.article)
+    .then((tone) => {
+      analysis.tone = tone;
+      aylienHelpers.sentimentAnalysis(article.article)
+      .then((sentiment) => {
+        analysis.sentiment = sentiment;
+        analysis.score = score.scoreAnalysis(analysis.tone);
+        res.send(analysis);
+      })
+      .catch((err) => {
+        res.send(err);
       });
-    }
-  });
+    })
+    .catch((err) => {
+      res.send(err);
+    });
+  })
+  .catch((err) => {
+    res.send(err);
+  })
 });
 
 app.post('/api/vote', (req, res) => {
