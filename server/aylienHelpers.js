@@ -2,7 +2,7 @@ const Promise = require('bluebird');
 const AYLIENTextAPI = require('aylien_textapi');
 require('dotenv').config();
 
-const extractArticle = (link, callback) => {
+const extractArticle = (link) => {
   return new Promise((resolve, reject) => {
     const textapi = new AYLIENTextAPI({
       application_id: process.env.AYLIEN_APP_ID,
@@ -15,14 +15,17 @@ const extractArticle = (link, callback) => {
         best_image: true,
       },
       (err, response) => {
-        if (err) { return reject(err); }
-        else { resolve(response); }
+        if (err) {
+          return reject(err);
+        } else {
+          return resolve(response);
+        }
       },
     );
   });
 };
 
-const sentimentAnalysis = (article, callback) => {
+const sentimentAnalysis = (article) => {
   return new Promise((resolve, reject) => {
     const textapi = new AYLIENTextAPI({
       application_id: process.env.AYLIEN_APP_ID,
@@ -34,8 +37,11 @@ const sentimentAnalysis = (article, callback) => {
         mode: 'document',
       },
       (err, response) => {
-        if (err) { return reject(err); }
-        else { resolve(response); }
+        if (err) {
+          return reject(err);
+        } else {
+          return resolve(response);
+        }
       },
     );
   });

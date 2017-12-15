@@ -3,7 +3,7 @@ import axios from 'axios';
 export function userLogout() {
   return (dispatch) => {
     axios.get('/api/logoutUser')
-      .then((res) => {
+      .then(() => {
         dispatch({ type: 'LOGOUT_USER' });
       })
       .catch((err) => {

@@ -2,7 +2,7 @@ const Promise = require('bluebird');
 const ToneAnalyzerV3 = require('watson-developer-cloud/tone-analyzer/v3');
 require('dotenv').config();
 
-module.exports = function analyzeInput(input, callback) {
+module.exports = function analyzeInput(input) {
   return new Promise((resolve, reject) => {
     const request = new ToneAnalyzerV3({
       username: process.env.WATSON_USERNAME,
@@ -15,8 +15,11 @@ module.exports = function analyzeInput(input, callback) {
         content_type: 'text/plain',
       },
       (err, tone) => {
-        if (err) { return reject(err); }
-        else { resolve(tone); }
+        if (err) {
+          return reject(err);
+        } else {
+          return resolve(tone);
+        }
       },
     );
   });

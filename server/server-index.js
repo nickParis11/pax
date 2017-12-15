@@ -71,48 +71,48 @@ app.post('/api/analyze', (req, res) => {
   const analysis = {};
 
   analyzeInput(req.body.data)
-  .then((tone) => {
-    analysis.tone = tone;
-    aylienHelpers.sentimentAnalysis(req.body.data)
-    .then((sentiment) => {
-      analysis.sentiment = sentiment;
-      analysis.score = score.scoreAnalysis(analysis.tone);
-      res.send(analysis);
+    .then((tone) => {
+      analysis.tone = tone;
+      aylienHelpers.sentimentAnalysis(req.body.data)
+        .then((sentiment) => {
+          analysis.sentiment = sentiment;
+          analysis.score = score.scoreAnalysis(analysis.tone);
+          res.send(analysis);
+        })
+        .catch((err) => {
+          res.send(err);
+        });
     })
     .catch((err) => {
       res.send(err);
     });
-  })
-  .catch((err) => {
-    res.send(err)
-  });
 });
 
 app.post('/api/extract', (req, res) => {
   const analysis = {};
 
   aylienHelpers.extractArticle(req.body.data)
-  .then((article) => {
-    analyzeInput(article.article)
-    .then((tone) => {
-      analysis.tone = tone;
-      aylienHelpers.sentimentAnalysis(article.article)
-      .then((sentiment) => {
-        analysis.sentiment = sentiment;
-        analysis.score = score.scoreAnalysis(analysis.tone);
-        res.send(analysis);
-      })
-      .catch((err) => {
-        res.send(err);
-      });
+    .then((article) => {
+      analyzeInput(article.article)
+        .then((tone) => {
+          analysis.tone = tone;
+          aylienHelpers.sentimentAnalysis(article.article)
+            .then((sentiment) => {
+              analysis.sentiment = sentiment;
+              analysis.score = score.scoreAnalysis(analysis.tone);
+              res.send(analysis);
+            })
+            .catch((err) => {
+              res.send(err);
+            });
+        })
+        .catch((err) => {
+          res.send(err);
+        });
     })
     .catch((err) => {
       res.send(err);
     });
-  })
-  .catch((err) => {
-    res.send(err);
-  })
 });
 
 app.post('/api/vote', (req, res) => {
