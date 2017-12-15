@@ -29,9 +29,6 @@ import { toggleUrlText, getUrlAnalysis, getTextAnalysis } from '../actions/analy
 
     if (this.props.analyzeUrl) {
       this.props.dispatch(getUrlAnalysis(value));
-      // this.props.dispatch(extractArticle(value, (article) => {
-      //   this.props.dispatch(getAnalysis(article));
-      // }));
     } else {
       this.props.dispatch(getTextAnalysis(value));
     }
