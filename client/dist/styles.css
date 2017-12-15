@@ -2,14 +2,26 @@ body {
   font-family: 'Roboto', sans-serif;
 }
 
+.arrow {
+  font-size: 6em;
+}
+
 .componentTitle {
   text-align: center;
 }
 
-.trustRating {
-  text-align: center;
+.container {
+  align-items: center;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
 }
 
-.arrow {
-  font-size: 6em;
+.item {
+  flex-grow: 0;
+}
+
+.trustRating {
+  text-align: center;
 }
