@@ -9,7 +9,6 @@ const dbUser = process.env.LOCAL === '1' ? process.env.LOCAL_DB_USER : process.e
 const dbHost = process.env.LOCAL === '1' ? process.env.LOCAL_DB_HOST : process.env.DEPLOYED_DB_HOST;
 const dbName = process.env.LOCAL === '1' ? process.env.LOCAL_DB_NAME : process.env.DEPLOYED_DB_NAME;
 
-
 // **************** sequelize pat **************
 
 const sequelize = new Sequelize(dbName, dbUser, dbPwd, {
@@ -32,6 +31,7 @@ sequelize
   .catch((err) => {
     console.error('sequelize : Unable to connect to the database:', err);
   });
+
 
 // create barebone schema
 const User = sequelize.define('user', {
@@ -79,6 +79,7 @@ exports.Input = Input;
 exports.Vote = Vote;
 
 // force: true will drop the table if it already exists
+
 User.sync({ force: true }).then(() => {
   console.log('Table created');
   return User.create({
@@ -93,7 +94,6 @@ User.sync({ force: true }).then(() => {
 });
 
 // ******************** pg part *************
-
 const client = new Client({
   user: dbUser,
   host: dbHost,
@@ -109,6 +109,11 @@ client.query('select * from users', (err, res) => {
   // make sure to uncomment client.end() if running other queries in this page with pg module
   client.end();
 });
+
+
+
+exports.sqlConnection = client;
+exports.sequelLizeConnection = sequelize;
 
 
 // only uncomment this part if you wanna test insertion
