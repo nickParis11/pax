@@ -2,6 +2,14 @@ body {
   font-family: 'Roboto', sans-serif;
 }
 
+.componentTitle {
+  text-align: center;
+}
+
+.trustRating {
+  text-align: center;
+}
+
 .arrow {
-    font-size: 6em;
+  font-size: 6em;
 }
