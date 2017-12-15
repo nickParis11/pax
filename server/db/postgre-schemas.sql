@@ -12,8 +12,7 @@ CREATE DATABASE pax;
 CREATE TABLE users (
   id SERIAL PRIMARY KEY,
   username VARCHAR(25) NOT NULL UNIQUE,
-  email VARCHAR(100) NOT NULL UNIQUE,
-  password VARCHAR(40) NOT NULL
+  sessionId VARCHAR(1024)
 );
 
 CREATE TABLE articles (
@@ -21,7 +20,7 @@ CREATE TABLE articles (
   user_Id SERIAL REFERENCES users(id),
   user_text VARCHAR(1500),
   is_link BOOLEAN,
-  result INT,
+  result integer,
   polarity VARCHAR(10),
   polarity_score VARCHAR(10),
   anger VARCHAR(10),
@@ -48,19 +47,25 @@ CREATE TABLE votes (
   downvote BOOLEAN
 );
 
-insert into users (username,email,password) values ('nick','nick@me.fr','123456')
-insert into users (username,email,password) values ('Alex','alex@him.com','123456')
+
+insert into users (username,sessionid) values ('nick','123456')
+insert into users (username,sessionid) values ('Alex','123456')
 select * from users
-insert into articles ( user_id,is_link, text) values (1,false,'i''m not a link')
+insert into articles ( user_id,is_link, user_text) values (1,false,'i''m not a link')
 select * from articles
-delete from articles
-insert into articles ( user_id,is_link, text) values (1,true,'i''m a link')
-insert into articles ( user_id,is_link, text) values (2,true,'i''m a link as well')
 
 select text from articles where user_id = 1
+
+insert into articles ( user_id,is_link, user_text) values (1,true,'i''m a link')
+insert into articles ( user_id,is_link, user_text) values (2,true,'i''m a link as well')
+
+select user_text from articles where user_id = 1
+select user_text from articles where user_id = 2
+
 # nested select type
-select text from articles where user_id = (select id from users where username = 'nick')
+select user_text from articles where user_id = (select id from users where username = 'nick')
 # INNER JOIN TYPE
+
 select text from articles INNER JOIN users ON articles.user_id = users.id where users.username= 'nick'
 
 select text from articles, users where users.username='Alex'
@@ -71,7 +76,12 @@ insert into votes (user_id,article_id,voted,upvote,downvote) values (1,4,false,f
 insert into votes (user_id,article_id,voted,upvote,downvote) values (1,3,true,false,true) 
 
 select * from votes
-=======
+
+select user_text from articles INNER JOIN users ON articles.user_id = users.id where users.username= 'Alex'
+
+insert into votes (user_id,article_id,voted,upvote,downvote) values (1,1,true,true,false) 
+insert into votes (user_id,article_id,voted,upvote,downvote) values (1,2,false,false,false) 
+>>>>>>> migrate schema to postgre compliant sql , add sql tests queries
 insert into votes (user_id,article_id,voted,upvote,downvote) values (2,3,true,false,true) 
 
 select * from votes
@@ -92,4 +102,7 @@ select votes.id,upvote,downvote from votes INNER JOIN users ON votes.user_id = u
 select * from votes where voted = false
 # see all votes
 select * from votes
->>>>>>> add non styled version of db and seed
+
+
+select * from votes
+
