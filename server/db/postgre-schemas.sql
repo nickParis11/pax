@@ -1,5 +1,6 @@
 
 DROP DATABASE pax;
+
 CREATE DATABASE pax;
 
 \c pax
