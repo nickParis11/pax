@@ -7,13 +7,14 @@
   },
   "main": "index.js",
   "scripts": {
-    "build": "./node_modules/webpack/bin/webpack.js -p --config ./webpack.config.js --progress",
     "lint-fix": "./node_modules/.bin/eslint --color --fix --ext .js --ext .jsx",
     "lint-fix-all": "./node_modules/.bin/eslint --color --fix --ext .js --ext .jsx .",
     "lint-show": "./node_modules/.bin/eslint --color --ext .js --ext .jsx",
     "lint-show-all": "./node_modules/.bin/eslint --color --ext .js --ext .jsx .",
-    "start": "webpack -d --watch | nodemon server/server-index.js --inspect",
+    "postinstall": "./node_modules/webpack/bin/webpack.js -p --config ./webpack.config.js --progress",
+    "start": "node ./server/server-index.js",
     "start-client": "webpack -d --watch",
+    "start-dev": "webpack -d --watch & nodemon server/server-index.js --inspect && fg",
     "start-server": "nodemon server/server-index.js --inspect",
     "test": "./node_modules/.bin/eslint --color --ext .js --ext .jsx .",
     "test-webhook": "node scripts/controllers/webhook.js"
@@ -32,7 +33,22 @@
     "analysis",
     "politics"
   ],
-  "author": "Alexander Mire, David Wen Riccardi-Zhu, Katelyn Stamas, Nicholas Orr",
+  "contributors": [{ "name" : "Alexander Mire"
+                     , "email" : "amire51117@gmail.com"
+                     , "url" : "https://www.linkedin.com/in/alexandermire/"
+                   },
+                   { "name" : "David Wen Riccardi-Zhu"
+                        , "email" : "dwrz@dwrz.net"
+                        , "url" : "http://dwrz.net"
+                   },
+                   { "name" : "Katelyn Stamas"
+                           , "email" : "cakelyn@gmail.com"
+                           , "url" : ""
+                   },
+                   { "name" : "Nicholas Orr"
+                              , "email" : "orr.nicholas.sean@gmail.com"
+                              , "url" : "https://www.linkedin.com/in/nsoen/"
+                            }],
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/pax-atlantica/pax/issues"
