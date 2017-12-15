@@ -12,9 +12,7 @@ import EmotionChart from './EmotionChart.jsx';
     waiting: store.analyzer.waiting,
   };
 })
-
 export default class Analyzer extends React.Component {
-
   render() {
     return (
       <div>

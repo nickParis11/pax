@@ -15,6 +15,10 @@ import { setLoginView, setAnalyzeView, getUser } from '../actions/userActions';
     username: store.user.username,
   };
 }) export default class Nav extends React.Component {
+  componentWillMount() {
+    this.props.dispatch(getUser());
+  }
+
   handleLogoutClick() {
     // show logout view
     this.props.dispatch(setLoginView());
@@ -26,10 +30,6 @@ import { setLoginView, setAnalyzeView, getUser } from '../actions/userActions';
 
   handleAnalyzeClick() {
     this.props.dispatch(setAnalyzeView());
-  }
-
-  componentWillMount() {
-    this.props.dispatch(getUser());
   }
 
   render() {
