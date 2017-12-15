@@ -31,7 +31,7 @@ export default class EmotionChart extends React.Component {
     const data = allTonesList;
 
     const margin = {
-      top: 20, right: 20, bottom: 20, left: 20,
+      top: 45, right: 5, bottom: 10, left: 45,
     };
     const width = this.props.width - margin.left - margin.right;
     const height = this.props.height - margin.top - margin.bottom;
@@ -83,11 +83,11 @@ export default class EmotionChart extends React.Component {
       .attr('class', 'y axis')
       .call(yAxis)
       .append('text')
-      .attr('transform', 'rotate(90)')
+      .attr('transform', 'rotate(-45)')
       .attr('y', 6)
       .attr('dy', '.65em')
-      .style('text-anchor', 'end')
-      .text('Frequency');
+      .text('Tone level (%)')
+      .style('text-anchor', 'end');
 
     // svg.append('text')
     // .style('text-anchor', 'end')
