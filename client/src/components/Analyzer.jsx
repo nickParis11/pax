@@ -21,7 +21,7 @@ export default class Analyzer extends React.Component {
         <Input />
         {this.props.waiting ? <Waiting /> : null}
         {this.props.success ? <Results /> : null}
-        {this.props.success ? <EmotionChart /> : null}
+        {this.props.success ? <div className='container'><EmotionChart /></div> : null}
       </div>
     );
   }
