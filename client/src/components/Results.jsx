@@ -19,14 +19,23 @@ export default class Results extends React.Component {
       <div>
         <h1 className="componentTitle">RESULTS</h1>
         <h2 className="trustRating">Trust Rating: {this.props.score}</h2>
-        <div className="container">
-          <div className="item">
-            <p><b>Summary:</b></p>
-            <p>Waistcoat pork belly cliche, typewriter literally scenester live-edge vice lumbersexual farm-to-table humblebrag coloring book etsy master cleanse adaptogen.</p>
-          </div>
-          <div className="item">
-            <span className="arrow">↑</span>
-            <span className="arrow">↓</span>
+        <div className="row">
+          <div className="container">
+            <div className="item">
+              <p><b>Summary:</b></p>
+              <br/>
+              <p>Waistcoat pork belly cliche, typewriter literally scenester live-edge vice lumbersexual farm-to-table humblebrag coloring book etsy master cleanse adaptogen.</p>
+            </div>
+            <div className="item">
+              <div className="arrowContainer">
+                <span className="arrow">↑</span>
+                <span>0</span>
+              </div>
+              <div className="arrowContainer">
+                <span className="arrow">↓</span>
+                <span>0</span>
+              </div>
+            </div>
           </div>
         </div>
       </div>
