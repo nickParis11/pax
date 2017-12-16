@@ -13,6 +13,7 @@
     "lint-show-all": "./node_modules/.bin/eslint --color --ext .js --ext .jsx .",
     "postinstall": "./node_modules/webpack/bin/webpack.js -p --config ./webpack.config.js --progress",
     "start": "node ./server/server-index.js",
+    "seed": "node server/db/seed.js",
     "start-client": "webpack -d --watch",
     "start-dev": "webpack -d --watch & nodemon server/server-index.js --inspect && fg",
     "start-server": "nodemon server/server-index.js --inspect",
