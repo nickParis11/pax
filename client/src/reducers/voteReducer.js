@@ -1,3 +1,9 @@
+// Three potential states for arrows:
+// 1. Neither upvoted or downvoted.
+// 2. Upvoted.
+// 3. Downvoted.
+// The logic must prevent the user from upvoting and downvoting at the same time.
+
 const initialState = {
   downVote: false,
   downVoteCount: 0,
@@ -8,11 +14,11 @@ const initialState = {
 export default function vote(state = initialState, action) {
   switch (action.type) {
     case 'DOWNVOTE':
-      return { ...state, upVote: !state.downVote };
+      return { ...state, downVote: !state.downVote, upVote: false };
     case 'DOWNVOTE_LOGGED':
       return { ...state, downVoteCount: action.payload };
     case 'UPVOTE':
-      return { ...state, upVote: !state.upVote };
+      return { ...state, downVote: false, upVote: !state.upVote };
     case 'UPVOTE_LOGGED':
       return { ...state, upVoteCount: action.payload };
     case 'UPDATE_VOTE_DATA':
