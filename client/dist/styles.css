@@ -6,13 +6,21 @@ body {
   font-size: 8em;
 }
 
-.arrowSelected {
-  color: red;
+.arrowsContainer {
+}
+
+.arrowUpSelected {
+  color: #00bcd4; /* Replace with reference to MUI Theme Color */
+}
+
+.arrowDownSelected {
+  color: #ff4081; /* Replace with reference to MUI Theme Color */
 }
 
 .arrowVoteContainer {
   display: flex;
   align-items: center;
+  flex-basis: center;
   display: flex;
   flex-direction: column;
   flex-shrink: 1;
@@ -29,14 +37,6 @@ body {
   flex-direction: row;
   flex-wrap: nowrap;
   justify-content: center;
-}
-
-.arrowContainer {
-  display: flex;
-  flex-basis: 50%;
-  flex-direction: row;
-  flex-grow: 0;
-  flex-shrink: 1;
 }
 
 .row {
