@@ -3,7 +3,7 @@ import axios from 'axios';
 export function downvote() {
   return (dispatch) => {
     dispatch({ type: 'DOWNVOTE' });
-    axios.post('/api/upvote') // Will need to specify some kind of identifier for the article.
+    axios.post('/api/vote') // Will need to specify some kind of identifier for the article.
       .then((res) => { // Expects updated downvote number.
         dispatch({ type: 'DOWNVOTE_LOGGED', payload: res.data });
       })
@@ -16,7 +16,7 @@ export function downvote() {
 // Get user vote status (up/down/nil) and total vote count (up and down).
 export function getArticleVoteData() {
   return (dispatch) => {
-    axios.get('/api/votes') // Will need to specify some kind of identifier for the article.
+    axios.get('/api/vote') // Will need to specify some kind of identifier for the article.
       .then((res) => { // Expects updated downvote number.
         dispatch({
           type: 'UPDATE_VOTE_DATA',
@@ -35,7 +35,7 @@ export function getArticleVoteData() {
 export function upvote() {
   return (dispatch) => {
     dispatch({ type: 'UPVOTE' });
-    axios.post('/api/upvote') // Will need to specify some kind of identifier for the article.
+    axios.post('/api/vote') // Will need to specify some kind of identifier for the article.
       .then((res) => {
         dispatch({ type: 'UPVOTE_LOGGED', payload: res.data });
       })
