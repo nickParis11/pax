@@ -15,7 +15,6 @@ import { downvote, getArticleVoteData, upvote } from '../actions/voteActions.js'
 })
 
 export default class Results extends React.Component {
-
   componentDidMount() {
     this.props.dispatch(getArticleVoteData());
   }
@@ -47,11 +46,11 @@ export default class Results extends React.Component {
             </div>
             <div className="arrowContainer">
               <div className="arrowVoteContainer">
-                <span className="arrow" onClick={this.voteUp.bind(this)}>↑</span>
+                <span className={this.props.upVote ? 'arrow arrowSelected' : 'arrow'} onClick={this.voteUp.bind(this)}>↑</span>
                 <span>{this.props.upVoteCount}</span>
               </div>
               <div className="arrowVoteContainer">
-                <span className="arrow" onClick={this.voteDown.bind(this)}>↓</span>
+                <span className={this.props.downVote ? 'arrow arrowSelected' : 'arrow'} onClick={this.voteDown.bind(this)}>↓</span>
                 <span>{this.props.downVoteCount}</span>
               </div>
             </div>
