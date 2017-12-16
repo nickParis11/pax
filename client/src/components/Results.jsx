@@ -18,7 +18,7 @@ export default class Results extends React.Component {
   componentDidMount() {
     this.props.dispatch(getArticleVoteData());
   }
-  
+
   voteDown() {
     this.props.dispatch(downvote());
   }
@@ -26,7 +26,7 @@ export default class Results extends React.Component {
   voteUp() {
     this.props.dispatch(upvote());
   }
-  
+
   render() {
     const tone = this.props.tone.document_tone;
     console.log(this.props);
@@ -40,7 +40,7 @@ export default class Results extends React.Component {
           <div className="container">
             <div className="summaryContainer">
               <p><b>Summary: </b>
-                <br/>
+                <br />
                 Polarity: {sentiment.polarity}
               </p>
             </div>
