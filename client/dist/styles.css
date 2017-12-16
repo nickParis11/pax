@@ -6,7 +6,7 @@ body {
   font-size: 8em;
 }
 
-.arrowContainer {
+.arrowVoteContainer {
   display: flex;
   align-items: center;
   display: flex;
@@ -23,11 +23,11 @@ body {
   align-items: center;
   display: flex;
   flex-direction: row;
-  flex-wrap: wrap;
+  flex-wrap: nowrap;
   justify-content: center;
 }
 
-.item {
+.arrowContainer {
   display: flex;
   flex-basis: 50%;
   flex-direction: row;
@@ -44,6 +44,12 @@ body {
   flex-shrink: 1;
   flex-wrap: wrap;
   justify-content: center;
+}
+
+.summaryContainer {
+  flex-basis: 50%;
+  flex-grow: 0;
+  flex-shrink: 1;
 }
 
 .trustRating {
