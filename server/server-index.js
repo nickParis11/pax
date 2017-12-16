@@ -20,7 +20,7 @@ passport.use(new FacebookStrategy(
   (req, accessToken, refreshToken, profile, done) => {
     req.session.user = profile.id;
     userController.user.post({ body: profile.id }, (err, user) => {
-      return done(err, user);
+      done(err, user);
     });
   },
 ));
