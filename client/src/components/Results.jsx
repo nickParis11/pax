@@ -37,7 +37,7 @@ export default class Results extends React.Component {
         <h1 className="componentTitle">RESULTS</h1>
         <h2 className="trustRating">Trust Rating: {this.props.score}</h2>
         <div className="row">
-          <div className="container">
+          <div></div>
             <div className="summaryContainer">
               <p><b>Summary: </b>
                 <br />
@@ -54,8 +54,8 @@ export default class Results extends React.Component {
                 <span>{this.props.downVoteCount}</span>
               </div>
             </div>
+            <div></div>
           </div>
-        </div>
       </div>
     );
   }
