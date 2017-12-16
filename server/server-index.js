@@ -115,8 +115,19 @@ app.post('/api/extract', (req, res) => {
     });
 });
 
+app.get('/api/vote', (req, res) => {
+  // Expects an article id, either in req.body or as a param.
+  // Return vote count for the article.
+  res.send({ downVoteCount: 0, upVoteCount: 0, });
+});
+
 app.post('/api/vote', (req, res) => {
-  res.send(null);
+  // Expects an article id and user id, either in req.body or as a param.
+  // Update the database:
+    // Decrement / increment the vote count for the article.
+    // Set the user's vote status for the article (downvote / upvote / neither).
+  // Return vote count for the article.
+  res.send({ downVoteCount: 0, upVoteCount: 0, });
 });
 
 app.listen(PORT, () => {
