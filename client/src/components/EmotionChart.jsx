@@ -77,8 +77,8 @@ export default class EmotionChart extends React.Component {
     // create axis
     svg.append('g')
       .attr('class', 'x axis')
-      .call(d3.axisBottom(x))
       .attr('transform', `translate(0, ${-height}`)
+      .call(d3.axisBottom(x))
       .selectAll('text')
       .style('text-anchor', 'end')
       .attr('dx', '-2em')
@@ -92,7 +92,6 @@ export default class EmotionChart extends React.Component {
       // .style('text-anchor', 'end')
       .attr('dx', '22em')
       .attr('dy', '-.5em')
-      // .attr('transform', () => 'rotate(-65)')
       .text('Tone Type');
 
     svg.append('g')
@@ -119,7 +118,7 @@ export default class EmotionChart extends React.Component {
       .attr('width', 20)
       .attr('y', d => y(d[1]))
       .style('fill', '#800080')
-      .attr('height', d => height + y(d[1]));
+      .attr('height', d => height - y(d[1]));
     return div.toReact();
   }
 
