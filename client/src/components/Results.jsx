@@ -1,5 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
+import Badge from 'material-ui/Badge';
 import { downvote, getArticleVoteData, upvote } from '../actions/voteActions.js';
 
 @connect((store) => {
@@ -38,24 +39,32 @@ export default class Results extends React.Component {
         <h2 className="trustRating">Trust Rating: {this.props.score}</h2>
         <div className="row">
           <div></div>
-            <div className="summaryContainer">
-              <p><b>Summary: </b>
-                <br />
-                Polarity: {sentiment.polarity}
-              </p>
-            </div>
-            <div className="arrowContainer">
-              <div className="arrowVoteContainer">
-                <span className={this.props.upVote ? 'arrow arrowSelected' : 'arrow'} onClick={this.voteUp.bind(this)}>↑</span>
-                <span>{this.props.upVoteCount}</span>
-              </div>
-              <div className="arrowVoteContainer">
-                <span className={this.props.downVote ? 'arrow arrowSelected' : 'arrow'} onClick={this.voteDown.bind(this)}>↓</span>
-                <span>{this.props.downVoteCount}</span>
-              </div>
-            </div>
-            <div></div>
+          <div className="summaryContainer">
+            <p><b>Summary: </b>
+              <br />
+              Polarity: {sentiment.polarity}
+              <br />
+              Health goth DIY ramps skateboard.
+              <br />
+              IPhone 8-bit williamsburg cronut try-hard humblebrag.
+            </p>
           </div>
+          <div className="arrowsContainer">
+            <span className={this.props.upVote ? 'arrow arrowUpSelected' : 'arrow'} onClick={this.voteUp.bind(this)}>↑</span>
+            <Badge
+              badgeContent={this.props.upVoteCount}
+              primary={true}
+              >
+            </Badge>
+            <span className={this.props.downVote ? 'arrow arrowDownSelected' : 'arrow'} onClick={this.voteDown.bind(this)}>↓</span>
+            <Badge
+              badgeContent={this.props.downVoteCount}
+              secondary={true}
+              >
+            </Badge>
+          </div>
+          <div></div>
+        </div>
       </div>
     );
   }
