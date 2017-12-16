@@ -78,19 +78,6 @@ exports.User = User;
 exports.Input = Input;
 exports.Vote = Vote;
 
-// force: true will drop the table if it already exists
-User.sync({ force: true }).then(() => {
-  console.log('Table created');
-  return User.create({
-    username: 'Robin',
-    sessionId: null,
-  }).then(() => {
-    console.log('row ceated');
-    User.findAll().then((users) => {
-      console.log('equivalent select * =', users);
-    });
-  });
-});
 
 // ******************** pg part *************
 
