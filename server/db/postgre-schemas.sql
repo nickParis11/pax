@@ -54,34 +54,18 @@ select * from users
 insert into articles ( user_id,is_link, user_text) values (1,false,'i''m not a link')
 select * from articles
 
-select text from articles where user_id = 1
-
 insert into articles ( user_id,is_link, user_text) values (1,true,'i''m a link')
 insert into articles ( user_id,is_link, user_text) values (2,true,'i''m a link as well')
 
 select user_text from articles where user_id = 1
 select user_text from articles where user_id = 2
-
 # nested select type
 select user_text from articles where user_id = (select id from users where username = 'nick')
 # INNER JOIN TYPE
-
-select text from articles INNER JOIN users ON articles.user_id = users.id where users.username= 'nick'
-
-select text from articles, users where users.username='Alex'
-
-insert into votes (user_id,article_id,voted,upvote,downvote) values (1,3,true,true,false) 
-insert into votes (user_id,article_id,voted,upvote,downvote) values (1,4,false,false,false) 
-<<<<<<< fe1505c23e45d6e733b22e19d2149a32323e6587
-insert into votes (user_id,article_id,voted,upvote,downvote) values (1,3,true,false,true) 
-
-select * from votes
-
 select user_text from articles INNER JOIN users ON articles.user_id = users.id where users.username= 'Alex'
 
 insert into votes (user_id,article_id,voted,upvote,downvote) values (1,1,true,true,false) 
 insert into votes (user_id,article_id,voted,upvote,downvote) values (1,2,false,false,false) 
->>>>>>> migrate schema to postgre compliant sql , add sql tests queries
 insert into votes (user_id,article_id,voted,upvote,downvote) values (2,3,true,false,true) 
 
 select * from votes
@@ -102,7 +86,3 @@ select votes.id,upvote,downvote from votes INNER JOIN users ON votes.user_id = u
 select * from votes where voted = false
 # see all votes
 select * from votes
-
-
-select * from votes
-
