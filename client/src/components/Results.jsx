@@ -16,11 +16,6 @@ export default class Results extends React.Component {
     const sentiment = this.props.sentiment;
 
     return (
-      // RESULT HEADING
-      // TRUST RATING
-      // LEFT VOTE, COUNT OF VOTES
-      // RIGHT SUMMARY OF ARTICLE
-      // BELOW BAR GRAPH      
       <div>
         <h1 className="componentTitle">RESULTS</h1>
         <h2 className="trustRating">Trust Rating: {this.props.score}</h2>
