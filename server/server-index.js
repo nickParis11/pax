@@ -7,7 +7,7 @@ const score = require('./algorithm.js');
 const analyzeInput = require('./toneAnalyzer');
 const aylienHelpers = require('./aylienHelpers');
 const user = require('./db/controllers/userController.js');
-const articleController = require('./db/controllers/articleController.js');
+const article = require('./db/controllers/articleController.js');
 
 require('dotenv').config();
 
@@ -78,8 +78,7 @@ app.post('/api/analyze', (req, res) => {
         .then((sentiment) => {
           analysis.sentiment = sentiment;
           analysis.score = score.scoreAnalysis(analysis.tone);
-          // if there is an active session
-            // store article info in database
+          // req.session.user ? article.store(analysis) : null;
           res.send(analysis);
         })
         .catch((err) => {
@@ -96,7 +95,7 @@ app.post('/api/extract', (req, res) => {
 
   aylienHelpers.extractArticle(req.body.data)
     .then((article) => {
-      analyzeInput(article.article)
+      analyzeInput(encodeURI(article.article))
         .then((tone) => {
           analysis.tone = tone;
           aylienHelpers.sentimentAnalysis(article.article)
