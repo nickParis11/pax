@@ -48,11 +48,11 @@ export default class Results extends React.Component {
             <div className="arrowContainer">
               <div className="arrowVoteContainer">
                 <span className="arrow" onClick={this.voteUp.bind(this)}>↑</span>
-                <span>0</span>
+                <span>{this.props.upVoteCount}</span>
               </div>
               <div className="arrowVoteContainer">
                 <span className="arrow" onClick={this.voteDown.bind(this)}>↓</span>
-                <span>0</span>
+                <span>{this.props.downVoteCount}</span>
               </div>
             </div>
           </div>
