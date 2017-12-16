@@ -6,7 +6,8 @@ const FacebookStrategy = require('passport-facebook').Strategy;
 const score = require('./algorithm.js');
 const analyzeInput = require('./toneAnalyzer');
 const aylienHelpers = require('./aylienHelpers');
-const userController = require('./db/controllers/userController.js');
+const user = require('./db/controllers/userController.js');
+const articleController = require('./db/controllers/articleController.js');
 
 require('dotenv').config();
 
@@ -19,7 +20,7 @@ passport.use(new FacebookStrategy(
   },
   (req, accessToken, refreshToken, profile, done) => {
     req.session.user = profile.id;
-    userController.user.post({ body: profile.id }, (err, user) => {
+    user.post({ body: profile.id }, (err, user) => {
       done(err, user);
     });
   },
@@ -77,6 +78,8 @@ app.post('/api/analyze', (req, res) => {
         .then((sentiment) => {
           analysis.sentiment = sentiment;
           analysis.score = score.scoreAnalysis(analysis.tone);
+          // if there is an active session
+            // store article info in database
           res.send(analysis);
         })
         .catch((err) => {

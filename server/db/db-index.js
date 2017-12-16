@@ -78,7 +78,6 @@ exports.User = User;
 exports.Input = Input;
 exports.Vote = Vote;
 
-
 // ******************** pg part *************
 
 const client = new Client({
