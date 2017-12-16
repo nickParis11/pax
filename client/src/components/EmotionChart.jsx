@@ -74,20 +74,20 @@ export default class EmotionChart extends React.Component {
     x.domain(data.map(d => d[0]));
     y.domain([0, /* d3.max(data, (d)=> d[1]) */100]);
 
-//create axis
+    // create axis
     svg.append('g')
       .attr('class', 'x axis')
       .call(d3.axisBottom(x))
       .attr('transform', `translate(0, ${-height}`)
       .selectAll('text')
-        .style('text-anchor', 'end')
-        .attr('dx', '-2em')
-        .attr('dy', '.15em')
-        .attr('transform', 'rotate(-65)');
+      .style('text-anchor', 'end')
+      .attr('dx', '-2em')
+      .attr('dy', '.15em')
+      .attr('transform', 'rotate(-65)');
 
-//add text label
+    // add text label
     svg.append('text')
-      //.attr('transform', `translate(${width/2} ,${height + margin.top + 30}`)
+      // .attr('transform', `translate(${width/2} ,${height + margin.top + 30}`)
       .style('text-anchor', 'middle')
       // .style('text-anchor', 'end')
       .attr('dx', '22em')

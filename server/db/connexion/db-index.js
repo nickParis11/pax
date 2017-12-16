@@ -8,9 +8,6 @@ const dbPwd = process.env.LOCAL === '1' ? process.env.LOCAL_DB_PASSWORD : proces
 const dbUser = process.env.LOCAL === '1' ? process.env.LOCAL_DB_USER : process.env.DEPLOYED_DB_USER;
 const dbHost = process.env.LOCAL === '1' ? process.env.LOCAL_DB_HOST : process.env.DEPLOYED_DB_HOST;
 const dbName = process.env.LOCAL === '1' ? process.env.LOCAL_DB_NAME : process.env.DEPLOYED_DB_NAME;
-const dbName2 = process.env.LOCAL === '1' ? process.env.LOCAL_DB_NAME2 : process.env.DEPLOYED_DB_NAME2;
-
-
 
 
 // ******************** pg part *************
@@ -35,12 +32,10 @@ client.query('select * from users', (err, res) => {
 <<<<<<< fe1505c23e45d6e733b22e19d2149a32323e6587
 
 
-
 exports.sqlConnection = client;
 exports.sequelLizeConnection = sequelize;
 =======
 */
-
 
 
 // only uncomment this part if you wanna test insertion
@@ -54,7 +49,5 @@ client.query('insert into users (name) values ($1);',['Katelyn'], (err, res) => 
 */
 
 
-
 exports.sqlConnection = client;
-
 

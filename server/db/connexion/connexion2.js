@@ -6,7 +6,6 @@ require('dotenv').config();
 const dbPwd = process.env.LOCAL === '1' ? process.env.LOCAL_DB_PASSWORD : process.env.DEPLOYED_DB_PASSWORD;
 const dbUser = process.env.LOCAL === '1' ? process.env.LOCAL_DB_USER : process.env.DEPLOYED_DB_USER;
 const dbHost = process.env.LOCAL === '1' ? process.env.LOCAL_DB_HOST : process.env.DEPLOYED_DB_HOST;
-const dbName = process.env.LOCAL === '1' ? process.env.LOCAL_DB_NAME : process.env.DEPLOYED_DB_NAME;
 const dbName2 = process.env.LOCAL === '1' ? process.env.LOCAL_DB_NAME2 : process.env.DEPLOYED_DB_NAME2;
 
 
@@ -21,4 +20,4 @@ const conn2 = new Client({
 
 conn2.connect();
 
-exports.sqlConnection2= conn2;
+exports.sqlConnection2 = conn2;
