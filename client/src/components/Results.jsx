@@ -1,15 +1,33 @@
 import React from 'react';
 import { connect } from 'react-redux';
+import { downvote, getArticleVoteData, upvote } from '../actions/voteActions.js';
 
 @connect((store) => {
   return {
+    downVote: store.vote.downVote,
+    downVoteCount: store.vote.downVoteCount,
     score: store.analyzer.score,
     sentiment: store.analyzer.sentiment,
     tone: store.analyzer.tone,
+    upVote: store.vote.upVote,
+    upVoteCount: store.vote.upVoteCount,
   };
 })
 
 export default class Results extends React.Component {
+
+  componentDidMount() {
+    this.props.dispatch(getArticleVoteData());
+  }
+  
+  voteDown() {
+    this.props.dispatch(downvote());
+  }
+
+  voteUp() {
+    this.props.dispatch(upvote());
+  }
+  
   render() {
     const tone = this.props.tone.document_tone;
     console.log(this.props);
@@ -29,11 +47,11 @@ export default class Results extends React.Component {
             </div>
             <div className="arrowContainer">
               <div className="arrowVoteContainer">
-                <span className="arrow">↑</span>
+                <span className="arrow" onClick={this.voteUp.bind(this)}>↑</span>
                 <span>0</span>
               </div>
               <div className="arrowVoteContainer">
-                <span className="arrow">↓</span>
+                <span className="arrow" onClick={this.voteDown.bind(this)}>↓</span>
                 <span>0</span>
               </div>
             </div>
