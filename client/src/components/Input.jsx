@@ -1,8 +1,8 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import RaisedButton from 'material-ui/RaisedButton';
-import TextField from 'material-ui/TextField';
 import { toggleUrlText, getUrlAnalysis, getTextAnalysis } from '../actions/analyzerActions';
+import InputURL from './InputURL.jsx';
+import InputText from './InputText.jsx';
 
 @connect((store) => {
   return {
@@ -18,7 +18,7 @@ import { toggleUrlText, getUrlAnalysis, getTextAnalysis } from '../actions/analy
   checkInput() {
     const value = document.getElementById('input').value;
     if (value === '') {
-      alert('Please enter a url or text to analyze');
+      alert('Please enter a URL or text to analyze.');
     } else {
       this.analyzeHandle();
     }
@@ -26,7 +26,6 @@ import { toggleUrlText, getUrlAnalysis, getTextAnalysis } from '../actions/analy
 
   analyzeHandle() {
     const value = document.getElementById('input').value;
-
     if (this.props.analyzeUrl) {
       this.props.dispatch(getUrlAnalysis(value));
     } else {
@@ -35,20 +34,18 @@ import { toggleUrlText, getUrlAnalysis, getTextAnalysis } from '../actions/analy
   }
 
   render() {
-    if (this.props.analyzeUrl) {
-      return (
-        <div>
-          <RaisedButton label="Switch to Text" onClick={this.textToggleHandle.bind(this)} /><br />
-          <TextField floatingLabelText="Enter URL here" id="input" /><br />
-          <RaisedButton label="Analyze" onClick={this.checkInput.bind(this)} />
-        </div>
-      );
-    }
     return (
-      <div>
-        <RaisedButton label="Switch to URL" onClick={this.textToggleHandle.bind(this)} /><br />
-        <textarea type="text" id="input" rows="20" cols="100" /><br />
-        <RaisedButton label="Analyze" onClick={this.checkInput.bind(this)} />
+      <div className="container">
+        <InputURL
+          display={this.props.analyzeUrl}
+          checkInput={this.checkInput.bind(this)}
+          textToggleHandle={this.textToggleHandle.bind(this)}
+        />
+        <InputText
+          display={this.props.analyzeUrl}
+          checkInput={this.checkInput.bind(this)}
+          textToggleHandle={this.textToggleHandle.bind(this)}
+        />
       </div>
     );
   }
