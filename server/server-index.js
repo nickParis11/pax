@@ -2,10 +2,7 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const session = require('express-session');
 const facebookLogin = require('./server-helpers/facebookLogin.js');
-const trust = require('./server-helpers/algorithm.js');
-const analyzeTone = require('./server-helpers/toneAnalyzer');
-const aylienHelpers = require('./server-helpers/aylienHelpers');
-const article = require('./db/controllers/articleController.js');
+const analyze = require('./server-helpers/analyze.js');
 
 const app = express();
 const PORT = 3000;
@@ -42,55 +39,11 @@ app.get('/api/logoutUser', (req, res) => {
 });
 
 app.post('/api/analyze', (req, res) => {
-  const analysis = {};
-
-  analyzeTone(req.body.data)
-    .then((tone) => {
-      analysis.tone = tone;
-      aylienHelpers.sentimentAnalysis(req.body.data)
-        .then((sentiment) => {
-          analysis.sentiment = sentiment;
-          analysis.score = trust.trustAnalysis(analysis.tone);
-          res.send(analysis);
-        })
-        .catch((err) => {
-          res.send(err);
-        });
-    })
-    .catch((err) => {
-      res.send(err);
-    });
+  analyze.analyzeText(req.body.data, res);
 });
 
 app.post('/api/extract', (req, res) => {
-  const analysis = {};
-
-  aylienHelpers.extractArticle(req.body.data)
-    .then((text) => {
-      // analysis.summary = text.sentences;
-      analyzeTone(text.article)
-        .then((tone) => {
-          analysis.tone = JSON.parse(tone);
-          aylienHelpers.sentimentAnalysis(text.article)
-            .then((sentiment) => {
-              analysis.sentiment = sentiment;
-              analysis.score = trust.trustAnalysis(analysis.tone);
-              if (req.session.user) {
-                article.store(analysis, req.session.user, req.body.data, true)
-              }
-              res.send(analysis);
-            })
-            .catch((err) => {
-              res.send(err);
-            });
-        })
-        .catch((err) => {
-          res.send(err);
-        });
-    })
-    .catch((err) => {
-      res.send(err);
-    });
+  analyze.analyzeUrl(req.body.data, res);
 });
 
 app.get('/api/vote', (req, res) => {
@@ -111,4 +64,3 @@ app.post('/api/vote', (req, res) => {
 app.listen(PORT, () => {
   console.log(`Listening on ${PORT}`);
 });
-
