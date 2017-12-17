@@ -2,13 +2,13 @@ const db = require('../db-index.js');
 const user = require('./userController.js');
 
 module.exports = {
-  store: (analysis, username, link, isLink) => {
+  store: (analysis, username, input, isLink) => {
     user.get({ body: { username } }, (found) => {
       const tone = analysis.tone.document_tone.tone_categories;
       db.Article.findOrCreate({
         where: {
           userId: found.id,
-          user_text: link,
+          user_text: input,
           is_link: isLink,
           result: analysis.score,
           polarity: analysis.sentiment.polarity,
