@@ -102,7 +102,9 @@ app.post('/api/extract', (req, res) => {
             .then((sentiment) => {
               analysis.sentiment = sentiment;
               analysis.score = trust.trustAnalysis(analysis.tone);
-              !!req.session.user ? article.store(analysis, req.session.user, req.body.data, true) : analysis;
+              if (req.session.user) {
+                article.store(analysis, req.session.user, req.body.data, true)
+              }
               res.send(analysis);
             })
             .catch((err) => {

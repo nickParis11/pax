@@ -59,7 +59,7 @@ const summary = (link) => {
         sentences_number: 3,
       },
       (err, response) => {
-        if(err) {
+        if (err) {
           return reject(err);
         } else {
           return resolve(response);

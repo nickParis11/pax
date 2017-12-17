@@ -9,13 +9,20 @@ import { downvote, getArticleVoteData, upvote } from '../actions/voteActions.js'
     downVoteCount: store.vote.downVoteCount,
     score: store.analyzer.score,
     sentiment: store.analyzer.sentiment,
-    tone: store.analyzer.tone,
     upVote: store.vote.upVote,
     upVoteCount: store.vote.upVoteCount,
   };
 }) export default class Results extends React.Component {
   componentDidMount() {
     this.props.dispatch(getArticleVoteData());
+  }
+
+  handleKeyPress(e) {
+    if (e.key === 'ArrowDown') {
+      this.props.dispatch(downvote());
+    } else if (e.key === 'ArrowUp') {
+      this.props.dispatch(upvote());
+    }
   }
 
   voteDown() {
@@ -27,8 +34,6 @@ import { downvote, getArticleVoteData, upvote } from '../actions/voteActions.js'
   }
 
   render() {
-    const tone = this.props.tone.document_tone;
-    console.log(this.props);
     const sentiment = this.props.sentiment;
 
     return (
@@ -38,23 +43,35 @@ import { downvote, getArticleVoteData, upvote } from '../actions/voteActions.js'
         <div className="row">
           <div className="arrows">
             <div className="arrowsContainer">
-              <span className={this.props.upVote ? 'arrow arrowUpSelected' : 'arrow'} onClick={this.voteUp.bind(this)}>↑</span>
+              <span
+                role="button"
+                className={this.props.upVote ? "arrow arrowUpSelected" : "arrow"}
+                onClick={this.voteUp.bind(this)}
+                onKeyPress={this.handleKeyPress.bind(this)}
+              >
+                ↑
+              </span>
               <Badge
                 badgeContent={this.props.upVoteCount}
-                primary={true}
-                >
-              </Badge>
+                primary
+              />
             </div>
             <div className="arrowsContainer">
-              <span className={this.props.downVote ? 'arrow arrowDownSelected' : 'arrow'} onClick={this.voteDown.bind(this)}>↓</span>
+              <span
+                role="button"
+                className={this.props.downVote ? "arrow arrowDownSelected" : "arrow"}
+                onClick={this.voteDown.bind(this)}
+                onKeyPress={this.handleKeyPress.bind(this)}
+              >
+                ↓
+              </span>
               <Badge
                 badgeContent={this.props.downVoteCount}
-                secondary={true}
-                >
-              </Badge>
+                secondary
+              />
             </div>
           </div>
-          <div></div>
+          <div />
           <div className="summaryContainer">
             <p><b>Summary: </b>
               <br />
@@ -66,8 +83,8 @@ import { downvote, getArticleVoteData, upvote } from '../actions/voteActions.js'
             </p>
           </div>
         </div>
-        <div></div>
-        </div>
+        <div />
+      </div>
     );
   }
 }
