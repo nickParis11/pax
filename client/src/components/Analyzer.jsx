@@ -17,11 +17,10 @@ export default class Analyzer extends React.Component {
     return (
       <div>
         <Nav />
-        <h2>Analyzer</h2>
-        <Input />
-        {this.props.waiting ? <Waiting /> : null}
-        {this.props.success ? <Results /> : null}
-        {this.props.success ? <div className='container'><EmotionChart /></div> : null}
+        {!this.props.success && <Input />}
+        {this.props.waiting && <Waiting />}
+        {this.props.success && <Results />}
+        {this.props.success && <EmotionChart />}
       </div>
     );
   }
