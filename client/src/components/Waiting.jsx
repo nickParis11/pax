@@ -4,8 +4,13 @@ import CircularProgress from 'material-ui/CircularProgress';
 const Waiting = () => {
   return (
     <div>
-      <h3>Analyzing...</h3>
-      <CircularProgress />
+      <div className="container">
+        <h1>ANALYZING...</h1>
+      </div>
+      <br />
+      <div className="container">
+        <CircularProgress />
+      </div>
     </div>
   );
 };
