@@ -1,10 +1,10 @@
 const db = require('../db-index.js');
 
 module.exports = {
-  get: (req, res) => {
+  get: (req, cb) => {
     db.User.find({ where: { username: req.body.username } })
       .then((user) => {
-        res.send(user);
+        cb(user);
       });
   },
   post: (req, cb) => {

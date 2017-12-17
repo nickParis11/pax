@@ -78,7 +78,6 @@ app.post('/api/analyze', (req, res) => {
         .then((sentiment) => {
           analysis.sentiment = sentiment;
           analysis.score = score.scoreAnalysis(analysis.tone);
-          // req.session.user ? article.store(analysis) : null;
           res.send(analysis);
         })
         .catch((err) => {
@@ -94,14 +93,15 @@ app.post('/api/extract', (req, res) => {
   const analysis = {};
 
   aylienHelpers.extractArticle(req.body.data)
-    .then((article) => {
-      analyzeInput(encodeURI(article.article))
+    .then((text) => {
+      analyzeInput(encodeURI(text.article))
         .then((tone) => {
           analysis.tone = tone;
-          aylienHelpers.sentimentAnalysis(article.article)
+          aylienHelpers.sentimentAnalysis(text.article)
             .then((sentiment) => {
               analysis.sentiment = sentiment;
               analysis.score = score.scoreAnalysis(analysis.tone);
+              !!req.session.user ? article.store(analysis, req.session.user, req.body.data, true) : null;
               res.send(analysis);
             })
             .catch((err) => {

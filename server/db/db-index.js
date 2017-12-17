@@ -27,6 +27,7 @@ const sequelize = new Sequelize(dbName, dbUser, dbPwd, {
 sequelize
   .authenticate()
   .then(() => {
+    // sequelize.sync({ force: true });
     console.log('sequelize Connection has been established successfully.');
   })
   .catch((err) => {
@@ -39,8 +40,8 @@ const User = sequelize.define('user', {
   sessionId: Sequelize.STRING,
 });
 
-const Input = sequelize.define('input', {
-  text: Sequelize.STRING,
+const Article = sequelize.define('article', {
+  user_text: Sequelize.STRING,
   is_link: Sequelize.BOOLEAN,
   result: Sequelize.INTEGER,
   polarity: Sequelize.STRING,
@@ -66,35 +67,35 @@ const Vote = sequelize.define('vote', {
   downvote: Sequelize.BOOLEAN,
 });
 
-User.hasMany(Input);
+User.hasMany(Article);
 User.hasMany(Vote);
-Input.hasMany(Vote);
+Article.hasMany(Vote);
 
-Input.belongsTo(User);
+Article.belongsTo(User);
 Vote.belongsTo(User);
-Vote.belongsTo(Input);
+Vote.belongsTo(Article);
 
 exports.User = User;
-exports.Input = Input;
+exports.Article = Article;
 exports.Vote = Vote;
 
 // ******************** pg part *************
 
-const client = new Client({
-  user: dbUser,
-  host: dbHost,
-  database: dbName,
-  password: dbPwd,
-  port: 5432,
-});
+// const client = new Client({
+//   user: dbUser,
+//   host: dbHost,
+//   database: dbName,
+//   password: dbPwd,
+//   port: 5432,
+// });
 
-client.connect();
+// client.connect();
 
-client.query('select * from users', (err, res) => {
-  console.log(err ? err.stack : res.rows);
-  // make sure to uncomment client.end() if running other queries in this page with pg module
-  client.end();
-});
+// sequelize.query('select * from articles', (err, res) => {
+//   console.log(err ? err.stack : res.rows);
+//   // make sure to uncomment client.end() if running other queries in this page with pg module
+//   sequelize.end();
+// });
 
 
 // only uncomment this part if you wanna test insertion
