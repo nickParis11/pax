@@ -1,56 +1,29 @@
 const express = require('express');
 const bodyParser = require('body-parser');
 const session = require('express-session');
-const passport = require('passport');
-const FacebookStrategy = require('passport-facebook').Strategy;
-const trust = require('./algorithm.js');
-const analyzeInput = require('./toneAnalyzer');
-const aylienHelpers = require('./aylienHelpers');
-const user = require('./db/controllers/userController.js');
+const facebookLogin = require('./server-helpers/facebookLogin.js');
+const trust = require('./server-helpers/algorithm.js');
+const analyzeTone = require('./server-helpers/toneAnalyzer');
+const aylienHelpers = require('./server-helpers/aylienHelpers');
 const article = require('./db/controllers/articleController.js');
-
-require('dotenv').config();
-
-passport.use(new FacebookStrategy(
-  {
-    clientID: process.env.FB_APP_ID,
-    clientSecret: process.env.FB_APP_SECRET,
-    callbackURL: process.env.FB_LOCAL_DIRECT || 'http://ec2-54-163-98-154.compute-1.amazonaws.com/auth/facebook/callback',
-    passReqToCallback: true,
-  },
-  (req, accessToken, refreshToken, profile, done) => {
-    req.session.user = profile.id;
-    user.post({ body: profile.id }, (err, userRes) => {
-      done(err, userRes);
-    });
-  },
-));
-
-passport.serializeUser((serializedUser, done) => {
-  done(null, serializedUser);
-});
-
-passport.deserializeUser((obj, done) => {
-  done(null, obj);
-});
 
 const app = express();
 const PORT = 3000;
 app.use(express.static(`${__dirname}/../client/dist/`));
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
-app.use(passport.initialize());
+app.use(facebookLogin.passport.initialize());
 app.use(session({
   secret: 'keyboard cat',
   resave: false,
   saveUninitialized: true,
 }));
 
-app.get('/auth/facebook', passport.authenticate('facebook'));
+app.get('/auth/facebook', facebookLogin.passport.authenticate('facebook'));
 
 app.get(
   '/auth/facebook/callback',
-  passport.authenticate('facebook', {
+  facebookLogin.passport.authenticate('facebook', {
     successRedirect: '/',
     failureRedirect: '/login',
   }),
@@ -71,7 +44,7 @@ app.get('/api/logoutUser', (req, res) => {
 app.post('/api/analyze', (req, res) => {
   const analysis = {};
 
-  analyzeInput(req.body.data)
+  analyzeTone(req.body.data)
     .then((tone) => {
       analysis.tone = tone;
       aylienHelpers.sentimentAnalysis(req.body.data)
@@ -95,7 +68,7 @@ app.post('/api/extract', (req, res) => {
   aylienHelpers.extractArticle(req.body.data)
     .then((text) => {
       // analysis.summary = text.sentences;
-      analyzeInput(text.article)
+      analyzeTone(text.article)
         .then((tone) => {
           analysis.tone = JSON.parse(tone);
           aylienHelpers.sentimentAnalysis(text.article)
