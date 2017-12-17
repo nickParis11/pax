@@ -30,18 +30,6 @@ export function getUrlAnalysis(link) {
   };
 }
 
-// export function extractArticle(link, callback) {
-//   return () => {
-//     axios.post('/api/extract', { data: link })
-//       .then((response) => {
-//         callback(response.data.article);
-//       })
-//       .catch((err) => {
-//         console.log(err);
-//       });
-//   };
-// }
-
 export function getTextAnalysis(article) {
   return (dispatch) => {
     dispatch({ type: 'ANALYSIS_SUBMITTED' });

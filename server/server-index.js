@@ -3,7 +3,7 @@ const bodyParser = require('body-parser');
 const session = require('express-session');
 const passport = require('passport');
 const FacebookStrategy = require('passport-facebook').Strategy;
-const score = require('./algorithm.js');
+const trust = require('./algorithm.js');
 const analyzeInput = require('./toneAnalyzer');
 const aylienHelpers = require('./aylienHelpers');
 const user = require('./db/controllers/userController.js');
@@ -77,7 +77,7 @@ app.post('/api/analyze', (req, res) => {
       aylienHelpers.sentimentAnalysis(req.body.data)
         .then((sentiment) => {
           analysis.sentiment = sentiment;
-          analysis.score = score.scoreAnalysis(analysis.tone);
+          analysis.score = trust.trustAnalysis(analysis.tone);
           res.send(analysis);
         })
         .catch((err) => {
@@ -94,16 +94,15 @@ app.post('/api/extract', (req, res) => {
 
   aylienHelpers.extractArticle(req.body.data)
     .then((text) => {
-      analyzeInput(encodeURI(text.article))
+      // analysis.summary = text.sentences;
+      analyzeInput(text.article)
         .then((tone) => {
-          analysis.tone = tone;
+          analysis.tone = JSON.parse(tone);
           aylienHelpers.sentimentAnalysis(text.article)
             .then((sentiment) => {
               analysis.sentiment = sentiment;
-              analysis.score = score.scoreAnalysis(analysis.tone);
-              if (req.session.user) {
-                article.store(analysis, req.session.user, req.body.data, true);
-              }
+              analysis.score = trust.trustAnalysis(analysis.tone);
+              !!req.session.user ? article.store(analysis, req.session.user, req.body.data, true) : analysis;
               res.send(analysis);
             })
             .catch((err) => {

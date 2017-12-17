@@ -78,8 +78,8 @@ const emoAnalyticCheck = (analytical, concientiousness, emoRange) => {
   return 0;
 };
 
-const scoreAnalysis = (analysis) => {
-  let score = 70;
+const trustAnalysis = (analysis) => {
+  let trust = 70;
   const anger = analysis.document_tone.tone_categories[0].tones[0].score * 100;
   const disgust = analysis.document_tone.tone_categories[0].tones[1].score * 100;
   const joy = analysis.document_tone.tone_categories[0].tones[3].score * 100;
@@ -88,14 +88,14 @@ const scoreAnalysis = (analysis) => {
   const concientiousness = analysis.document_tone.tone_categories[2].tones[1].score * 100;
   const emoRange = analysis.document_tone.tone_categories[2].tones[4].score * 100;
 
-  score += (tentativeCheck(tentative)
+  trust += ((tentativeCheck(tentative)
         + analyticalCheck(analytical))
         - emoRangeCheck(emoRange)
         - angerCheck(anger)
         - disgustJoyCheck(disgust, joy)
-        - emoAnalyticCheck(analytical, concientiousness, emoRange);
+        - emoAnalyticCheck(analytical, concientiousness, emoRange));
 
-  return score;
+  return trust;
 };
 
-module.exports.scoreAnalysis = scoreAnalysis;
+module.exports.trustAnalysis = trustAnalysis;
