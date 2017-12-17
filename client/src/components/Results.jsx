@@ -13,9 +13,7 @@ import { downvote, getArticleVoteData, upvote } from '../actions/voteActions.js'
     upVote: store.vote.upVote,
     upVoteCount: store.vote.upVoteCount,
   };
-})
-
-export default class Results extends React.Component {
+}) export default class Results extends React.Component {
   componentDidMount() {
     this.props.dispatch(getArticleVoteData());
   }
