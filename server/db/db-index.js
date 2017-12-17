@@ -1,4 +1,4 @@
-const { Client } = require('pg');
+// const { Client } = require('pg'); <-- DO WE STILL NEED THIS???
 require('dotenv').config();
 const Sequelize = require('sequelize');
 
