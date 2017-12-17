@@ -8,28 +8,20 @@ import { connect } from 'react-redux';
   sentiment: store.analyzer.sentiment,
   tone: store.analyzer.tone,
   width: store.analyzer.width,
-}))
-
-export default class EmotionChart extends React.Component {
+})) export default class EmotionChart extends React.Component {
   drawChart() {
     const div = new ReactFauxDOM.Element('div');
-
     const tone = this.props.tone.document_tone;
     // const sentiment = this.props.sentiment;
     // emotion list array in ['emotion type', score] format
     const emotionList = tone.tone_categories[0].tones.map(emo =>
       [emo.tone_name, Math.round(emo.score * 100)]);
-
     const languageToneList = tone.tone_categories[1].tones.map(lang =>
       [lang.tone_name, Math.round(lang.score * 100)]);
-
     const socialToneList = tone.tone_categories[2].tones.map(soc =>
       [soc.tone_name, Math.round(soc.score * 100)]);
-
     const allTonesList = emotionList.concat(languageToneList, socialToneList);
-
     const data = allTonesList;
-
     const margin = {
       top: 45, right: 5, bottom: 10, left: 45,
     };
@@ -37,13 +29,11 @@ export default class EmotionChart extends React.Component {
     const height = this.props.height - margin.top - margin.bottom;
     console.log('width', width);
     console.log('height', height);
-
     const x = d3
       .scaleBand()
       .rangeRound([0, width])
       .paddingInner(10)
       .paddingOuter(25);
-
     const y = d3
       .scaleLinear()
       .range([height, 0]);
@@ -61,7 +51,6 @@ export default class EmotionChart extends React.Component {
     //   .axisLeft()
     //   .scale(y)
     //   .tickFormat(d3.format('10'));
-
     const svg = d3
       .select(div)
       .append('svg')
@@ -70,7 +59,6 @@ export default class EmotionChart extends React.Component {
       //     .style('background-color', '#E5DF24')
       .append('g')
       .attr('transform', `translate(${margin.left},${margin.top})`);
-
     x.domain(data.map(d => d[0]));
     y.domain([0, /* d3.max(data, (d)=> d[1]) */100]);
 
@@ -123,6 +111,10 @@ export default class EmotionChart extends React.Component {
   }
 
   render() {
-    return this.drawChart();
+    return (
+      <div className="container">
+        {this.drawChart()}
+      </div>
+    );
   }
 }
