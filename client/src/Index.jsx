@@ -8,9 +8,10 @@ import Analyzer from './components/Analyzer.jsx';
 
 // const customTheme = {};
 // const muiTheme = getMuiTheme()
+// <MuiThemeProvider muiTheme={muiTheme}>
 
 ReactDOM.render(<Provider store={store}>
-  <MuiThemeProvider /*muiTheme={muiTheme}*/>
+  <MuiThemeProvider>
     <Analyzer />
   </MuiThemeProvider>
 </Provider>, document.getElementById('app'));
