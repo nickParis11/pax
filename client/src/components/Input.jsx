@@ -16,7 +16,7 @@ import InputText from './InputText.jsx';
   }
 
   checkInput() {
-    const value = document.getElementById('input').value;
+    const value = escape(document.getElementById('input').value);
     if (value === '') {
       alert('Please enter a URL or text to analyze.');
     } else {
