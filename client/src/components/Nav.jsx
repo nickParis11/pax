@@ -34,7 +34,9 @@ import { userLogout, setAnalyzeView, getUser } from '../actions/userActions';
         iconElementRight={
           <IconMenu
             iconButtonElement={
-              <IconButton><MoreVertIcon /></IconButton>
+              <IconButton>
+                <MoreVertIcon />
+              </IconButton>
             }
             targetOrigin={{ horizontal: 'right', vertical: 'top' }}
             anchorOrigin={{ horizontal: 'right', vertical: 'top' }}
