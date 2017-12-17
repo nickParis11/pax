@@ -20,14 +20,14 @@ passport.use(new FacebookStrategy(
   },
   (req, accessToken, refreshToken, profile, done) => {
     req.session.user = profile.id;
-    user.post({ body: profile.id }, (err, user) => {
-      done(err, user);
+    user.post({ body: profile.id }, (err, userRes) => {
+      done(err, userRes);
     });
   },
 ));
 
-passport.serializeUser((user, done) => {
-  done(null, user);
+passport.serializeUser((serializedUser, done) => {
+  done(null, serializedUser);
 });
 
 passport.deserializeUser((obj, done) => {
@@ -101,7 +101,9 @@ app.post('/api/extract', (req, res) => {
             .then((sentiment) => {
               analysis.sentiment = sentiment;
               analysis.score = score.scoreAnalysis(analysis.tone);
-              !!req.session.user ? article.store(analysis, req.session.user, req.body.data, true) : null;
+              if (req.session.user) {
+                article.store(analysis, req.session.user, req.body.data, true);
+              }
               res.send(analysis);
             })
             .catch((err) => {
