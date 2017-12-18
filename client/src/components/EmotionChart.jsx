@@ -46,7 +46,7 @@ import { connect } from 'react-redux';
       .append('g')
       .attr('transform', `translate(${margin.left},${margin.top})`);
 
-    //create range
+    // create range
     x.domain(data.map(d => d[0]));
     y.domain([0, 100]);
 
@@ -68,7 +68,7 @@ import { connect } from 'react-redux';
       .attr('dy', '-.5em')
       .text('Tone Type');
 
-    //create y-axis
+    // create y-axis
     svg.append('g')
       .call(d3.axisLeft(y));
 
@@ -81,7 +81,7 @@ import { connect } from 'react-redux';
       .style('text-anchor', 'end')
       .text('Tone level (%)');
 
-    //values for both axis
+    // values for both axis
     svg.selectAll('.bar')
       .data(data)
       .enter().append('rect')
@@ -90,8 +90,8 @@ import { connect } from 'react-redux';
       .attr('width', 20)
       .attr('y', d => y(d[1]))
       .attr('height', d => height - y(d[1]))
-      .append("svg:title")
-      .text(function(d) { return d[0] + ':' + d[1]; });
+      .append('svg:title')
+      .text((d) => { return `${d[0]} : ${d[1]}`; });
 
     return div.toReact();
   }
