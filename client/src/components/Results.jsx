@@ -1,6 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import EmotionChart from './EmotionChart.jsx';
+import ResultsSummary from './ResultsSummary.jsx';
 import ResultsVote from './ResultsVote.jsx';
 
 @connect((store) => {
@@ -10,7 +11,6 @@ import ResultsVote from './ResultsVote.jsx';
     success: store.analyzer.success,
   };
 }) export default class Results extends React.Component {
-
   render() {
     return this.props.success && (
       <div>
@@ -18,16 +18,9 @@ import ResultsVote from './ResultsVote.jsx';
         <h2 className="trustRating">Trust Rating: {this.props.score}%</h2>
         <div className="row">
           <ResultsVote />
-          <div className="summaryContainer">
-            <p><b>Summary: </b>
-              <br />
-              Polarity: {this.props.sentiment.polarity}
-              <br />
-              Health goth DIY ramps skateboard.
-              <br />
-              IPhone 8-bit williamsburg cronut try-hard humblebrag.
-            </p>
-          </div>
+          <ResultsSummary
+            polarity={this.props.sentiment.polarity}
+          />
         </div>
         <EmotionChart />
       </div>
