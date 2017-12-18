@@ -102,7 +102,7 @@ import { connect } from 'react-redux';
       .attr('x', d => x(d[0]))
       .attr('width', 20)
       .attr('y', d => y(d[1]))
-//      .style('fill', '#800080')
+    //      .style('fill', '#800080')
       .attr('height', d => height - y(d[1]));
 
     // var selector = d3.select('#drop')
