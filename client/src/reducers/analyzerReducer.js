@@ -3,7 +3,7 @@ const initialState = {
   analyzeText: false,
   error: null,
   height: 400,
-  input: null,
+  id: null,
   score: null,
   sentiment: null,
   success: false,
@@ -18,13 +18,12 @@ export default function analyzer(state = initialState, action) {
       return { ...state, analyzeUrl: false, analyzeText: true };
     case 'TOGGLE_TEXT_TRUE':
       return { ...state, analyzeUrl: true, analyzeText: false };
-    case 'ANALYZE_INPUT':
-      return { ...state, input: action.payload };
     case 'ANALYSIS_SUBMITTED':
       return { ...state, success: false, waiting: true };
     case 'RESULTS_FULFILLED':
       return {
         ...state,
+        id: action.payload.id,
         tone: action.payload.tone,
         score: action.payload.score,
         sentiment: action.payload.sentiment,

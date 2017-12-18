@@ -46,12 +46,6 @@ app.post('/api/extract', (req, res) => {
   analyze.analyzeUrl(req.body.data, req.session.user, res);
 });
 
-app.get('/api/vote', (req, res) => {
-  // Expects an article id, either in req.body or as a param.
-  // Return vote count for the article.
-  res.send({ downVoteCount: 0, upVoteCount: 0 });
-});
-
 app.post('/api/vote', (req, res) => {
   // Expects an article id and user id, either in req.body or as a param.
   // Update the database:

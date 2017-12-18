@@ -14,9 +14,13 @@ const analyzeText = (text, session, res, input, bool) => {
           analysis.sentiment = sentiment;
           analysis.score = trust.trustAnalysis(analysis.tone);
           if (session !== undefined) {
-            article.store(analysis, session, input, bool);
+            article.store(analysis, session, input, bool, (response) => {
+              analysis.id = response[0].dataValues.id;
+              res.send(analysis);
+            });
+          } else {
+            res.send(analysis);
           }
-          res.send(analysis);
         })
         .catch((err) => {
           res.send('Error analyzing sentiment:', err);

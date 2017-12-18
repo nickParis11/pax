@@ -1,6 +1,5 @@
-// const { Client } = require('pg'); <-- DO WE STILL NEED THIS???
-require('dotenv').config();
 const Sequelize = require('sequelize');
+require('dotenv').config();
 
 // ******************************** db elements set up
 
@@ -23,18 +22,18 @@ const sequelize = new Sequelize(dbName, dbUser, dbPwd, {
   },
 });
 
-// test authentification
+// test authentication
 sequelize
   .authenticate()
   .then(() => {
-    // sequelize.sync({ force: true });
+    // sequelize.sync({ force: true });  // uncomment to drop tables
     console.log('sequelize Connection has been established successfully.');
   })
   .catch((err) => {
     console.error('sequelize : Unable to connect to the database:', err);
   });
 
-// create barebone schema
+// create schemas
 const User = sequelize.define('user', {
   username: Sequelize.STRING,
   sessionId: Sequelize.STRING,
@@ -67,10 +66,10 @@ const Vote = sequelize.define('vote', {
   downvote: Sequelize.BOOLEAN,
 });
 
+// define relationships
 User.hasMany(Article);
 User.hasMany(Vote);
 Article.hasMany(Vote);
-
 Article.belongsTo(User);
 Vote.belongsTo(User);
 Vote.belongsTo(Article);
@@ -78,32 +77,3 @@ Vote.belongsTo(Article);
 exports.User = User;
 exports.Article = Article;
 exports.Vote = Vote;
-
-// ******************** pg part *************
-
-// const client = new Client({
-//   user: dbUser,
-//   host: dbHost,
-//   database: dbName,
-//   password: dbPwd,
-//   port: 5432,
-// });
-
-// client.connect();
-
-// sequelize.query('select * from articles', (err, res) => {
-//   console.log(err ? err.stack : res.rows);
-//   // make sure to uncomment client.end() if running other queries in this page with pg module
-//   sequelize.end();
-// });
-
-
-// only uncomment this part if you wanna test insertion
-// make sure to uncomment client.end() if there is no client.end after these lines
-
-/*
-client.query('insert into users (name) values ($1);',['Katelyn'], (err, res) => {
-  console.log(err ? err.stack : res);
-  //client.end();
-})
-*/

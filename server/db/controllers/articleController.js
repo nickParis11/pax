@@ -2,7 +2,7 @@ const db = require('../db-index.js');
 const user = require('./userController.js');
 
 module.exports = {
-  store: (analysis, username, input, isLink) => {
+  store: (analysis, username, input, isLink, cb) => {
     user.get({ body: { username } }, (found) => {
       const tone = analysis.tone.document_tone.tone_categories;
       db.Article.findOrCreate({
@@ -27,6 +27,12 @@ module.exports = {
           agreeableness: tone[2].tones[2].score * 100,
           emotional_range: tone[2].tones[3].score * 100,
         },
+      })
+      .then((article) => {
+        cb(article);
+      })
+      .catch((err) => {
+        cb('Error saving article to database:', err);
       });
     });
   },
