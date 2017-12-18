@@ -16,8 +16,10 @@ export default class Analyzer extends React.Component {
     return (
       <div>
         <Nav />
-        {!this.props.success && <Input />}
-        {this.props.waiting && <Waiting />}
+        <Input />
+        <Waiting
+          display={this.props.waiting}
+        />
         <Results />
       </div>
     );
