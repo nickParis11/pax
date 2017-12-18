@@ -92,7 +92,6 @@ import { connect } from 'react-redux';
       .attr('height', d => height - y(d[1]))
       .append('svg:title')
       .text((d) => { return `${d[0]} : ${d[1]}`; });
-
     return div.toReact();
   }
 
