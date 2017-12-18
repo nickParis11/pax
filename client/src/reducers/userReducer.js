@@ -1,7 +1,5 @@
 const initialState = {
   login: false,
-  password: null,
-  username: null,
 };
 
 export default function user(state = initialState, action) {

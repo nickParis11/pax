@@ -15,7 +15,6 @@ const analyzeText = (text, session, res, input, bool) => {
           analysis.score = trust.trustAnalysis(analysis.tone);
           if (session !== undefined) {
             article.store(analysis, session, input, bool, (response) => {
-              console.log('=============> response', response);
               analysis.id = response.dataValues.id;
               res.send(analysis);
             });

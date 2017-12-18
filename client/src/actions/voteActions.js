@@ -1,23 +1,23 @@
 import axios from 'axios';
 
-export function downvote() {
-  return (dispatch) => {
-    dispatch({ type: 'DOWNVOTE' });
-    axios.post('/api/vote') // Will need to specify some kind of identifier for the article.
-      .then((res) => { // Expects updated downvote number.
-        dispatch({
-          type: 'UPDATE_VOTE_DATA',
-          payload: {
-            downVoteCount: res.data.downVoteCount,
-            upVoteCount: res.data.upVoteCount,
-          },
-        });
-      })
-      .catch((err) => {
-        console.error(err);
-      });
-  };
-}
+// export function downvote() {
+//   return (dispatch) => {
+//     dispatch({ type: 'DOWNVOTE' });
+//     axios.post('/api/vote') // Will need to specify some kind of identifier for the article.
+//       .then((res) => { // Expects updated downvote number.
+//         dispatch({
+//           type: 'UPDATE_VOTE_DATA',
+//           payload: {
+//             downVoteCount: res.data.downVoteCount,
+//             upVoteCount: res.data.upVoteCount,
+//           },
+//         });
+//       })
+//       .catch((err) => {
+//         console.error(err);
+//       });
+//   };
+// }
 
 // Get user vote status (up/down/nil) and total vote count (up and down).
 export function getArticleVoteData() {
@@ -38,10 +38,10 @@ export function getArticleVoteData() {
   };
 }
 
-export function upvote() {
+export function vote(id, bool) {
   return (dispatch) => {
     dispatch({ type: 'UPVOTE' });
-    axios.post('/api/vote') // Will need to specify some kind of identifier for the article.
+    axios.post('/api/vote', { article_id: id, upvote: bool }) // Will need to specify some kind of identifier for the article.
       .then((res) => {
         dispatch({
           type: 'UPDATE_VOTE_DATA',
