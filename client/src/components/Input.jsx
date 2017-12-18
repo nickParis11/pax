@@ -9,6 +9,8 @@ import InputText from './InputText.jsx';
     analyzeUrl: store.analyzer.analyzeUrl,
     analyzeText: store.analyzer.analyzeText,
     input: store.analyzer.input,
+    success: store.analyzer.success,
+    waiting: store.analyzer.waiting,
   };
 }) export default class Input extends React.Component {
   textToggleHandle() {
@@ -34,18 +36,18 @@ import InputText from './InputText.jsx';
   }
 
   render() {
-    return (
+    return !this.props.success && !this.props.waiting && (
       <div className="container">
         <InputURL
           display={this.props.analyzeUrl}
           checkInput={this.checkInput.bind(this)}
           textToggleHandle={this.textToggleHandle.bind(this)}
-        />
+          />
         <InputText
           display={this.props.analyzeUrl}
           checkInput={this.checkInput.bind(this)}
           textToggleHandle={this.textToggleHandle.bind(this)}
-        />
+          />
       </div>
     );
   }
