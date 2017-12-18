@@ -8,7 +8,8 @@ module.exports = {
       db.Article.findOrCreate({
         where: {
           userId: found.id,
-          user_text: input,
+          user_text: input },
+        defaults: {
           is_link: isLink,
           result: analysis.score,
           polarity: analysis.sentiment.polarity,
@@ -28,7 +29,7 @@ module.exports = {
           emotional_range: tone[2].tones[3].score * 100,
         },
       })
-      .then((article) => {
+      .spread((article, created) => {
         cb(article);
       })
       .catch((err) => {
