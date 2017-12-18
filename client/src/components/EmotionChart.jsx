@@ -94,10 +94,6 @@ import { connect } from 'react-redux';
       .style('text-anchor', 'end')
       .text('Tone level (%)');
 
-    // svg.append('text')
-    // .style('text-anchor', 'end')
-    // .text('Frequency');
-
     svg.selectAll('.bar')
       .data(data)
       .enter().append('rect')
@@ -105,8 +101,52 @@ import { connect } from 'react-redux';
       .attr('x', d => x(d[0]))
       .attr('width', 20)
       .attr('y', d => y(d[1]))
-      .style('fill', '#800080')
+//      .style('fill', '#800080')
       .attr('height', d => height - y(d[1]));
+
+    // var selector = d3.select('#drop')
+    // .append('select')
+    // .attr('id','dropdown')
+    // .on('change', function(d){
+    //   selection = document.getElementById('dropdown');
+    //   y.domain([0,d3.max(data, function(d) {
+    //     return +d[1]
+    //   })]);
+    //   yAxis.scale(y);
+
+    //   d3.selectAll('.bar')
+    //     .transition()
+    //     .attr('height', (d) => {
+    //       return height - y(+d[1]);
+    //     })
+    //     .attr('x', (d, i )=> {
+    //       return (width / data.length) * i
+    //     })
+    //     .attr('y', (d)=>{
+    //       return y(+d[1]);
+    //     })
+    //     .ease('linear')
+    //     .select('title')
+    //     .text((d)=>{
+    //       return d[0] + ':' + d[1];
+    //     });
+
+    //   d3.selectAll('g.y.axis')
+    //     .transition()
+    //     .call(yAxis);
+
+    //   selector.selectAll("option")
+    //   .data(elements)
+    //   .enter().append("option")
+    //   .attr("value", function(d){
+    //     return d;
+    //   })
+    //   .text(function(d){
+    //     return d;
+    //   })
+    // })
+
+
     return div.toReact();
   }
 

@@ -24,4 +24,3 @@ import { connect } from 'react-redux';
     );
   }
 }
-// articles I tend to agree = articles I upvote
