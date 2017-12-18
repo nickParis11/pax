@@ -4,7 +4,6 @@ import Nav from './Nav.jsx';
 import Input from './Input.jsx';
 import Waiting from './Waiting.jsx';
 import Results from './Results.jsx';
-import EmotionChart from './EmotionChart.jsx';
 
 @connect((store) => {
   return {
@@ -19,8 +18,7 @@ export default class Analyzer extends React.Component {
         <Nav />
         {!this.props.success && <Input />}
         {this.props.waiting && <Waiting />}
-        {this.props.success && <Results />}
-        {this.props.success && <EmotionChart />}
+        <Results />
       </div>
     );
   }
