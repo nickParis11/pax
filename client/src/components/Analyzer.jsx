@@ -10,8 +10,7 @@ import Results from './Results.jsx';
     success: store.analyzer.success,
     waiting: store.analyzer.waiting,
   };
-})
-export default class Analyzer extends React.Component {
+}) export default class Analyzer extends React.Component {
   render() {
     return (
       <div>

@@ -42,12 +42,12 @@ import InputText from './InputText.jsx';
           display={this.props.analyzeUrl}
           checkInput={this.checkInput.bind(this)}
           textToggleHandle={this.textToggleHandle.bind(this)}
-          />
+        />
         <InputText
           display={this.props.analyzeUrl}
           checkInput={this.checkInput.bind(this)}
           textToggleHandle={this.textToggleHandle.bind(this)}
-          />
+        />
       </div>
     );
   }
