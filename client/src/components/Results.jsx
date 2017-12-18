@@ -1,6 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import EmotionChart from './EmotionChart.jsx';
+import ResultsHeading from './ResultsHeading.jsx';
 import ResultsSummary from './ResultsSummary.jsx';
 import ResultsVote from './ResultsVote.jsx';
 
@@ -14,8 +15,9 @@ import ResultsVote from './ResultsVote.jsx';
   render() {
     return this.props.success && (
       <div>
-        <h1 className="componentTitle">RESULTS</h1>
-        <h2 className="trustRating">Trust Rating: {this.props.score}%</h2>
+        <ResultsHeading
+          score={this.props.score}
+        />
         <div className="row">
           <ResultsVote />
           <ResultsSummary
