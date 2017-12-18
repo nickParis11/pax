@@ -37,7 +37,7 @@ import { downvote, getArticleVoteData, upvote } from '../actions/voteActions.js'
         <div className="arrowsContainer">
           <span
             role="button"
-            tabIndex="1"
+            tabIndex="0"
             className={this.props.upVote ? 'arrow arrowUpSelected' : 'arrow'}
             onClick={this.voteUp.bind(this)}
             onKeyPress={this.handleKeyPress.bind(this)}
@@ -52,7 +52,7 @@ import { downvote, getArticleVoteData, upvote } from '../actions/voteActions.js'
         <div className="arrowsContainer">
           <span
             role="button"
-            tabIndex="2"
+            tabIndex="0"
             className={this.props.downVote ? 'arrow arrowDownSelected' : 'arrow'}
             onClick={this.voteDown.bind(this)}
             onKeyPress={this.handleKeyPress.bind(this)}
