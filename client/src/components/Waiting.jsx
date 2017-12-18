@@ -1,8 +1,8 @@
 import React from 'react';
 import CircularProgress from 'material-ui/CircularProgress';
 
-const Waiting = () => {
-  return (
+const Waiting = props => (
+  props.display &&
     <div>
       <div className="container">
         <h1>ANALYZING...</h1>
@@ -12,7 +12,6 @@ const Waiting = () => {
         <CircularProgress />
       </div>
     </div>
-  );
-};
+);
 
 export default Waiting;
