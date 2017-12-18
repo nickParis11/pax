@@ -8,7 +8,8 @@ module.exports = {
       db.Article.findOrCreate({
         where: {
           userId: found.id,
-          user_text: input },
+          user_text: input,
+        },
         defaults: {
           is_link: isLink,
           result: analysis.score,
@@ -29,12 +30,12 @@ module.exports = {
           emotional_range: tone[2].tones[3].score * 100,
         },
       })
-      .spread((article, created) => {
-        cb(article);
-      })
-      .catch((err) => {
-        cb('Error saving article to database:', err);
-      });
+        .spread((article) => {
+          cb(article);
+        })
+        .catch((err) => {
+          cb('Error saving article to database:', err);
+        });
     });
   },
 };

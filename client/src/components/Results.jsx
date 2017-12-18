@@ -35,9 +35,9 @@ import { getArticleVoteData, vote } from '../actions/voteActions.js';
 
   handleKeyPress(e) {
     if (e.key === 'ArrowDown') {
-      this.props.dispatch(downvote());
+      this.props.dispatch(vote(this.props.id, false));
     } else if (e.key === 'ArrowUp') {
-      this.props.dispatch(upvote());
+      this.props.dispatch(vote(this.props.id, true));
     }
   }
 
@@ -50,7 +50,7 @@ import { getArticleVoteData, vote } from '../actions/voteActions.js';
         this.props.dispatch(vote(this.props.id, false));
       }
     } else {
-      alert("Please log in to enable voting");
+      alert('Please log in to enable voting');
     }
   }
 

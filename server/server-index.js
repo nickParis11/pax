@@ -53,7 +53,7 @@ app.post('/api/vote', (req, res) => {
   // Decrement / increment the vote count for the article.
   // Set the user's vote status for the article (downvote / upvote / neither).
   // Return vote count for the article.
-  // res.send({ downVoteCount: 0, upVoteCount: 0 });
+  res.send({ downVoteCount: 0, upVoteCount: 0 });
 });
 
 app.listen(PORT, () => {
