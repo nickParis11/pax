@@ -6,6 +6,7 @@ import { connect } from 'react-redux';
 @connect(store => ({
   height: store.analyzer.height,
   sentiment: store.analyzer.sentiment,
+  success: store.analyzer.success,
   tone: store.analyzer.tone,
   width: store.analyzer.width,
 })) export default class EmotionChart extends React.Component {
@@ -151,7 +152,7 @@ import { connect } from 'react-redux';
   }
 
   render() {
-    return (
+    return this.props.success && (
       <div className="container">
         {this.drawChart()}
       </div>

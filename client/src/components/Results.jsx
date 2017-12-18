@@ -29,7 +29,7 @@ import ResultsVote from './ResultsVote.jsx';
             </p>
           </div>
         </div>
-        {this.props.success && <EmotionChart />}
+        <EmotionChart />
       </div>
     );
   }
