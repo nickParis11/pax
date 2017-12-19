@@ -40,7 +40,7 @@ app.get('/api/logoutUser', (req, res) => {
 });
 
 app.post('/api/analyze', (req, res) => {
-  analyze.analyzeText(req.body.data, req.session.user, res, req.body.data, false);
+  analyze.analyzeText(req.body.data, null, null, req.session.user, res, req.body.data, false);
 });
 
 app.post('/api/extract', (req, res) => {

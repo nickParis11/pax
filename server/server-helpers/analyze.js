@@ -4,8 +4,11 @@ const aylienHelpers = require('./aylienHelpers');
 const article = require('../db/controllers/articleController.js');
 const vote = require('../db/controllers/voteController.js');
 
-const analyzeText = (text, session, res, input, bool) => {
-  const analysis = {};
+const analyzeText = (text, title, summary, session, res, input, bool) => {
+  const analysis = {
+    title: title,
+    summary: summary,
+  };
 
   analyzeTone(text)
     .then((tone) => {
@@ -21,6 +24,7 @@ const analyzeText = (text, session, res, input, bool) => {
               res.send(analysis);
             });
           } else {
+            console.log('========> ANALYSIS WITH SUMMARY:', analysis);
             res.send(analysis);
           }
         })
@@ -36,7 +40,13 @@ const analyzeText = (text, session, res, input, bool) => {
 const analyzeUrl = (link, session, res) => {
   aylienHelpers.extractArticle(link)
     .then((text) => {
-      analyzeText(text.article, session, res, link, true);
+      aylienHelpers.summary(link)
+        .then((summary) => {
+          analyzeText(text.article, text.title, summary.sentences, session, res, link, true);
+        })
+        .catch((err) => {
+          console.log('Error getting summary', err);
+        });
     })
     .catch((err) => {
       console.log('Error extracting article:', err);
