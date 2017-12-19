@@ -7,28 +7,43 @@ import { downvote, getArticleVoteData, upvote } from '../actions/voteActions.js'
   return {
     downVote: store.vote.downVote,
     downVoteCount: store.vote.downVoteCount,
+    id: store.analyzer.id,
+    login: store.user.username,
     upVote: store.vote.upVote,
     upVoteCount: store.vote.upVoteCount,
   };
 }) export default class ResultsVote extends React.Component {
   componentDidMount() {
-    this.props.dispatch(getArticleVoteData());
+    this.props.dispatch(getArticleVoteData(this.props.id));
+  }
+
+  checkLogin() {
+    if (this.props.login) { // User exists, and is not undefined or false.
+      return true;
+    } else {
+      alert('Please log in to vote.');
+      return false;
+    }
   }
 
   handleKeyPress(e) {
     if (e.key === 'ArrowDown') {
-      this.props.dispatch(downvote());
+      this.voteDown();
     } else if (e.key === 'ArrowUp') {
-      this.props.dispatch(upvote());
+      this.voteUp();
     }
   }
 
   voteDown() {
-    this.props.dispatch(downvote());
+    if (this.checkLogin()) {
+      this.props.dispatch(downvote(this.props.id));
+    }
   }
 
   voteUp() {
-    this.props.dispatch(upvote());
+    if (this.checkLogin()) {
+      this.props.dispatch(upvote(this.props.id));
+    }
   }
 
   render() {
@@ -41,13 +56,13 @@ import { downvote, getArticleVoteData, upvote } from '../actions/voteActions.js'
             className={this.props.upVote ? 'arrow arrowUpSelected' : 'arrow'}
             onClick={this.voteUp.bind(this)}
             onKeyPress={this.handleKeyPress.bind(this)}
-          >
+            >
             ↑
           </span>
           <Badge
             badgeContent={this.props.upVoteCount}
             primary
-          />
+            />
         </div>
         <div className="arrowsContainer">
           <span
@@ -56,13 +71,13 @@ import { downvote, getArticleVoteData, upvote } from '../actions/voteActions.js'
             className={this.props.downVote ? 'arrow arrowDownSelected' : 'arrow'}
             onClick={this.voteDown.bind(this)}
             onKeyPress={this.handleKeyPress.bind(this)}
-          >
+            >
             ↓
           </span>
           <Badge
             badgeContent={this.props.downVoteCount}
             secondary
-          />
+            />
         </div>
       </div>
     );
