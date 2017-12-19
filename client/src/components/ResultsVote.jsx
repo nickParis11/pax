@@ -5,9 +5,9 @@ import { downvote, getArticleVoteData, upvote } from '../actions/voteActions.js'
 
 @connect((store) => {
   return {
-    id: store.analyzer.id,
     downVote: store.vote.downVote,
     downVoteCount: store.vote.downVoteCount,
+    id: store.analyzer.id,
     login: store.user.login,
     upVote: store.vote.upVote,
     upVoteCount: store.vote.upVoteCount,
