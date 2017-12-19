@@ -48,14 +48,15 @@ app.post('/api/extract', (req, res) => {
 });
 
 app.get('/api/vote/:id', (req, res) => {
-  vote.retrieveVotes(req.params.id);
-  res.send({ downVoteCount: 1, upVoteCount: 7 });
+  vote.retrieveVotes(req.params.id, (votes) => {
+    res.send(votes);
+  });
 });
 
 app.post('/api/vote', (req, res) => {
-  vote.submitVote(req.session.user, req.body.article_id, req.body.upvote);
-  // Return vote counts for the article.
-  res.send(200);
+  vote.submitVote(req.session.user, req.body.article_id, req.body.upvote, (votes) => {
+    res.send(votes);
+  });
 });
 
 app.listen(PORT, () => {
