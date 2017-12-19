@@ -40,7 +40,7 @@ module.exports = {
     }
   },
   getVotes: (article) => {
-    db.Vote.findAll({ where: { articleId: article } })
+    db.Vote.findAll({ where: { articleId: article, upvote: true } })
       .then((res) => {
         console.log('============> RESPONSE FROM GETVOTES', res);
       })
@@ -56,3 +56,99 @@ module.exports = {
     // return votes
   },
 };
+
+
+// [ vote {
+//     dataValues:
+//      { id: 1,
+//        voted: true,
+//        upvote: true,
+//        downvote: false,
+//        createdAt: 2017-12-19T19:22:28.451Z,
+//        updatedAt: 2017-12-19T19:22:28.451Z,
+//        userId: 2,
+//        articleId: 1 },
+//     _previousDataValues:
+//      { id: 1,
+//        voted: true,
+//        upvote: true,
+//        downvote: false,
+//        createdAt: 2017-12-19T19:22:28.451Z,
+//        updatedAt: 2017-12-19T19:22:28.451Z,
+//        userId: 2,
+//        articleId: 1 },
+//     _changed: {},
+//     _modelOptions:
+//      { timestamps: true,
+//        validate: {},
+//        freezeTableName: false,
+//        underscored: false,
+//        underscoredAll: false,
+//        paranoid: false,
+//        rejectOnEmpty: false,
+//        whereCollection: [Object],
+//        schema: null,
+//        schemaDelimiter: '',
+//        defaultScope: {},
+//        scopes: [],
+//        indexes: [],
+//        name: [Object],
+//        omitNull: false,
+//        sequelize: [Object],
+//        hooks: {},
+//        uniqueKeys: {} },
+//     _options:
+//      { isNewRecord: false,
+//        _schema: null,
+//        _schemaDelimiter: '',
+//        raw: true,
+//        attributes: [Array] },
+//     __eagerlyLoadedAssociations: [],
+//     isNewRecord: false },
+//   vote {
+//     dataValues:
+//      { id: 2,
+//        voted: true,
+//        upvote: true,
+//        downvote: false,
+//        createdAt: 2017-12-19T19:38:18.306Z,
+//        updatedAt: 2017-12-19T19:56:24.328Z,
+//        userId: 1,
+//        articleId: 1 },
+//     _previousDataValues:
+//      { id: 2,
+//        voted: true,
+//        upvote: true,
+//        downvote: false,
+//        createdAt: 2017-12-19T19:38:18.306Z,
+//        updatedAt: 2017-12-19T19:56:24.328Z,
+//        userId: 1,
+//        articleId: 1 },
+//     _changed: {},
+//     _modelOptions:
+//      { timestamps: true,
+//        validate: {},
+//        freezeTableName: false,
+//        underscored: false,
+//        underscoredAll: false,
+//        paranoid: false,
+//        rejectOnEmpty: false,
+//        whereCollection: [Object],
+//        schema: null,
+//        schemaDelimiter: '',
+//        defaultScope: {},
+//        scopes: [],
+//        indexes: [],
+//        name: [Object],
+//        omitNull: false,
+//        sequelize: [Object],
+//        hooks: {},
+//        uniqueKeys: {} },
+//     _options:
+//      { isNewRecord: false,
+//        _schema: null,
+//        _schemaDelimiter: '',
+//        raw: true,
+//        attributes: [Array] },
+//     __eagerlyLoadedAssociations: [],
+//     isNewRecord: false } ]

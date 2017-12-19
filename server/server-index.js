@@ -47,6 +47,11 @@ app.post('/api/extract', (req, res) => {
   analyze.analyzeUrl(req.body.data, req.session.user, res);
 });
 
+app.get('/api/vote/:id', (req, res) => {
+  vote.retrieveVotes(req.params.id);
+  res.send({ downVoteCount: 1, upVoteCount: 7 });
+});
+
 app.post('/api/vote', (req, res) => {
   vote.submitVote(req.session.user, req.body.article_id, req.body.upvote);
   // Return vote counts for the article.

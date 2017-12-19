@@ -9,4 +9,10 @@ const submitVote = (session, article, upvote) => {
   });
 }
 
+const retrieveVotes = (article) => {
+  console.log('==========> inside vote:', article)
+  vote.getVotes(article);
+}
+
 module.exports.submitVote = submitVote;
+module.exports.retrieveVotes = retrieveVotes;

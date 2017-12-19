@@ -27,7 +27,7 @@ export function downvote(articleId) {
 // Get user vote status (up/down/nil) and total vote count (up and down).
 export function getArticleVoteData(articleId) {
   return (dispatch) => {
-    axios.get('/api/vote', { article_id: articleId })
+    axios.get(`/api/vote/${articleId}`)
       .then((res) => { // Expects updated downvote number.
         dispatch({
           type: 'UPDATE_VOTE_DATA',
