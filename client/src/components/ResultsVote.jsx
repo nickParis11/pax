@@ -1,13 +1,13 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import Badge from 'material-ui/Badge';
-import { downvote, getArticleVoteData, upvote } from '../actions/voteActions.js';
+import { getArticleVoteData, vote } from '../actions/voteActions.js';
 
 @connect((store) => {
   return {
+    id: store.analyzer.id,
     downVote: store.vote.downVote,
     downVoteCount: store.vote.downVoteCount,
-    id: store.analyzer.id,
     login: store.user.login,
     upVote: store.vote.upVote,
     upVoteCount: store.vote.upVoteCount,
@@ -54,7 +54,7 @@ import { downvote, getArticleVoteData, upvote } from '../actions/voteActions.js'
             role="button"
             tabIndex="0"
             className={this.props.upVote ? 'arrow arrowUpSelected' : 'arrow'}
-            onClick={this.voteUp.bind(this)}
+            onClick={this.handleVote.bind(this)}
             onKeyPress={this.handleKeyPress.bind(this)}
           >
             ↑
@@ -69,7 +69,7 @@ import { downvote, getArticleVoteData, upvote } from '../actions/voteActions.js'
             role="button"
             tabIndex="0"
             className={this.props.downVote ? 'arrow arrowDownSelected' : 'arrow'}
-            onClick={this.voteDown.bind(this)}
+            onClick={this.handleVote.bind(this)}
             onKeyPress={this.handleKeyPress.bind(this)}
           >
             ↓

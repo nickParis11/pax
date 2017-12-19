@@ -2,6 +2,7 @@ const trust = require('./algorithm.js');
 const analyzeTone = require('./toneAnalyzer');
 const aylienHelpers = require('./aylienHelpers');
 const article = require('../db/controllers/articleController.js');
+const vote = require('../db/controllers/voteController.js');
 
 const analyzeText = (text, session, res, input, bool) => {
   const analysis = {};
@@ -16,6 +17,7 @@ const analyzeText = (text, session, res, input, bool) => {
           if (session !== undefined) {
             article.store(analysis, session, input, bool, (response) => {
               analysis.id = response.dataValues.id;
+              vote.store(response.dataValues.userId, analysis.id);
               res.send(analysis);
             });
           } else {

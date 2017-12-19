@@ -3,6 +3,7 @@ const bodyParser = require('body-parser');
 const session = require('express-session');
 const facebookLogin = require('./server-helpers/facebookLogin.js');
 const analyze = require('./server-helpers/analyze.js');
+const vote = require('./server-helpers/vote.js');
 
 const app = express();
 const PORT = 3000;
@@ -47,13 +48,9 @@ app.post('/api/extract', (req, res) => {
 });
 
 app.post('/api/vote', (req, res) => {
-  console.log(req.body);
-
-  // Update the database:
-  // Decrement / increment the vote count for the article.
-  // Set the user's vote status for the article (downvote / upvote / neither).
-  // Return vote count for the article.
-  res.send({ downVoteCount: 0, upVoteCount: 0 });
+  vote.submitVote(req.session.user, req.body.article_id, req.body.upvote);
+  // Return vote counts for the article.
+  res.send(200);
 });
 
 app.listen(PORT, () => {
