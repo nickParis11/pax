@@ -8,7 +8,7 @@ import { downvote, getArticleVoteData, upvote } from '../actions/voteActions.js'
     downVote: store.vote.downVote,
     downVoteCount: store.vote.downVoteCount,
     id: store.analyzer.id,
-    login: store.user.username,
+    login: store.user.login,
     upVote: store.vote.upVote,
     upVoteCount: store.vote.upVoteCount,
   };
