@@ -56,13 +56,13 @@ import { downvote, getArticleVoteData, upvote } from '../actions/voteActions.js'
             className={this.props.upVote ? 'arrow arrowUpSelected' : 'arrow'}
             onClick={this.voteUp.bind(this)}
             onKeyPress={this.handleKeyPress.bind(this)}
-            >
+          >
             ↑
           </span>
           <Badge
             badgeContent={this.props.upVoteCount}
             primary
-            />
+          />
         </div>
         <div className="arrowsContainer">
           <span
@@ -71,13 +71,13 @@ import { downvote, getArticleVoteData, upvote } from '../actions/voteActions.js'
             className={this.props.downVote ? 'arrow arrowDownSelected' : 'arrow'}
             onClick={this.voteDown.bind(this)}
             onKeyPress={this.handleKeyPress.bind(this)}
-            >
+          >
             ↓
           </span>
           <Badge
             badgeContent={this.props.downVoteCount}
             secondary
-            />
+          />
         </div>
       </div>
     );
