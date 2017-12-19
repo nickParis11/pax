@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import Badge from 'material-ui/Badge';
-import { getArticleVoteData, vote } from '../actions/voteActions.js';
+import { downvote, getArticleVoteData, upvote } from '../actions/voteActions.js';
 
 @connect((store) => {
   return {
@@ -54,7 +54,7 @@ import { getArticleVoteData, vote } from '../actions/voteActions.js';
             role="button"
             tabIndex="0"
             className={this.props.upVote ? 'arrow arrowUpSelected' : 'arrow'}
-            onClick={this.handleVote.bind(this)}
+            onClick={this.voteUp.bind(this)}
             onKeyPress={this.handleKeyPress.bind(this)}
           >
             ↑
@@ -69,7 +69,7 @@ import { getArticleVoteData, vote } from '../actions/voteActions.js';
             role="button"
             tabIndex="0"
             className={this.props.downVote ? 'arrow arrowDownSelected' : 'arrow'}
-            onClick={this.handleVote.bind(this)}
+            onClick={this.voteDown.bind(this)}
             onKeyPress={this.handleKeyPress.bind(this)}
           >
             ↓
