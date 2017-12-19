@@ -1,28 +1,33 @@
 import axios from 'axios';
 
-// export function downvote() {
-//   return (dispatch) => {
-//     dispatch({ type: 'DOWNVOTE' });
-//     axios.post('/api/vote') // Will need to specify some kind of identifier for the article.
-//       .then((res) => { // Expects updated downvote number.
-//         dispatch({
-//           type: 'UPDATE_VOTE_DATA',
-//           payload: {
-//             downVoteCount: res.data.downVoteCount,
-//             upVoteCount: res.data.upVoteCount,
-//           },
-//         });
-//       })
-//       .catch((err) => {
-//         console.error(err);
-//       });
-//   };
-// }
+const registerVote = (dispatch, articleId, isUpvote) => {
+  axios.post('/api/vote', { article_id: articleId, upvote: isUpvote })
+    .then((res) => {
+      dispatch({
+        type: 'UPDATE_VOTE_DATA',
+        payload: {
+          downVoteCount: res.data.downVoteCount,
+          upVoteCount: res.data.upVoteCount,
+        },
+      });
+    })
+    .catch((err) => {
+      console.error(err);
+    });
+};
+
+export function downvote(articleId) {
+  return (dispatch) => {
+    console.log('dispatching downvote');
+    dispatch({ type: 'DOWNVOTE' });
+    registerVote(dispatch, articleId, false);
+  };
+}
 
 // Get user vote status (up/down/nil) and total vote count (up and down).
-export function getArticleVoteData() {
+export function getArticleVoteData(articleId) {
   return (dispatch) => {
-    axios.get('/api/vote') // Will need to specify some kind of identifier for the article.
+    axios.get('/api/vote', { article_id: articleId })
       .then((res) => { // Expects updated downvote number.
         dispatch({
           type: 'UPDATE_VOTE_DATA',
@@ -38,21 +43,10 @@ export function getArticleVoteData() {
   };
 }
 
-export function vote(id, bool) {
+export function upvote(articleId) {
   return (dispatch) => {
+    console.log('dispatching upvote');
     dispatch({ type: 'UPVOTE' });
-    axios.post('/api/vote', { article_id: id, upvote: bool }) // Will need to specify some kind of identifier for the article.
-      .then((res) => {
-        dispatch({
-          type: 'UPDATE_VOTE_DATA',
-          payload: {
-            downVoteCount: res.data.downVoteCount,
-            upVoteCount: res.data.upVoteCount,
-          },
-        });
-      })
-      .catch((err) => {
-        console.error(err);
-      });
+    registerVote(dispatch, articleId, true);
   };
 }
