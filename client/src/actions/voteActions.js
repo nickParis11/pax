@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 const registerVote = (dispatch, articleId, isUpvote) => {
-  axios.post('/api/vote', { article_id: articleId, upvote: isUpvote }) // <-- SHOULD WE ALSO PASS ON USER'S ID?
+  axios.post('/api/vote', { article_id: articleId, upvote: isUpvote })
     .then((res) => {
       dispatch({
         type: 'UPDATE_VOTE_DATA',
