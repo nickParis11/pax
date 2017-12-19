@@ -17,7 +17,7 @@ const analyzeText = (text, session, res, input, bool) => {
           if (session !== undefined) {
             article.store(analysis, session, input, bool, (response) => {
               analysis.id = response.dataValues.id;
-              vote.store(response.dataValues.userId, analysis.id);
+              vote.store(session, analysis.id);
               res.send(analysis);
             });
           } else {

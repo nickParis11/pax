@@ -7,7 +7,6 @@ module.exports = {
       const tone = analysis.tone.document_tone.tone_categories;
       db.Article.findOrCreate({
         where: {
-          userId: found.id,
           user_text: input,
         },
         defaults: {
@@ -28,6 +27,7 @@ module.exports = {
           extraversion: tone[2].tones[1].score * 100,
           agreeableness: tone[2].tones[2].score * 100,
           emotional_range: tone[2].tones[3].score * 100,
+          userId: found.id,
         },
       })
         .spread((article) => {

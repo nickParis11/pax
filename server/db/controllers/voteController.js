@@ -1,20 +1,23 @@
 const db = require('../db-index.js');
+const user = require('./userController.js');
 
 module.exports = {
-  store: (user, article) => {
-    db.Vote.findOrCreate({
-      where: {
-        userId: user,
-        articleId: article,
-      },
-      defaults: {
-        voted: false,
-        upvote: false,
-        downvote: false,
-      },
-    })
-    .catch((err) => {
-      console.log('Error storing article in votes table:', err);
+  store: (username, article) => {
+    user.get({ body: { username } }, (user) => {
+      db.Vote.findOrCreate({
+        where: {
+          userId: user.id,
+          articleId: article,
+        },
+        defaults: {
+          voted: false,
+          upvote: false,
+          downvote: false,
+        },
+      })
+      .catch((err) => {
+        console.log('Error storing article in votes table:', err);
+      });
     });
   },
   makeVote: (user, article, upvote, cb) => {

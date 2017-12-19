@@ -70,7 +70,6 @@ const Vote = sequelize.define('vote', {
 User.hasMany(Article);
 User.hasMany(Vote);
 Article.hasMany(Vote);
-Article.belongsTo(User);
 Vote.belongsTo(User);
 Vote.belongsTo(Article);
 

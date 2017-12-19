@@ -2,6 +2,7 @@ const db = require('../db-index.js');
 
 module.exports = {
   get: (req, cb) => {
+    console.log('=============> inside user get:', req);
     db.User.find({ where: { username: req.body.username } })
       .then((user) => {
         cb(user);
