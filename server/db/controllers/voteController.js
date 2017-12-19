@@ -22,29 +22,58 @@ module.exports = {
   },
   makeVote: (user, article, upvote, cb) => {
     if (upvote) {
-      db.Vote.update({ voted: true, upvote: true, downvote: false },
-        { where: { userId: user, articleId: article },
-          returning: true })
-        .then((res) => {
-          cb(res);
+      db.Vote.findOne({ where: { userId: user, articleId: article, upvote: true } })
+        .then((found) => {
+          if (found === null) {
+            db.Vote.update({ voted: true, upvote: true, downvote: false },
+              { where: { userId: user, articleId: article },
+                returning: true })
+              .then((res) => {
+                cb(res);
+              })
+              .catch((err) => {
+                console.log('Error upvoting article:', err);
+              });
+          } else {
+            db.Vote.update({ voted: false, upvote: false, downvote: false},
+              { where: { userId: user, articleId: article },
+                returning: true })
+              .then((res) => {
+                cb(res);
+              })
+              .catch((err) => {
+                console.log('Error removing upvote:', err);
+              });
+          }
         })
-        .catch((err) => {
-          console.log('Error upvoting article:', err);
-        });
     } else {
-      db.Vote.update({ voted: true, upvote: false, downvote: true },
-        { where: { userId: user, articleId: article },
-          returning: true })
-        .then((res) => {
-          cb(res);
+      db.Vote.findOne({ where: { userId: user, articleId: article, downvote: true } })
+        .then((found) => {
+          if (found === null) {
+            db.Vote.update({ voted: true, upvote: false, downvote: true },
+              { where: { userId: user, articleId: article },
+                returning: true })
+              .then((res) => {
+                cb(res);
+              })
+              .catch((err) => {
+                console.log('Error downvoting article:', err);
+              });
+          } else {
+            db.Vote.update({ voted: false, upvote: false, downvote: false},
+              { where: { userId: user, articleId: article },
+                returning: true })
+              .then((res) => {
+                cb(res);
+              })
+              .catch((err) => {
+                console.log('Error removing downvote:', err);
+              });
+          }
         })
-        .catch((err) => {
-          console.log('Error downvoting article:', err);
-        });
     }
   },
   getVotes: (article) => {
-    console.log('=========> inside getVotes:', article);
     return db.Vote.findAll({ where: { articleId: article, upvote: true } })
       .then((up) => {
         return up.length;
