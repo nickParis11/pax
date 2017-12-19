@@ -27,10 +27,11 @@ module.exports = {
           if (found === null) {
             db.Vote.update(
               { voted: true, upvote: true, downvote: false },
-              { where: {
-                userId: user, articleId: article },
-                returning: true
-              })
+              {
+                where: { userId: user, articleId: article },
+                returning: true,
+              },
+            )
               .then((res) => {
                 cb(res);
               })
@@ -38,9 +39,13 @@ module.exports = {
                 console.log('Error upvoting article:', err);
               });
           } else {
-            db.Vote.update({ voted: false, upvote: false, downvote: false},
-              { where: { userId: user, articleId: article },
-                returning: true })
+            db.Vote.update(
+              { voted: false, upvote: false, downvote: false },
+              {
+                where: { userId: user, articleId: article },
+                returning: true,
+              },
+            )
               .then((res) => {
                 cb(res);
               })
@@ -48,14 +53,18 @@ module.exports = {
                 console.log('Error removing upvote:', err);
               });
           }
-        })
+        });
     } else {
       db.Vote.findOne({ where: { userId: user, articleId: article, downvote: true } })
         .then((found) => {
           if (found === null) {
-            db.Vote.update({ voted: true, upvote: false, downvote: true },
-              { where: { userId: user, articleId: article },
-                returning: true })
+            db.Vote.update(
+              { voted: true, upvote: false, downvote: true },
+              {
+                where: { userId: user, articleId: article },
+                returning: true,
+              },
+            )
               .then((res) => {
                 cb(res);
               })
@@ -63,9 +72,13 @@ module.exports = {
                 console.log('Error downvoting article:', err);
               });
           } else {
-            db.Vote.update({ voted: false, upvote: false, downvote: false},
-              { where: { userId: user, articleId: article },
-                returning: true })
+            db.Vote.update(
+              { voted: false, upvote: false, downvote: false },
+              {
+                where: { userId: user, articleId: article },
+                returning: true,
+              },
+            )
               .then((res) => {
                 cb(res);
               })
@@ -73,7 +86,7 @@ module.exports = {
                 console.log('Error removing downvote:', err);
               });
           }
-        })
+        });
     }
   },
   getVotes: (article) => {
@@ -87,11 +100,11 @@ module.exports = {
             return { downVoteCount: down.length, upVoteCount: upvotes };
           })
           .catch((err) => {
-            console.log('Error getting downvotes:', err)
-          })
+            console.log('Error getting downvotes:', err);
+          });
       })
       .catch((err) => {
-        console.log('Error getting upvotes:', err)
+        console.log('Error getting upvotes:', err);
       });
   },
 };
