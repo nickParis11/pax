@@ -26,6 +26,14 @@ body {
   color: #ff4081; /* Replace with reference to MUI Theme Color */
 }
 
+.bar{
+  fill: #800080;
+}
+
+.bar:hover{
+  fill: lightblue;
+}
+
 .arrowVoteContainer {
   display: flex;
   align-items: center;
@@ -58,14 +66,10 @@ body {
   padding: 5px;
 }
 
+.summaryContainer {
+  width: 700px;
+}
+
 .trustRating {
   text-align: center;
-}
-
-.bar{
-  fill: #800080;
-}
-
-.bar:hover{
-  fill: lightblue;
 }

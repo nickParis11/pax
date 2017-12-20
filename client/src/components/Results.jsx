@@ -10,6 +10,8 @@ import ResultsVote from './ResultsVote.jsx';
     score: store.analyzer.score,
     sentiment: store.analyzer.sentiment,
     success: store.analyzer.success,
+    summary: store.analyzer.summary,
+    title: store.analyzer.title,
   };
 }) export default class Results extends React.Component {
   render() {
@@ -22,6 +24,8 @@ import ResultsVote from './ResultsVote.jsx';
           <ResultsVote />
           <ResultsSummary
             polarity={this.props.sentiment.polarity}
+            summary={this.props.summary}
+            title={this.props.title}
           />
         </div>
         <EmotionChart />
