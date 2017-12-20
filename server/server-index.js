@@ -53,12 +53,18 @@ app.post('/api/extract', (req, res) => {
 
 app.get('/api/vote/:id', (req, res) => {
   // Params is a string, undefined will be a string, not a native value.
-  if (req.params.id !== 'undefined') { 
+  if (req.params.id !== 'undefined') {
     vote.retrieveVotes(req.params.id, req.session.user, (votes) => {
       res.send(votes);
     });
   } else { // Bug fix until non-user voteCount lookup is implemented.
-    res.send({ downVoteCount: 0, upVoteCount: 0 });
+    res.send({
+      downvote: false,
+      downVoteCount: 0,
+      upvote: false,
+      upVoteCount: 0,
+      voted: false,
+    });
   }
 });
 
