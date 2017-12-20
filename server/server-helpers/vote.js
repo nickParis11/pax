@@ -12,9 +12,10 @@ const submitVote = (session, article, upvote, cb) => {
   });
 };
 
-const retrieveVotes = (article, cb) => {
-  vote.getVotes(article)
+const retrieveVotes = (article, user, cb) => {
+  vote.getVotes(article, user)
     .then((votes) => {
+      console.log(votes);
       cb(votes);
     })
     .catch((err) => {
