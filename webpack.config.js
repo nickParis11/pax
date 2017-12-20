@@ -2,12 +2,13 @@ const webpack = require('webpack');
 const path = require('path');
 const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
 const CompressionPlugin = require('compression-webpack-plugin');
+var WebpackBuildNotifierPlugin = require('webpack-build-notifier');
 
 const BUILD_DIR = path.resolve(__dirname, 'client/dist');
 const APP_DIR = path.resolve(__dirname, 'client/src');
 
 const config = {
-  devtool: 'souce-map',
+  devtool: '#source-map',
   entry: `${APP_DIR}/Index.jsx`,
   output: {
     path: BUILD_DIR,
@@ -31,8 +32,14 @@ const config = {
     ],
   },
   plugins: [
+    new webpack.HotModuleReplacementPlugin(),
+    new WebpackBuildNotifierPlugin({
+         title: "My Project Webpack Build",
+         logo: path.resolve("./img/favicon.png"),
+         suppressSuccess: true
+       }),
     new UglifyJsPlugin({
-      sourceMap: false,
+      sourceMap: true,
     }),
     new webpack.DefinePlugin({
       'process.env': {
