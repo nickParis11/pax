@@ -58,7 +58,7 @@ app.get('/api/vote/:id', (req, res) => {
       res.send(votes);
     });
   } else { // Bug fix until non-user voteCount lookup is implemented.
-    res.send({ downVoteCount: 0, upVoteCount: 0, });
+    res.send({ downVoteCount: 0, upVoteCount: 0 });
   }
 });
 
@@ -72,7 +72,7 @@ app.post('/api/vote', (req, res) => {
 app.get('/api/user/upvoteAverages', (req, res) => {
   userDataGetter.getUpvoteAverage(req.session.user, (toneAverages) => {
     res.send(toneAverages || {});
-  })
+  });
 });
 
 app.listen(PORT, () => {
