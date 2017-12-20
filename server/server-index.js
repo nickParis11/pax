@@ -63,7 +63,6 @@ app.get('/api/vote/:id', (req, res) => {
       downVoteCount: 0,
       upvote: false,
       upVoteCount: 0,
-      voted: false,
     });
   }
 });
