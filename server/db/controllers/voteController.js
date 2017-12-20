@@ -100,7 +100,7 @@ module.exports = {
             return { downVoteCount: articleDownvotes.length, upVoteCount: upvoteCount };
           })
           .catch((err) => {
-            console.log('Error getting downvotes:', err);
+            console.error('Error getting downvotes:', err);
           });
       })
       .then((voteCounts) => {
@@ -111,14 +111,15 @@ module.exports = {
               voteCounts.downvote = userVoteData.dataValues.downvote;
               return voteCounts;
             });
-        } else { // User is undefined.
+        } else { // User is undefined, and therefore unregistered.
+          // Not currently used, but in place for when non-registered-user routing is clarified.
           voteCounts.upvote = false;
           voteCounts.downvote = false;
           return voteCounts;
         }
       })
       .catch((err) => {
-        console.log('Error getting voting data:', err);
+        console.error('Error getting voting data:', err);
       });
   },
 };
