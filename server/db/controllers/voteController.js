@@ -107,14 +107,20 @@ module.exports = {
         if (user) {
           return db.Vote.findOne({ where: { articleId: article, userId: user } })
             .then((userVoteData) => {
-              console.log(userVoteData);
+              voteCounts.voted = userVoteData.dataValues.voted;
+              voteCounts.upvote = userVoteData.dataValues.upvote;
+              voteCounts.downvote = userVoteData.dataValues.downvote;
+              return voteCounts;
             });
-        } else {
+        } else { // User is undefined.
+          voteCounts.voted = false;
+          voteCounts.upvote = false;
+          voteCounts.downvote = false;
           return voteCounts;
         }
       })
       .catch((err) => {
-        console.log('Error getting upvotes:', err);
+        console.log('Error getting voting data:', err);
       });
   },
 };
