@@ -24,7 +24,6 @@ const analyzeText = (text, title, summary, session, res, input, bool) => {
               res.send(analysis);
             });
           } else {
-            console.log('========> ANALYSIS WITH SUMMARY:', analysis);
             res.send(analysis);
           }
         })

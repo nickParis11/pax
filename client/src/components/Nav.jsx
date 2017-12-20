@@ -48,7 +48,7 @@ import { userLogout, setAnalyzeView, getUser } from '../actions/userActions';
                 <MenuItem primaryText="Log Out" onClick={this.handleLogoutClick.bind(this)} />
               </div>
             :
-              <MenuItem><a href="/auth/facebook">Log In</a></MenuItem>
+              <MenuItem><a href="/auth/google">Log In</a></MenuItem>
             }
           </IconMenu>}
       />
