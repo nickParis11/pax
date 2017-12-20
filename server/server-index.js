@@ -58,6 +58,11 @@ app.post('/api/vote', (req, res) => {
   });
 });
 
+//get average score of tones user upvoted
+app.get('/api/user/upvoteAverages', (req, res) => {
+  res.send('ok');
+});
+
 app.listen(PORT, () => {
   console.log(`Listening on ${PORT}`);
 });
