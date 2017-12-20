@@ -89,19 +89,29 @@ module.exports = {
         });
     }
   },
-  getVotes: (article) => {
+  getVotes: (article, user) => {
     return db.Vote.findAll({ where: { articleId: article, upvote: true } })
-      .then((up) => {
-        return up.length;
+      .then((articleUpvotes) => {
+        return articleUpvotes.length;
       })
-      .then((upvotes) => {
+      .then((upvoteCount) => {
         return db.Vote.findAll({ where: { articleId: article, downvote: true } })
-          .then((down) => {
-            return { downVoteCount: down.length, upVoteCount: upvotes };
+          .then((articleDownvotes) => {
+            return { downVoteCount: articleDownvotes.length, upVoteCount: upvoteCount };
           })
           .catch((err) => {
             console.log('Error getting downvotes:', err);
           });
+      })
+      .then((voteCounts) => {
+        if (user) {
+          return db.Vote.findOne({ where: { articleId: article, userId: user } })
+            .then((userVoteData) => {
+              console.log(userVoteData);
+            });
+        } else {
+          return voteCounts;
+        }
       })
       .catch((err) => {
         console.log('Error getting upvotes:', err);
