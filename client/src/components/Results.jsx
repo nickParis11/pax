@@ -4,6 +4,8 @@ import EmotionChart from './EmotionChart.jsx';
 import ResultsHeading from './ResultsHeading.jsx';
 import ResultsSummary from './ResultsSummary.jsx';
 import ResultsVote from './ResultsVote.jsx';
+import BubbleChartUpvotes from './BubbleChartUpvotes.jsx';
+
 
 @connect((store) => {
   return {
@@ -29,6 +31,7 @@ import ResultsVote from './ResultsVote.jsx';
           />
         </div>
         <EmotionChart />
+        <BubbleChartUpvotes />
       </div>
     );
   }
