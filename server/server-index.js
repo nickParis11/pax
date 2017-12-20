@@ -20,7 +20,7 @@ app.use(googleLogin.passport.initialize());
 app.use(googleLogin.passport.session());
 
 app.get('/auth/google',
-  googleLogin.passport.authenticate('google', { scope: ['profile'] }));
+  googleLogin.passport.authenticate('google', { scope: ['profile', 'email'] }));
 
 app.get('/auth/google/callback',
   googleLogin.passport.authenticate('google', { failureRedirect: '/' }),

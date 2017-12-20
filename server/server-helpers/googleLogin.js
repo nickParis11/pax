@@ -10,8 +10,9 @@ const passport = pass.use(new GoogleStrategy({
     passReqToCallback: true,
   },
   function(req, accessToken, refreshToken, profile, cb) {
-    req.session.user = profile.id;
-    user.post({ body: profile.id }, (err, userRes) => {
+    // change from profile.id
+    req.session.user = profile.emails[0].value;
+    user.post({ body: profile.emails[0].value }, (err, userRes) => {
       cb(err, userRes);
     });
   }
