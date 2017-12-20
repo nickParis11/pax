@@ -1,7 +1,4 @@
-
-
 DROP DATABASE pax;
-
 
 # sql reference for schema and queries
 
@@ -17,7 +14,7 @@ CREATE TABLE users (
 
 CREATE TABLE articles (
   id SERIAL PRIMARY KEY,
-  user_Id SERIAL REFERENCES users(id),
+  userId SERIAL REFERENCES users(id),
   user_text VARCHAR(1500),
   is_link BOOLEAN,
   result integer,
@@ -40,8 +37,8 @@ CREATE TABLE articles (
 
 CREATE TABLE votes (
   id SERIAL PRIMARY KEY,
-  user_id SERIAL REFERENCES users (id),
-  article_id SERIAL REFERENCES articles (id),
+  userId SERIAL REFERENCES users (id),
+  articleId SERIAL REFERENCES articles (id),
   voted BOOLEAN,
   upvote BOOLEAN,
   downvote BOOLEAN
