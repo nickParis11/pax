@@ -16,7 +16,6 @@ const retrieveVotes = (article, username, cb) => {
   userController.get({ body: { username: username } }, (userEntry) => {
     vote.getVotes(article, userEntry.dataValues.id)
       .then((votes) => {
-        console.log(votes);
         cb(votes);
       })
       .catch((err) => {
