@@ -4,6 +4,7 @@ const session = require('express-session');
 const googleLogin = require('./server-helpers/googleLogin.js');
 const analyze = require('./server-helpers/analyze.js');
 const vote = require('./server-helpers/vote.js');
+const userDataGetter = require('./server-helpers/userData');
 
 const app = express();
 const PORT = 3000;
@@ -60,7 +61,9 @@ app.post('/api/vote', (req, res) => {
 
 //get average score of tones user upvoted
 app.get('/api/user/upvoteAverages', (req, res) => {
-  res.send('ok');
+  userDataGetter.getUpvoteAverage(req.session.user, (toneAverages) => {
+    res.send(toneAverages || {});
+  })
 });
 
 app.listen(PORT, () => {
