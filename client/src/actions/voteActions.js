@@ -32,7 +32,9 @@ export function getArticleVoteData(articleId) {
         dispatch({
           type: 'UPDATE_VOTE_DATA',
           payload: {
+            downvote: res.data.downvote,
             downVoteCount: res.data.downVoteCount,
+            upvote: res.data.upvote,
             upVoteCount: res.data.upVoteCount,
           },
         });

@@ -20,7 +20,9 @@ export default function vote(state = initialState, action) {
     case 'UPDATE_VOTE_DATA':
       return {
         ...state,
+        downVote: action.payload.downvote,
         downVoteCount: action.payload.downVoteCount,
+        upVote: action.payload.upvote,
         upVoteCount: action.payload.upVoteCount,
       };
     default:
