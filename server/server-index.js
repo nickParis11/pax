@@ -52,7 +52,7 @@ app.post('/api/extract', (req, res) => {
 });
 
 app.get('/api/vote/:id', (req, res) => {
-  vote.retrieveVotes(req.params.id, (votes) => {
+  vote.retrieveVotes(req.params.id, req.session.user, (votes) => {
     res.send(votes);
   });
 });
