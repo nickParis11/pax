@@ -107,13 +107,11 @@ module.exports = {
         if (user) {
           return db.Vote.findOne({ where: { articleId: article, userId: user } })
             .then((userVoteData) => {
-              voteCounts.voted = userVoteData.dataValues.voted;
               voteCounts.upvote = userVoteData.dataValues.upvote;
               voteCounts.downvote = userVoteData.dataValues.downvote;
               return voteCounts;
             });
         } else { // User is undefined.
-          voteCounts.voted = false;
           voteCounts.upvote = false;
           voteCounts.downvote = false;
           return voteCounts;
