@@ -1,17 +1,75 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';
-// import getMuiTheme from 'material-ui/styles/getMuiTheme';
+import getMuiTheme from 'material-ui/styles/getMuiTheme';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import store from './store';
 import Analyzer from './components/Analyzer.jsx';
 
-// const customTheme = {};
-// const muiTheme = getMuiTheme()
-// <MuiThemeProvider muiTheme={muiTheme}>
+const muiTheme = getMuiTheme({
+  "palette": {
+        "primary1Color": "#00bfa5",
+        "primary2Color": "#455a64",
+        "accent1Color": "#f50057",
+        "primary3Color": "#78909c",
+        "accent2Color": "#cfd8dc",
+        "accent3Color": "#607d8b",
+        "secondaryTextColor": "#607d8b",
+        "borderColor": "#90a4ae",
+        "disabledColor": "#607d8b",
+        "pickerHeaderColor": "#455a64",
+        "clockCircleColor": "rgba(0, 0, 0, 0.26)"
+    },
+    "appBar": {
+        "color": "#455a64"
+    },
+    "raisedButton": {
+        "primaryTextColor": "#ffffff",
+        "color": "#455a64",
+        "textColor": "#ffffff"
+    },
+    "flatButton": {
+        "color": "#ffffff"
+    },
+    "tabs": {
+        "backgroundColor": "#455a64"
+    }
+})
 
 ReactDOM.render(<Provider store={store}>
-  <MuiThemeProvider>
+  <MuiThemeProvider muiTheme={muiTheme}>
     <Analyzer />
   </MuiThemeProvider>
 </Provider>, document.getElementById('app'));
+
+/********** MUI THEME **************
+{
+    "palette": {
+        "primary1Color": "#00bfa5",
+        "primary2Color": "#455a64",
+        "accent1Color": "#f50057",
+        "primary3Color": "#78909c",
+        "accent2Color": "#cfd8dc",
+        "accent3Color": "#607d8b",
+        "secondaryTextColor": "#607d8b",
+        "borderColor": "#90a4ae",
+        "disabledColor": "#607d8b",
+        "pickerHeaderColor": "#455a64",
+        "clockCircleColor": "rgba(0, 0, 0, 0.26)"
+    },
+    "appBar": {
+        "color": "#455a64"
+    },
+    "raisedButton": {
+        "primaryTextColor": "#ffffff",
+        "color": "#455a64",
+        "textColor": "#ffffff"
+    },
+    "flatButton": {
+        "color": "#ffffff"
+    },
+    "tabs": {
+        "backgroundColor": "#455a64"
+    }
+}
+ **********************************/
