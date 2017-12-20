@@ -57,6 +57,12 @@ body {
   justify-content: center;
 }
 
+.nav {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+}
+
 .row {
   align-items: center;
   display: flex;

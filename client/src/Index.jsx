@@ -29,7 +29,9 @@ const muiTheme = getMuiTheme({
         "textColor": "#ffffff"
     },
     "flatButton": {
-        "color": "#ffffff"
+        "color": "#455a64",
+        "textColor": "rgba(255, 255, 255, 0.87)",
+        "disabledTextColor": "rgba(255, 255, 255, 0.54)"
     },
     "tabs": {
         "backgroundColor": "#455a64"
