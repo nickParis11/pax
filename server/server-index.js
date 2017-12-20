@@ -20,15 +20,19 @@ app.use(session({
 app.use(googleLogin.passport.initialize());
 app.use(googleLogin.passport.session());
 
-app.get('/auth/google',
-  googleLogin.passport.authenticate('google', { scope: ['profile', 'email'] }));
+app.get(
+  '/auth/google',
+  googleLogin.passport.authenticate('google', { scope: ['profile', 'email'] }),
+);
 
-app.get('/auth/google/callback',
+app.get(
+  '/auth/google/callback',
   googleLogin.passport.authenticate('google', { failureRedirect: '/' }),
-  function(req, res) {
+  (req, res) => {
     // Successful authentication, redirect home.
     res.redirect('/');
-  });
+  },
+);
 
 app.get('/api/getUser', (req, res) => {
   res.send(req.session.user);
