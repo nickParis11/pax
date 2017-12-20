@@ -47,10 +47,10 @@ module.exports = {
             // }
           });
         });
-        }).catch((err) => {
-          console.log('Error getting article tone averages', err);
-        });
-        // convert the sum to averages
-        // return averages in an appropriate format
+      }).catch((err) => {
+        console.log('Error getting article tone averages', err);
+      });
+    // convert the sum to averages
+    // return averages in an appropriate format
   },
 };

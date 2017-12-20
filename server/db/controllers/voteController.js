@@ -107,15 +107,17 @@ module.exports = {
         if (user) {
           return db.Vote.findOne({ where: { articleId: article, userId: user } })
             .then((userVoteData) => {
-              voteCounts.upvote = userVoteData.dataValues.upvote;
-              voteCounts.downvote = userVoteData.dataValues.downvote;
-              return voteCounts;
+              const response = Object.assign(voteCounts);
+              response.upvote = userVoteData.dataValues.upvote;
+              response.downvote = userVoteData.dataValues.downvote;
+              return response;
             });
         } else { // User is undefined, and therefore unregistered.
           // Not currently used, but in place for when non-registered-user routing is clarified.
-          voteCounts.upvote = false;
-          voteCounts.downvote = false;
-          return voteCounts;
+          const response = Object.assign(voteCounts);
+          response.upvote = false;
+          response.downvote = false;
+          return response;
         }
       })
       .catch((err) => {

@@ -13,7 +13,7 @@ const submitVote = (session, article, upvote, cb) => {
 };
 
 const retrieveVotes = (article, username, cb) => {
-  userController.get({ body: { username: username } }, (userEntry) => {
+  userController.get({ body: { username } }, (userEntry) => {
     vote.getVotes(article, userEntry.dataValues.id)
       .then((votes) => {
         cb(votes);

@@ -90,7 +90,7 @@ import * as d3 from 'd3';
       .text((d) => {
         return d.data.Count;
       })
-      .attr('font-size', (d) => { return d.r /5; })
+      .attr('font-size', (d) => { return d.r / 5; })
       .attr('fill', 'white');
 
     d3.select(self.frameElement)

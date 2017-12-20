@@ -7,36 +7,36 @@ import store from './store';
 import Analyzer from './components/Analyzer.jsx';
 
 const muiTheme = getMuiTheme({
-  "palette": {
-        "primary1Color": "#00bfa5",
-        "primary2Color": "#455a64",
-        "accent1Color": "#f50057",
-        "primary3Color": "#78909c",
-        "accent2Color": "#cfd8dc",
-        "accent3Color": "#607d8b",
-        "secondaryTextColor": "#607d8b",
-        "borderColor": "#90a4ae",
-        "disabledColor": "#607d8b",
-        "pickerHeaderColor": "#455a64",
-        "clockCircleColor": "rgba(0, 0, 0, 0.26)"
-    },
-    "appBar": {
-        "color": "#455a64"
-    },
-    "raisedButton": {
-        "primaryTextColor": "#ffffff",
-        "color": "#455a64",
-        "textColor": "#ffffff"
-    },
-    "flatButton": {
-        "color": "#455a64",
-        "textColor": "rgba(255, 255, 255, 0.87)",
-        "disabledTextColor": "rgba(255, 255, 255, 0.54)"
-    },
-    "tabs": {
-        "backgroundColor": "#455a64"
-    }
-})
+  palette: {
+    primary1Color: '#00bfa5',
+    primary2Color: '#455a64',
+    accent1Color: '#f50057',
+    primary3Color: '#78909c',
+    accent2Color: '#cfd8dc',
+    accent3Color: '#607d8b',
+    secondaryTextColor: '#607d8b',
+    borderColor: '#90a4ae',
+    disabledColor: '#607d8b',
+    pickerHeaderColor: '#455a64',
+    clockCircleColor: 'rgba(0, 0, 0, 0.26)',
+  },
+  appBar: {
+    color: '#455a64',
+  },
+  raisedButton: {
+    primaryTextColor: '#ffffff',
+    color: '#455a64',
+    textColor: '#ffffff',
+  },
+  flatButton: {
+    color: '#455a64',
+    textColor: 'rgba(255, 255, 255, 0.87)',
+    disabledTextColor: 'rgba(255, 255, 255, 0.54)',
+  },
+  tabs: {
+    backgroundColor: '#455a64',
+  },
+});
 
 ReactDOM.render(<Provider store={store}>
   <MuiThemeProvider muiTheme={muiTheme}>
@@ -44,7 +44,7 @@ ReactDOM.render(<Provider store={store}>
   </MuiThemeProvider>
 </Provider>, document.getElementById('app'));
 
-/********** MUI THEME **************
+/** ******** MUI THEME **************
 {
     "palette": {
         "primary1Color": "#00bfa5",
@@ -74,4 +74,4 @@ ReactDOM.render(<Provider store={store}>
         "backgroundColor": "#455a64"
     }
 }
- **********************************/
+ ********************************* */

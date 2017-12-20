@@ -6,8 +6,8 @@ const vote = require('../db/controllers/voteController.js');
 
 const analyzeText = (text, title, summary, session, res, input, bool) => {
   const analysis = {
-    title: title,
-    summary: summary,
+    title,
+    summary,
   };
 
   analyzeTone(text)
