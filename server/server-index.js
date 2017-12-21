@@ -75,10 +75,14 @@ app.post('/api/vote', (req, res) => {
 
 // Get average score of tones user upvoted
 app.get('/api/user/upvoteAverages', (req, res) => {
-  console.log('req.session', req.session);
-  userDataGetter.getUpvoteAverage(req.session.user, (toneAverages) => {
-    res.send(toneAverages || {});
-  });
+  // console.log('req.session', req.session);
+  if(req.session.user) {
+    userDataGetter.getUpvoteAverage(req.session.user, (toneAverages) => {
+      res.send(toneAverages);
+    });
+  } else {
+    res.send(null);
+  }
 });
 
 app.get('/api/user/allArticles', (req, res) => {

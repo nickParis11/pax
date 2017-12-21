@@ -1,4 +1,5 @@
 const db = require('../db-index.js');
+const Promise = require('bluebird');
 
 module.exports = {
   get: (req, cb) => {
@@ -16,13 +17,13 @@ module.exports = {
         cb(null, user);
       });
   },
-  upvoteAverages: (username) => { // add cb
+  upvoteAverages: (username, cb) => { // add cb
     console.log('username', username);
     const userIdNum = module.exports.get({body: { username } }, (userData) => {
        db.Vote.findAll({ where: { userId: userData.dataValues.id, upvote: true } })
        .then((upvotedArticles) => {
         const articleNum = upvotedArticles.length;
-        const toneSums = {
+        var toneSums = {
           anger: 0,
           disgust: 0,
           fear: 0,
@@ -37,66 +38,43 @@ module.exports = {
           agreeableness: 0,
           emotional_range: 0,
         };
-        console.log(articleNum);
-        console.log(toneSums);
 
-        upvotedArticles.forEach((articleId, index) => {
+      return Promise.all(
+        upvotedArticles.map((articleId, index) => {
           // query for said articles
-          db.Article.findOne({
+          return db.Article.findOne({
             where: {
               id: articleId.dataValues.id,
             },
           }).then((article) => { // add article's tone scores to respective tone sum
-            console.log('article', article);
-            // curl localhost:3000/api/user/upvoteAverages
-            // for (let tone in article) {
-            // }
+            // console.log('article', article);
+
+            let toneList = article.dataValues;
+
+            for (var tone in toneList) {
+              if (toneSums.hasOwnProperty(tone)) {// console.log(toneList[tone]);
+                toneSums[tone] += toneList[tone];
+              }
+            }
+            return true;
           });
-        });
+        })
+        ).then(() => {
+        if (articleNum === 0) {
+          return cb(toneSums);
+        } else {
+          for (let tone in toneSums) {
+            toneSums[tone] = Math.floor(toneSums[tone] / articleNum);
+          }
+          // console.log('toneSums', toneSums);
+          return cb(toneSums);
+        }
+      })
       }).catch((err) => {
         console.log('Error getting article tone averages', err);
       });
     // convert the sum to averages
     // return averages in an appropriate format
+  })
   },
 };
-
-    // db.Vote.findAll({ where: { userId: userIdNum, upvote: true } }) // need to pass in user Id
-    //   .then((upvotedArticleIDs) => { // an array of article ids
-    //     // declare number of articles, tone sum
-    //     const articleNum = upvotedArticleIDs.length;
-    //     const toneSums = {
-    //       anger: 0,
-    //       disgust: 0,
-    //       fear: 0,
-    //       joy: 0,
-    //       sadness: 0,
-    //       analytical: 0,
-    //       confident: 0,
-    //       tentative: 0,
-    //       openness: 0,
-    //       conscientiousness: 0,
-    //       extraversion: 0,
-    //       agreeableness: 0,
-    //       emotional_range: 0,
-    //     };
-    //     console.log(articleNum);
-    //     console.log(toneSums);
-    //     upvotedArticleIDs.forEach((articleID) => {
-    //       // query for said articles
-    //       db.Article.findOne({
-    //         where: {
-    //           id: articleID,
-    //         },
-    //       }).then((article) => { // add article's tone scores to respective tone sum
-    //         console.log('article', article);
-    //         // curl localhost:3000/api/user/upvoteAverages
-    //         // for (let tone in article) {
-    //         // }
-    //       });
-    //     });
-    //     }).catch((err) => {
-    //       console.log('Error getting article tone averages', err);
-    //     });
-    //     // convert the sum to averages
-    //     // return averages in an appropriate format
