@@ -4,8 +4,6 @@ const initialState = {
 
 export default function user(state = initialState, action) {
   switch (action.type) {
-    case 'SET_ANALYZE_VIEW':
-      return { ...state, loginView: false };
     case 'LOGIN_CHECK':
       return { ...state, login: action.payload };
     case 'LOGOUT_USER':

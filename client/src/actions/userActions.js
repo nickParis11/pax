@@ -12,10 +12,6 @@ export function userLogout() {
   };
 }
 
-export function setAnalyzeView() {
-  return { type: 'SET_ANALYZE_VIEW' };
-}
-
 export function getUser() {
   return (dispatch) => {
     axios.get('/api/getUser')

@@ -2,7 +2,8 @@ import React from 'react';
 import { connect } from 'react-redux';
 import AppBar from 'material-ui/AppBar';
 import FlatButton from 'material-ui/FlatButton';
-import { userLogout, setAnalyzeView, getUser } from '../actions/userActions';
+import { userLogout, getUser } from '../actions/userActions';
+import { setAnalyzeView } from '../actions/analyzerActions.js';
 
 @connect((store) => {
   return {

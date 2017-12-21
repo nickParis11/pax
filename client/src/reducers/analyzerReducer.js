@@ -16,6 +16,8 @@ const initialState = {
 
 export default function analyzer(state = initialState, action) {
   switch (action.type) {
+    case 'SET_ANALYZE_VIEW':
+      return { ...state, success: false, waiting: false };
     case 'TOGGLE_URL_TRUE':
       return { ...state, analyzeUrl: false, analyzeText: true };
     case 'TOGGLE_TEXT_TRUE':
