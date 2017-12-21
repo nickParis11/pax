@@ -13,10 +13,6 @@ const initialState = {
 
 export default function vote(state = initialState, action) {
   switch (action.type) {
-    case 'DOWNVOTE':
-      return { ...state, downVote: !state.downVote, upVote: false };
-    case 'UPVOTE':
-      return { ...state, downVote: false, upVote: !state.upVote };
     case 'UPDATE_VOTE_DATA':
       return {
         ...state,
