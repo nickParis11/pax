@@ -124,4 +124,13 @@ module.exports = {
         console.error('Error getting voting data:', err);
       });
   },
+  getAllVotesBy: (user, cb) => {
+    db.Vote.findAll({ where: { userId: user } })
+      .then((allVotes) => {
+        cb(allVotes);
+      })
+      .catch((err) => {
+        console.log('Error getting all votes by user:', err);
+      });
+  },
 };
