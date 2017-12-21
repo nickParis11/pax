@@ -18,14 +18,18 @@ import BubbleChartUpvotes from './BubbleChartUpvotes.jsx';
 }) export default class Results extends React.Component {
   render() {
     return this.props.success && (
-      <div>
-        <ResultsHeading
-          score={this.props.score}
-        />
-        <div className="row">
-          <ResultsVote />
-          <ResultsSummary
+      <div className="padTop">
+        <h2 className="center-text">Results</h2>
+        <div className="container width500">
+          <ResultsHeading
+            score={this.props.score}
             polarity={this.props.sentiment.polarity}
+          />
+          <ResultsVote />
+        </div>
+
+        <div className="row">
+          <ResultsSummary
             summary={this.props.summary}
             title={this.props.title}
           />

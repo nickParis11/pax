@@ -38,6 +38,12 @@ h2 {
   fill: lightblue;
 }
 
+.column {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+}
+
 .cursor-pointer {
   cursor: pointer;
 }
@@ -86,7 +92,6 @@ h2 {
   flex-wrap: nowrap;
 }
 
-
 .padTop {
   padding-top: 75px;
 }
@@ -100,10 +105,10 @@ h2 {
   padding: 5px;
 }
 
-.summaryContainer {
-  width: 700px;
+.width500 {
+  width: 500px !important;
 }
 
-.trustRating {
-  text-align: center;
+.width700 {
+  width: 700px !important;
 }

@@ -1,10 +1,9 @@
 import React from 'react';
 
 const ResultsSummary = props => (
-  <div className="summaryContainer">
+  <div className="width700">
     <p><b><i>{props.title}</i></b>
       <br />
-      Overall polarity: <b>{props.polarity}</b><br />
       {props.summary}
     </p>
   </div>
