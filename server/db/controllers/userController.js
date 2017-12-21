@@ -5,6 +5,9 @@ module.exports = {
     db.User.find({ where: { username: req.body.username } })
       .then((user) => {
         cb(user);
+      })
+      .catch((err) => {
+        console.error(err);
       });
   },
   post: (req, cb) => {
