@@ -4,6 +4,11 @@ This project uses a linear history workflow, i.e., /rebase/ instead of /merge/.
 * Style Guide
 This project uses the Airbnb style guide. Refer to: https://github.com/airbnb/javascript.
 
+* Build
+TravisCI runs tests on all pull requests.
+
+Merged requests are deployed via the pax-ci microservice. Please visit: https://github.com/pax-atlantica/pax-ci.
+
 * Definitions
 |----------+--------------------------|
 | TERM     | REPO                     |
