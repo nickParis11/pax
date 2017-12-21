@@ -6,7 +6,9 @@ const registerVote = (dispatch, articleId, isUpvote) => {
       dispatch({
         type: 'UPDATE_VOTE_DATA',
         payload: {
+          downvote: res.data.downvote,
           downVoteCount: res.data.downVoteCount,
+          upvote: res.data.upvote,
           upVoteCount: res.data.upVoteCount,
         },
       });
@@ -18,8 +20,6 @@ const registerVote = (dispatch, articleId, isUpvote) => {
 
 export function downvote(articleId) {
   return (dispatch) => {
-    console.log('dispatching downvote');
-    dispatch({ type: 'DOWNVOTE' });
     registerVote(dispatch, articleId, false);
   };
 }
@@ -47,8 +47,6 @@ export function getArticleVoteData(articleId) {
 
 export function upvote(articleId) {
   return (dispatch) => {
-    console.log('dispatching upvote');
-    dispatch({ type: 'UPVOTE' });
     registerVote(dispatch, articleId, true);
   };
 }
