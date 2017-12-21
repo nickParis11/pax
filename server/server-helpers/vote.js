@@ -2,9 +2,9 @@ const vote = require('../db/controllers/voteController.js');
 const userController = require('../db/controllers/userController.js');
 
 const submitVote = (session, article, upvote, cb) => {
-  userController.get({ body: { username: session } }, (user) => {
-    vote.makeVote(user.dataValues.id, article, upvote, (articleEntry) => {
-      vote.getVotes(articleEntry[1][0].dataValues.articleId)
+  userController.get({ body: { username: session } }, (userEntry) => {
+    vote.makeVote(userEntry.dataValues.id, article, upvote, (articleEntry) => {
+      vote.getVotes(articleEntry[1][0].dataValues.articleId, userEntry.dataValues.id)
         .then((votes) => {
           cb(votes);
         });
