@@ -80,6 +80,12 @@ app.get('/api/user/upvoteAverages', (req, res) => {
   });
 });
 
+app.get('/api/user/allArticles', (req, res) => {
+  userDataGetter.getArticlesByUser(req.session.user, (articles) => {
+    res.send(articles);
+  });
+});
+
 app.listen(PORT, () => {
   console.log(`Listening on ${PORT}`);
 });

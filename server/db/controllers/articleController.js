@@ -1,5 +1,6 @@
 const db = require('../db-index.js');
 const user = require('./userController.js');
+const Promise = require('bluebird');
 
 module.exports = {
   store: (analysis, username, input, isLink, cb) => {
@@ -38,4 +39,10 @@ module.exports = {
         });
     });
   },
+  get: (article) => {
+    return db.Article.findOne({ where: { id: article } })
+      .catch((err) => {
+        console.log('Error getting article:', err);
+      });
+  }
 };
