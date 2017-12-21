@@ -3,14 +3,15 @@ import CircularProgress from 'material-ui/CircularProgress';
 
 const Waiting = props => (
   props.display &&
-    <div>
-      <div className="container">
-        <h1>ANALYZING...</h1>
-      </div>
+    <div className="padTop center-text">
+        <h2>Analyzing...</h2>
       <br />
-      <div className="container">
-        <CircularProgress />
-      </div>
+        <CircularProgress size={100} thickness={7} className="marginSmall" />
+      <br />
+      <p className="medium center-text">
+        We are currently gathering tonal and sentiment analysis
+        in order to calculate a trust rating for your article.
+      </p>
     </div>
 );
 

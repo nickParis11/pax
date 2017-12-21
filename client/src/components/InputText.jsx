@@ -20,6 +20,7 @@ const InputText = props => (
       <br />
       <RaisedButton
         label="Analyze"
+        className="marginSmall"
         onClick={props.checkInput.bind(null)}
       />
       <br />
