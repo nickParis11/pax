@@ -12,6 +12,7 @@ const passport = pass.use(new GoogleStrategy(
   },
   ((req, accessToken, refreshToken, profile, cb) => {
   // change from profile.id
+    console.log('profile.emails[0].value', profile.emails[0].value);
     req.session.user = profile.emails[0].value;
     user.post({ body: profile.emails[0].value }, (err, userRes) => {
       cb(err, userRes);
