@@ -12,24 +12,26 @@ const submitVote = (session, article, upvote, cb) => {
   });
 };
 
-const retrieveVotes = (article, username, cb) => {
+const retrieveVotes = (article, username, res) => {
   if (username) {
     userController.get({ body: { username } }, (userEntry) => {
       vote.getVotes(article, userEntry.dataValues.id)
         .then((votes) => {
-          cb(votes);
+          res.send(votes);
         })
         .catch((err) => {
-          console.log('Error retrieving votes: ', err);
+          res.status(500);
+          res.render('Error retrieving votes: ', err);
         });
     });
   } else {
     vote.getVotes(article, null)
       .then((votes) => {
-        cb(votes);
+        res.send(votes);
       })
       .catch((err) => {
-        console.log('Error retrieving votes: ', err);
+        res.status(500);
+        res.render('Error retrieving votes: ', err);
       });
   }
 };

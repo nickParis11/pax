@@ -30,17 +30,19 @@ const analyzeText = (text, title, summary, session, res, input, bool) => {
                 res.send(analysis);
               })
               .catch((err) => {
-                console.error('There was an error retrieving the vote counts:', err);
-                res.send(analysis);
+                res.status(500);
+                res.render('There was an error retrieving the vote counts:', err);
               });
           }
         })
         .catch((err) => {
-          res.send('Error analyzing sentiment:', err);
+          res.status(500);
+          res.render('Error analyzing sentiment:', err);
         });
     })
     .catch((err) => {
-      res.send('Error analyzing tone:', err);
+      res.status(500);
+      res.render('Error analyzing tone:', err);
     });
 };
 
