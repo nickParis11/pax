@@ -3,7 +3,6 @@ const voteController = require('../db/controllers/voteController');
 const articleController = require('../db/controllers/articleController');
 
 const getUpvoteAverage = (user, cb) => {
-  console.log('================> INSIDE USER DATA:', user);
   userController.upvoteAverages(user, cb);
 };
 

@@ -1,6 +1,7 @@
 const router = require('express').Router();
 const analyze = require('./server-helpers/analyze.js');
 const vote = require('./server-helpers/vote.js');
+const userDataGetter = require('./server-helpers/userData.js');
 
 router.get('/api/getUser', (req, res) => {
   res.send(req.session.user);

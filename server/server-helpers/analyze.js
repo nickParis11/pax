@@ -20,7 +20,6 @@ const analyzeText = (text, title, summary, session, res, input, bool) => {
       analysis.score = trust.trustAnalysis(analysis.tone);
       if (session !== undefined) {
         article.store(analysis, session, input, bool, (response) => {
-          console.log('================> response:', response)
           analysis.id = response.dataValues.id;
           vote.store(session, analysis.id);
           res.send(analysis);
@@ -40,18 +39,19 @@ const analyzeText = (text, title, summary, session, res, input, bool) => {
 };
 
 const analyzeUrl = (link, session, res) => {
+  const text = {};
   aylienHelpers.extractArticle(link)
-    .then((text) => {
-      aylienHelpers.summary(link)
-        .then((summary) => {
-          analyzeText(text.article, text.title, summary.sentences, session, res, link, true);
-        })
-        .catch((err) => {
-          console.log('Error getting summary', err);
-        });
+    .then((extracted) => {
+      text.article = extracted.article;
+      text.title = extracted.title;
+      return aylienHelpers.summary(link)
+    })
+    .then((summary) => {
+      analyzeText(text.article, text.title, summary.sentences, session, res, link, true);
     })
     .catch((err) => {
-      console.log('Error extracting article:', err);
+      res.status(500);
+      res.write('Error extracting article:', err);
     });
 };
 
