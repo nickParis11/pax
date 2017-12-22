@@ -77,13 +77,27 @@ app.post('/api/vote', (req, res) => {
 
 // Get average score of tones user upvoted
 app.get('/api/user/upvoteAverages', (req, res) => {
-  // console.log('req.session', req.session);
-  if (req.session.user) {
+  console.log('req.session', req.session.user);
+  if (!!req.session.user) {
     userDataGetter.getUpvoteAverage(req.session.user, (toneAverages) => {
       res.send(toneAverages);
     });
   } else {
-    res.send(null);
+    res.send({
+      anger: 0,
+      disgust: 0,
+      fear: 0,
+      joy: 0,
+      sadness: 0,
+      analytical: 0,
+      confident: 0,
+      tentative: 0,
+      openness: 0,
+      conscientiousness: 0,
+      extraversion: 0,
+      agreeableness: 0,
+      emotional_range: 0,
+    });
   }
 });
 

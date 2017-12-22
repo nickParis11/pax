@@ -31,11 +31,11 @@ h2 {
 }
 
 .bar{
-  fill: #800080;
+  fill: #00bfa5;
 }
 
 .bar:hover{
-  fill: lightblue;
+  fill: #f50057;
 }
 
 .column {
