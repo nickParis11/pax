@@ -8,11 +8,11 @@ import Analyzer from './components/Analyzer.jsx';
 
 const muiTheme = getMuiTheme({
   palette: {
-    primary1Color: '#00bfa5',  // <--- teal
-    primary2Color: '#455a64',  // <--- dark grey
-    accent1Color: '#f50057',   // <--- red
-    primary3Color: '#78909c',  // <--- med grey
-    accent2Color: '#cfd8dc',   // <--- light grey
+    primary1Color: '#00bfa5', // <--- teal
+    primary2Color: '#455a64', // <--- dark grey
+    accent1Color: '#f50057', // <--- red
+    primary3Color: '#78909c', // <--- med grey
+    accent2Color: '#cfd8dc', // <--- light grey
     accent3Color: '#607d8b',
     secondaryTextColor: '#607d8b',
     borderColor: '#90a4ae',

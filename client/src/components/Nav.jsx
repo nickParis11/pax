@@ -31,16 +31,16 @@ import { setAnalyzeView } from '../actions/analyzerActions.js';
         title={<h1 className="title">Pax Atlantica</h1>}
         iconElementLeft={
           <div>
-            <a href="https://github.com/bobdaball" target="_blank">
+            <a href="https://github.com/bobdaball" target="_blank" rel="noopener noreferrer">
               <i className="fa fa-lg fa-github ghIcon" />
             </a>
-            <a href="https://github.com/dwrz" target="_blank">
+            <a href="https://github.com/dwrz" target="_blank" rel="noopener noreferrer">
               <i className="fa fa-lg fa-github ghIcon" />
             </a>
-            <a href="https://github.com/nickParis11" target="_blank">
+            <a href="https://github.com/nickParis11" target="_blank" rel="noopener noreferrer">
               <i className="fa fa-lg fa-github ghIcon" />
             </a>
-            <a href="https://github.com/cakelyn" target="_blank">
+            <a href="https://github.com/cakelyn" target="_blank" rel="noopener noreferrer">
               <i className="fa fa-lg fa-github ghIcon" />
             </a>
           </div>

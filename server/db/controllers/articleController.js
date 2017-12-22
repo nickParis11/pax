@@ -1,6 +1,5 @@
 const db = require('../db-index.js');
 const user = require('./userController.js');
-const Promise = require('bluebird');
 
 module.exports = {
   store: (analysis, username, input, isLink, cb) => {
@@ -44,5 +43,5 @@ module.exports = {
       .catch((err) => {
         console.log('Error getting article:', err);
       });
-  }
+  },
 };
