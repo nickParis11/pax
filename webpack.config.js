@@ -36,7 +36,8 @@ const config = {
     new WebpackBuildNotifierPlugin({
          title: "My Project Webpack Build",
          logo: path.resolve("./img/favicon.png"),
-         suppressSuccess: true
+         suppressSuccess: 'always',
+         suppressWarning : true,
        }),
     new UglifyJsPlugin({
       sourceMap: true,
@@ -46,7 +47,6 @@ const config = {
         NODE_ENV: JSON.stringify('production'),
       },
     }),
-    new webpack.optimize.DedupePlugin(),
     new CompressionPlugin({
       asset: '[path].gz[query]',
       algorithm: 'gzip',
