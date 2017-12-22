@@ -12,6 +12,7 @@ const initialState = {
   tone: null,
   waiting: false,
   width: 800,
+  init : true
 };
 
 export default function analyzer(state = initialState, action) {
@@ -23,7 +24,7 @@ export default function analyzer(state = initialState, action) {
     case 'TOGGLE_TEXT_TRUE':
       return { ...state, analyzeUrl: true, analyzeText: false };
     case 'ANALYSIS_SUBMITTED':
-      return { ...state, success: false, waiting: true };
+      return { ...state, success: false, waiting: true, init : false };
     case 'RESULTS_FULFILLED':
       return {
         ...state,

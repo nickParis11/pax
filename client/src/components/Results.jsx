@@ -19,7 +19,7 @@ import BubbleChartUpvotes from './BubbleChartUpvotes.jsx';
 
   render() {
     // should handle unified conditional rendering throughout the app
-    return this.props.visible && this.props.success && (
+    return this.props.visible && (
       <div>
         <ResultsHeading
           score={this.props.score}

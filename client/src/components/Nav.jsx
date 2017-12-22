@@ -11,12 +11,14 @@ import { userLogout, setAnalyzeView, getUser, setView } from '../actions/userAct
     signup: store.user.signup,
     username: store.user.username,
     success: store.analyzer.success,
+    waiting : store.analyzer.waiting,
+    noSearchSoFar : store.analyzer.init,
   };
 }) export default class Nav extends React.Component {
   componentWillMount() {
     this.props.dispatch(getUser());
   }
-
+  
   handleLogoutClick() {
     this.props.dispatch(userLogout());
   }
@@ -26,12 +28,11 @@ import { userLogout, setAnalyzeView, getUser, setView } from '../actions/userAct
   }
 
   handleAnalyzeClick() {
-    // this.props.dispatch(setAnalyzeView());
     this.props.dispatch(setView('SET_ANALYZE_VIEW'));
   }
 
-  handledashboardClick() {
-    this.props.dispatch(setView('SET_DASHBOARD_VIEW'));// $$$$$$$$$$$$$$$$$$$$$$$$$ to check
+  handleDashboardClick() {
+    this.props.dispatch(setView('SET_DASHBOARD_VIEW'));
   }
 
   render() {
@@ -57,12 +58,13 @@ import { userLogout, setAnalyzeView, getUser, setView } from '../actions/userAct
         iconElementRight={
           <div className="nav">
             <FlatButton label="Analyze" onClick={this.handleAnalyzeClick.bind(this)} />
+            {
+              !this.props.waiting && !this.props.noSearchSoFar ? <FlatButton label="Results" onClick={this.handleResultsClick.bind(this)} /> : null
+            }
             {this.props.login ?
               <div>
-                {
-                    this.props.success ? <FlatButton label="Results" onClick={this.handleResultsClick.bind(this)} /> : null
-                  }
-                <FlatButton label="Dashboard" onClick={this.handledashboardClick.bind(this)} />
+              
+                <FlatButton label="Dashboard" onClick={this.handleDashboardClick.bind(this)} />
                 <FlatButton label="Log Out" onClick={this.handleLogoutClick.bind(this)} />
               </div>
             :

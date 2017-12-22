@@ -1,12 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { fetchArticles } from './../actions/dashboardActions.js';
-/*
-import Nav from './Nav.jsx';
-import Input from './Input.jsx';
-import Waiting from './Waiting.jsx';
-import Results from './Results.jsx';
-*/
+import HistoryTable from './dashboard/historyTable.jsx'
 
 @connect((store) => {
   return {
@@ -15,21 +9,32 @@ import Results from './Results.jsx';
     defaultInternalView: true, // $$$$$$$$$$$$$$$$$$$
     errorInternalView: false, // $$$$$$$$$$$$$$$$$$$
     visible: store.user.dashboardView,
-    // data : store.dashboard.result,
   };
-}) export default class Dashboard extends React.Component {
-  componentDidMount() {
-    console.log('dashboard mounted');
-    this.props.dispatch(fetchArticles());
-  }
+}) 
 
+export default class Dashboard extends React.Component {
   render() {
     console.log('in dashboard');
     return this.props.visible && (
       <div>
         <h1> HEY IN DASHBOARD </h1>
-        <h2> {this.props.data} </h2>
+        <ol> 
+          {
+            this.props.data.map(article=>
+              <li> {article.result} |||||  
+              {
+               article.user_text.length > 20 ? article.user_text.slice(0,20)+ '...' : article.user_text 
+              }   
+              ||||||   {article.is_link ? 'Link search' : 'text search' } </li>
+            )
+          }
+        </ol>
+        <HistoryTable> default text for history </HistoryTable>
+
       </div>
     );
   }
 }
+
+//        <Test/>
+

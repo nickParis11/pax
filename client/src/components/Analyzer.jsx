@@ -6,6 +6,7 @@ import Waiting from './Waiting.jsx';
 import Results from './Results.jsx';
 import { getUserUpvoteAverages } from '../actions/userActions.js';
 import Dashboard from './Dashboard.jsx';
+import { fetchArticles } from './../actions/dashboardActions.js';
 
 
 @connect((store) => {
@@ -17,12 +18,18 @@ import Dashboard from './Dashboard.jsx';
   };
 }) export default class Analyzer extends React.Component {
 
+
   componentWillUpdate() {
     // console.log('this.props.username', this.props.username);
     // console.log('getUserUpvoteAverages', getUserUpvoteAverages);
     // if (this.props.login !== false) {
     this.props.dispatch(getUserUpvoteAverages());
     // }
+  }
+  
+  componentDidMount() {
+    this.props.dispatch(fetchArticles());
+
   }
 
   render() {

@@ -1,11 +1,12 @@
 import axios from 'axios';
 
 export function fetchArticles() {
-  return function (dispatch) {
+  return (dispatch) => {
     console.log('in dispatcher dashboard from actions');
-    dispatch({ type: 'FETCH_ARTICLES' });
-    axios.get('/api/userarticles') // TBD
+    //dispatch({ type: 'FETCH_ARTICLES' });
+    axios.get('/api/user/allArticles')
       .then((response) => {
+        console.log('@@@@@@ response from all articles => ',response.data)
         dispatch({ type: 'FETCH_ARTICLES_FULFILLED', payload: response.data }); // $$$$$$$$$$$
       })
       .catch((err) => {
@@ -13,3 +14,4 @@ export function fetchArticles() {
       });
   };
 }
+
