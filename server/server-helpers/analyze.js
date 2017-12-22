@@ -24,7 +24,15 @@ const analyzeText = (text, title, summary, session, res, input, bool) => {
               res.send(analysis);
             });
           } else {
-            res.send(analysis);
+            article.getID(input)
+              .then((articleID) => {
+                analysis.id = articleID.dataValues.id;
+                res.send(analysis);
+              })
+              .catch((err) => {
+                console.error('There was an error retrieving the vote counts:', err);
+                res.send(analysis);
+              });
           }
         })
         .catch((err) => {
