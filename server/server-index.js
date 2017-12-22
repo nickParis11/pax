@@ -51,6 +51,7 @@ app.post('/api/extract', (req, res) => {
   analyze.analyzeUrl(req.body.data, req.session.user, res);
 });
 
+
 app.get('/api/vote/:id', (req, res) => {
   // Params is a string, undefined will be a string, not a native value.
   if (req.params.id !== 'undefined') {
@@ -107,6 +108,11 @@ app.get('/api/user/allArticles', (req, res) => {
   });
 });
 
+app.get('/api/userarticles', (req, res) => {
+  res.send('retrieved from server @ /api/userarticles ');
+});
+
 app.listen(PORT, () => {
   console.log(`Listening on ${PORT}`);
 });
+
