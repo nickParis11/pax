@@ -52,19 +52,9 @@ app.post('/api/extract', (req, res) => {
 });
 
 app.get('/api/vote/:id', (req, res) => {
-  // Params is a string, undefined will be a string, not a native value.
-  if (req.params.id !== 'undefined') {
-    vote.retrieveVotes(req.params.id, req.session.user, (votes) => {
-      res.send(votes);
-    });
-  } else { // Bug fix until non-user voteCount lookup is implemented.
-    res.send({
-      downvote: false,
-      downVoteCount: 0,
-      upvote: false,
-      upVoteCount: 0,
-    });
-  }
+  vote.retrieveVotes(req.params.id, req.session.user, (votes) => {
+    res.send(votes);
+  });
 });
 
 app.post('/api/vote', (req, res) => {
@@ -76,7 +66,7 @@ app.post('/api/vote', (req, res) => {
 // Get average score of tones user upvoted
 app.get('/api/user/upvoteAverages', (req, res) => {
   // console.log('req.session', req.session);
-  if(req.session.user) {
+  if (req.session.user) {
     userDataGetter.getUpvoteAverage(req.session.user, (toneAverages) => {
       res.send(toneAverages);
     });
