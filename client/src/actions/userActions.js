@@ -27,7 +27,6 @@ export function getUser() {
 export function getUserUpvoteAverages() {
   return (dispatch) => {
     // console.log('axios call for getUserupv');
-
     axios.get('/api/user/upvoteAverages')
       .then((res) => {
         console.log('userupvoteAverage from userAction', res.data);
@@ -36,8 +35,5 @@ export function getUserUpvoteAverages() {
       .catch((err) => {
         console.log(err);
       })
-  }
-}
-
-
-
+  };
+};

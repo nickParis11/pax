@@ -4,7 +4,7 @@ import Nav from './Nav.jsx';
 import Input from './Input.jsx';
 import Waiting from './Waiting.jsx';
 import Results from './Results.jsx';
-import { getUserUpvoteAverages } from '../actions/userActions.js'
+import { getUserUpvoteAverages } from '../actions/userActions.js';
 
 @connect((store) => {
   return {
@@ -19,9 +19,9 @@ import { getUserUpvoteAverages } from '../actions/userActions.js'
     // console.log('this.props.username', this.props.username);
     // console.log('getUserUpvoteAverages', getUserUpvoteAverages);
     // if (this.props.login !== false) {
-      this.props.dispatch(getUserUpvoteAverages())
+    this.props.dispatch(getUserUpvoteAverages());
     // }
-  };
+  }
 
   render() {
     console.log('this.props.username', this.props.username);

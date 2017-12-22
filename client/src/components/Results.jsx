@@ -6,7 +6,6 @@ import ResultsSummary from './ResultsSummary.jsx';
 import ResultsVote from './ResultsVote.jsx';
 import BubbleChartUpvotes from './BubbleChartUpvotes.jsx';
 
-
 @connect((store) => {
   return {
     score: store.analyzer.score,
@@ -16,12 +15,6 @@ import BubbleChartUpvotes from './BubbleChartUpvotes.jsx';
     title: store.analyzer.title,
   };
 }) export default class Results extends React.Component {
-
-  componentDidMount() {
-    if (this.props.login) {
-      this.props.dispatch(getUserUpvoteAverages())
-    }
-  };
 
   render() {
     return this.props.success && (
