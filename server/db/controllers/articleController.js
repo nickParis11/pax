@@ -44,4 +44,10 @@ module.exports = {
         console.log('Error getting article:', err);
       });
   },
+  getID: (text) => {
+    return db.Article.findOne({ where: { user_text: text } })
+      .catch((err) => {
+        console.log('Error getting article ID:', err);
+      });
+  },
 };
