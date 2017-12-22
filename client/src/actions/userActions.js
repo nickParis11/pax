@@ -29,6 +29,7 @@ export function getUser() {
   };
 }
 
+
 export function getUserUpvoteAverages() {
   return (dispatch) => {
     // console.log('axios call for getUserupv');

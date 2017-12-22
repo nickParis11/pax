@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { setView } from './userActions.js'
+import { setView } from './userActions.js';
 
 export function setAnalyzeView() {
   return {
@@ -25,7 +25,7 @@ export function getUrlAnalysis(link) {
       .then((response) => {
         dispatch({ type: 'RESULTS_FULFILLED', payload: response.data });
         dispatch({ type: 'ANALYSIS_FULFILLED' });
-        dispatch({type : 'SET_RESULT_VIEW'}) // set result view here
+        dispatch({ type: 'SET_RESULT_VIEW' }); // set result view here
       })
       .catch((err) => {
         // dispatch analysis rejected
@@ -41,7 +41,7 @@ export function getTextAnalysis(article) {
       .then((response) => {
         dispatch({ type: 'RESULTS_FULFILLED', payload: response.data });
         dispatch({ type: 'ANALYSIS_FULFILLED' });
-        dispatch({type : 'SET_RESULT_VIEW'}) // set result view here
+        dispatch({ type: 'SET_RESULT_VIEW' }); // set result view here
       })
       .catch((err) => {
         // dispatch analysis rejected

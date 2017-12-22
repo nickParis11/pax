@@ -2,7 +2,7 @@ const webpack = require('webpack');
 const path = require('path');
 const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
 const CompressionPlugin = require('compression-webpack-plugin');
-var WebpackBuildNotifierPlugin = require('webpack-build-notifier');
+const WebpackBuildNotifierPlugin = require('webpack-build-notifier');
 
 const BUILD_DIR = path.resolve(__dirname, 'client/dist');
 const APP_DIR = path.resolve(__dirname, 'client/src');
@@ -34,11 +34,11 @@ const config = {
   plugins: [
     new webpack.HotModuleReplacementPlugin(),
     new WebpackBuildNotifierPlugin({
-         title: "My Project Webpack Build",
-         logo: path.resolve("./img/favicon.png"),
-         suppressSuccess: 'always',
-         suppressWarning : true,
-       }),
+      title: 'My Project Webpack Build',
+      logo: path.resolve('./img/favicon.png'),
+      suppressSuccess: 'always',
+      suppressWarning: true,
+    }),
     new UglifyJsPlugin({
       sourceMap: true,
     }),

@@ -11,6 +11,7 @@ import InputText from './InputText.jsx';
     input: store.analyzer.input,
     success: store.analyzer.success,
     waiting: store.analyzer.waiting,
+    visible: store.user.inputView,
   };
 }) export default class Input extends React.Component {
   textToggleHandle() {
@@ -36,8 +37,8 @@ import InputText from './InputText.jsx';
   }
 
   render() {
-    return !this.props.success && !this.props.waiting && (
-      <div className="container padTop center-text">
+    return this.props.visible /* && !this.props.success && !this.props.waiting */ && (
+      <div className="container">
         <InputURL
           display={this.props.analyzeUrl}
           checkInput={this.checkInput.bind(this)}

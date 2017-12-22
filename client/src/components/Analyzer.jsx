@@ -5,6 +5,8 @@ import Input from './Input.jsx';
 import Waiting from './Waiting.jsx';
 import Results from './Results.jsx';
 import { getUserUpvoteAverages } from '../actions/userActions.js';
+import Dashboard from './Dashboard.jsx';
+
 
 @connect((store) => {
   return {
@@ -33,6 +35,7 @@ import { getUserUpvoteAverages } from '../actions/userActions.js';
           display={this.props.waiting}
         />
         <Results />
+        <Dashboard />
       </div>
     );
   }

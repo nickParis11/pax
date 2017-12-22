@@ -13,18 +13,18 @@ import BubbleChartUpvotes from './BubbleChartUpvotes.jsx';
     success: store.analyzer.success,
     summary: store.analyzer.summary,
     title: store.analyzer.title,
+    visible: store.user.resultView, // keeps in store & in action function the routing
   };
 }) export default class Results extends React.Component {
 
   render() {
-    return this.props.success && (
-      <div className="padTop">
-        <h2 className="center-text">Results</h2>
-        <div className="container width500">
-          <ResultsHeading
-            score={this.props.score}
-            polarity={this.props.sentiment.polarity}
-          />
+    // should handle unified conditional rendering throughout the app
+    return this.props.visible && this.props.success && (
+      <div>
+        <ResultsHeading
+          score={this.props.score}
+        />
+        <div className="row">
           <ResultsVote />
         </div>
 

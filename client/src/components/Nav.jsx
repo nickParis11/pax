@@ -2,8 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import AppBar from 'material-ui/AppBar';
 import FlatButton from 'material-ui/FlatButton';
-import { userLogout, getUser } from '../actions/userActions';
-import { setAnalyzeView } from '../actions/analyzerActions.js';
+import { userLogout, setAnalyzeView, getUser, setView } from '../actions/userActions';
 
 @connect((store) => {
   return {
@@ -11,6 +10,7 @@ import { setAnalyzeView } from '../actions/analyzerActions.js';
     loginView: store.user.loginView,
     signup: store.user.signup,
     username: store.user.username,
+    success: store.analyzer.success,
   };
 }) export default class Nav extends React.Component {
   componentWillMount() {
@@ -21,8 +21,17 @@ import { setAnalyzeView } from '../actions/analyzerActions.js';
     this.props.dispatch(userLogout());
   }
 
+  handleResultsClick() {
+    this.props.dispatch(setView('SET_RESULT_VIEW'));
+  }
+
   handleAnalyzeClick() {
-    this.props.dispatch(setAnalyzeView());
+    // this.props.dispatch(setAnalyzeView());
+    this.props.dispatch(setView('SET_ANALYZE_VIEW'));
+  }
+
+  handledashboardClick() {
+    this.props.dispatch(setView('SET_DASHBOARD_VIEW'));// $$$$$$$$$$$$$$$$$$$$$$$$$ to check
   }
 
   render() {
@@ -50,7 +59,10 @@ import { setAnalyzeView } from '../actions/analyzerActions.js';
             <FlatButton label="Analyze" onClick={this.handleAnalyzeClick.bind(this)} />
             {this.props.login ?
               <div>
-                <FlatButton label="Dashboard" />
+                {
+                    this.props.success ? <FlatButton label="Results" onClick={this.handleResultsClick.bind(this)} /> : null
+                  }
+                <FlatButton label="Dashboard" onClick={this.handledashboardClick.bind(this)} />
                 <FlatButton label="Log Out" onClick={this.handleLogoutClick.bind(this)} />
               </div>
             :
