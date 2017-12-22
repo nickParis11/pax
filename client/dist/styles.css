@@ -48,6 +48,12 @@ h2 {
   cursor: pointer;
 }
 
+.ghIcon {
+  color: #fff;
+  margin: 0 auto;
+  padding: 15px 10px 15px 10px;
+}
+
 .medium {
   border: none !important;
   padding-top: -25px;
@@ -103,6 +109,12 @@ h2 {
   flex-wrap: wrap;
   justify-content: center;
   padding: 5px;
+}
+
+.title {
+  color: #fff !important;
+  font-size: 42px !important!;
+  padding: 10px 0 10px 20px;
 }
 
 .width500 {

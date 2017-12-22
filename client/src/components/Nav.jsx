@@ -28,7 +28,23 @@ import { setAnalyzeView } from '../actions/analyzerActions.js';
   render() {
     return (
       <AppBar
-        title="Pax Atlantica"
+        title={<h1 className="title">Pax Atlantica</h1>}
+        iconElementLeft={
+          <div>
+            <a href="https://github.com/bobdaball" target="_blank">
+              <i className="fa fa-lg fa-github ghIcon" />
+            </a>
+            <a href="https://github.com/dwrz" target="_blank">
+              <i className="fa fa-lg fa-github ghIcon" />
+            </a>
+            <a href="https://github.com/nickParis11" target="_blank">
+              <i className="fa fa-lg fa-github ghIcon" />
+            </a>
+            <a href="https://github.com/cakelyn" target="_blank">
+              <i className="fa fa-lg fa-github ghIcon" />
+            </a>
+          </div>
+        }
         iconElementRight={
           <div className="nav">
             <FlatButton label="Analyze" onClick={this.handleAnalyzeClick.bind(this)} />
@@ -40,7 +56,8 @@ import { setAnalyzeView } from '../actions/analyzerActions.js';
             :
               <FlatButton href="/auth/google" label="Log In" />
             }
-          </div>}
+          </div>
+        }
       />
     );
   }
