@@ -9,6 +9,6 @@ const middleware = applyMiddleware(thunk, logger);
 const store = createStore(reducer, middleware);
 
 store.subscribe(()=> {
-  console.log('stored changed ', store.getState());
+  console.log('stored has changed ', store.getState());
 })
 export default store
