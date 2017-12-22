@@ -26,7 +26,6 @@ const sequelize = new Sequelize(dbName, dbUser, dbPwd, {
 sequelize
   .authenticate()
   .then(() => {
-
     // sequelize.sync({ force: true });  // uncomment to set up tables
 
     console.log('sequelize Connection has been established successfully.');
