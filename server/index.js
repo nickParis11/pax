@@ -57,7 +57,9 @@ app.get('/api/vote/:id', (req, res) => {
     vote.retrieveVotes(req.params.id, req.session.user, (votes) => {
       res.send(votes);
     });
-  } else { // Bug fix until non-user voteCount lookup is implemented.
+  } else {
+    // An unregistered user is looking up an article that does not exist in the database.
+    // Therefore, vote counts should be zero.
     res.send({
       downvote: false,
       downVoteCount: 0,
@@ -76,7 +78,7 @@ app.post('/api/vote', (req, res) => {
 // Get average score of tones user upvoted
 app.get('/api/user/upvoteAverages', (req, res) => {
   // console.log('req.session', req.session);
-  if(req.session.user) {
+  if (req.session.user) {
     userDataGetter.getUpvoteAverage(req.session.user, (toneAverages) => {
       res.send(toneAverages);
     });
