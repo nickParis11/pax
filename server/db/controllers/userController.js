@@ -64,7 +64,7 @@ module.exports = {
               Object.keys(toneSums).forEach((tone) => {
                 toneSums[tone] = Math.floor(toneSums[tone] / articleNum);
               });
-              // console.log('toneSums', toneSums);
+              console.log('toneSums', toneSums);
               return cb(toneSums);
             }
           });

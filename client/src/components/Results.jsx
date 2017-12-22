@@ -16,6 +16,13 @@ import BubbleChartUpvotes from './BubbleChartUpvotes.jsx';
     title: store.analyzer.title,
   };
 }) export default class Results extends React.Component {
+
+  componentDidMount() {
+    if (this.props.login) {
+      this.props.dispatch(getUserUpvoteAverages())
+    }
+  };
+
   render() {
     return this.props.success && (
       <div className="padTop">

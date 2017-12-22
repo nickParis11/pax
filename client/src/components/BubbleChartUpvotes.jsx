@@ -8,32 +8,20 @@ import * as d3 from 'd3';
     height: store.analyzer.height,
     tone: store.analyzer.tone,
     width: store.analyzer.width,
+    upvoteAverages: store.user.upvoteAverages,
   };
 }) export default class BubbleChartUpvotes extends React.Component {
   drawChart() {
     const div = new ReactFauxDOM.Element('div');
     const dataset = {};
-    const tone = this.props.tone.document_tone;
-    const emotionList = tone.tone_categories[0].tones.map((emo) => {
+    const tones = this.props.upvoteAverages;
+    console.log('upvoteAverages', this.props.upvoteAverages);
+    const allTonesList = Object.keys(tones).map((emo) => {
       return {
-        Name: emo.tone_name,
-        Count: Math.round(emo.score * 100),
+        Name: emo,
+        Count: Math.round(tones[emo]),
       };
     });
-
-    const languageToneList = tone.tone_categories[1].tones.map((lang) => {
-      return {
-        Name: lang.tone_name,
-        Count: Math.round(lang.score * 100),
-      };
-    });
-    const socialToneList = tone.tone_categories[2].tones.map((soc) => {
-      return {
-        Name: soc.tone_name,
-        Count: Math.round(soc.score * 100),
-      };
-    });
-    const allTonesList = emotionList.concat(languageToneList, socialToneList);
     dataset.children = allTonesList;
 
 
