@@ -13,36 +13,29 @@ const analyzeText = (text, title, summary, session, res, input, bool) => {
   analyzeTone(text)
     .then((tone) => {
       analysis.tone = JSON.parse(tone);
-      aylienHelpers.sentimentAnalysis(text)
-        .then((sentiment) => {
-          analysis.sentiment = sentiment;
-          analysis.score = trust.trustAnalysis(analysis.tone);
-          if (session !== undefined) {
-            article.store(analysis, session, input, bool, (response) => {
-              analysis.id = response.dataValues.id;
-              vote.store(session, analysis.id);
-              res.send(analysis);
-            });
-          } else {
-            article.getID(input)
-              .then((articleID) => {
-                analysis.id = articleID.dataValues.id;
-                res.send(analysis);
-              })
-              .catch((err) => {
-                res.status(500);
-                res.render('There was an error retrieving the vote counts:', err);
-              });
-          }
-        })
-        .catch((err) => {
-          res.status(500);
-          res.render('Error analyzing sentiment:', err);
+      return aylienHelpers.sentimentAnalysis(text)
+    })
+    .then((sentiment) => {
+      analysis.sentiment = sentiment;
+      analysis.score = trust.trustAnalysis(analysis.tone);
+      if (session !== undefined) {
+        article.store(analysis, session, input, bool, (response) => {
+          console.log('================> response:', response)
+          analysis.id = response.dataValues.id;
+          vote.store(session, analysis.id);
+          res.send(analysis);
         });
+      } else {
+        return article.getID(input)
+        .then((articleID) => {
+          analysis.id = articleID.dataValues.id;
+          res.send(analysis);
+        })
+      }
     })
     .catch((err) => {
       res.status(500);
-      res.render('Error analyzing tone:', err);
+      res.write('Error analyzing tone:', err);
     });
 };
 
