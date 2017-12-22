@@ -19,7 +19,8 @@ const getArticlesByUser = (username, cb) => {
           cb(articles);
         })
         .catch((err) => {
-          console.log('Error getting all articles:', err);
+          res.send(500);
+          res.write('Error getting all articles:', err);
         });
     });
   });

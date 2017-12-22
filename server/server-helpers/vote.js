@@ -21,7 +21,7 @@ const retrieveVotes = (article, username, res) => {
         })
         .catch((err) => {
           res.status(500);
-          res.render('Error retrieving votes: ', err);
+          res.write('Error retrieving votes: ', err);
         });
     });
   } else {
@@ -31,7 +31,7 @@ const retrieveVotes = (article, username, res) => {
       })
       .catch((err) => {
         res.status(500);
-        res.render('Error retrieving votes: ', err);
+        res.write('Error retrieving votes: ', err);
       });
   }
 };
