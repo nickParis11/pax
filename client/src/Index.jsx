@@ -43,35 +43,3 @@ render(<Provider store={store}>
     <Analyzer />
   </MuiThemeProvider>
 </Provider>, document.getElementById('app'));
-
-/** ******** MUI THEME **************
-{
-    "palette": {
-        "primary1Color": "#00bfa5",
-        "primary2Color": "#455a64",
-        "accent1Color": "#f50057",
-        "primary3Color": "#78909c",
-        "accent2Color": "#cfd8dc",
-        "accent3Color": "#607d8b",
-        "secondaryTextColor": "#607d8b",
-        "borderColor": "#90a4ae",
-        "disabledColor": "#607d8b",
-        "pickerHeaderColor": "#455a64",
-        "clockCircleColor": "rgba(0, 0, 0, 0.26)"
-    },
-    "appBar": {
-        "color": "#455a64"
-    },
-    "raisedButton": {
-        "primaryTextColor": "#ffffff",
-        "color": "#455a64",
-        "textColor": "#ffffff"
-    },
-    "flatButton": {
-        "color": "#ffffff"
-    },
-    "tabs": {
-        "backgroundColor": "#455a64"
-    }
-}
- ********************************* */
