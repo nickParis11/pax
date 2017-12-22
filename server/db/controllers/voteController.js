@@ -1,4 +1,4 @@
-const db = require('../db-index.js');
+const db = require('../index.js');
 const userController = require('./userController.js');
 
 module.exports = {
