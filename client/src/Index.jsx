@@ -38,7 +38,6 @@ const muiTheme = getMuiTheme({
   },
 });
 
-
 render(<Provider store={store}>
   <MuiThemeProvider>
     <Analyzer />
