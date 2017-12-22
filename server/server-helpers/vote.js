@@ -13,15 +13,25 @@ const submitVote = (session, article, upvote, cb) => {
 };
 
 const retrieveVotes = (article, username, cb) => {
-  userController.get({ body: { username } }, (userEntry) => {
-    vote.getVotes(article, userEntry.dataValues.id)
+  if (username) {
+    userController.get({ body: { username } }, (userEntry) => {
+      vote.getVotes(article, userEntry.dataValues.id)
+        .then((votes) => {
+          cb(votes);
+        })
+        .catch((err) => {
+          console.log('Error retrieving votes: ', err);
+        });
+    });
+  } else {
+    vote.getVotes(article, null)
       .then((votes) => {
         cb(votes);
       })
       .catch((err) => {
         console.log('Error retrieving votes: ', err);
       });
-  });
+  }
 };
 
 module.exports.submitVote = submitVote;
