@@ -16,7 +16,8 @@ module.exports = {
         },
       })
         .catch((err) => {
-          console.log('Error storing article in votes table:', err);
+          res.send(500)
+          res.write('Error storing article in votes table:', err);
         });
     });
   },
@@ -50,7 +51,8 @@ module.exports = {
                 cb(res);
               })
               .catch((err) => {
-                console.log('Error removing upvote:', err);
+                res.send(500);
+                res.write('Error removing upvote:', err);
               });
           }
         });
@@ -69,7 +71,8 @@ module.exports = {
                 cb(res);
               })
               .catch((err) => {
-                console.log('Error downvoting article:', err);
+                res.send(500);
+                res.write('Error downvoting article:', err);
               });
           } else {
             db.Vote.update(
@@ -83,7 +86,8 @@ module.exports = {
                 cb(res);
               })
               .catch((err) => {
-                console.log('Error removing downvote:', err);
+                res.send(500);
+                res.write('Error removing downvote:', err);
               });
           }
         });
@@ -100,7 +104,8 @@ module.exports = {
             return { downVoteCount: articleDownvotes.length, upVoteCount: upvoteCount };
           })
           .catch((err) => {
-            console.error('Error getting downvotes:', err);
+            res.send(500);
+            res.write('Error getting downvotes:', err);
           });
       })
       .then((voteCounts) => {
@@ -121,7 +126,8 @@ module.exports = {
         }
       })
       .catch((err) => {
-        console.error('Error getting voting data:', err);
+        res.send(500);
+        res.write('Error getting voting data:', err);
       });
   },
   getAllVotesBy: (user, cb) => {
@@ -130,7 +136,8 @@ module.exports = {
         cb(allVotes);
       })
       .catch((err) => {
-        console.log('Error getting all votes by user:', err);
+        res.send(500);
+        res.write('Error getting all votes by user:', err);
       });
   },
 };

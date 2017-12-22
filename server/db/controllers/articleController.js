@@ -42,13 +42,15 @@ module.exports = {
   get: (article) => {
     return db.Article.findOne({ where: { id: article } })
       .catch((err) => {
-        console.log('Error getting article:', err);
+        res.send(500);
+        res.write('Error getting article:', err);
       });
   },
   getID: (text) => {
     return db.Article.findOne({ where: { user_text: text } })
       .catch((err) => {
-        console.log('Error getting article ID:', err);
+        res.send(500);
+        res.write('Error getting article ID:', err);
       });
   },
 };
