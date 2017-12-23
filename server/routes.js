@@ -12,7 +12,9 @@ router.get('/api/logoutUser', (req, res) => {
   res.send();
 });
 
-router.post('/api/analyze', analyze.analyzeText);
+router.post('/api/analyze', (req, res) => {
+  analyze.analyzeText(req.body.data, 'Your Input', req.body.data, req.session.user, res, req.body.data, false);
+});
 
 router.post('/api/extract', (req, res) => {
   analyze.analyzeUrl(req.body.data, req.session.user, res)
