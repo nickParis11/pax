@@ -69,7 +69,7 @@ import * as d3 from 'd3';
       .text((d) => {
         return d.data.Name.substring(0, d.r / 3);
       })
-      .attr('font-size', (d) => { return d.r / 5; })
+      .attr('font-size', (d) => { return d.r / 4; })
       .attr('fill', 'white');
 
     node.append('text')

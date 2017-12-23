@@ -22,21 +22,22 @@ import { connect } from 'react-redux';
     const allTonesList = emotionList.concat(languageToneList, socialToneList);
     const data = allTonesList;
     const margin = {
-      top: 45, right: 5, bottom: 10, left: 45,
+      top: 45, right: 5, bottom: 100, left: 45,
     };
     const width = this.props.width - margin.left - margin.right;
     const height = this.props.height - margin.top - margin.bottom;
     console.log('width', width);
     console.log('height', height);
+
+    const y = d3
+      .scaleLinear()
+      .range([height, 0]);
+
     const x = d3
       .scaleBand()
       .rangeRound([0, width])
       .paddingInner(10)
       .paddingOuter(25);
-
-    const y = d3
-      .scaleLinear()
-      .range([height, 0]);
 
     const svg = d3
       .select(div)
@@ -47,18 +48,21 @@ import { connect } from 'react-redux';
       .attr('transform', `translate(${margin.left},${margin.top})`);
 
     // create range
-    x.domain(data.map(d => d[0]));
     y.domain([0, 100]);
+    x.domain(data.map(d => d[0]));
 
+    svg.append('g')
+      .call(d3.axisLeft(y));
     // create x-axis
     svg.append('g')
       .attr('class', 'x axis')
-      .attr('transform', `translate(0, ${-height}`)
+      .attr('transform', 'translate(0, ' + height + ')')
       .call(d3.axisBottom(x))
       .selectAll('text')
       .style('text-anchor', 'end')
       .attr('dx', '-2em')
       .attr('dy', '.15em')
+      .style("font", "14px")
       .attr('transform', 'rotate(-65)');
 
     // x-axis text label
@@ -69,8 +73,7 @@ import { connect } from 'react-redux';
       .text('Tone Type');
 
     // create y-axis
-    svg.append('g')
-      .call(d3.axisLeft(y));
+
 
     // y-axis text label
     svg.append('text')
@@ -78,6 +81,7 @@ import { connect } from 'react-redux';
       .attr('y', 0)
       .attr('x', 0 - (height / 2))
       .attr('dy', '-2em')
+      .attr('dx', '3em')
       .style('text-anchor', 'end')
       .text('Tone level (%)');
 
