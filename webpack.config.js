@@ -36,7 +36,7 @@ const config = {
     new WebpackBuildNotifierPlugin({
       title: 'My Project Webpack Build',
       logo: path.resolve('./img/favicon.png'),
-      suppressSuccess: 'true',
+      suppressSuccess: false,
       suppressWarning: true,
     }),
     new UglifyJsPlugin({

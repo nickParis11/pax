@@ -19,7 +19,6 @@ import { fetchArticles } from './../actions/dashboardActions.js';
   };
 }) export default class Analyzer extends React.Component {
 
-
   componentWillUpdate() {
     // console.log('this.props.username', this.props.username);
     // console.log('getUserUpvoteAverages', getUserUpvoteAverages);
