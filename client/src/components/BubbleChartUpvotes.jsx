@@ -50,10 +50,10 @@ import * as d3 from 'd3';
         return `translate( ${d.x}, ${d.y} )`;
       });
 
-    node.append('title')
-      .text((d) => {
-        return `${d.Name}: ${d.Count}`;
-      });
+        node.append("title")
+            .text(function(d) {
+                return d.data.Name + ": " + d.data.Count;
+            });
 
     node.append('circle')
       .attr('r', (d) => {
