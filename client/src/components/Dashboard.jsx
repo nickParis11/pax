@@ -18,17 +18,7 @@ export default class Dashboard extends React.Component {
     return this.props.visible && (
       <div>
         <h1> HEY IN DASHBOARD </h1>
-        <ol> 
-          {
-            this.props.data.map(article=>
-              <li> {article.result} |||||  
-              {
-               article.user_text.length > 20 ? article.user_text.slice(0,20)+ '...' : article.user_text 
-              }   
-              ||||||   {article.is_link ? 'Link search' : 'text search' } </li>
-            )
-          }
-        </ol>
+
         <HistoryTable> default text for history </HistoryTable>
 
       </div>
@@ -37,4 +27,16 @@ export default class Dashboard extends React.Component {
 }
 
 //        <Test/>
-
+/*
+<ol> 
+  {
+    this.props.data.map(article=>
+      <li> {article.result} |||||  
+      {
+       article.user_text.length > 20 ? article.user_text.slice(0,20)+ '...' : article.user_text 
+      }   
+      ||||||   {article.is_link ? 'Link search' : 'text search' } </li>
+    )
+  }
+</ol>
+*/

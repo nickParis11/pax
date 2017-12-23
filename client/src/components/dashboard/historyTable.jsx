@@ -27,6 +27,8 @@ const styles = {
   },
 };
 
+
+
 const tableData = [
   {
     name: 'John Smith',
@@ -67,14 +69,14 @@ const tableData = [
     visible: store.user.dashboardView,
     fixedHeader: true,
     fixedFooter: true,
-    stripedRows: false,
-    showRowHover: false,
+    stripedRows: true,
+    showRowHover: true,
     selectable: true,
-    multiSelectable: false,
-    enableSelectAll: false,
+    multiSelectable: true,
+    enableSelectAll: true,
     deselectOnClickaway: true,
     showCheckboxes: true,
-    height: '300px',
+    //height: '300px',
   };
 }) 
 
@@ -116,9 +118,10 @@ export default class HistoryTable extends React.Component {
               </TableHeaderColumn>
             </TableRow>
             <TableRow>
-              <TableHeaderColumn tooltip="The ID">ID</TableHeaderColumn>
-              <TableHeaderColumn tooltip="The Name">Name</TableHeaderColumn>
-              <TableHeaderColumn tooltip="The Status">Status</TableHeaderColumn>
+              <TableHeaderColumn tooltip="The ID"></TableHeaderColumn>
+              <TableHeaderColumn tooltip="The Name"> Search</TableHeaderColumn>
+              <TableHeaderColumn tooltip="The Status">type</TableHeaderColumn>
+              <TableHeaderColumn tooltip="The Status">Overall score</TableHeaderColumn>
             </TableRow>
           </TableHeader>
           <TableBody
@@ -127,13 +130,19 @@ export default class HistoryTable extends React.Component {
             showRowHover={this.props.showRowHover}
             stripedRows={this.props.stripedRows}
           >
-            {tableData.map( (row, index) => (
+
+            {this.props.data.map( (article, index) => (
               <TableRow key={index}>
                 <TableRowColumn>{index}</TableRowColumn>
-                <TableRowColumn>{row.name}</TableRowColumn>
-                <TableRowColumn>{row.status}</TableRowColumn>
+                <TableRowColumn>{
+           article.user_text.length > 20 ? article.user_text.slice(0,20)+ '...' : article.user_text 
+          }   </TableRowColumn>
+
+                <TableRowColumn>{article.is_link ? 'Link search' : 'text search' }</TableRowColumn>
+                <TableRowColumn>{article.result}</TableRowColumn>
               </TableRow>
               ))}
+
           </TableBody>
           <TableFooter
             adjustForCheckbox={this.props.showCheckboxes}
@@ -153,8 +162,6 @@ export default class HistoryTable extends React.Component {
       </div>
     );
   }
-
-
 }
 
 
