@@ -7,16 +7,19 @@ const getUpvoteAverage = (user, cb) => {
 };
 
 const getArticlesByUser = (username, cb) => {
+  const response = {}
   const articleIds = [];
 
   userController.get({ body: { username } }, (found) => {
     voteController.getAllVotesBy(found.id, (allVotes) => {
+      response.allVotes = allVotes;
       allVotes.forEach((article) => {
         articleIds.push(articleController.get(article.dataValues.articleId));
       });
       Promise.all(articleIds)
         .then((articles) => {
-          cb(articles);
+          response.articles = articles;
+          cb(response);
         })
         .catch((err) => {
           res.send(500);
