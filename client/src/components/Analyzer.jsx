@@ -12,9 +12,10 @@ import { fetchArticles } from './../actions/dashboardActions.js';
 @connect((store) => {
   return {
     success: store.analyzer.success,
-    waiting: store.analyzer.waiting,
+    //waiting: store.analyzer.waiting,
     login: store.user.login,
     username: store.user.username,
+    visible: store.user.waitingView,
   };
 }) export default class Analyzer extends React.Component {
 
@@ -26,7 +27,7 @@ import { fetchArticles } from './../actions/dashboardActions.js';
     this.props.dispatch(getUserUpvoteAverages());
     // }
   }
-  
+
   componentDidMount() {
     this.props.dispatch(fetchArticles());
 
@@ -39,7 +40,7 @@ import { fetchArticles } from './../actions/dashboardActions.js';
         <Nav />
         <Input />
         <Waiting
-          display={this.props.waiting}
+          display={this.props.visible}
         />
         <Results />
         <Dashboard />

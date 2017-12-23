@@ -38,7 +38,7 @@ import InputText from './InputText.jsx';
 
   render() {
     return this.props.visible /* && !this.props.success && !this.props.waiting */ && (
-      <div className="container">
+      <div className="container padTop center-text">
         <InputURL
           display={this.props.analyzeUrl}
           checkInput={this.checkInput.bind(this)}

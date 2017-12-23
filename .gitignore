@@ -9,6 +9,6 @@ merged-pull-request/
 /docs/API_keys_and_urls.js
 /docs/ideas.pdf
 /docs/pax-atlantica scoping.pdf
-*.hot-update.js
+*.hot-update.js*
 
 

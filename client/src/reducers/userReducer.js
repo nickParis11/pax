@@ -20,30 +20,35 @@ const initialState = {
   dashboardView: false,
   inputView: true,
   resultView: false,
+  waitingView: false,
 };
 
 export default function user(state = initialState, action) {
   switch (action.type) {
+    case 'SET_WAITING_VIEW':
+      return {
+        ...state, loginView: false, dashboardView: false, inputView: false, resultView: false, waitingView: true,
+      };
     case 'SET_ANALYZE_VIEW':
       return {
-        ...state, loginView: false, dashboardView: false, inputView: true, resultView: false,
+        ...state, loginView: false, dashboardView: false, inputView: true, resultView: false, waitingView: false,
       };
     case 'LOGIN_CHECK':
       return { ...state, login: action.payload };
     case 'LOGOUT_USER':
       return {
-        ...state, login: false, dashboardView: false, loginView: true, inputView: true, resultView: false,
+        ...state, login: false, dashboardView: false, loginView: true, inputView: true, resultView: false, waitingView: false,
       };
     case 'USER_UPVOTE_AVERAGES':
       return { ...state, upvoteAverages: action.payload };
 
     case 'SET_DASHBOARD_VIEW':
       return {
-        ...state, dashboardView: true, inputView: false, resultView: false,
+        ...state, dashboardView: true, inputView: false, resultView: false, waitingView: false,
       };
     case 'SET_RESULT_VIEW':
       return {
-        ...state, dashboardView: false, inputView: false, resultView: true,
+        ...state, dashboardView: false, inputView: false, resultView: true, waitingView: false,
       };
     default:
       return state;

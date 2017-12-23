@@ -21,6 +21,7 @@ export function toggleUrlText(url) {
 export function getUrlAnalysis(link) {
   return (dispatch) => {
     dispatch({ type: 'ANALYSIS_SUBMITTED' });
+    dispatch({type: 'SET_WAITING_VIEW'});
     axios.post('/api/extract', { data: link })
       .then((response) => {
         dispatch({ type: 'RESULTS_FULFILLED', payload: response.data });
@@ -37,6 +38,7 @@ export function getUrlAnalysis(link) {
 export function getTextAnalysis(article) {
   return (dispatch) => {
     dispatch({ type: 'ANALYSIS_SUBMITTED' });
+    dispatch({type: 'SET_WAITING_VIEW'});
     axios.post('/api/analyze', { data: article })
       .then((response) => {
         dispatch({ type: 'RESULTS_FULFILLED', payload: response.data });
