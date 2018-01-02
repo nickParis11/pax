@@ -7,6 +7,15 @@ const WebpackBuildNotifierPlugin = require('webpack-build-notifier');
 const BUILD_DIR = path.resolve(__dirname, 'client/dist');
 const APP_DIR = path.resolve(__dirname, 'client/src');
 
+//console.log('env = ',env);
+//const isDevPlatform = env.dev === true;
+//console.log('in dev settings = ',isDevPlatform);
+
+
+module.exports = function(env) {
+  console.log('env in helper ',env);
+}
+
 const config = {
   devtool: '#source-map',
   entry: `${APP_DIR}/Index.jsx`,
@@ -57,4 +66,4 @@ const config = {
   ],
 };
 
-module.exports = config;
+//module.exports = config;
