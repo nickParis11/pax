@@ -4,6 +4,7 @@ import { toggleUrlText, getUrlAnalysis, getTextAnalysis } from '../actions/analy
 import InputURL from './InputURL.jsx';
 import InputText from './InputText.jsx';
 
+
 @connect((store) => {
   return {
     analyzeUrl: store.analyzer.analyzeUrl,
@@ -35,7 +36,7 @@ import InputText from './InputText.jsx';
       this.props.dispatch(getTextAnalysis(value));
     }
   }
-
+  
   render() {
     return this.props.visible /* && !this.props.success && !this.props.waiting */ && (
       <div className="container padTop center-text">
