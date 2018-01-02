@@ -7,24 +7,35 @@ const getUpvoteAverage = (user, cb) => {
 };
 
 const getArticlesByUser = (username, cb) => {
-  const response = {}
   const articleIds = [];
+  let voteInfo = {};
 
   userController.get({ body: { username } }, (found) => {
-    voteController.getAllVotesBy(found.id, (allVotes) => {
-      response.allVotes = allVotes;
-      allVotes.forEach((article) => {
-        articleIds.push(articleController.get(article.dataValues.articleId));
-      });
-      Promise.all(articleIds)
-        .then((articles) => {
-          response.articles = articles;
-          cb(response);
-        })
-        .catch((err) => {
-          res.send(500);
-          res.write('Error getting all articles:', err);
+    voteController.getAllVotesBy(found.id, (err, allVotes) => {
+      if (err) {
+        cb(err);
+      } else {
+        allVotes.forEach((vote) => {
+          articleIds.push(articleController.get(vote.dataValues.articleId));
+          voteInfo[vote.dataValues.articleId] = {
+            downvote: vote.dataValues.downvote,
+            upvote: vote.dataValues.upvote,
+            voted: vote.dataValues.voted,
+          };
         });
+        Promise.all(articleIds)
+          .then((articles) => {
+            articles.forEach((item, index) => {
+              articles[index].dataValues.downvote = voteInfo[item.dataValues.id].downvote;
+              articles[index].dataValues.upvote = voteInfo[item.dataValues.id].upvote;
+              articles[index].dataValues.voted = voteInfo[item.dataValues.id].voted;
+            });
+            cb(null, articles);
+          })
+          .catch((err) => {
+            console.log(`Error getting all articles: ${err}`);
+          });
+      }
     });
   });
 };

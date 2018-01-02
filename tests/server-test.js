@@ -105,6 +105,12 @@ describe('Route testing', () => {
       });
   });
 
-  // create session for user
+  // store article to database
+  it('Should store an article to the database', (done) => {
+    chai.request('http://127.0.0.1:3000')
+      .post('api/analyze', {  })
+  })
+  // store user to database
+  // store votes relation to database
 
 })

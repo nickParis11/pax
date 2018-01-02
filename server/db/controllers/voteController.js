@@ -126,18 +126,18 @@ module.exports = {
         }
       })
       .catch((err) => {
-        res.send(500);
-        res.write('Error getting voting data:', err);
+        console.log('Error getting voting data:', err);
       });
   },
   getAllVotesBy: (user, cb) => {
     db.Vote.findAll({ where: { userId: user } })
       .then((allVotes) => {
-        cb(allVotes);
+        cb(null, allVotes);
       })
       .catch((err) => {
-        res.send(500);
-        res.write('Error getting all votes by user:', err);
+        // res.send(500);
+        // res.write('Error getting all votes by user:', err);
+        cb(`Error getting all votes by user: ${err}`);
       });
   },
 };

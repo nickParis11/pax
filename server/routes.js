@@ -1,7 +1,7 @@
 const router = require('express').Router();
 const analyze = require('./server-helpers/analyze.js');
 const vote = require('./server-helpers/vote.js');
-const userDataGetter = require('./server-helpers/userData.js');
+const userData = require('./server-helpers/userData.js');
 
 router.get('/api/getUser', (req, res) => {
   res.send(req.session.user);
@@ -46,7 +46,7 @@ router.post('/api/vote', (req, res) => {
 router.get('/api/user/upvoteAverages', (req, res) => {
   // console.log('req.session', req.session);
   if (!!req.session.user) {
-    userDataGetter.getUpvoteAverage(req.session.user, (toneAverages) => {
+    userData.getUpvoteAverage(req.session.user, (toneAverages) => {
       res.send(toneAverages);
     });
   } else {
@@ -69,8 +69,14 @@ router.get('/api/user/upvoteAverages', (req, res) => {
 });
 
 router.get('/api/user/allArticles', (req, res) => {
-  userDataGetter.getArticlesByUser(req.session.user, (articles) => {
-    res.send(articles);
+  userData.getArticlesByUser(req.session.user, (err, articles) => {
+    if (err) {
+      res.status(500);
+      res.write(err);
+      res.send();
+    } else {
+      res.send(articles);
+    }
   });
 });
 
