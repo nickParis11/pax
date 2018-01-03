@@ -18,7 +18,7 @@ const analyzeText = (text, title, summary, session, res, input, bool) => {
     .then((sentiment) => {
       analysis.sentiment = sentiment;
       analysis.score = trust.trustAnalysis(analysis.tone);
-      if (session !== undefined) {
+      if (!!session) {
         article.store(analysis, session, input, bool, (response) => {
           analysis.id = response.dataValues.id;
           vote.store(session, analysis.id);
