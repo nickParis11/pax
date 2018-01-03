@@ -69,15 +69,19 @@ router.get('/api/user/upvoteAverages', (req, res) => {
 });
 
 router.get('/api/user/allArticles', (req, res) => {
-  userData.getArticlesByUser(req.session.user, (err, articles) => {
-    if (err) {
-      res.status(500);
-      res.write(err);
-      res.send();
-    } else {
-      res.send(articles);
-    }
-  });
+  if (!!req.session.user) {
+    userData.getArticlesByUser(req.session.user, (err, articles) => {
+      if (err) {
+        res.status(500);
+        res.write(err);
+        res.send();
+      } else {
+        res.send(articles);
+      }
+    });
+  } else {
+    res.send();
+  }
 });
 
 module.exports = router;
