@@ -18,7 +18,6 @@ export default class Dashboard extends React.Component {
     return this.props.visible && (
       <div>
         <h1> HEY IN DASHBOARD </h1>
-
         <HistoryTable> default text for history </HistoryTable>
 
       </div>
