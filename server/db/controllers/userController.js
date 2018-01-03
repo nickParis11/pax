@@ -46,8 +46,6 @@ module.exports = {
                 id: articleId.dataValues.id,
               },
             }).then((article) => { // add article's tone scores to respective tone sum
-              // console.log('article', article);
-
               const toneList = article.dataValues;
 
               Object.keys(toneList).forEach((tone) => {
