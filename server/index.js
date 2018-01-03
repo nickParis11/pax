@@ -11,8 +11,6 @@ const router = require('./routes.js');
 const app = express();
 const PORT = 3000;
 
-//app.use(express.static(`${__dirname}/../client/dist/`));
-
 app.use(express.static(path.join(__dirname, '/../client/dist')));
 
 app.use(bodyParser.urlencoded({ extended: true }));
