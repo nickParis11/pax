@@ -13,7 +13,6 @@ module.exports = function(env ={}) {
   console.log('env in helper ',dev);
 
   const config = {
-    //devtool: 'source-map',
     entry: `${APP_DIR}/Index.jsx`,
     output: {
       path: BUILD_DIR,
