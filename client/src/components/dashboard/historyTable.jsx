@@ -138,7 +138,7 @@ export default class HistoryTable extends React.Component {
           }   </TableRowColumn>
 
                 <TableRowColumn>{article.is_link ? 'Link search' : 'text search' }</TableRowColumn>
-                <TableRowColumn>{article.result}</TableRowColumn>
+                <TableRowColumn>{article.result+ ' %'} </TableRowColumn>
                 
                 <TableRowColumn>{ article.voted ? article.upvote ? <img src="assets/thumbs_up.svg" width="50px" height="50px" /> : <img src="assets/thumbs_down.svg" width="50px" height="50px" /> : null }</TableRowColumn>
 
