@@ -3,7 +3,6 @@ const user = require('./userController.js');
 
 module.exports = {
   store: (analysis, username, input, isLink, cb) => {
-    console.log('=========> controller', username, input, isLink)
     user.get({ body: { username } }, (found) => {
       const tone = analysis.tone.document_tone.tone_categories;
       db.Article.findOrCreate({

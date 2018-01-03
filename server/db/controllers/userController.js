@@ -69,8 +69,7 @@ module.exports = {
             }
           });
         }).catch((err) => {
-          res.send(500);
-          res.write('Error getting article tone averages', err);
+          console.log('Error getting article tone averages', err);
         });
     // convert the sum to averages
     // return averages in an appropriate format
