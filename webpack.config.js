@@ -8,11 +8,12 @@ const BUILD_DIR = path.resolve(__dirname, 'client/dist');
 const APP_DIR = path.resolve(__dirname, 'client/src');
 
 
-module.exports = function(env) {
-  console.log('env in helper ',env);
+module.exports = function(env ={}) {
+  const dev = env.NODE_ENV === 'local';
+  console.log('env in helper ',dev);
 
   const config = {
-    devtool: '#source-map',
+    //devtool: 'source-map',
     entry: `${APP_DIR}/Index.jsx`,
     output: {
       path: BUILD_DIR,
@@ -35,16 +36,25 @@ module.exports = function(env) {
         },
       ],
     },
-    plugins: [
+    plugins : [ 
+      new UglifyJsPlugin({
+        sourceMap: dev ? true : false, 
+        parallel: true,
+        uglifyOptions: {
+         compress: false // takes 250% more memory without this for 1% gain in size, not worth the risk to fail building. 
+        },
+      })
+    ],
+  };
+  if ( dev ) {
+    config.devtool = 'source-map';
+    devPlugins = [
       new webpack.HotModuleReplacementPlugin(),
       new WebpackBuildNotifierPlugin({
         title: 'My Project Webpack Build',
         logo: path.resolve('./img/favicon.png'),
         suppressSuccess: false,
         suppressWarning: true,
-      }),
-      new UglifyJsPlugin({
-        sourceMap: true,
       }),
       new webpack.DefinePlugin({
         'process.env': {
@@ -58,13 +68,10 @@ module.exports = function(env) {
         threshold: 10240,
         minRatio: 0.8,
       }),
-    ],
-  };
-
+    ]
+    config.plugins = config.plugins.concat(devPlugins); 
+  }
   return config;
-  
 }
 
 
-
-//module.exports = config;
