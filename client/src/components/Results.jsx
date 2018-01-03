@@ -6,8 +6,13 @@ import ResultsSummary from './ResultsSummary.jsx';
 import ResultsVote from './ResultsVote.jsx';
 import BubbleChartUpvotes from './BubbleChartUpvotes.jsx';
 
+// take analyzeText boolean from store.analyzer
+// if analyzeText is true
+// then do not show ResultsVote
+
 @connect((store) => {
   return {
+    analyzeText: store.analyzer.analyzeText,
     score: store.analyzer.score,
     sentiment: store.analyzer.sentiment,
     success: store.analyzer.success,
@@ -27,7 +32,7 @@ import BubbleChartUpvotes from './BubbleChartUpvotes.jsx';
                   score={this.props.score}
                   polarity={this.props.sentiment.polarity}
             />
-            <ResultsVote />
+            { !this.props.analyzeText ? <ResultsVote /> : null }
           </div>
 
         <div className="row">
