@@ -44,13 +44,18 @@ module.exports = {
                 id: articleId.dataValues.id,
               },
             }).then((article) => { // Add article's tone scores to respective tone sum
-              const toneList = article.dataValues;
-              Object.keys(toneList).forEach((tone) => {
-                const hasTone = Object.prototype.hasOwnProperty.call(toneSums, tone);
-                if (hasTone) {
-                  toneSums[tone] += toneList[tone];
-                }
-              });
+              const articleIsNotNull = !!article; // Bufgix for when article is null.
+              // If the article is null, skip it.
+              // Otherwise you'll add undefined to the sum, resulting in NaN.
+              if (articleIsNotNull) { 
+                const toneList = article.dataValues;
+                Object.keys(toneList).forEach((tone) => {
+                  const hasTone = Object.prototype.hasOwnProperty.call(toneSums, tone);
+                  if (hasTone) {
+                    toneSums[tone] += toneList[tone];
+                  }
+                });
+              }
               return true;
             });
           })).then(() => {
