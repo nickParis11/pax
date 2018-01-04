@@ -29,6 +29,7 @@ textarea {
 
 .arrow {
   align-self: flex-end;
+  cursor: pointer;
   font-size: 24px;
 }
 
