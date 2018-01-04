@@ -9,7 +9,7 @@ import * as d3 from 'd3';
     tone: store.analyzer.tone,
     width: store.analyzer.width,
     bubbleDiameter: store.analyzer.bubbleDiameter,
-    upvoteAverages: store.user.upvoteAverages, // result of Analyzer.jsx triggering userAction, which triggers userControllers in server folder.
+    upvoteAverages: store.user.upvoteAverages,
   };
 }) export default class BubbleChartUpvotes extends React.Component {
   drawChart() {
@@ -71,7 +71,7 @@ import * as d3 from 'd3';
       .text((d) => {
         return d.data.Name.substring(0, d.r / 3);
       })
-      .attr('font-size', (d) => { return d.r / 3.5; }) // determines emotion font size
+      .attr('font-size', (d) => { return d.r / 3.5; })
       .attr('fill', 'white');
 
     node.append('text')
@@ -80,7 +80,7 @@ import * as d3 from 'd3';
       .text((d) => {
         return d.data.Count;
       })
-      .attr('font-size', (d) => { return d.r / 3.5; }) //determines score font size
+      .attr('font-size', (d) => { return d.r / 3.5; })
       .attr('fill', 'white');
 
     d3.select(self.frameElement)

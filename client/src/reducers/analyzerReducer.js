@@ -16,7 +16,6 @@ const initialState = {
   bubbleDiameter: 500,
 };
 
-//below are triggered by corresponding analyzerActions. By changing state, it changes viewable components.
 export default function analyzer(state = initialState, action) {
   switch (action.type) {
     case 'SET_ANALYZE_VIEW':

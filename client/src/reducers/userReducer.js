@@ -24,7 +24,6 @@ const initialState = {
   aboutView: false,
 };
 
-// below are triggered by corresponding actions in userReducer. It changes the state, and thus changes currently viewed component.
 export default function user(state = initialState, action) {
   switch (action.type) {
     case 'SET_WAITING_VIEW':
