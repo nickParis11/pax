@@ -84,4 +84,49 @@ The request will be checked by one of the members before it gets merged.
 | id   | Boolean | Boolean | Boolean  | Foreign Key | Foreign Key |
 |------+---------+---------+----------+-------------+-------------|
 
-* Client State
+* Client States Stored in client/src/reducers
+
+** in userReducer
+initialState = {
+  login: false,
+  upvoteAverages: {  // keeps track of the Average scores of previously upvoted articles, all 0 by default.
+    anger: 0,
+    ...
+    emotional_range: 0,
+  },
+  loginView: false, // All the ...View states decides which Views are visible at a given time.
+  dashboardView: false,
+  inputView: true,
+  resultView: false,
+  waitingView: false,
+  aboutView: false,
+};
+
+
+** in analyzerReducer
+
+const initialState = {
+  analyzeUrl: true, // decides if Url input is visible
+  analyzeText: false, // text input visibility
+  error: null,
+  height: 400,
+  id: null,
+  score: null,
+  sentiment: null,
+  success: false, // Triggers transition from waiting to results page
+  summary: null,
+  title: null,
+  tone: null,
+  waiting: false, //decides waiting screen visibility
+  width: 800,
+  init : true // decides if id ... tone values are default or not
+};
+
+**in voteReducer
+
+const initialState = {
+  downVote: false, // whether the user upvoted article or not. downVote and upVote cannot both be true.
+  downVoteCount: 0, // Aggregate downvotes made by different users on given article
+  upVote: false,
+  upVoteCount: 0,
+};
