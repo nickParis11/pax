@@ -39,14 +39,12 @@ module.exports = {
           };
 
           return Promise.all(upvotedArticles.map((articleId) => {
-            // query for said articles
             return db.Article.findOne({
               where: {
                 id: articleId.dataValues.id,
               },
-            }).then((article) => { // add article's tone scores to respective tone sum
+            }).then((article) => { // Add article's tone scores to respective tone sum
               const toneList = article.dataValues;
-
               Object.keys(toneList).forEach((tone) => {
                 const hasTone = Object.prototype.hasOwnProperty.call(toneSums, tone);
                 if (hasTone) {
