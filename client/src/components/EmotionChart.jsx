@@ -100,7 +100,7 @@ import { connect } from 'react-redux';
   }
 
   render() {
-    return this.props.success && (
+    return (
       <div className="container">
         {this.drawChart()}
       </div>

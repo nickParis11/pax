@@ -12,7 +12,6 @@ import { fetchArticles } from './../actions/dashboardActions.js';
 @connect((store) => {
   return {
     success: store.analyzer.success,
-    //waiting: store.analyzer.waiting,
     login: store.user.login,
     username: store.user.username,
     visible: store.user.waitingView,
@@ -20,11 +19,9 @@ import { fetchArticles } from './../actions/dashboardActions.js';
 }) export default class Analyzer extends React.Component {
 
   componentWillUpdate() {
-    // console.log('this.props.username', this.props.username);
-    // console.log('getUserUpvoteAverages', getUserUpvoteAverages);
-    // if (this.props.login !== false) {
+    if (this.props.login !== false) {
     this.props.dispatch(getUserUpvoteAverages());
-    // }
+    }
   }
 
   componentDidMount() {
