@@ -23,6 +23,7 @@ router.post('/api/extract', (req, res) => {
 router.get('/api/vote/:id', (req, res) => {
   // Params is a string, undefined will be a string, not a native value.
   if (req.params.id !== 'undefined') {
+    // console.log('===========>', typeof req.params.id)
     vote.retrieveVotes(req.params.id, req.session.user, res);
   } else {
     // An unregistered user is looking up an article that does not exist in the database.
