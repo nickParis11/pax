@@ -56,13 +56,13 @@ import { connect } from 'react-redux';
     // create x-axis
     svg.append('g')
       .attr('class', 'x axis')
-      .attr('transform', 'translate(0, ' + height + ')')
+      .attr('transform', `translate(0, ${height})`)
       .call(d3.axisBottom(x))
       .selectAll('text')
       .style('text-anchor', 'end')
       .attr('dx', '-2em')
       .attr('dy', '.15em')
-      .style("font", "14px")
+      .style('font', '14px')
       .attr('transform', 'rotate(-65)');
 
     // x-axis text label
