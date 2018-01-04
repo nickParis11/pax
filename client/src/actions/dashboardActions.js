@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-export default function fetchArticles() {
+const fetchArticles = () => {
   return (dispatch) => {
     console.log('!!!!!!!!!!!!!!!!!!!!!@@@@@@@@@@@@ in fetch articles dispatcher dashboard from actions');
     // dispatch({ type: 'FETCH_ARTICLES' });
@@ -13,5 +13,6 @@ export default function fetchArticles() {
         dispatch({ type: 'FETCH_ARTICLES_REJECTED', payload: err }); // $$$$$$$$$$$
       });
   };
-}
+};
 
+export default fetchArticles;
