@@ -1,5 +1,4 @@
 import axios from 'axios';
-import { setView } from './userActions.js';
 
 export function setAnalyzeView() {
   return {
@@ -21,16 +20,15 @@ export function toggleUrlText(url) {
 export function getUrlAnalysis(link) {
   return (dispatch) => {
     dispatch({ type: 'ANALYSIS_SUBMITTED' });
-    dispatch({type: 'SET_WAITING_VIEW'});
+    dispatch({ type: 'SET_WAITING_VIEW' });
     axios.post('/api/extract', { data: link })
       .then((response) => {
         dispatch({ type: 'RESULTS_FULFILLED', payload: response.data });
         dispatch({ type: 'ANALYSIS_FULFILLED' });
-        dispatch({ type: 'SET_RESULT_VIEW' }); // set result view here
+        dispatch({ type: 'SET_RESULT_VIEW' });
       })
       .catch((err) => {
-        // dispatch analysis rejected
-        console.log(err);
+        console.error('Dispatch analysis was rejected', err);
       });
   };
 }
@@ -38,16 +36,15 @@ export function getUrlAnalysis(link) {
 export function getTextAnalysis(article) {
   return (dispatch) => {
     dispatch({ type: 'ANALYSIS_SUBMITTED' });
-    dispatch({type: 'SET_WAITING_VIEW'});
+    dispatch({ type: 'SET_WAITING_VIEW' });
     axios.post('/api/analyze', { data: article })
       .then((response) => {
         dispatch({ type: 'RESULTS_FULFILLED', payload: response.data });
         dispatch({ type: 'ANALYSIS_FULFILLED' });
-        dispatch({ type: 'SET_RESULT_VIEW' }); // set result view here
+        dispatch({ type: 'SET_RESULT_VIEW' });
       })
       .catch((err) => {
-        // dispatch analysis rejected
-        console.log(err);
+        console.error('Dispatch analysis was rejected', err);
       });
   };
 }
