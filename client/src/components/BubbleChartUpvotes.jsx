@@ -52,14 +52,14 @@ import * as d3 from 'd3';
         return `translate( ${d.x * 1.04}, ${d.y * 1.05} )`; // determines position of each node
       });
 
-    node.append("title") // Creates info on hover over node
-      .text(function(d) {
-        return d.data.Name + ": " + d.data.Count;
+    node.append('title') // Creates info on hover over node
+      .text((d) => {
+        return `${d.data.Name}: ${d.data.Count}`;
       });
 
     node.append('circle')
       .attr('r', (d) => {
-        return d.r * 1.1; //determines size of node
+        return d.r * 1.1; // determines size of node
       })
       .style('fill', (d, i) => {
         return color(i); // chooses color of node from palette
@@ -83,7 +83,7 @@ import * as d3 from 'd3';
       .attr('font-size', (d) => { return d.r / 3.5; })
       .attr('fill', 'white');
 
-    d3.select(self.frameElement)
+    d3.select(this.frameElement)
       .style('height', `${xLength}px`);
     return div.toReact();
   }
