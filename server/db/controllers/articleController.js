@@ -47,8 +47,7 @@ module.exports = {
   getID: (text) => {
     return db.Article.findOne({ where: { user_text: text } })
       .catch((err) => {
-        res.send(500);
-        res.write('Error getting article ID:', err);
+        console.error('Error getting article ID:', err);
       });
   },
 };
