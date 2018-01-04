@@ -2,7 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import AppBar from 'material-ui/AppBar';
 import FlatButton from 'material-ui/FlatButton';
-import { userLogout, setAnalyzeView, getUser, setView } from '../actions/userActions';
+import { userLogout, getUser, setView } from '../actions/userActions';
 
 @connect((store) => {
   return {
@@ -11,8 +11,8 @@ import { userLogout, setAnalyzeView, getUser, setView } from '../actions/userAct
     signup: store.user.signup,
     username: store.user.username,
     success: store.analyzer.success,
-    waiting : store.analyzer.waiting,
-    noSearchSoFar : store.analyzer.init,
+    waiting: store.analyzer.waiting,
+    noSearchSoFar: store.analyzer.init,
 
   };
 }) export default class Nav extends React.Component {
