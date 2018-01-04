@@ -43,7 +43,7 @@ import { userLogout, setAnalyzeView, getUser, setView } from '../actions/userAct
   render() {
     return (
       <AppBar
-        title={<h1 className="title">Pax Atlantica</h1>}
+        title={<h1 className="title" onClick={this.handleAnalyzeClick.bind(this)}>Pax Atlantica</h1>}
         iconElementLeft={
           <div>
             <a href="https://github.com/bobdaball" target="_blank" rel="noopener noreferrer">

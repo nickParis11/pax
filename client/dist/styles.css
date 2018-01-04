@@ -130,3 +130,7 @@ textarea {
 .width700 {
   width: 700px !important;
 }
+
+.title:hover {
+  cursor:pointer;
+}

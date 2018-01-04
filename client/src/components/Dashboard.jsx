@@ -19,6 +19,8 @@ export default class Dashboard extends React.Component {
     return this.props.visible && (
       <div className="padTop">
         <h2 className="center-text">Dashboard</h2>
+        <h3 className="center-text">The Average score of articles you upvoted</h3>
+        <BubbleChartUpvotes />
         <HistoryTable> default text for history </HistoryTable>
       </div>
     );
