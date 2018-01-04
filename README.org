@@ -14,6 +14,19 @@ The end of fake news.
 ** Continuous Integration
 See: https://github.com/pax-atlantica/pax-ci
 
+* How to Start This App
+Upon cloning the forked repo, npm install on root directory in command line.
+Once installed, execute 'npm run start-dev' on the same directory.
+Open the app on a web browser by accessing 127.0.0.1:3000.
+Make sure to add remote upstream if you plan to contribute/ update app.
+
+* How to contribute
+
+First rebase your local repo through 'git --rebase upstream master.'
+Commit all changed you've made, then 'git push origin master'.
+Now you can make a pull request through your local forked copy of the project!
+The request will be checked by one of the members before it gets merged.
+
 * Server Endpoints
 ** REQUEST
 |--------+---------+--------------+-----------------------------------------|
@@ -72,4 +85,3 @@ See: https://github.com/pax-atlantica/pax-ci
 |------+---------+---------+----------+-------------+-------------|
 
 * Client State
-* How to Start This App
