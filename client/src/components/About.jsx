@@ -1,7 +1,7 @@
 import React from 'react';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import Avatar from 'material-ui/Avatar';
-import {Card, CardHeader, CardText} from 'material-ui/Card';
+import {Card, CardHeader, CardTitle, CardText} from 'material-ui/Card';
 import RaisedButton from 'material-ui/RaisedButton';
 import { connect } from 'react-redux';
 
@@ -25,98 +25,70 @@ import { connect } from 'react-redux';
           </p>
         </div>
 
-        <h2 className="center-text padTop">Engineers</h2>
+        <h2 className="center-text padTop">Engineering Team</h2>
 
         <div className='row'>
-          <Card className="column width600">
-            <a href='https://github.com/bobdaball'>
-              <CardHeader
-                title={<h3>Alexander Mire</h3>}
-                subtitle='Product Owner'
-                avatar={<Avatar src='https://avatars0.githubusercontent.com/u/26661703?s=400&v=4' size={100} />}
-              />
-            </a>
+          <Card className="column center-text">
+            <CardHeader
+              avatar={<Avatar src='https://avatars0.githubusercontent.com/u/26661703?s=400&v=4' size={150} style={{'margin':'0 auto'}}/>}
+              style={{'width': '150px', 'height': '150px', 'padding': '0', 'margin': '0 auto'}}
+            />
+            <CardTitle
+              title={<h3>Alexander Mire</h3>}
+              subtitle='Product Owner and Software Engineer'
+            />
             <CardText>
-              <p>
-                Did you ever hear the tragedy of Darth Plagueis The Wise?
-                I thought not. It’s not a story the Jedi would tell you.
-                It’s a Sith legend.
-                Darth Plagueis was a Dark Lord of the Sith, so powerful and so wise he could use the Force to influence the midichlorians to create life…
-                He had such a knowledge of the dark side that he could even keep the ones he cared about from dying.
-                The dark side of the Force is a pathway to many abilities some consider to be unnatural.
-                He became so powerful… the only thing he was afraid of was losing his power, which eventually, of course, he did.
-                Unfortunately, he taught his apprentice everything he knew, then his apprentice killed him in his sleep.
-                Ironic. He could save others from death, but not himself.
-              </p>
+              <a href='https://github.com/bobdaball'><i className="fa fa-2x fa-github pad" /></a>
+              <a href='www.linkedin.com/in/alexander-mire-6034a0126'><i className="fa fa-2x fa-linkedin-square pad" /></a>
+              <a href='mailto:amire51117@gmail.com'><i className="fa fa-2x fa-envelope pad" /></a>
             </CardText>
           </Card>
 
-          <Card className="column width600">
-            <a href='https://github.com/cakelyn'>
-              <CardHeader
-                title={<h3>Katelyn Stamas</h3>}
-                subtitle='Scrum Master'
-                avatar={<Avatar src='https://avatars2.githubusercontent.com/u/11858278?s=460&v=4' size={100} />}
-              />
-            </a>
+          <Card className="column center-text">
+            <CardHeader
+              avatar={<Avatar src='https://avatars2.githubusercontent.com/u/11858278?s=460&v=4' size={150} style={{'margin':'0 auto'}}/>}
+              style={{'width': '150px', 'height': '150px', 'padding': '0', 'margin': '0 auto'}}
+            />
+            <CardTitle
+              title={<h3>Katelyn Stamas</h3>}
+              subtitle='Scrum Master and Software Engineer'
+            />
             <CardText>
-              <p>
-                Did you ever hear the tragedy of Darth Plagueis The Wise?
-                I thought not. It’s not a story the Jedi would tell you.
-                It’s a Sith legend.
-                Darth Plagueis was a Dark Lord of the Sith, so powerful and so wise he could use the Force to influence the midichlorians to create life…
-                He had such a knowledge of the dark side that he could even keep the ones he cared about from dying.
-                The dark side of the Force is a pathway to many abilities some consider to be unnatural.
-                He became so powerful… the only thing he was afraid of was losing his power, which eventually, of course, he did.
-                Unfortunately, he taught his apprentice everything he knew, then his apprentice killed him in his sleep.
-                Ironic. He could save others from death, but not himself.
-              </p>
+              <a href='https://github.com/cakelyn'><i className="fa fa-2x fa-github pad" /></a>
+              <a href='https://linkedin.com/in/katestamas'><i className="fa fa-2x fa-linkedin-square pad" /></a>
+              <a href='mailto:cakelyn@gmail.com'><i className="fa fa-2x fa-envelope pad" /></a>
             </CardText>
           </Card>
 
-          <Card className="column width600">
-            <a href='https://github.com/nickParis11'>
-              <CardHeader
-                title={<h3>Nicholas Orr</h3>}
-                subtitle='Software Engineer'
-                avatar={<Avatar src='https://avatars3.githubusercontent.com/u/24529486?s=460&v=4' size={100} />}
-              />
-            </a>
+          <Card className="column center-text">
+            <CardHeader
+              avatar={<Avatar src='https://avatars3.githubusercontent.com/u/24529486?s=460&v=4' size={150} style={{'margin':'0 auto'}}/>}
+              style={{'width': '150px', 'height': '150px', 'padding': '0', 'margin': '0 auto'}}
+            />
+            <CardTitle
+              title={<h3>Nicholas Orr</h3>}
+              subtitle='Software Engineer'
+            />
             <CardText>
-              <p>
-                Did you ever hear the tragedy of Darth Plagueis The Wise?
-                I thought not. It’s not a story the Jedi would tell you.
-                It’s a Sith legend.
-                Darth Plagueis was a Dark Lord of the Sith, so powerful and so wise he could use the Force to influence the midichlorians to create life…
-                He had such a knowledge of the dark side that he could even keep the ones he cared about from dying.
-                The dark side of the Force is a pathway to many abilities some consider to be unnatural.
-                He became so powerful… the only thing he was afraid of was losing his power, which eventually, of course, he did.
-                Unfortunately, he taught his apprentice everything he knew, then his apprentice killed him in his sleep.
-                Ironic. He could save others from death, but not himself.
-              </p>
+              <a href='https://github.com/nickParis11'><i className="fa fa-2x fa-github pad" /></a>
+              <a href='https://www.linkedin.com/in/nsoen/'><i className="fa fa-2x fa-linkedin-square pad" /></a>
+              <a href='mailto:orr.nicholas.sean@gmail.com'><i className="fa fa-2x fa-envelope pad" /></a>
             </CardText>
           </Card>
 
-          <Card className="column width600">
-            <a href='https://github.com/dwrz'>
-              <CardHeader
-                title={<h3>David Wen Riccardi-Zhu</h3>}
-                subtitle='Software Engineer'
-                avatar={<Avatar src='https://avatars0.githubusercontent.com/u/21134999?s=460&v=4' size={100} />}
-              />
-            </a>
+          <Card className="column center-text">
+            <CardHeader
+              avatar={<Avatar src='https://avatars0.githubusercontent.com/u/21134999?s=460&v=4' size={150} style={{'margin':'0 auto'}}/>}
+              style={{'width': '150px', 'height': '150px', 'padding': '0', 'margin': '0 auto'}}
+            />
+            <CardTitle
+              title={<h3>David Wen Riccardi-Zhu</h3>}
+              subtitle='Software Engineer'
+            />
             <CardText>
-              <p>
-                Did you ever hear the tragedy of Darth Plagueis The Wise?
-                I thought not. It’s not a story the Jedi would tell you.
-                It’s a Sith legend.
-                Darth Plagueis was a Dark Lord of the Sith, so powerful and so wise he could use the Force to influence the midichlorians to create life…
-                He had such a knowledge of the dark side that he could even keep the ones he cared about from dying.
-                The dark side of the Force is a pathway to many abilities some consider to be unnatural.
-                He became so powerful… the only thing he was afraid of was losing his power, which eventually, of course, he did.
-                Unfortunately, he taught his apprentice everything he knew, then his apprentice killed him in his sleep.
-                Ironic. He could save others from death, but not himself.
-              </p>
+              <a href='https://github.com/dwrz'><i className="fa fa-2x fa-github pad" /></a>
+              <a href='https://www.linkedin.com/in/dwriccardizhu/'><i className="fa fa-2x fa-linkedin-square pad" /></a>
+              <a a href='mailto:dwrz@dwrz.net'><i className="fa fa-2x fa-envelope pad" /></a>
             </CardText>
           </Card>
         </div>

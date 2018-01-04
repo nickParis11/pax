@@ -1,3 +1,11 @@
+a {
+  color: #00bfa5 !important;
+}
+
+a:hover {
+  color: #f50057 !important;
+}
+
 body {
   font-family: 'Roboto', sans-serif;
 }
@@ -116,6 +124,10 @@ textarea {
   display: flex;
   flex-direction: row;
   flex-wrap: nowrap;
+}
+
+.pad {
+  padding: 10px;
 }
 
 .padTop {
