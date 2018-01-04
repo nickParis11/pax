@@ -8,11 +8,12 @@ import * as d3 from 'd3';
     height: store.analyzer.height,
     tone: store.analyzer.tone,
     width: store.analyzer.width,
-    upvoteAverages: store.user.upvoteAverages,
+    bubbleDiameter: store.analyzer.bubbleDiameter,
+    upvoteAverages: store.user.upvoteAverages, // result of Analyzer.jsx triggering userAction, which triggers userControllers in server folder.
   };
 }) export default class BubbleChartUpvotes extends React.Component {
   drawChart() {
-    const div = new ReactFauxDOM.Element('div');
+    const div = new ReactFauxDOM.Element('div'); // creates Virtual DOM that D3 manipulates
     const dataset = {};
     const tones = this.props.upvoteAverages;
     console.log('upvoteAverages', this.props.upvoteAverages);
@@ -26,18 +27,19 @@ import * as d3 from 'd3';
 
 
     const color = d3.scaleOrdinal(d3.schemeCategory20);
-    const diameter = this.props.height;
-    const bubble = d3.pack(dataset)
-      .size([diameter, diameter])
+    const yLength = this.props.bubbleDiameter;
+    const xLength = this.props.width;
+    const bubble = d3.pack(dataset) // determines size taken up by Chart
+      .size([xLength, yLength])
       .padding(1.5);
 
     const svg = d3.select(div)
       .append('svg')
-      .attr('width', diameter)
-      .attr('height', diameter)
+      .attr('width', xLength)
+      .attr('height', yLength)
       .attr('class', 'bubble');
 
-    const nodes = d3.hierarchy(dataset)
+    const nodes = d3.hierarchy(dataset) // size of individual bubbles
       .sum((d) => { return d.Count; });
 
     const node = svg.selectAll('.node')
@@ -47,17 +49,17 @@ import * as d3 from 'd3';
       .append('g')
       .attr('class', 'node')
       .attr('transform', (d) => {
-        return `translate( ${d.x}, ${d.y} )`;
+        return `translate( ${d.x * 1.04}, ${d.y * 1.05} )`;
       });
 
-        node.append("title")
-            .text(function(d) {
-                return d.data.Name + ": " + d.data.Count;
-            });
+    node.append("title") // Creates info on hover over node
+      .text(function(d) {
+        return d.data.Name + ": " + d.data.Count;
+      });
 
     node.append('circle')
       .attr('r', (d) => {
-        return d.r;
+        return d.r * 1.05;
       })
       .style('fill', (d, i) => {
         return color(i);
@@ -78,11 +80,11 @@ import * as d3 from 'd3';
       .text((d) => {
         return d.data.Count;
       })
-      .attr('font-size', (d) => { return d.r / 5; })
+      .attr('font-size', (d) => { return d.r / 3.5; })
       .attr('fill', 'white');
 
     d3.select(self.frameElement)
-      .style('height', `${diameter}px`);
+      .style('height', `${xLength}px`);
     return div.toReact();
   }
 

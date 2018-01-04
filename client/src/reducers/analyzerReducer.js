@@ -12,7 +12,8 @@ const initialState = {
   tone: null,
   waiting: false,
   width: 800,
-  init : true
+  init : true,
+  bubbleDiameter: 500,
 };
 
 export default function analyzer(state = initialState, action) {
