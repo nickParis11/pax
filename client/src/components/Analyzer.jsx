@@ -6,9 +6,8 @@ import Waiting from './Waiting.jsx';
 import Results from './Results.jsx';
 import { getUserUpvoteAverages } from '../actions/userActions.js';
 import Dashboard from './Dashboard.jsx';
-import { fetchArticles } from './../actions/dashboardActions.js';
+import fetchArticles from './../actions/dashboardActions.js';
 import About from './About.jsx';
-
 
 @connect((store) => {
   return {
@@ -18,10 +17,9 @@ import About from './About.jsx';
     visible: store.user.waitingView,
   };
 }) export default class Analyzer extends React.Component {
-
   componentWillMount() {
     if (this.props.login !== false) {
-    this.props.dispatch(getUserUpvoteAverages());
+      this.props.dispatch(getUserUpvoteAverages());
     }
   }
 
@@ -30,7 +28,6 @@ import About from './About.jsx';
   }
 
   render() {
-    console.log('this.props.username', this.props.username);
     return (
       <div>
         <Nav />
