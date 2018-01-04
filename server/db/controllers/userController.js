@@ -17,13 +17,12 @@ module.exports = {
         cb(null, user);
       });
   },
-  upvoteAverages: (username, cb) => { // add cb
-    console.log('username', username);
-    const userIdNum = module.exports.get({ body: { username } }, (userData) => {
+  upvoteAverages: (username, cb) => {
+    module.exports.get({ body: { username } }, (userData) => {
       db.Vote.findAll({ where: { userId: userData.dataValues.id, upvote: true } })
         .then((upvotedArticles) => {
           const articleNum = upvotedArticles.length;
-          var toneSums = {
+          const toneSums = {
             anger: 0,
             disgust: 0,
             fear: 0,
@@ -49,7 +48,8 @@ module.exports = {
               const toneList = article.dataValues;
 
               Object.keys(toneList).forEach((tone) => {
-                if (toneSums.hasOwnProperty(tone)) { // console.log(toneList[tone]);
+                const hasTone = Object.prototype.hasOwnProperty.call(toneSums, tone);
+                if (hasTone) {
                   toneSums[tone] += toneList[tone];
                 }
               });
@@ -62,15 +62,12 @@ module.exports = {
               Object.keys(toneSums).forEach((tone) => {
                 toneSums[tone] = Math.floor(toneSums[tone] / articleNum);
               });
-              console.log('toneSums', toneSums);
               return cb(toneSums);
             }
           });
         }).catch((err) => {
           console.log('Error getting article tone averages', err);
         });
-    // convert the sum to averages
-    // return averages in an appropriate format
     });
   },
 };
