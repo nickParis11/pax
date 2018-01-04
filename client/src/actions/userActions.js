@@ -40,11 +40,11 @@ export function getUserUpvoteAverages() {
       })
       .catch((err) => {
         console.log(err);
-      })
+      });
   };
-};
+}
 
-export function setView (view) {
-  return  { type : view };
+export function setView(view) {
+  return { type: view };
 }
 
