@@ -13,7 +13,7 @@ const analyzeText = (text, title, summary, session, res, input, bool) => {
   analyzeTone(text)
     .then((tone) => {
       analysis.tone = JSON.parse(tone);
-      return aylienHelpers.sentimentAnalysis(text)
+      return aylienHelpers.sentimentAnalysis(text);
     })
     .then((sentiment) => {
       analysis.sentiment = sentiment;
@@ -25,11 +25,15 @@ const analyzeText = (text, title, summary, session, res, input, bool) => {
           res.send(analysis);
         });
       } else {
-        return article.getID(input)
-        .then((articleID) => {
-          analysis.id = articleID.dataValues.id;
-          res.send(analysis);
-        })
+        article.getID(input)
+          .then((articleID) => {
+            if (articleID !== null) {
+              analysis.id = articleID.dataValues.id;
+            } else {
+              analysis.id = null;
+            }
+            res.send(analysis);
+          });
       }
     })
     .catch((err) => {
@@ -44,7 +48,7 @@ const analyzeUrl = (link, session, res) => {
     .then((extracted) => {
       text.article = extracted.article;
       text.title = extracted.title;
-      return aylienHelpers.summary(link)
+      return aylienHelpers.summary(link);
     })
     .then((summary) => {
       analyzeText(text.article, text.title, summary.sentences, session, res, link, true);
