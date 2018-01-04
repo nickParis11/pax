@@ -7,7 +7,7 @@ import Results from './Results.jsx';
 import { getUserUpvoteAverages } from '../actions/userActions.js';
 import Dashboard from './Dashboard.jsx';
 import { fetchArticles } from './../actions/dashboardActions.js';
-
+import About from './About.jsx';
 
 @connect((store) => {
   return {
@@ -40,6 +40,7 @@ import { fetchArticles } from './../actions/dashboardActions.js';
         />
         <Results />
         <Dashboard />
+        <About />
       </div>
     );
   }
