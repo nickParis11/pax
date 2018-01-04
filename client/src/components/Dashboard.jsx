@@ -17,9 +17,8 @@ export default class Dashboard extends React.Component {
   render() {
     console.log('in dashboard');
     return this.props.visible && (
-      <div>
-        <BubbleChartUpvotes />
-        <h1> HEY IN DASHBOARD </h1>
+      <div className="padTop">
+        <h2 className="center-text">Dashboard</h2>
         <HistoryTable> default text for history </HistoryTable>
       </div>
     );
