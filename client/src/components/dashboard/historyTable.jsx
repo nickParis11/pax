@@ -76,7 +76,6 @@ export default class HistoryTable extends React.Component {
     microScore.agreeableness = article.agreeableness;
     microScore.polarity = article.polarity;
     microScore.polarityScore = article.polarity_score;
-
     return microScore;
     //console.log('article text = ',article.user_text)
   }
@@ -91,7 +90,7 @@ export default class HistoryTable extends React.Component {
 
     return (
       <div>
-       
+               
         <Table
           height={this.props.height}
           fixedHeader={this.props.fixedHeader}
@@ -157,22 +156,22 @@ export default class HistoryTable extends React.Component {
           </TableFooter>
         </Table>
 
-          {this.props.dialogVisible ? 
+        {this.props.dialogVisible ? 
           <Card>
-          <CardHeader
-            title="SEARCH SUMMARY"
-            subtitle="user : fill in dynamic user"
-            avatar="assets/thumbs_up.svg"
-          />
-          <CardTitle title=" YOUR SEARCH : " subtitle={this.props.hoveredArticle.text.length > 100 ? this.props.hoveredArticle.text.slice(0,100)+'...' : this.props.hoveredArticle.text } />
-          <CardText>
-            agreeableness = {this.props.hoveredArticle.agreeableness} <br/>
-            polarity = {this.props.hoveredArticle.polarity} <br/>
-            polarityScore = {this.props.hoveredArticle.polarityScore} 
-          </CardText>
-        </Card>
-            : null }
-
+            <CardHeader
+              title="SEARCH SUMMARY"
+              subtitle="user : fill in dynamic user"
+              avatar="assets/thumbs_up.svg"
+            />
+            <CardTitle title=" YOUR SEARCH : " subtitle={this.props.hoveredArticle.text.length > 100 ? this.props.hoveredArticle.text.slice(0,100)+'...' : this.props.hoveredArticle.text } />
+            <CardText>
+              agreeableness = {this.props.hoveredArticle.agreeableness} <br/>
+              polarity = {this.props.hoveredArticle.polarity} <br/>
+              polarityScore = {this.props.hoveredArticle.polarityScore} 
+            </CardText>
+          </Card>
+          : null 
+        }
       </div>
     );
   }

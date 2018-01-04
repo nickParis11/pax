@@ -19,7 +19,7 @@ export default class Dashboard extends React.Component {
         <h3 className="center-text">The Average score of articles you upvoted</h3>
         <BubbleChartUpvotes />
         <HistoryTable> default text for history </HistoryTable>
-      <div>
+      </div>
     );
   }
 }
