@@ -16,8 +16,7 @@ module.exports = {
         },
       })
         .catch((err) => {
-          res.send(500)
-          res.write('Error storing article in votes table:', err);
+          console.error('Error storing article in votes table:', err);
         });
     });
   },
@@ -51,8 +50,7 @@ module.exports = {
                 cb(res);
               })
               .catch((err) => {
-                res.send(500);
-                res.write('Error removing upvote:', err);
+                console.error('Error removing upvote:', err);
               });
           }
         });
@@ -71,8 +69,7 @@ module.exports = {
                 cb(res);
               })
               .catch((err) => {
-                res.send(500);
-                res.write('Error downvoting article:', err);
+                console.error('Error downvoting article:', err);
               });
           } else {
             db.Vote.update(
@@ -86,8 +83,7 @@ module.exports = {
                 cb(res);
               })
               .catch((err) => {
-                res.send(500);
-                res.write('Error removing downvote:', err);
+                console.error('Error removing downvote:', err);
               });
           }
         });
@@ -104,8 +100,7 @@ module.exports = {
             return { downVoteCount: articleDownvotes.length, upVoteCount: upvoteCount };
           })
           .catch((err) => {
-            res.send(500);
-            res.write('Error getting downvotes:', err);
+            console.error('Error getting downvotes:', err);
           });
       })
       .then((voteCounts) => {
