@@ -18,7 +18,7 @@ import { fetchArticles } from './../actions/dashboardActions.js';
     this.props.dispatch(getArticleVoteData(this.props.id));
   }
 
-  componentDidUpdate () {
+  componentDidUpdate() {
     this.props.dispatch(fetchArticles());
   }
 
