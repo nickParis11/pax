@@ -14,3 +14,22 @@ export function fetchArticles() {
       });
   };
 }
+
+export function showDialog () {
+  return (dispatch) => {  
+    dispatch({type:'SHOW_DIALOG'});
+  }
+}
+
+export function hideDialog () {
+  return (dispatch) => {  
+    dispatch({type:'HIDE_DIALOG'});
+  }
+}
+
+export function setHoveredArticle (article) {
+  return (dispatch) => {
+    dispatch({ type : 'SET_HOVERED_ARTICLE', payload : article })
+  }
+}
+

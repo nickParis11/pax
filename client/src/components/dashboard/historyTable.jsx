@@ -1,6 +1,3 @@
-/**
- * A more complex example, allowing the table height to be set, and key boolean properties to be toggled.
- */
 import React from 'react';
 import { connect } from 'react-redux';
 import {
@@ -14,6 +11,9 @@ import {
 } from 'material-ui/Table';
 import TextField from 'material-ui/TextField';
 import Toggle from 'material-ui/Toggle';
+import Dialog from 'material-ui/Dialog';
+import {showDialog, hideDialog, setHoveredArticle} from '../../actions/dashboardActions';
+import {Card, CardHeader, CardTitle, CardText} from 'material-ui/Card';
 
 const styles = {
   propContainer: {
@@ -28,82 +28,78 @@ const styles = {
 
 
 
-const tableData = [
-  {
-    name: 'John Smith',
-    status: 'Employed',
-  },
-  {
-    name: 'Randal White',
-    status: 'Unemployed',
-  },
-  {
-    name: 'Stephanie Sanders',
-    status: 'Employed',
-  },
-  {
-    name: 'Steve Brown',
-    status: 'Employed',
-  },
-  {
-    name: 'Joyce Whitten',
-    status: 'Employed',
-  },
-  {
-    name: 'Samuel Roberts',
-    status: 'Employed',
-  },
-  {
-    name: 'Adam Moore',
-    status: 'Employed',
-  },
-];
-
 @connect((store) => {
   return {
-    data: store.dashboard.articles,
-    visible: false, // $$$$$$$$$$$$$$$$$$$
-    defaultInternalView: true, // $$$$$$$$$$$$$$$$$$$
-    errorInternalView: false, // $$$$$$$$$$$$$$$$$$$
+    data: store.dashboard.articles, 
     visible: store.user.dashboardView,
     fixedHeader: true,
     fixedFooter: true,
     stripedRows: true,
     showRowHover: true,
-    selectable: true,
+    selectable: false,
     multiSelectable: true,
-    enableSelectAll: true,
+    enableSelectAll: false,
     deselectOnClickaway: true,
-    showCheckboxes: true,
-    //height: '300px',
+    showCheckboxes: false,
+    height: '400px',
+    dialogVisible : store.dashboard.dialogVisible,
+    hoveredArticle : store.dashboard.hoveredArticle,
   };
 })
 
+
 export default class HistoryTable extends React.Component {
 
-  componentDidMount() {
-    console.log('historyTable mounted !!!!!!!!!!')
+  constructor(props) {
+    super(props);
+    //this.onCellHover = onCellHover.bind(this);
   }
 
-  handleToggle  (event, toggled)  {
-    this.setState({
-      [event.target.name]: toggled,
-    });
-  };
+  onRowHover(rowNum) {
+    //alert('cell overred @@@@@@@@@@@ !!!!!!!!!'); 
+    console.log("let's display our top ratings here = ",rowNum)
+    
+    this.props.dispatch( showDialog ());
+    this.props.dispatch(setHoveredArticle(this.getMicroScore (this.props.data[rowNum])))
+    console.log('hoveredArticle  =',this.props.hoveredArticle);
+  }
 
-  handleChange (event)  {
-    this.setState({height: event.target.value});
-  };
+  onRowHoverExit () {
+
+    this.props.dispatch( hideDialog ());
+    this.props.dispatch(setHoveredArticle(null));
+  }
+
+  getMicroScore (article) {
+    var microScore = {};
+    microScore.text = article.user_text;
+    microScore.agreeableness = article.agreeableness;
+    microScore.polarity = article.polarity;
+    microScore.polarityScore = article.polarity_score;
+
+    return microScore;
+    //console.log('article text = ',article.user_text)
+  }
 
   render() {
+
+    
+    // test function rendering
+    const renderDisplayText = function (text='hehe') {
+      return text;
+    }
+
     return (
       <div>
+       
         <Table
           height={this.props.height}
           fixedHeader={this.props.fixedHeader}
           fixedFooter={this.props.fixedFooter}
           selectable={this.props.selectable}
           multiSelectable={this.props.multiSelectable}
+          onRowHover={this.onRowHover.bind(this)}
+          onRowHoverExit={this.onRowHoverExit.bind(this)}
         >
           <TableHeader
             displaySelectAll={this.props.showCheckboxes}
@@ -112,15 +108,15 @@ export default class HistoryTable extends React.Component {
           >
             <TableRow>
               <TableHeaderColumn colSpan="3" tooltip="Super Header" style={{textAlign: 'center'}}>
-                Super Header
+                YOUR SEARCH HISTORY
               </TableHeaderColumn>
             </TableRow>
             <TableRow>
-              <TableHeaderColumn tooltip="The ID"></TableHeaderColumn>
-              <TableHeaderColumn tooltip="The Name"> Search</TableHeaderColumn>
-              <TableHeaderColumn tooltip="The Status">type</TableHeaderColumn>
-              <TableHeaderColumn tooltip="The Status">Overall score</TableHeaderColumn>
-              <TableHeaderColumn tooltip="The Status"> Voted </TableHeaderColumn>
+              <TableHeaderColumn tooltip="The ID"> # </TableHeaderColumn>
+              <TableHeaderColumn tooltip="The Name"> SEARCH </TableHeaderColumn>
+              <TableHeaderColumn tooltip="The Status"> TYPE </TableHeaderColumn>
+              <TableHeaderColumn tooltip="The Status"> OVERALL SCORE</TableHeaderColumn>
+              <TableHeaderColumn tooltip="The Status"> VOTE </TableHeaderColumn>
             </TableRow>
           </TableHeader>
           <TableBody
@@ -132,11 +128,12 @@ export default class HistoryTable extends React.Component {
 
             {this.props.data.map( (article, index) => (
               <TableRow key={index}>
-                <TableRowColumn>{index}</TableRowColumn>
-                <TableRowColumn>{
-           article.user_text.length > 20 ? article.user_text.slice(0,20)+ '...' : article.user_text
-          }   </TableRowColumn>
-
+                <TableRowColumn>{ index}</TableRowColumn>
+                <TableRowColumn>
+                  {
+                    article.is_link ? <a href={article.user_text} target="_blank" title={article.user_text} > { article.user_text }  </a> : article.user_text
+                  } 
+                </TableRowColumn>
                 <TableRowColumn>{article.is_link ? 'Link search' : 'text search' }</TableRowColumn>
                 <TableRowColumn>{article.result+ ' %'} </TableRowColumn>
 
@@ -150,26 +147,33 @@ export default class HistoryTable extends React.Component {
             adjustForCheckbox={this.props.showCheckboxes}
           >
             <TableRow>
-              <TableRowColumn>ID</TableRowColumn>
-              <TableRowColumn>Name</TableRowColumn>
-              <TableRowColumn>Status</TableRowColumn>
+              <TableHeaderColumn tooltip="The ID"> # </TableHeaderColumn>
+              <TableHeaderColumn tooltip="The Name"> SEARCH</TableHeaderColumn>
+              <TableHeaderColumn tooltip="The Status"> TYPE</TableHeaderColumn>
+              <TableHeaderColumn tooltip="The Status">OVERALL SCORE</TableHeaderColumn>
+              <TableHeaderColumn tooltip="The Status"> VOTE </TableHeaderColumn>
             </TableRow>
-            <TableRow>
-              <TableRowColumn colSpan="3" style={{textAlign: 'center'}}>
-                Super Footer
-              </TableRowColumn>
-            </TableRow>
+
           </TableFooter>
         </Table>
+
+          {this.props.dialogVisible ? 
+          <Card>
+          <CardHeader
+            title="SEARCH SUMMARY"
+            subtitle="user : fill in dynamic user"
+            avatar="assets/thumbs_up.svg"
+          />
+          <CardTitle title=" YOUR SEARCH : " subtitle={this.props.hoveredArticle.text.length > 100 ? this.props.hoveredArticle.text.slice(0,100)+'...' : this.props.hoveredArticle.text } />
+          <CardText>
+            agreeableness = {this.props.hoveredArticle.agreeableness} <br/>
+            polarity = {this.props.hoveredArticle.polarity} <br/>
+            polarityScore = {this.props.hoveredArticle.polarityScore} 
+          </CardText>
+        </Card>
+            : null }
+
       </div>
     );
   }
 }
-
- //<TableRowColumn>{ article.voted ? article.upvote ? '+++' : '---' : null }</TableRowColumn>
-
-/*
-<TableRowColumn> <img src="assets/697707.jpg" width="100px" height="100px" />
-                  <img src="assets/thumbs_up.svg" width="100px" height="100px" />
-                </TableRowColumn>
-*/
