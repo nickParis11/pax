@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import HistoryTable from './dashboard/historyTable.jsx'
-import BubbleChartUpvotes from './BubbleChartUpvotes.jsx';
+// import BubbleChartUpvotes from './BubbleChartUpvotes.jsx';
 
 @connect((store) => {
   return {
@@ -18,9 +18,6 @@ export default class Dashboard extends React.Component {
     console.log('in dashboard');
     return this.props.visible && (
       <div>
-        <h2 className="center-text">Average score of articles you've upvoted</h2>
-        <h4 className='center-text'>Hover over the bubble to see your scores!</h4>
-        <BubbleChartUpvotes />
         <h1> HEY IN DASHBOARD </h1>
         <HistoryTable> default text for history </HistoryTable>
       </div>
