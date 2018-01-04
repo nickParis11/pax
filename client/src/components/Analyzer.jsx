@@ -13,13 +13,13 @@ import About from './About.jsx';
 @connect((store) => {
   return {
     success: store.analyzer.success,
-    login: store.user.login,
+    // login: store.user.login,
     username: store.user.username,
     visible: store.user.waitingView,
   };
 }) export default class Analyzer extends React.Component {
 
-  componentWillUpdate() {
+  componentWillMount() {
     if (this.props.login !== false) {
     this.props.dispatch(getUserUpvoteAverages());
     }

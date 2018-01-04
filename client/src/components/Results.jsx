@@ -4,7 +4,6 @@ import EmotionChart from './EmotionChart.jsx';
 import ResultsHeading from './ResultsHeading.jsx';
 import ResultsSummary from './ResultsSummary.jsx';
 import ResultsVote from './ResultsVote.jsx';
-import BubbleChartUpvotes from './BubbleChartUpvotes.jsx';
 import { fetchArticles } from './../actions/dashboardActions.js';
 
 // take analyzeText boolean from store.analyzer
@@ -47,7 +46,6 @@ import { fetchArticles } from './../actions/dashboardActions.js';
           />
         </div>
         <EmotionChart />
-        <BubbleChartUpvotes />
       </div>
     );
   }
