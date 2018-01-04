@@ -17,13 +17,12 @@ router.post('/api/analyze', (req, res) => {
 });
 
 router.post('/api/extract', (req, res) => {
-  analyze.analyzeUrl(req.body.data, req.session.user, res)
+  analyze.analyzeUrl(req.body.data, req.session.user, res);
 });
 
 router.get('/api/vote/:id', (req, res) => {
-  // Params is a string, undefined will be a string, not a native value.
+  // Params is a string, so 'undefined' will be a string, not a native value.
   if (req.params.id !== 'undefined') {
-    // console.log('===========>', typeof req.params.id)
     vote.retrieveVotes(req.params.id, req.session.user, res);
   } else {
     // An unregistered user is looking up an article that does not exist in the database.
@@ -45,8 +44,8 @@ router.post('/api/vote', (req, res) => {
 
 // Get average score of tones user upvoted
 router.get('/api/user/upvoteAverages', (req, res) => {
-  // console.log('req.session', req.session);
-  if (!!req.session.user) {
+  const isLoggedInUser = !!req.session.user;
+  if (isLoggedInUser) {
     userData.getUpvoteAverage(req.session.user, (toneAverages) => {
       res.send(toneAverages);
     });
@@ -70,7 +69,8 @@ router.get('/api/user/upvoteAverages', (req, res) => {
 });
 
 router.get('/api/user/allArticles', (req, res) => {
-  if (!!req.session.user) {
+  const isLoggedInUser = !!req.session.user;
+  if (isLoggedInUser) {
     userData.getArticlesByUser(req.session.user, (err, articles) => {
       if (err) {
         res.status(500);
