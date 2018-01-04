@@ -63,9 +63,9 @@
   },
   "homepage": "https://github.com/pax-atlantica/pax#readme",
   "devDependencies": {
-    "babel-eslint": "^8.0.3",
+    "babel-eslint": "^8.1.2",
     "babel-preset-airbnb": "^2.4.0",
-    "eslint": "^4.12.1",
+    "eslint": "^4.14.0",
     "eslint-config-airbnb": "^16.1.0",
     "eslint-config-standard": "^10.2.1",
     "eslint-plugin-import": "^2.8.0",
