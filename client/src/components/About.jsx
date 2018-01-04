@@ -15,12 +15,19 @@ import { connect } from 'react-redux';
     return this.props.visible && (
       <div className="padTop">
         <h2 className="center-text">Welcome to Pax-Atlantica</h2>
-        <div className="width500 center-text">
+        <div className="width700 center-text">
           <p>
-            The idea for Pax emerged as a beacon of hope to counter the rise of fake news that pollute our minds.
-            Not sure if you can trust an article? Plug it in, and let's see its reliability score based on our secret recipe!
-          </p>
-          <p>
+            <i>We hope to help you to better navigate news sources and give you insight and feedback on articles you trust.</i><br />
+            <br />
+            Pax-Atlantica allows anyone to estimate the trustworthiness any article. We use various tonal and
+            sentiment analysis along with our own scoring algorithm in order to help you decide whether you can
+            take an article for its word. <br />
+            <br />
+            Anyone can use our app, but if you log in, we will be able to keep track of the types of articles
+            you submit and trust. This will allow us to give you an overview of the traits of the articles you
+            typically trust. You will also be able to participate in our rating system by upvoting articles you
+            trust, and downvoting articles you don't. <br />
+            <br />
             Have an article that you would like to view an analysis and trust rating of? Log in and start analyzing!
           </p>
         </div>
@@ -101,7 +108,7 @@ import { connect } from 'react-redux';
           <img src="../../assets/icon_postgresql.png" />
           <img src="../../assets/icon_aws.png" />
           <img src="../../assets/icon_ibmwatson.png" />
-          <img src="../../assets/icon_aylien.pgn" />
+          <img src="../../assets/icon_aylien.png" />
           <img src="../../assets/icon_webpack.png" />
           <img src="../../assets/icon_materialui.png" />
           <img src="../../assets/icon_d3.png" />
