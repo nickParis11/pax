@@ -21,32 +21,31 @@ import { fetchArticles } from './../actions/dashboardActions.js';
     visible: store.user.resultView, // keeps in store & in action function the routing
   };
 }) export default class Results extends React.Component {
-
-  componentDidUpdate () {
+  componentDidUpdate() {
     this.props.dispatch(fetchArticles());
   }
 
   render() {
     // should handle unified conditional rendering throughout the app
     return this.props.visible && (
-        <div className="padTop">
-          <h2 className="center-text">Results</h2>
-          <div className="container width500">
-            <ResultsHeading
-                  score={this.props.score}
-                  polarity={this.props.sentiment.polarity}
-            />
-            { !this.props.analyzeText ? <ResultsVote /> : null }
-          </div>
-
-        <div className="row">
-          <ResultsSummary
-            summary={this.props.summary}
-            title={this.props.title}
-          />
-        </div>
-        <EmotionChart />
+    <div className="padTop">
+      <h2 className="center-text">Results</h2>
+      <div className="container width500">
+        <ResultsHeading
+          score={this.props.score}
+          polarity={this.props.sentiment.polarity}
+        />
+        { !this.props.analyzeText ? <ResultsVote /> : null }
       </div>
+
+      <div className="row">
+        <ResultsSummary
+          summary={this.props.summary}
+          title={this.props.title}
+        />
+      </div>
+      <EmotionChart />
+    </div>
     );
   }
 }
