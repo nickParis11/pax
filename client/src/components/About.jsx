@@ -92,6 +92,21 @@ import { connect } from 'react-redux';
             </CardText>
           </Card>
         </div>
+
+        <h2 className="center-text padTop">Tech Stack</h2>
+        <div className="row">
+          <img src="../../assets/icon_react.png" />
+          <img src="../../assets/icon_redux.png" />
+          <img src="../../assets/icon_node.png" />
+          <img src="../../assets/icon_postgresql.png" />
+          <img src="../../assets/icon_aws.png" />
+          <img src="../../assets/icon_ibmwatson.png" />
+          <img src="../../assets/icon_aylien.pgn" />
+          <img src="../../assets/icon_webpack.png" />
+          <img src="../../assets/icon_materialui.png" />
+          <img src="../../assets/icon_d3.png" />
+          <img src="../../assets/icon_babel.png" />
+        </div>
       </div>
     )
   }
