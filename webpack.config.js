@@ -7,10 +7,9 @@ const WebpackBuildNotifierPlugin = require('webpack-build-notifier');
 const BUILD_DIR = path.resolve(__dirname, 'client/dist');
 const APP_DIR = path.resolve(__dirname, 'client/src');
 
-
-module.exports = function(env ={}) {
+module.exports = (env = {}) => {
   const dev = env.NODE_ENV === 'local';
-  console.log('env in helper ',dev);
+  console.log('Env in helper: ', dev);
 
   const config = {
     entry: `${APP_DIR}/Index.jsx`,
@@ -35,19 +34,23 @@ module.exports = function(env ={}) {
         },
       ],
     },
-    plugins : [ 
+    plugins: [
       new UglifyJsPlugin({
-        sourceMap: dev ? true : false, 
+        sourceMap: !!dev,
         parallel: true,
         uglifyOptions: {
-         compress: false // takes 250% more memory without this for 1% gain in size, not worth the risk to fail building. 
+          // Build takes 250% more memory with this option set to 'true'.
+          // This can result in a crash in low-RAM environments.
+          // Compression seems to only reduce the file size by 1%.
+          // Thus it's reccommended to keep this setting as 'false'.
+          compress: false,
         },
-      })
+      }),
     ],
   };
-  if ( dev ) {
+  if (dev) {
     config.devtool = 'source-map';
-    devPlugins = [
+    const devPlugins = [
       new webpack.HotModuleReplacementPlugin(),
       new WebpackBuildNotifierPlugin({
         title: 'My Project Webpack Build',
@@ -67,10 +70,9 @@ module.exports = function(env ={}) {
         threshold: 10240,
         minRatio: 0.8,
       }),
-    ]
-    config.plugins = config.plugins.concat(devPlugins); 
+    ];
+    config.plugins = config.plugins.concat(devPlugins);
   }
   return config;
-}
-
+};
 
