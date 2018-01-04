@@ -30,6 +30,9 @@ const getArticlesByUser = (username, cb) => {
               articles[index].dataValues.upvote = voteInfo[item.dataValues.id].upvote;
               articles[index].dataValues.voted = voteInfo[item.dataValues.id].voted;
             });
+            articles.sort((a, b) => {
+              return b.dataValues.createdAt - a.dataValues.createdAt
+            });
             cb(null, articles);
           })
           .catch((err) => {
