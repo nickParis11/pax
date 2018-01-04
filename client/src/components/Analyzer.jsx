@@ -9,6 +9,7 @@ import Dashboard from './Dashboard.jsx';
 import { fetchArticles } from './../actions/dashboardActions.js';
 import About from './About.jsx';
 
+
 @connect((store) => {
   return {
     success: store.analyzer.success,
@@ -26,7 +27,6 @@ import About from './About.jsx';
 
   componentDidMount() {
     this.props.dispatch(fetchArticles());
-
   }
 
   render() {

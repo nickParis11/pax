@@ -2,6 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import Badge from 'material-ui/Badge';
 import { downvote, getArticleVoteData, upvote } from '../actions/voteActions.js';
+import { fetchArticles } from './../actions/dashboardActions.js';
 
 @connect((store) => {
   return {
@@ -15,6 +16,10 @@ import { downvote, getArticleVoteData, upvote } from '../actions/voteActions.js'
 }) export default class ResultsVote extends React.Component {
   componentDidMount() {
     this.props.dispatch(getArticleVoteData(this.props.id));
+  }
+
+  componentDidUpdate () {
+    this.props.dispatch(fetchArticles());
   }
 
   checkLogin() {

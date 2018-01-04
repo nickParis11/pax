@@ -5,6 +5,7 @@ import ResultsHeading from './ResultsHeading.jsx';
 import ResultsSummary from './ResultsSummary.jsx';
 import ResultsVote from './ResultsVote.jsx';
 import BubbleChartUpvotes from './BubbleChartUpvotes.jsx';
+import { fetchArticles } from './../actions/dashboardActions.js';
 
 // take analyzeText boolean from store.analyzer
 // if analyzeText is true
@@ -21,6 +22,10 @@ import BubbleChartUpvotes from './BubbleChartUpvotes.jsx';
     visible: store.user.resultView, // keeps in store & in action function the routing
   };
 }) export default class Results extends React.Component {
+
+  componentDidUpdate () {
+    this.props.dispatch(fetchArticles());
+  }
 
   render() {
     // should handle unified conditional rendering throughout the app

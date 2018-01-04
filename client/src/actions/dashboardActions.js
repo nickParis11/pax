@@ -2,7 +2,7 @@ import axios from 'axios';
 
 export function fetchArticles() {
   return (dispatch) => {
-    console.log('in dispatcher dashboard from actions');
+    console.log('!!!!!!!!!!!!!!!!!!!!!@@@@@@@@@@@@ in fetch articles dispatcher dashboard from actions');
     //dispatch({ type: 'FETCH_ARTICLES' });
     axios.get('/api/user/allArticles')
       .then((response) => {
