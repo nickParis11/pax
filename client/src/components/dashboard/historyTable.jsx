@@ -77,7 +77,7 @@ const tableData = [
     showCheckboxes: true,
     //height: '300px',
   };
-}) 
+})
 
 export default class HistoryTable extends React.Component {
 
@@ -134,13 +134,13 @@ export default class HistoryTable extends React.Component {
               <TableRow key={index}>
                 <TableRowColumn>{index}</TableRowColumn>
                 <TableRowColumn>{
-           article.user_text.length > 20 ? article.user_text.slice(0,20)+ '...' : article.user_text 
+           article.user_text.length > 20 ? article.user_text.slice(0,20)+ '...' : article.user_text
           }   </TableRowColumn>
 
                 <TableRowColumn>{article.is_link ? 'Link search' : 'text search' }</TableRowColumn>
                 <TableRowColumn>{article.result+ ' %'} </TableRowColumn>
-                
-                <TableRowColumn>{ article.voted ? article.upvote ? <img src="assets/thumbs_up.svg" width="50px" height="50px" /> : <img src="assets/thumbs_down.svg" width="50px" height="50px" /> : null }</TableRowColumn>
+
+                <TableRowColumn>{ article.voted ? article.upvote ? <i className="fa fa-2x fa-thumbs-up arrowUpSelected" /> : <i className="fa fa-2x fa-thumbs-down arrowDownSelected" /> : null }</TableRowColumn>
 
               </TableRow>
               ))}

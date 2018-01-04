@@ -62,7 +62,7 @@ import { fetchArticles } from './../actions/dashboardActions.js';
             onClick={this.voteUp.bind(this)}
             onKeyPress={this.handleKeyPress.bind(this)}
           >
-            ↑
+            <i className="fa fa-thumbs-up" />
           </span>
           <Badge
             badgeContent={this.props.upVoteCount}
@@ -77,7 +77,7 @@ import { fetchArticles } from './../actions/dashboardActions.js';
             onClick={this.voteDown.bind(this)}
             onKeyPress={this.handleKeyPress.bind(this)}
           >
-            ↓
+            <i className="fa fa-thumbs-down" />
           </span>
           <Badge
             badgeContent={this.props.downVoteCount}
