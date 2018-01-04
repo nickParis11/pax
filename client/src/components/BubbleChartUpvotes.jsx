@@ -27,7 +27,7 @@ import * as d3 from 'd3';
 
 
     const color = d3.scaleOrdinal(d3.schemeCategory20);
-    const yLength = this.props.bubbleDiameter;
+    const yLength = this.props.height;
     const xLength = this.props.width;
     const bubble = d3.pack(dataset) // determines size taken up by Chart
       .size([xLength, yLength])
@@ -59,7 +59,7 @@ import * as d3 from 'd3';
 
     node.append('circle')
       .attr('r', (d) => {
-        return d.r * 1.05;
+        return d.r * 1.1;
       })
       .style('fill', (d, i) => {
         return color(i);
@@ -71,7 +71,7 @@ import * as d3 from 'd3';
       .text((d) => {
         return d.data.Name.substring(0, d.r / 3);
       })
-      .attr('font-size', (d) => { return d.r / 4; })
+      .attr('font-size', (d) => { return d.r / 3.5; })
       .attr('fill', 'white');
 
     node.append('text')
