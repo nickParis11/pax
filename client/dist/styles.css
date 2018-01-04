@@ -6,8 +6,17 @@ h2 {
   font-size: 36px !important;
 }
 
+h3 {
+  font-size: 24px !important;
+  padding-top: 15px !important;
+}
+
 textarea {
   font-size: 16px;
+}
+
+.alignLeft {
+  text-align: left !important;
 }
 
 .arrow {
@@ -32,6 +41,11 @@ textarea {
 
 .arrowDownSelected {
   color: #ff4081; /* Replace with reference to MUI Theme Color */
+}
+
+.avatar {
+  width: 100px;
+  height: 100px;
 }
 
 .bar{
@@ -125,6 +139,11 @@ textarea {
 
 .width500 {
   width: 500px !important;
+}
+
+.width600 {
+  margin: 20px;
+  min-width: 600px !important;
 }
 
 .width700 {
