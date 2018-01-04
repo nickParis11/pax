@@ -49,7 +49,7 @@ import * as d3 from 'd3';
       .append('g')
       .attr('class', 'node')
       .attr('transform', (d) => {
-        return `translate( ${d.x * 1.04}, ${d.y * 1.05} )`;
+        return `translate( ${d.x * 1.04}, ${d.y * 1.05} )`; // determines position of each node
       });
 
     node.append("title") // Creates info on hover over node
@@ -59,10 +59,10 @@ import * as d3 from 'd3';
 
     node.append('circle')
       .attr('r', (d) => {
-        return d.r * 1.1;
+        return d.r * 1.1; //determines size of node
       })
       .style('fill', (d, i) => {
-        return color(i);
+        return color(i); // chooses color of node from palette
       });
 
     node.append('text')
@@ -71,7 +71,7 @@ import * as d3 from 'd3';
       .text((d) => {
         return d.data.Name.substring(0, d.r / 3);
       })
-      .attr('font-size', (d) => { return d.r / 3.5; })
+      .attr('font-size', (d) => { return d.r / 3.5; }) // determines emotion font size
       .attr('fill', 'white');
 
     node.append('text')
@@ -80,7 +80,7 @@ import * as d3 from 'd3';
       .text((d) => {
         return d.data.Count;
       })
-      .attr('font-size', (d) => { return d.r / 3.5; })
+      .attr('font-size', (d) => { return d.r / 3.5; }) //determines score font size
       .attr('fill', 'white');
 
     d3.select(self.frameElement)
