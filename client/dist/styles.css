@@ -57,6 +57,16 @@ textarea {
   color: #ff4081; /* Replace with reference to MUI Theme Color */
 }
 
+.arrowVoteContainer {
+  display: flex;
+  align-items: center;
+  flex-basis: center;
+  display: flex;
+  flex-direction: column;
+  flex-shrink: 1;
+  flex-wrap: nowrap;
+}
+
 .avatar {
   width: 100px;
   height: 100px;
@@ -70,31 +80,14 @@ textarea {
   fill: #f50057;
 }
 
+.center-text {
+  margin: 0 auto;
+  text-align: center;
+}
+
 .column {
   display: flex;
   flex-direction: column;
-  flex-wrap: wrap;
-}
-
-.cursor-pointer {
-  cursor: pointer;
-}
-
-.ghIcon {
-  color: #fff;
-  margin: 0 auto;
-  padding: 15px 10px 15px 10px;
-}
-
-
-.arrowVoteContainer {
-  display: flex;
-  align-items: center;
-  flex-basis: center;
-  display: flex;
-  flex-direction: column;
-  flex-shrink: 1;
-  flex-wrap: nowrap;
 }
 
 .componentTitle {
@@ -110,9 +103,8 @@ textarea {
   justify-content: center;
 }
 
-.center-text {
-  margin: 0 auto;
-  text-align: center;
+.cursor-pointer {
+  cursor: pointer;
 }
 
 .marginSmall {
@@ -155,6 +147,10 @@ textarea {
   padding: 10px 0 10px 20px;
 }
 
+.title:hover {
+  cursor: pointer;
+}
+
 .width500 {
   width: 500px !important;
 }
@@ -166,8 +162,4 @@ textarea {
 
 .width700 {
   width: 700px !important;
-}
-
-.title:hover {
-  cursor:pointer;
 }
