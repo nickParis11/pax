@@ -30,7 +30,7 @@ const analyzeText = (text, title, summary, session, res, input, bool) => {
             if (articleID !== null) {
               analysis.id = articleID.dataValues.id;
             } else {
-              analysis.id = null;
+              analysis.id = undefined;
             }
             res.send(analysis);
           });
