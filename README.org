@@ -29,22 +29,32 @@ The request will be checked by one of the members before it gets merged.
 
 * Server Endpoints
 ** REQUEST
-|--------+---------+--------------+-----------------------------------------|
-| METHOD | URL     | REQUEST.BODY | EXAMPLE                                 |
-|--------+---------+--------------+-----------------------------------------|
-| GET    | /       |              |                                         |
-| POST   | /signup | JSON         | {username: 'pax', password:'atlantica'} |
-| POST   | /login  | JSON         | {username: 'pax, password:'atlantica'}  |
-|--------+---------+--------------+-----------------------------------------|
+|--------+--------------------------+--------------+---------------------------------------------|
+| METHOD | URL                      | REQUEST.BODY | EXAMPLE                                     |
+|--------+--------------------------+--------------+---------------------------------------------|
+| GET    | /api/getUser             |              |                                             |
+| GET    | /api/logoutUser          |              |                                             |
+| POST   | /api/analyze             | JSON         | { data: article }                           |
+| POST   | /api/extract             | JSON         | { data: link }                              |
+| GET    | /api/vote/:id            |              |                                             |
+| POST   | /api/vote                | JSON         | { article_id: articleId, upvote: isUpvote } |
+| GET    | /api/user/upvoteAverages |              |                                             |
+| GET    | /api/user/allArticles    |              |                                             |
+|--------+--------------------------+--------------+---------------------------------------------|
 
 ** RESPONSE
-|--------+---------+--------------+-----------------+-----------+--------------|
-| METHOD | URL     | SUCCESS TYPE | SUCCESS CONTENT | FAIL TYPE | FAIL CONTENT |
-|--------+---------+--------------+-----------------+-----------+--------------|
-| GET    | /       | index.html   |                 |           |              |
-| POST   | /signup | string       | username        | null      | null         |
-| POST   | /login  | string       | username        | null      | null         |
-|--------+---------+--------------+-----------------+-----------+--------------|
+|--------+--------------------------+--------------+-------------------+-----------+--------------|
+| METHOD | URL                      | SUCCESS TYPE | SUCCESS CONTENT   | FAIL TYPE | FAIL CONTENT |
+|--------+--------------------------+--------------+-------------------+-----------+--------------|
+| GET    | /api/getUser             | string       | username          | null      | null         |
+| POST   | /api/logoutUser          | null         | null              | null      | null         |
+| POST   | /api/analyze             | object       | analysis          | null      | null         |
+| POST   | /api/extract             | object       | analysis          | null      | null         |
+| POST   | /api/vote/:id            | object       | votes             | null      | null         |
+| POST   | /api/vote                | object       | votes             | null      | null         |
+| POST   | /api/user/upvoteAverages | object       | tone averages     | null      | null         |
+| POST   | /api/user/allArticles    | array        | all user articles | null      | null         |
+|--------+--------------------------+--------------+-------------------+-----------+--------------|
 
 * Schema
 ** USER SCHEMA
@@ -84,49 +94,79 @@ The request will be checked by one of the members before it gets merged.
 | id   | Boolean | Boolean | Boolean  | Foreign Key | Foreign Key |
 |------+---------+---------+----------+-------------+-------------|
 
-* Client States Stored in client/src/reducers
+* Client State
 
-** in userReducer
-initialState = {
-  login: false,
-  upvoteAverages: {  // keeps track of the Average scores of previously upvoted articles, all 0 by default.
+  ** ANALYZER
+  analyzeUrl: true, &#9;&#9;&#9;<- toggle view to URL input
+  analyzeText: false, &#9;&#9;&#9;<- toggle view to direct text input
+  error: null, &#9;&#9;&#9;<- hold error messages
+  height: 400, &#9;&#9;&#9;<- set height of emotion chart bar graph
+  id: null, &#9;&#9;&#9;<- hold user id when they log in
+  score: null, &#9;&#9;&#9;<- hold score of most recently analyzed article
+  sentiment: null, &#9;&#9;&#9;<- hold sentiment of mose recently analyzed article
+  success: false, &#9;&#9;&#9;<- toggle on success or failure of analysis
+  summary: null, &#9;&#9;&#9;<- hold the summary of analyzed article
+  title: null, &#9;&#9;&#9;<- hold the title of the analyzed article or 'Your input'
+  tone: null, &#9;&#9;&#9;<- hold the tone of the most recently analyzed article
+  waiting: false, &#9;&#9;&#9;<- toggle the waiting view while analysis is happening
+  width: 800, &#9;&#9;&#9;<- set width of emotion chart bar graph
+  init: true &#9;&#9;&#9;<- ???
+
+  ** USER
+  login: false, &#9;&#9;&#9;<- toggle when user is logged in
+
+  upvoteAverages: { &#9;&#9;&#9;<- tone averages of all articles analyzed by single user
     anger: 0,
-    ...
+    disgust: 0,
+    fear: 0,
+    joy: 0,
+    sadness: 0,
+    analytical: 0,
+    confident: 0,
+    tentative: 0,
+    openness: 0,
+    conscientiousness: 0,
+    extraversion: 0,
+    agreeableness: 0,
     emotional_range: 0,
   },
-  loginView: false, // All the ...View states decides which Views are visible at a given time.
-  dashboardView: false,
-  inputView: true,
-  resultView: false,
-  waitingView: false,
-  aboutView: false,
-};
+  loginView: false, &#9;&#9;&#9;<- ???
+  dashboardView: false, &#9;&#9;&#9;<- show dashboard component
+  inputView: true, &#9;&#9;&#9;<- show input component
+  resultView: false, &#9;&#9;&#9;<- show result component
+  waitingView: false, &#9;&#9;&#9;<- show waiting component
+  aboutView: false, &#9;&#9;&#9;<- show about component
 
+  ** DASHBOARD
+  articles: '', &#9;&#9;&#9;<- hold an array of articles analyzed by a user
+  visible: false, &#9;&#9;&#9;<- ???
+  defaultInternalView: true, &#9;&#9;&#9;<- ???
+  errorInternalView: false, &#9;&#9;&#9;<- ???
+  showArticlesView : false, &#9;&#9;&#9;<- ???
 
-** in analyzerReducer
+  ** VOTES
+  downVote: false, &#9;&#9;&#9;<- toggle user vote
+  downVoteCount: 0, &#9;&#9;&#9;<- hold all downvotes
+  upVote: false,&#9;&#9;&#9;<- toggle user vote
+  upVoteCount: 0, &#9;&#9;&#9;<- hold all upvotes
 
-const initialState = {
-  analyzeUrl: true, // decides if Url input is visible
-  analyzeText: false, // text input visibility
-  error: null,
-  height: 400,
-  id: null,
-  score: null,
-  sentiment: null,
-  success: false, // Triggers transition from waiting to results page
-  summary: null,
-  title: null,
-  tone: null,
-  waiting: false, //decides waiting screen visibility
-  width: 800,
-  init : true // decides if id ... tone values are default or not
-};
+* How to Start This App
+Requires node >= 8.8.1 and nodemon
+1. Fork and clone
+2. Run npm install
+3. .env file:
+  LOCAL=1
 
-**in voteReducer
+  LOCAL_DB_PASSWORD={YOUR PASSWORD}
+  LOCAL_DB_USER={YOUR USER}
+  LOCAL_DB_HOST={YOUR HOST}
+  LOCAL_DB_NAME={YOUR NAME}
 
-const initialState = {
-  downVote: false, // whether the user upvoted article or not. downVote and upVote cannot both be true.
-  downVoteCount: 0, // Aggregate downvotes made by different users on given article
-  upVote: false,
-  upVoteCount: 0,
-};
+  GOOGLE_CLIENT_ID={YOUR CLIENT ID}
+  GOOGLE_CLIENT_SECRET={YOUR CLIENT SECRET}
+  GOOGLE_LOCAL_DIRECT={ex: http://127.0.0.1:3000/auth/google/callback}
+
+  AYLIEN_APP_ID={YOUR API ID}
+  AYLIEN_APP_KEY={YOUR API KEY}
+  WATSON_USERNAME={YOUR USERNAME}
+  WATSON_PASSWORD={YOUR PASSWORD}
