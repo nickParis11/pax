@@ -58,11 +58,6 @@ textarea {
   padding: 15px 10px 15px 10px;
 }
 
-.medium {
-  border: none !important;
-  padding-top: -25px;
-  width: 500px;
-}
 
 .arrowVoteContainer {
   display: flex;
@@ -94,6 +89,13 @@ textarea {
 
 .marginSmall {
   margin: 10px;
+}
+
+.medium {
+  border: none !important;
+  margin: 0 auto;
+  padding-top: -25px;
+  width: 600px;
 }
 
 .nav {
