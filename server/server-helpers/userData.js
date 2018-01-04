@@ -8,12 +8,12 @@ const getUpvoteAverage = (user, cb) => {
 
 const getArticlesByUser = (username, cb) => {
   const articleIds = [];
-  let voteInfo = {};
+  const voteInfo = {};
 
   userController.get({ body: { username } }, (found) => {
-    voteController.getAllVotesBy(found.id, (err, allVotes) => {
-      if (err) {
-        cb(err);
+    voteController.getAllVotesBy(found.id, (getVotesErr, allVotes) => {
+      if (getVotesErr) {
+        cb(getVotesErr);
       } else {
         allVotes.forEach((vote) => {
           articleIds.push(articleController.get(vote.dataValues.articleId));
@@ -25,18 +25,19 @@ const getArticlesByUser = (username, cb) => {
         });
         Promise.all(articleIds)
           .then((articles) => {
-            articles.forEach((item, index) => {
-              articles[index].dataValues.downvote = voteInfo[item.dataValues.id].downvote;
-              articles[index].dataValues.upvote = voteInfo[item.dataValues.id].upvote;
-              articles[index].dataValues.voted = voteInfo[item.dataValues.id].voted;
+            const articlesResponse = Array.from(articles);
+            articlesResponse.forEach((item, index) => {
+              articlesResponse[index].dataValues.downvote = voteInfo[item.dataValues.id].downvote;
+              articlesResponse[index].dataValues.upvote = voteInfo[item.dataValues.id].upvote;
+              articlesResponse[index].dataValues.voted = voteInfo[item.dataValues.id].voted;
             });
-            articles.sort((a, b) => {
-              return b.dataValues.createdAt - a.dataValues.createdAt
+            articlesResponse.sort((a, b) => {
+              return b.dataValues.createdAt - a.dataValues.createdAt;
             });
-            cb(null, articles);
+            cb(null, articlesResponse);
           })
           .catch((err) => {
-            console.log(`Error getting all articles: ${err}`);
+            console.error(`Error getting all articles: ${err}`);
           });
       }
     });
