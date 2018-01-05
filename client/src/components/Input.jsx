@@ -4,6 +4,7 @@ import { toggleUrlText, getUrlAnalysis, getTextAnalysis } from '../actions/analy
 import InputURL from './InputURL.jsx';
 import InputText from './InputText.jsx';
 
+
 @connect((store) => {
   return {
     analyzeUrl: store.analyzer.analyzeUrl,
@@ -36,6 +37,10 @@ import InputText from './InputText.jsx';
     }
   }
 
+  handleKeyUp(e) {
+    e.preventDefault();
+  }
+
   render() {
     return this.props.visible /* && !this.props.success && !this.props.waiting */ && (
       <div className="container padTop center-text">
@@ -43,11 +48,13 @@ import InputText from './InputText.jsx';
           display={this.props.analyzeUrl}
           checkInput={this.checkInput.bind(this)}
           textToggleHandle={this.textToggleHandle.bind(this)}
+          handleKeyUp={this.handleKeyUp}
         />
         <InputText
           display={this.props.analyzeUrl}
           checkInput={this.checkInput.bind(this)}
           textToggleHandle={this.textToggleHandle.bind(this)}
+          handleKeyUp={this.handleKeyUp.bind(this)}
         />
       </div>
     );

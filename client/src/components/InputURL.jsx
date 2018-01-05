@@ -21,7 +21,14 @@ const InputURL = props => (
         onClick={props.checkInput.bind(null)}
       />
       <br />
-      <p className="cursor-pointer" onClick={props.textToggleHandle.bind(null)}>Switch to text</p>
+      <span
+        className="cursor-pointer"
+        role="button"
+        tabIndex="0"
+        onClick={props.textToggleHandle.bind(null)}
+        onKeyUp={props.handleKeyUp.bind(null)}
+      >Switch to text
+      </span>
     </div>
 );
 

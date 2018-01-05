@@ -40,10 +40,14 @@ import { userLogout, getUser, setView } from '../actions/userActions';
     this.props.dispatch(setView('SET_DASHBOARD_VIEW'));
   }
 
+  handleKeyEntry(e) {
+    e.preventDefault();
+  }
+
   render() {
     return (
       <AppBar
-        title={<h1 className="title" onClick={this.handleAnalyzeClick.bind(this)}>Pax Atlantica</h1>}
+        title={<span role="button" className="title" tabIndex="0" onClick={this.handleAnalyzeClick.bind(this)} onKeyUp={this.handleKeyEntry.bind(this)}>Pax Atlantica</span>}
         showMenuIconButton={false}
         iconElementRight={
           <div className="nav">
