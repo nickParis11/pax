@@ -9,9 +9,6 @@ import {
   TableRow,
   TableRowColumn,
 } from 'material-ui/Table';
-import TextField from 'material-ui/TextField';
-import Toggle from 'material-ui/Toggle';
-import Dialog from 'material-ui/Dialog';
 import {showDialog, hideDialog, setHoveredArticle} from '../../actions/dashboardActions';
 import {Card, CardHeader, CardTitle, CardText} from 'material-ui/Card';
 import Drawer from 'material-ui/Drawer';
@@ -27,13 +24,15 @@ const styles = {
   propToggleHeader: {
     margin: '20px auto 10px',
   },
+  table: {
+    margin: '0 auto',
+    width: 900,
+  },
 };
-
-
 
 @connect((store) => {
   return {
-    data: store.dashboard.articles, 
+    data: store.dashboard.articles,
     visible: store.user.dashboardView,
     fixedHeader: true,
     fixedFooter: true,
@@ -48,35 +47,20 @@ const styles = {
     dialogVisible : store.dashboard.dialogVisible,
     hoveredArticle : store.dashboard.hoveredArticle,
   };
-})
-
-
-export default class HistoryTable extends React.Component {
-
-  constructor(props) {
-    super(props);
-    //this.onCellHover = onCellHover.bind(this);
-  }
-
+})export default class HistoryTable extends React.Component {
   scrollToBottom() {
     this.el.scrollIntoView({ behaviour: 'smooth' });
   }
 
-  onRowHover(rowNum) { 
+  onRowHover(rowNum) {
     console.log("let's display our top ratings here = ",rowNum)
-    
+
     this.props.dispatch( showDialog ());
     this.props.dispatch(setHoveredArticle(this.getMicroScore (this.props.data[rowNum])))
     //this.scrollToBottom();
   }
 
-  onRowHoverExit () {
-
-    this.props.dispatch( hideDialog ());
-    this.props.dispatch(setHoveredArticle(null));
-  }
-
-  getMicroScore (article) {
+  getMicroScore(article) {
     var microScore = {};
     microScore.text = article.user_text;
     microScore.agreeableness = article.agreeableness;
@@ -88,15 +72,8 @@ export default class HistoryTable extends React.Component {
 
   render() {
 
-    
-    // test function rendering
-    const renderDisplayText = function (text='hehe') {
-      return text;
-    }
-
     return (
-      <div> 
-
+      <div>
         <RaisedButton
                   label="Toggle Drawer"
                   onClick={this.handleToggle}
@@ -107,7 +84,7 @@ export default class HistoryTable extends React.Component {
                  width="15%"
                  z-depth="10"
                 >
-                  {this.props.dialogVisible ? 
+                  {this.props.dialogVisible ?
                     <Card>
                       <CardHeader
                         title="SEARCH SUMMARY"
@@ -118,20 +95,20 @@ export default class HistoryTable extends React.Component {
                       <CardText>
                         agreeableness = {this.props.hoveredArticle.agreeableness} <br/>
                         polarity = {this.props.hoveredArticle.polarity} <br/>
-                        polarityScore = {this.props.hoveredArticle.polarityScore} 
+                        polarityScore = {this.props.hoveredArticle.polarityScore}
                       </CardText>
                     </Card>
-                    : null 
+                    : null
                   }
-                </Drawer>     
+                </Drawer>
         <Table
+          style={styles.table}
           height={this.props.height}
           fixedHeader={this.props.fixedHeader}
           fixedFooter={this.props.fixedFooter}
           selectable={this.props.selectable}
           multiSelectable={this.props.multiSelectable}
-          onRowHover={this.onRowHover.bind(this)}
-          onRowHoverExit={this.onRowHoverExit.bind(this)}
+          onCellClick={this.onRowHover.bind(this)}
         >
           <TableHeader
             displaySelectAll={this.props.showCheckboxes}
@@ -139,16 +116,15 @@ export default class HistoryTable extends React.Component {
             enableSelectAll={this.props.enableSelectAll}
           >
             <TableRow>
-              <TableHeaderColumn colSpan="3" tooltip="Super Header" style={{textAlign: 'center'}}>
-                YOUR SEARCH HISTORY
+              <TableHeaderColumn colSpan="7" tooltip="Your search history">
+                {<h3 className="center-text">Your Search History</h3>}
               </TableHeaderColumn>
             </TableRow>
             <TableRow>
-              <TableHeaderColumn tooltip="The ID"> # </TableHeaderColumn>
-              <TableHeaderColumn tooltip="The Name"> SEARCH </TableHeaderColumn>
-              <TableHeaderColumn tooltip="The Status"> TYPE </TableHeaderColumn>
-              <TableHeaderColumn tooltip="The Status"> OVERALL SCORE</TableHeaderColumn>
-              <TableHeaderColumn tooltip="The Status"> VOTE </TableHeaderColumn>
+              <TableHeaderColumn colSpan="1" tooltip="Your vote">VOTE</TableHeaderColumn>
+              <TableHeaderColumn colSpan="1" tooltip="Article score">SCORE</TableHeaderColumn>
+              <TableHeaderColumn colSpan="1" tooltip="The Status">TYPE</TableHeaderColumn>
+              <TableHeaderColumn colSpan="4" tooltip="The Name">SEARCH</TableHeaderColumn>
             </TableRow>
           </TableHeader>
           <TableBody
@@ -160,17 +136,16 @@ export default class HistoryTable extends React.Component {
 
             {this.props.data.map( (article, index) => (
               <TableRow key={index}>
-                <TableRowColumn>{ index}</TableRowColumn>
-                <TableRowColumn>
+                <TableRowColumn colSpan="1">
+                  { article.voted ? article.upvote ? <i className="fa fa-2x fa-thumbs-up arrowUpSelected" /> : <i className="fa fa-2x fa-thumbs-down arrowDownSelected" /> : null }
+                </TableRowColumn>
+                <TableRowColumn colSpan="1">{article.result + ' %'} </TableRowColumn>
+                <TableRowColumn colSpan="1">{article.is_link ? 'Link' : 'Text' }</TableRowColumn>
+                <TableRowColumn colSpan="4">
                   {
                     article.is_link ? <a href={article.user_text} target="_blank" title={article.user_text} > { article.user_text }  </a> : article.user_text
-                  } 
+                  }
                 </TableRowColumn>
-                <TableRowColumn>{article.is_link ? 'Link search' : 'text search' }</TableRowColumn>
-                <TableRowColumn>{article.result+ ' %'} </TableRowColumn>
-
-                <TableRowColumn>{ article.voted ? article.upvote ? <i className="fa fa-2x fa-thumbs-up arrowUpSelected" /> : <i className="fa fa-2x fa-thumbs-down arrowDownSelected" /> : null }</TableRowColumn>
-
               </TableRow>
               ))}
 
@@ -179,11 +154,10 @@ export default class HistoryTable extends React.Component {
             adjustForCheckbox={this.props.showCheckboxes}
           >
             <TableRow>
-              <TableHeaderColumn tooltip="The ID"> # </TableHeaderColumn>
-              <TableHeaderColumn tooltip="The Name"> SEARCH</TableHeaderColumn>
-              <TableHeaderColumn tooltip="The Status"> TYPE</TableHeaderColumn>
-              <TableHeaderColumn tooltip="The Status">OVERALL SCORE</TableHeaderColumn>
-              <TableHeaderColumn tooltip="The Status"> VOTE </TableHeaderColumn>
+              <TableHeaderColumn tooltip="The Status" colSpan="1">VOTE</TableHeaderColumn>
+              <TableHeaderColumn tooltip="The Status" colSpan="1">OVERALL SCORE</TableHeaderColumn>
+              <TableHeaderColumn tooltip="The Status" colSpan="1">TYPE</TableHeaderColumn>
+              <TableHeaderColumn tooltip="The Name" colSpan="1">SEARCH</TableHeaderColumn>
             </TableRow>
 
           </TableFooter>

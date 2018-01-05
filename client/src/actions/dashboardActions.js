@@ -16,13 +16,13 @@ export function fetchArticles() {
 }
 
 export function showDialog () {
-  return (dispatch) => {  
+  return (dispatch) => {
     dispatch({type:'SHOW_DIALOG'});
   }
 }
 
 export function hideDialog () {
-  return (dispatch) => {  
+  return (dispatch) => {
     dispatch({type:'HIDE_DIALOG'});
   }
 }
