@@ -39,7 +39,7 @@ const styles = {
     stripedRows: true,
     showRowHover: true,
     selectable: false,
-    multiSelectable: true,
+    multiSelectable: false,
     enableSelectAll: false,
     deselectOnClickaway: true,
     showCheckboxes: false,
@@ -47,21 +47,16 @@ const styles = {
     dialogVisible : store.dashboard.dialogVisible,
     hoveredArticle : store.dashboard.hoveredArticle,
   };
-})export default class HistoryTable extends React.Component {
-  scrollToBottom() {
-    this.el.scrollIntoView({ behaviour: 'smooth' });
-  }
+})
+
+export default class HistoryTable extends React.Component {
 
   onRowHover(rowNum) {
-    console.log("let's display our top ratings here = ",rowNum)
-
     this.props.dispatch( showDialog ());
     this.props.dispatch(setHoveredArticle(this.getMicroScore (this.props.data[rowNum])))
-    //this.scrollToBottom();
   }
 
   onRowHoverExit () {
-
     this.props.dispatch( hideDialog ());
     this.props.dispatch(setHoveredArticle(null));
   }
