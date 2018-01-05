@@ -22,9 +22,9 @@ const InputURL = props => (
       />
       <br />
       <span
-        className="cursor-pointer"
         role="button"
         tabIndex="0"
+        className="cursor-pointer"
         onClick={props.textToggleHandle.bind(null)}
         onKeyUp={props.handleKeyUp.bind(null)}
       >Switch to text

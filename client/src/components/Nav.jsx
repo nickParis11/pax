@@ -47,24 +47,48 @@ import { userLogout, getUser, setView } from '../actions/userActions';
   render() {
     return (
       <AppBar
-        title={<span role="button" className="title" tabIndex="0" onClick={this.handleAnalyzeClick.bind(this)} onKeyUp={this.handleKeyEntry.bind(this)}>Pax Atlantica</span>}
+        title={
+          <span
+            role="button"
+            tabIndex="0"
+            className="title"
+            onClick={this.handleAnalyzeClick.bind(this)}
+            onKeyUp={this.handleKeyEntry.bind(this)}
+          >Pax Atlantica
+          </span>
+              }
         showMenuIconButton={false}
         iconElementRight={
           <div className="nav">
 
-            <FlatButton label="Analyze" onClick={this.handleAnalyzeClick.bind(this)} />
-            <FlatButton label="About" onClick={this.handleAboutClick.bind(this)} />
+            <FlatButton
+              label="Analyze"
+              onClick={this.handleAnalyzeClick.bind(this)}
+            />
+            <FlatButton
+              label="About"
+              onClick={this.handleAboutClick.bind(this)}
+            />
             {
               !this.props.waiting && !this.props.noSearchSoFar ? <FlatButton label="Results" onClick={this.handleResultsClick.bind(this)} /> : null
             }
             {this.props.login ?
               <div>
 
-                <FlatButton label="Dashboard" onClick={this.handleDashboardClick.bind(this)} />
-                <FlatButton label="Log Out" onClick={this.handleLogoutClick.bind(this)} />
+                <FlatButton
+                  label="Dashboard"
+                  onClick={this.handleDashboardClick.bind(this)}
+                />
+                <FlatButton
+                  label="Log Out"
+                  onClick={this.handleLogoutClick.bind(this)}
+                />
               </div>
             :
-              <FlatButton href="/auth/google" label="Log In" />
+              <FlatButton
+                href="/auth/google"
+                label="Log In"
+              />
             }
           </div>
         }
