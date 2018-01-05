@@ -4,7 +4,6 @@ import { toggleUrlText, getUrlAnalysis, getTextAnalysis } from '../actions/analy
 import InputURL from './InputURL.jsx';
 import InputText from './InputText.jsx';
 
-
 @connect((store) => {
   return {
     analyzeUrl: store.analyzer.analyzeUrl,
