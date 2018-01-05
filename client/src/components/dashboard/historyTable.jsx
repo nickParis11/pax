@@ -14,6 +14,9 @@ import Toggle from 'material-ui/Toggle';
 import Dialog from 'material-ui/Dialog';
 import {showDialog, hideDialog, setHoveredArticle} from '../../actions/dashboardActions';
 import {Card, CardHeader, CardTitle, CardText} from 'material-ui/Card';
+import Drawer from 'material-ui/Drawer';
+import MenuItem from 'material-ui/MenuItem';
+import RaisedButton from 'material-ui/RaisedButton';
 
 const styles = {
   propContainer: {
@@ -92,7 +95,34 @@ export default class HistoryTable extends React.Component {
     }
 
     return (
-      <div>      
+      <div> 
+
+        <RaisedButton
+                  label="Toggle Drawer"
+                  onClick={this.handleToggle}
+                />
+
+                <Drawer
+                 open={this.props.dialogVisible}
+                 width="20%"
+                >
+                  {this.props.dialogVisible ? 
+                    <Card>
+                      <CardHeader
+                        title="SEARCH SUMMARY"
+                        subtitle="user : fill in dynamic user"
+                        avatar="assets/thumbs_up.svg"
+                      />
+                      <CardTitle title=" YOUR SEARCH : " subtitle={this.props.hoveredArticle.text.length > 100 ? this.props.hoveredArticle.text.slice(0,100)+'...' : this.props.hoveredArticle.text } />
+                      <CardText>
+                        agreeableness = {this.props.hoveredArticle.agreeableness} <br/>
+                        polarity = {this.props.hoveredArticle.polarity} <br/>
+                        polarityScore = {this.props.hoveredArticle.polarityScore} 
+                      </CardText>
+                    </Card>
+                    : null 
+                  }
+                </Drawer>     
         <Table
           height={this.props.height}
           fixedHeader={this.props.fixedHeader}
@@ -158,22 +188,6 @@ export default class HistoryTable extends React.Component {
           </TableFooter>
         </Table>
 
-        {this.props.dialogVisible ? 
-          <Card>
-            <CardHeader
-              title="SEARCH SUMMARY"
-              subtitle="user : fill in dynamic user"
-              avatar="assets/thumbs_up.svg"
-            />
-            <CardTitle title=" YOUR SEARCH : " subtitle={this.props.hoveredArticle.text.length > 100 ? this.props.hoveredArticle.text.slice(0,100)+'...' : this.props.hoveredArticle.text } />
-            <CardText>
-              agreeableness = {this.props.hoveredArticle.agreeableness} <br/>
-              polarity = {this.props.hoveredArticle.polarity} <br/>
-              polarityScore = {this.props.hoveredArticle.polarityScore} 
-            </CardText>
-          </Card>
-          : null 
-        }
       </div>
     );
   }
