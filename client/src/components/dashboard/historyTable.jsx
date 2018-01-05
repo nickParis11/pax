@@ -55,13 +55,16 @@ export default class HistoryTable extends React.Component {
     //this.onCellHover = onCellHover.bind(this);
   }
 
-  onRowHover(rowNum) {
-    //alert('cell overred @@@@@@@@@@@ !!!!!!!!!'); 
+  scrollToBottom() {
+    this.el.scrollIntoView({ behaviour: 'smooth' });
+  }
+
+  onRowHover(rowNum) { 
     console.log("let's display our top ratings here = ",rowNum)
     
     this.props.dispatch( showDialog ());
     this.props.dispatch(setHoveredArticle(this.getMicroScore (this.props.data[rowNum])))
-    console.log('hoveredArticle  =',this.props.hoveredArticle);
+    //this.scrollToBottom();
   }
 
   onRowHoverExit () {
@@ -89,8 +92,7 @@ export default class HistoryTable extends React.Component {
     }
 
     return (
-      <div>
-               
+      <div>      
         <Table
           height={this.props.height}
           fixedHeader={this.props.fixedHeader}
