@@ -104,7 +104,8 @@ export default class HistoryTable extends React.Component {
 
                 <Drawer
                  open={this.props.dialogVisible}
-                 width="20%"
+                 width="15%"
+                 z-depth="10"
                 >
                   {this.props.dialogVisible ? 
                     <Card>
