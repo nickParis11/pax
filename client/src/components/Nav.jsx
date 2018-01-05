@@ -64,9 +64,12 @@ import { userLogout, getUser, setView } from '../actions/userActions';
             <FlatButton
               label="Analyze"
               onClick={this.handleAnalyzeClick.bind(this)}
+              backgroundColor="FFFF00"
+              rippleColor="red"
             />
             <FlatButton
               label="About"
+
               onClick={this.handleAboutClick.bind(this)}
             />
             {
