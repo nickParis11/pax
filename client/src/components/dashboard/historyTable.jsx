@@ -60,47 +60,78 @@ const styles = {
     //this.scrollToBottom();
   }
 
+  onRowHoverExit () {
+
+    this.props.dispatch( hideDialog ());
+    this.props.dispatch(setHoveredArticle(null));
+  }
+
   getMicroScore(article) {
     var microScore = {};
     microScore.text = article.user_text;
     microScore.agreeableness = article.agreeableness;
     microScore.polarity = article.polarity;
-    microScore.polarityScore = article.polarity_score;
+    microScore.polarity_score = article.polarity_score;
+    microScore.result = article.result;
+    microScore.polarity = article.polarity;
+    microScore.anger = article.polarity_score;
+    microScore.digust = article.polarity_score;
+    microScore.fear = article.fear;
+    microScore.joy = article.joy;
+    microScore.sadness = article.sadness;
+    microScore.analytical = article.analytical;
+    microScore.confident = article.confident;
+    microScore.tentative = article.tentative;
+    microScore.openness = article.openness;
+    microScore.conscientiousness = article.conscientiousness;
+    microScore.extraversion = article.extraversion;
+    microScore.agreeableness = article.agreeableness;
+    microScore.emotional_range = article.emotional_range;
+    microScore.upvote = article.upvote;
     return microScore;
     //console.log('article text = ',article.user_text)
   }
 
   render() {
-
     return (
       <div>
-        <RaisedButton
-                  label="Toggle Drawer"
-                  onClick={this.handleToggle}
-                />
+        <Drawer
+         open={this.props.dialogVisible}
+         width="20%"
+         z-depth="10"
+        >
+          {this.props.dialogVisible ?
+            <Card>
+              <CardHeader
+                title={"Trust Rating: " + this.props.hoveredArticle.result + "%"}
+                subtitle={"Polarity: " + this.props.hoveredArticle.polarity_score + "% " + this.props.hoveredArticle.polarity}
+                avatar={
+                  this.props.hoveredArticle.upvote ? <i className="fa fa-3x fa-thumbs-up arrowUpSelected" /> : <i className="fa fa-3x fa-thumbs-down arrowDownSelected" />
+                }
+              />
+              <CardTitle
+                title="Analysis Summary"
+              />
+              <CardText>
+                Anger: {this.props.hoveredArticle.agreeableness} <br />
+                Disgust: {this.props.hoveredArticle.disgust} <br />
+                Fear: {this.props.hoveredArticle.fear} <br />
+                Joy: {this.props.hoveredArticle.joy} <br />
+                Sadness: {this.props.hoveredArticle.sadness} <br />
+                Analytical: {this.props.hoveredArticle.analytical} <br />
+                Confident: {this.props.hoveredArticle.confident} <br />
+                Tentative: {this.props.hoveredArticle.tentative} <br />
+                Openness: {this.props.hoveredArticle.openness} <br />
+                Conscientiousness: {this.props.hoveredArticle.conscientiousness} <br />
+                Extraversion: {this.props.hoveredArticle.extraversion} <br />
+                Agreeableness: {this.props.hoveredArticle.agreeableness} <br />
+                Emotional Range: {this.props.hoveredArticle.emotional_range} <br />
+              </CardText>
+            </Card>
+            : null
+          }
+        </Drawer>
 
-                <Drawer
-                 open={this.props.dialogVisible}
-                 width="15%"
-                 z-depth="10"
-                >
-                  {this.props.dialogVisible ?
-                    <Card>
-                      <CardHeader
-                        title="SEARCH SUMMARY"
-                        subtitle="user : fill in dynamic user"
-                        avatar="assets/thumbs_up.svg"
-                      />
-                      <CardTitle title=" YOUR SEARCH : " subtitle={this.props.hoveredArticle.text.length > 100 ? this.props.hoveredArticle.text.slice(0,100)+'...' : this.props.hoveredArticle.text } />
-                      <CardText>
-                        agreeableness = {this.props.hoveredArticle.agreeableness} <br/>
-                        polarity = {this.props.hoveredArticle.polarity} <br/>
-                        polarityScore = {this.props.hoveredArticle.polarityScore}
-                      </CardText>
-                    </Card>
-                    : null
-                  }
-                </Drawer>
         <Table
           style={styles.table}
           height={this.props.height}
@@ -108,7 +139,8 @@ const styles = {
           fixedFooter={this.props.fixedFooter}
           selectable={this.props.selectable}
           multiSelectable={this.props.multiSelectable}
-          onCellClick={this.onRowHover.bind(this)}
+          onRowHover={this.onRowHover.bind(this)}
+          onRowHoverExit={this.onRowHoverExit.bind(this)}
         >
           <TableHeader
             displaySelectAll={this.props.showCheckboxes}
