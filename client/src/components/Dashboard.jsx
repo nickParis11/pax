@@ -12,7 +12,6 @@ import BubbleChartUpvotes from './BubbleChartUpvotes.jsx';
 
 export default class Dashboard extends React.Component {
   render() {
-    console.log('in dashboard');
     return this.props.visible && (
       <div className="padTop">
         <h2 className="center-text">Dashboard</h2>
