@@ -6,10 +6,6 @@ import ResultsSummary from './ResultsSummary.jsx';
 import ResultsVote from './ResultsVote.jsx';
 import { fetchArticles } from './../actions/dashboardActions.js';
 
-// take analyzeText boolean from store.analyzer
-// if analyzeText is true
-// then do not show ResultsVote
-
 @connect((store) => {
   return {
     analyzeText: store.analyzer.analyzeText,

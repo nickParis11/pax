@@ -12,7 +12,6 @@ import About from './About.jsx';
 @connect((store) => {
   return {
     success: store.analyzer.success,
-    // login: store.user.login,
     username: store.user.username,
     visible: store.user.waitingView,
   };

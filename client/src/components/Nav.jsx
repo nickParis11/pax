@@ -116,6 +116,3 @@ const styles = {
     );
   }
 }
-
-//backgroundColor={ this.props.dashboardView ? styles.navBar.activeBgColor : styles.navBar.unactiveBgColor }
-// secondary={this.props.dashboardView}

@@ -41,7 +41,7 @@ import InputText from './InputText.jsx';
   }
 
   render() {
-    return this.props.visible /* && !this.props.success && !this.props.waiting */ && (
+    return this.props.visible && (
       <div className="container padTop center-text">
         <InputURL
           display={this.props.analyzeUrl}

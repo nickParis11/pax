@@ -1,9 +1,3 @@
-// Three potential states for arrows:
-// 1. Neither upvoted or downvoted.
-// 2. Upvoted.
-// 3. Downvoted.
-// The logic must prevent the user from upvoting and downvoting at the same time.
-
 const initialState = {
   downVote: false,
   downVoteCount: 0,
