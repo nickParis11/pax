@@ -26,8 +26,6 @@ import { connect } from 'react-redux';
     };
     const width = this.props.width - margin.left - margin.right;
     const height = this.props.height - margin.top - margin.bottom;
-    console.log('width', width);
-    console.log('height', height);
 
     const y = d3
       .scaleLinear()

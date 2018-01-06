@@ -16,7 +16,6 @@ import * as d3 from 'd3';
     const div = new ReactFauxDOM.Element('div'); // creates Virtual DOM that D3 manipulates
     const dataset = {};
     const tones = this.props.upvoteAverages;
-    console.log('upvoteAverages', this.props.upvoteAverages);
     const allTonesList = Object.keys(tones).map((emo) => {
       return {
         Name: emo,
