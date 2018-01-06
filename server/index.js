@@ -30,7 +30,6 @@ app.get(
   '/auth/google/callback',
   googleLogin.passport.authenticate('google', { failureRedirect: '/' }),
   (req, res) => {
-    // Successful authentication, redirect home.
     res.redirect('/');
   },
 );

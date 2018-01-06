@@ -42,7 +42,6 @@ router.post('/api/vote', (req, res) => {
   });
 });
 
-// Get average score of tones user upvoted
 router.get('/api/user/upvoteAverages', (req, res) => {
   const isLoggedInUser = !!req.session.user;
   if (isLoggedInUser) {

@@ -43,8 +43,8 @@ module.exports = {
               where: {
                 id: articleId.dataValues.id,
               },
-            }).then((article) => { // Add article's tone scores to respective tone sum
-              const articleIsNotNull = !!article; // Bufgix for when article is null.
+            }).then((article) => {
+              const articleIsNotNull = !!article;
               // If the article is null, skip it.
               // Otherwise you'll add undefined to the sum, resulting in NaN.
               if (articleIsNotNull) {

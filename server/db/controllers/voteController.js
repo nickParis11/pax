@@ -130,8 +130,6 @@ module.exports = {
         cb(null, allVotes);
       })
       .catch((err) => {
-        // res.send(500);
-        // res.write('Error getting all votes by user:', err);
         cb(`Error getting all votes by user: ${err}`);
       });
   },

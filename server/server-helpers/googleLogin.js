@@ -8,7 +8,6 @@ const passport = pass.use(new GoogleStrategy(
     clientID: process.env.GOOGLE_CLIENT_ID,
     clientSecret: process.env.GOOGLE_CLIENT_SECRET,
     callbackURL: process.env.GOOGLE_LOCAL_DIRECT || 'http://www.pax-atlantica.com/auth/google/callback',
-    // callbackURL: process.env.GOOGLE_LOCAL_DIRECT || 'http://ec2-54-163-98-154.compute-1.amazonaws.com/auth/google/callback',
     passReqToCallback: true,
   },
   ((req, accessToken, refreshToken, profile, cb) => {
