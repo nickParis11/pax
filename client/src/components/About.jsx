@@ -53,7 +53,7 @@ import { connect } from 'react-redux';
             />
             <CardText>
               <a href="https://github.com/bobdaball"><i className="fa fa-2x fa-github pad" /></a>
-              <a href="www.linkedin.com/in/alexander-mire-6034a0126"><i className="fa fa-2x fa-linkedin-square pad" /></a>
+              <a href="https://www.linkedin.com/in/alexander-mire-6034a0126"><i className="fa fa-2x fa-linkedin-square pad" /></a>
               <a href="mailto:amire51117@gmail.com"><i className="fa fa-2x fa-envelope pad" /></a>
             </CardText>
           </Card>

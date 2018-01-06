@@ -12,11 +12,6 @@ export function userLogout() {
   };
 }
 
-/*
-export function setAnalyzeView() {
-  return { type: 'SET_ANALYZE_VIEW' };
-}
-*/
 export function getUser() {
   return (dispatch) => {
     axios.get('/api/getUser')
@@ -32,10 +27,8 @@ export function getUser() {
 
 export function getUserUpvoteAverages() {
   return (dispatch) => {
-    // console.log('axios call for getUserupv');
     axios.get('/api/user/upvoteAverages')
       .then((res) => {
-        console.log('userupvoteAverage from userAction', res.data);
         dispatch({ type: 'USER_UPVOTE_AVERAGES', payload: res.data });
       })
       .catch((err) => {
@@ -47,4 +40,3 @@ export function getUserUpvoteAverages() {
 export function setView(view) {
   return { type: view };
 }
-
