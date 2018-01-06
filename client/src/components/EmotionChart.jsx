@@ -70,9 +70,6 @@ import { connect } from 'react-redux';
       .attr('dy', '-.5em')
       .text('Tone Type');
 
-    // create y-axis
-
-
     // y-axis text label
     svg.append('text')
       .attr('transform', 'rotate(-90)')
