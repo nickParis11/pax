@@ -50,11 +50,11 @@ textarea {
 }
 
 .arrowUpSelected {
-  color: #00bcd4; /* Replace with reference to MUI Theme Color */
+  color: #00bcd4;
 }
 
 .arrowDownSelected {
-  color: #ff4081; /* Replace with reference to MUI Theme Color */
+  color: #ff4081;
 }
 
 .arrowVoteContainer {
