@@ -6,7 +6,7 @@ import { userLogout, getUser, setView } from '../actions/userActions';
 
 const styles = {
   navBar : {
-    activeBgColor : "red",
+    activeBgColor : "#00bfa5",
     unactiveBgColor : null,
   }
 }
@@ -97,7 +97,7 @@ const styles = {
                   label="Dashboard"
                   onClick={this.handleDashboardClick.bind(this)}
                   backgroundColor={ this.props.dashboardView ? styles.navBar.activeBgColor : styles.navBar.unactiveBgColor }
-                  
+
                 />
                 <FlatButton
                   label="Log Out"
